@@ -61,7 +61,6 @@
             <Polygon Points="437,159 473,171 473,226 437,208" Stroke="Black" Fill="Black" Canvas.Top="-27" Canvas.Left="-4" />
             <Polygon Points="431,130 418,66 410,62 407,68 397,120 328,128 332,138" Stroke="Black" Fill="Black" Canvas.Top="-27" Canvas.Left="-4" />
 
-            <Image Source="/ArgEditor;component/Resources/right-front.png" Canvas.Left="111" Canvas.Top="97" Width="98"></Image>
             <Image Source="/ArgEditor;component/Resources/left-front.png" Canvas.Left="177" Canvas.Top="145" Width="137"></Image>
             <Image Source="/ArgEditor;component/Resources/left-rear.png" Canvas.Left="656" Canvas.Top="91" Width="119"></Image>
         </Canvas>

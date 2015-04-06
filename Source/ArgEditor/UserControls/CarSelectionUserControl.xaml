@@ -11,7 +11,7 @@
     </UserControl.DataContext>
     <Grid>
         <WrapPanel HorizontalAlignment="Left" Height="795" Margin="10,10,0,0" VerticalAlignment="Top" Width="300">
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[0]}" />
+            <userControls:CarAlternativeUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[0]}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[1]}" />
             <Label Width="140" Height="25">McLaren</Label>
             <Label Width="140" Height="25">Tyrrell</Label>
