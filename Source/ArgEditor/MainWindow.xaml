@@ -13,8 +13,14 @@
         </Menu>
 
         <TabControl Margin="0,25,0,0">
+            <TabItem Header="Drivers and Teams">
+                <userControls:TeamDriverNamesTabUserControl x:Name="TeamsAndDriversTab"></userControls:TeamDriverNamesTabUserControl>
+            </TabItem>
+            <TabItem Header="Performance">
+                <userControls:TeamDriverPerformanceTabUserControl x:Name="PerformanceTab"></userControls:TeamDriverPerformanceTabUserControl>
+            </TabItem>
             <TabItem Header="Cars">
-                <userControls:CarPaintingTabUserControl></userControls:CarPaintingTabUserControl>
+                <userControls:CarPaintingTabUserControl x:Name="CarPaintingTab"></userControls:CarPaintingTabUserControl>
             </TabItem>
         </TabControl>
     </Grid>

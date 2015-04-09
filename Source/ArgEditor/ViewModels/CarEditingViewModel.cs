@@ -4,6 +4,7 @@ namespace ArgEditor.ViewModels
 {
     public class CarEditingViewModel : INotifyPropertyChanged
     {
+        // TODO: if this remains, it should be hidden
         public CarEditingViewModel(byte[] colors)
             : this()
         {

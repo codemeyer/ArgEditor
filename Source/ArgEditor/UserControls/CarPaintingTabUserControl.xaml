@@ -8,7 +8,7 @@
              d:DesignHeight="800" d:DesignWidth="900">
     <Grid>
         <userControls:CarSelectionUserControl></userControls:CarSelectionUserControl>
-        <userControls:CarUserControl Width="497" Margin="382,10,21,611" Height="179"></userControls:CarUserControl>
-        <userControls:PitCrewUserControl Margin="719,223,21,310"></userControls:PitCrewUserControl>
+        <userControls:CarUserControl DataContext="{Binding SelectedTeam.Car}" Width="497" Margin="382,10,21,611" Height="179"></userControls:CarUserControl>
+        <userControls:PitCrewUserControl DataContext="{Binding SelectedTeam.PitCrew}" Margin="719,223,21,310"></userControls:PitCrewUserControl>
     </Grid>
 </UserControl>

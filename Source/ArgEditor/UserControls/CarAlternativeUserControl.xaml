@@ -6,10 +6,8 @@
              xmlns:argEditor="clr-namespace:ArgEditor"
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
              mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:DesignerCarEditingViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="280" d:DesignWidth="780">
-    <UserControl.DataContext>
-        <viewModels:DesignerCarEditingViewModel />
-    </UserControl.DataContext>
     <UserControl.Resources>
         <argEditor:ColorConverter x:Key="ColorConverter" />
     </UserControl.Resources>

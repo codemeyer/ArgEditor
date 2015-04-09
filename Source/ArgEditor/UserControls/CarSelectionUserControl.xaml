@@ -5,48 +5,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="300" Height="800">
-    <UserControl.DataContext>
-        <viewModels:CarPaintingViewModel />
-    </UserControl.DataContext>
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="800"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}">
     <Grid>
         <WrapPanel HorizontalAlignment="Left" Height="795" Margin="10,10,0,0" VerticalAlignment="Top" Width="300">
-            <userControls:CarAlternativeUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[0]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[1]}" />
-            <Label Width="140" Height="25">McLaren</Label>
-            <Label Width="140" Height="25">Tyrrell</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[2]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[3]}" />
-            <Label Width="140" Height="25">Williams</Label>
-            <Label Width="140" Height="25">Brabham</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[4]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[5]}" />
-            <Label Width="140" Height="25">Footwork</Label>
-            <Label Width="140" Height="25">Lotus</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[6]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[7]}" />
-            <Label Width="140" Height="25">Fondmetal</Label>
-            <Label Width="140" Height="25">Leyton House</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[8]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[9]}" />
-            <Label Width="140" Height="25">AGS</Label>
-            <Label Width="140" Height="25">Benetton</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[10]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[11]}" />
-            <Label Width="140" Height="25">Italia</Label>
-            <Label Width="140" Height="25">Minardi</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[12]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[13]}" />
-            <Label Width="140" Height="25">Ligier</Label>
-            <Label Width="140" Height="25">Ferrari</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[14]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[15]}" />
-            <Label Width="140" Height="25">Larrousse</Label>
-            <Label Width="140" Height="25">Coloni</Label>
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[16]}" />
-            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Cars[17]}" />
-            <Label Width="140" Height="25">Jordan</Label>
-            <Label Width="140" Height="25">Modena Team</Label>
+            <userControls:CarAlternativeUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[0].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[1].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[0].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[1].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[2].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[3].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[2].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[3].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[4].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[5].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[4].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[5].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[6].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[7].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[6].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[7].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[8].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[9].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[8].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[9].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[10].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[11].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[10].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[11].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[12].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[13].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[12].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[13].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[14].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[15].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[14].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[15].Name}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[16].Car}" />
+            <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[17].Car}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[16].Name}" />
+            <Label Width="140" Height="25" Content="{Binding Teams[17].Name}" />
         </WrapPanel>
     </Grid>
 </UserControl>

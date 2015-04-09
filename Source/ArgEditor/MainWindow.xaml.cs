@@ -10,6 +10,11 @@ namespace ArgEditor
         public MainWindow()
         {
             InitializeComponent();
+
+            var defaultData = ViewModels.Utils.DefaultViewModelFactory.DefaultData();
+            TeamsAndDriversTab.DataContext = defaultData;
+            PerformanceTab.DataContext = defaultData;
+            CarPaintingTab.DataContext = defaultData;
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)

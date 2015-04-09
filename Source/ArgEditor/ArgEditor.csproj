@@ -75,8 +75,24 @@
     <Compile Include="UserControls\PitCrewUserControl.xaml.cs">
       <DependentUpon>PitCrewUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\NamesTabUserControl.xaml.cs">
+      <DependentUpon>NamesTabUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NamesUserControl.xaml.cs">
+      <DependentUpon>NamesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PerformanceTabUserControl.xaml.cs">
+      <DependentUpon>PerformanceTabUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PerformanceUserControl.xaml.cs">
+      <DependentUpon>PerformanceUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
-    <Compile Include="ViewModels\CarPaintingViewModel.cs" />
+    <Compile Include="ViewModels\DriverViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PitCrewViewModel.cs" />
+    <Compile Include="ViewModels\TeamViewModel.cs" />
+    <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +122,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\PitCrewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NamesTabUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NamesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PerformanceTabUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PerformanceUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

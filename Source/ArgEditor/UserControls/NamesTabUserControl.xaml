@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.TeamDriverNamesTabUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls="clr-namespace:ArgEditor.UserControls"
+             xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
+             d:DesignWidth="800" d:DesignHeight="600">
+    <Grid>
+        <StackPanel>
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[0]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[1]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[2]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[3]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[4]}" />
+
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[5]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[6]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[7]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[8]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[9]}" />
+
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[10]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[11]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[12]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[13]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[14]}" />
+
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[15]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[16]}" />
+            <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[17]}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

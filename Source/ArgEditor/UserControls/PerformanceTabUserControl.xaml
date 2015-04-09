@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.TeamDriverPerformanceTabUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls="clr-namespace:ArgEditor.UserControls"
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[0]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[1]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[2]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[3]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[4]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[5]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[6]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[7]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[8]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[9]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[10]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[11]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[12]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[13]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[14]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[15]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[16]}"></userControls:TeamDriverPerformanceUserControl>
+            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[17]}"></userControls:TeamDriverPerformanceUserControl>
+        </StackPanel>
+    </Grid>
+</UserControl>
