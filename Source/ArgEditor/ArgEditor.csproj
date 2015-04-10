@@ -72,6 +72,9 @@
     <Compile Include="UserControls\CarUserControl.xaml.cs">
       <DependentUpon>CarUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PitCrewUserControl.xaml.cs">
+      <DependentUpon>PitCrewUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\CarPaintingViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -99,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\CarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PitCrewUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\right-front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pitcrew.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

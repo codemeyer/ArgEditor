@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.PitCrewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+              d:DesignWidth="245" d:DesignHeight="431">
+    <Viewbox Stretch="Uniform">
+        <Canvas Width="245" Height="431">
+            <!-- TODO: could split pitcrew image in two parts, one that goes in front of polygons and one that goes behind! -->
+
+            <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/ArgEditor;component/Resources/pitcrew.png"></Image>
+
+            <Polygon Points="3,128 67,72 82,72 117,104 120,127 124,101 143,80 170,80 203,95 238,119
+                     211,128 168,95 161,135 150,149 155,179 134,187 123,187 107,151 103,131 83,123 71,107
+                     68,94 22,132" Stroke="Black" Fill="#90000a" />
+
+            <Polygon Points="22,132 68,94 71,107 83,123 103,131 107,151 123,187 110,186 87,179 71,166 66,115 50,122 34,135"
+                     Stroke="Black" Fill="#1200d9" />
+
+            <Polygon Points="155,179 150,149 161,135 168,95 211,128 179,116 174,142 170,163"
+                     Stroke="Black" Fill="#1200d9" />
+
+            <Polygon Points="82,72 117,104 120,127 124,101 143,80 170,80 203,95 188,80 170,73 143,71 135,63 128,91 120,94 117,83 91,71"
+                     Stroke="Black" Fill="#1200d9" />
+
+            <Polygon Points="91,71 94,63 103,68 117,83"
+                     Stroke="Black" Fill="#90000a" />
+
+            <Polygon Points="126,91  130,64 135,63 130,91"
+                     Stroke="Black" Fill="#90000a" />
+
+
+
+            <Polygon Points="71,200 77,200 94,204 96,271 106,298 106,367 101,378 83,375 78,305 71,280"
+                     Stroke="Black" Fill="#56afff" />
+
+            <Polygon Points="94,204 107,200 138,200 166,204 175,204 182,221
+                     182,251 167,240 170,273 176,286 182,288
+                     182,288 182,383 152,383 154,338 148,312 133,277 127,252 122,274 125,383 83,383 83,375 101,378 106,367 106,298 96,271"
+                     Stroke="Black" Fill="#1200d9" />
+
+            <Polygon Points="182,251 167,240 170,273 176,286 182,288"
+                     Stroke="Black" Fill="#56afff" />
+
+            <Polygon Points="95,384 118,384 118,391 103,391 95,387"
+                     Stroke="Black" Fill="#14b614" />
+            <Polygon Points="159,384 182,384 182,387 159,387"
+                     Stroke="Black" Fill="#14b614" />
+            <Polygon Points="15,380 40,380 40,400 15,400"
+                     Stroke="Black" Fill="#14b614" />
+        </Canvas>
+    </Viewbox>
+</UserControl>
