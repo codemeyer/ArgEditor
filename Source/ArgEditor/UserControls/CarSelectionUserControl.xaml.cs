@@ -17,8 +17,8 @@ namespace ArgEditor.UserControls
 
         private void CarUserControl_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var clickedCarUserControl = sender as ICarUserControl;
-            int teamIndex = CarsPanel.Children.OfType<ICarUserControl>().ToList().IndexOf(clickedCarUserControl);
+            var clickedCarUserControl = sender as CarBaseUserControl;
+            int teamIndex = CarsPanel.Children.OfType<CarBaseUserControl>().ToList().IndexOf(clickedCarUserControl);
 
             RaiseEvent(new SelectedTeamEventArgs(SelectedTeamUpdatedEvent, teamIndex));
         }

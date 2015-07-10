@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
 using ArgEditor.ViewModels;
 
@@ -30,6 +31,14 @@ namespace ArgEditor.UserControls
             }
 
             DataContextViewModel.SelectTeamByIndex(teamIndex);
+        }
+
+        private void PaintCarUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
+        {
+            var clickedPolygonEvent = e as ClickedPolygonEventArgs;
+            var selectedCar = DataContextViewModel.SelectedTeam.Car;
+            PropertyInfo prop = selectedCar.GetType().GetProperty(clickedPolygonEvent.PolygonName);
+            prop.SetValue(selectedCar, DataContextViewModel.SelectedColor, null);
         }
 
         private MainViewModel DataContextViewModel
