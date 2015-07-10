@@ -1,4 +1,5 @@
-﻿using ArgData;
+﻿using System;
+using ArgData;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Interactors
@@ -7,22 +8,22 @@ namespace ArgEditor.Interactors
     {
         public void UpdateViewModelFromExe(MainViewModel viewModel, string exePath)
         {
-            var exe = new GpExeFile(exePath);
+            var exeFile = new GpExeFile(exePath);
 
-            UpdateCarColors(viewModel, exe);
-            UpdateTeamHorsepower(viewModel, exe);
+            UpdateCarColors(viewModel, exeFile);
+            UpdateTeamHorsepower(viewModel, exeFile);
+            UpdateGripLevels(viewModel, exeFile);
         }
 
-        private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exe)
+        private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorEditor = new CarColorEditor(exe);
+            var colorEditor = new CarColorEditor(exeFile);
 
             var list = colorEditor.ReadCarColors();
 
             for (int i = 0; i <= 17; i++)
             {
                 var carInExe = list[i];
-
                 var carInEditor = viewModel.Teams[i].Car;
 
                 carInEditor.EngineCoverColorIndex = carInExe.EngineCover;
@@ -48,6 +49,18 @@ namespace ArgEditor.Interactors
             for (int i = 0; i <= 17; i++)
             {
                 viewModel.Teams[i].Horsepower = teamHorsepowerEditor.ReadTeamHorsepower(i);
+            }
+        }
+
+        private static void UpdateGripLevels(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var gripLevels = new GripLevelEditor(exeFile);
+
+            for (int i = 0; i < 36; i++)
+            {
+                var driver = viewModel.Drivers[i];
+                driver.QualifyingGripLevel = Convert.ToByte(gripLevels.ReadQualifyingGripLevel(i));
+                driver.RaceGripLevel = Convert.ToByte(gripLevels.ReadRaceGripLevel(i));
             }
         }
     }

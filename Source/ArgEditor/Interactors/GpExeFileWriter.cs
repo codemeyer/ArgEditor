@@ -1,3 +1,4 @@
+using System;
 using ArgData;
 using ArgEditor.ViewModels;
 
@@ -11,6 +12,7 @@ namespace ArgEditor.Interactors
 
             WriteCarColors(viewModel, exeFile);
             WriteTeamHorsepower(viewModel, exeFile);
+            WriteGripLevels(viewModel, exeFile);
         }
 
         private static void WriteCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -50,6 +52,18 @@ namespace ArgEditor.Interactors
             {
                 int horsepower = viewModel.Teams[i].Horsepower;
                 teamHorsepowerEditor.WriteTeamHorsepower(i, horsepower);
+            }
+        }
+
+        private static void WriteGripLevels(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var gripLevels = new GripLevelEditor(exeFile);
+
+            for (int i = 0; i < 36; i++)
+            {
+                var driver = viewModel.Drivers[i];
+                gripLevels.WriteQualifyingGripLevel(i, driver.QualifyingGripLevel);
+                gripLevels.WriteRaceGripLevel(i, driver.RaceGripLevel);
             }
         }
     }
