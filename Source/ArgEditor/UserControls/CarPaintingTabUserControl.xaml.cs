@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -23,6 +12,32 @@ namespace ArgEditor.UserControls
         public CarPaintingTabUserControl()
         {
             InitializeComponent();
+        }
+
+        private void CarSelectionUserControl_OnSelectedTeamUpdated(object sender, RoutedEventArgs e)
+        {
+            int teamIndex = (e as SelectedTeamEventArgs).TeamIndex;
+
+            if (teamIndex > 0)
+            {
+                PaintCarUserControl.Visibility = Visibility.Visible;
+                PaintCarAlternativeUserControl.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                PaintCarAlternativeUserControl.Visibility = Visibility.Visible;
+                PaintCarUserControl.Visibility = Visibility.Hidden;
+            }
+
+            DataContextViewModel.SelectTeamByIndex(teamIndex);
+        }
+
+        private MainViewModel DataContextViewModel
+        {
+            get
+            {
+                return DataContext as MainViewModel;
+            }
         }
     }
 }

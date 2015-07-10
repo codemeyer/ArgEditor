@@ -6,7 +6,7 @@ namespace ArgEditor.UserControls
     /// <summary>
     /// Interaction logic for CarUserControl.xaml
     /// </summary>
-    public partial class CarUserControl : UserControl
+    public partial class CarUserControl : UserControl, ICarUserControl
     {
         public CarUserControl()
         {

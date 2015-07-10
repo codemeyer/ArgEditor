@@ -7,6 +7,7 @@ namespace ArgEditor.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private TeamViewModel _selectedTeam;
+        private byte _selectedColor;
 
         public MainViewModel()
         {
@@ -46,6 +47,22 @@ namespace ArgEditor.ViewModels
                     _selectedTeam = value;
                     OnPropertyChanged("SelectedTeam");
                 }
+            }
+        }
+
+        public void SelectTeamByIndex(int teamIndex)
+        {
+            SelectedTeam = Teams[teamIndex];
+        }
+
+        public byte SelectedColor
+        {
+            get { return _selectedColor; }
+            set
+            {
+                if (value.Equals(_selectedColor)) { return; }
+                _selectedColor = value;
+                OnPropertyChanged("SelectedColor");
             }
         }
 

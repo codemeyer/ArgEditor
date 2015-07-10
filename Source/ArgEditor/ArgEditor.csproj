@@ -75,6 +75,10 @@
     <Compile Include="UserControls\HelmetUserControl.xaml.cs">
       <DependentUpon>HelmetUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ICarUserControl.cs" />
+    <Compile Include="UserControls\PaletteUserControl.xaml.cs">
+      <DependentUpon>PaletteUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PitCrewUserControl.xaml.cs">
       <DependentUpon>PitCrewUserControl.xaml</DependentUpon>
     </Compile>
@@ -125,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\HelmetUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PaletteUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
