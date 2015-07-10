@@ -10,6 +10,7 @@ namespace ArgEditor.Interactors
             var exeFile = new GpExeFile(exePath);
 
             WriteCarColors(viewModel, exeFile);
+            WriteTeamHorsepower(viewModel, exeFile);
         }
 
         private static void WriteCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -39,6 +40,17 @@ namespace ArgEditor.Interactors
             }
 
             colorEditor.WriteCarColors(list);
+        }
+
+        private static void WriteTeamHorsepower(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var teamHorsepowerEditor = new TeamHorsepowerEditor(exeFile);
+
+            for (int i = 0; i <= 17; i++)
+            {
+                int horsepower = viewModel.Teams[i].Horsepower;
+                teamHorsepowerEditor.WriteTeamHorsepower(i, horsepower);
+            }
         }
     }
 }

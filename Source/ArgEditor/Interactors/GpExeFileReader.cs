@@ -8,7 +8,9 @@ namespace ArgEditor.Interactors
         public void UpdateViewModelFromExe(MainViewModel viewModel, string exePath)
         {
             var exe = new GpExeFile(exePath);
+
             UpdateCarColors(viewModel, exe);
+            UpdateTeamHorsepower(viewModel, exe);
         }
 
         private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exe)
@@ -17,7 +19,7 @@ namespace ArgEditor.Interactors
 
             var list = colorEditor.ReadCarColors();
 
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i <= 17; i++)
             {
                 var carInExe = list[i];
 
@@ -36,6 +38,16 @@ namespace ArgEditor.Interactors
                 carInEditor.EngineCoverRearColorIndex = carInExe.EngineCoverRear;
                 carInEditor.SidepodTopColorIndex = carInExe.SidepodTop;
                 carInEditor.NoseSideColorIndex = carInExe.NoseSide;
+            }
+        }
+
+        private static void UpdateTeamHorsepower(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var teamHorsepowerEditor = new TeamHorsepowerEditor(exeFile);
+
+            for (int i = 0; i <= 17; i++)
+            {
+                viewModel.Teams[i].Horsepower = teamHorsepowerEditor.ReadTeamHorsepower(i);
             }
         }
     }
