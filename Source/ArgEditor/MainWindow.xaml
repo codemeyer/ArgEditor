@@ -7,8 +7,11 @@
 
     <Grid Margin="5">
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="Exit" Click="ExitMenuItem_Click"></MenuItem>
+            <MenuItem Header="_File">
+                <MenuItem Header="Import" Click="FileImportMenuItem_Click"></MenuItem>
+                <MenuItem Header="Export" Click="FileExportMenuItem_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="E_xit" Click="FileExitMenuItem_Click"></MenuItem>
             </MenuItem>
         </Menu>
 
