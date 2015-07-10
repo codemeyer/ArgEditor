@@ -59,8 +59,8 @@ namespace ArgEditor.Interactors
             for (int i = 0; i < 36; i++)
             {
                 var driver = viewModel.Drivers[i];
-                driver.QualifyingGripLevel = Convert.ToByte(gripLevels.ReadQualifyingGripLevel(i));
-                driver.RaceGripLevel = Convert.ToByte(gripLevels.ReadRaceGripLevel(i));
+                driver.QualifyingGripLevel = gripLevels.ReadQualifyingGripLevel(i);
+                driver.RaceGripLevel = gripLevels.ReadRaceGripLevel(i);
             }
         }
     }
