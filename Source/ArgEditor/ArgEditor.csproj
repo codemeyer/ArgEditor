@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData, Version=0.5.0.100, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ArgData.0.5.0.100\lib\net45\ArgData.dll</HintPath>
+    <Reference Include="ArgData, Version=0.5.0.104, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArgData.0.5.0.104\lib\net45\ArgData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

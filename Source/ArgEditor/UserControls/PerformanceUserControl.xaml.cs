@@ -49,7 +49,7 @@ namespace ArgEditor.UserControls
         private Key[] _validKeys = new Key[]
         {
             Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9,
-            Key.OemPlus, Key.OemMinus, Key.Delete
+            Key.OemPlus, Key.OemMinus, Key.Delete, Key.Tab
         };
 
         private bool IsValidKey(Key key)
