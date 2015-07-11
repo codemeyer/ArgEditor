@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ColorConverter.cs" />
+    <Compile Include="Interactors\DriverPerformanceCalculator.cs" />
     <Compile Include="Interactors\GpExeFileWriter.cs" />
     <Compile Include="Interactors\GpExeFileReader.cs" />
     <Compile Include="PaletteHelper.cs" />
@@ -94,6 +95,7 @@
       <DependentUpon>PerformanceUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
+    <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
     <Compile Include="ViewModels\DriverViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PitCrewViewModel.cs" />

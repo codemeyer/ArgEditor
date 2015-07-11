@@ -84,7 +84,7 @@ namespace ArgEditor.Interactors
             }
         }
 
-        private static DriverViewModel GetDriverWithNumber(List<DriverViewModel> drivers, byte number)
+        private static DriverViewModel GetDriverWithNumber(IList<DriverViewModel> drivers, byte number)
         {
             var driver = drivers.SingleOrDefault(d => d.Number == number);
 
