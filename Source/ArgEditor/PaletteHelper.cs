@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media;
+using ArgData;
 
 namespace ArgEditor
 {
@@ -6,7 +7,7 @@ namespace ArgEditor
     {
         public static Color GetColor(int index)
         {
-            var drawingColor = ArgData.Palette.GetColor(index);
+            var drawingColor = Palette.GetColor(index);
             return Color.FromRgb(drawingColor.R, drawingColor.G, drawingColor.B);
         }
     }

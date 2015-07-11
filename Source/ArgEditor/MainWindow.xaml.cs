@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
+using ArgEditor.ViewModels.Utils;
 
 namespace ArgEditor
 {
@@ -13,7 +14,7 @@ namespace ArgEditor
         {
             InitializeComponent();
 
-            var defaultData = ViewModels.Utils.DefaultViewModelFactory.DefaultData();
+            var defaultData = DefaultViewModelFactory.DefaultData();
             TeamsAndDriversTab.DataContext = defaultData;
             PerformanceTab.DataContext = defaultData;
             CarPaintingTab.DataContext = defaultData;
