@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 
 namespace ArgEditor.ViewModels
 {
@@ -8,6 +9,7 @@ namespace ArgEditor.ViewModels
         private string _name;
         private byte _raceGripLevel;
         private byte _qualifyingGripLevel;
+        private bool _enabled;
 
         public DriverViewModel(byte number, string name, byte raceGripLevel, byte qualifyingGripLevel)
         {
@@ -36,6 +38,8 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_name)) { return; }
                 _name = value;
                 OnPropertyChanged("Name");
+
+                Enabled = !string.IsNullOrEmpty(_name);
             }
         }
 
@@ -61,6 +65,33 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_qualifyingGripLevel)) { return; }
                 _qualifyingGripLevel = value;
                 OnPropertyChanged("QualifyingGripLevel");
+            }
+        }
+
+
+
+        public bool Enabled
+        {
+            get { return _enabled; }
+            set
+            {
+                if (value.Equals(_enabled)) return;
+                _enabled = value;
+                OnPropertyChanged("Enabled");
+                OnPropertyChanged("Visibility");    // hacky
+            }
+        }
+
+        public Visibility Visibility
+        {
+            get
+            {
+                if (_enabled)
+                    return Visibility.Visible;
+                else
+                {
+                    return Visibility.Hidden;
+                }
             }
         }
 
