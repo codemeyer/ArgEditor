@@ -41,6 +41,14 @@ namespace ArgEditor.UserControls
             prop.SetValue(selectedCar, DataContextViewModel.SelectedColor, null);
         }
 
+        private void PaintPitCrewUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
+        {
+            var clickedPolygonEvent = e as ClickedPolygonEventArgs;
+            var selectedPitCrew = DataContextViewModel.SelectedTeam.PitCrew;
+            PropertyInfo prop = selectedPitCrew.GetType().GetProperty(clickedPolygonEvent.PolygonName);
+            prop.SetValue(selectedPitCrew, DataContextViewModel.SelectedColor, null);
+        }
+
         private MainViewModel DataContextViewModel
         {
             get

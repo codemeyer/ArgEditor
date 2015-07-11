@@ -13,6 +13,7 @@ namespace ArgEditor.Interactors
             var exeFile = new GpExeFile(exePath);
 
             WriteCarColors(viewModel, exeFile);
+            WritePitCrewColors(viewModel, exeFile);
             WriteTeamHorsepower(viewModel, exeFile);
             WriteDriverNumbers(viewModel, exeFile);
             WriteGripLevels(viewModel, exeFile);
@@ -45,6 +46,27 @@ namespace ArgEditor.Interactors
             }
 
             colorEditor.WriteCarColors(list);
+        }
+
+        private static void WritePitCrewColors(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var colorEditor = new PitCrewColorEditor(exeFile);
+
+            var list = colorEditor.ReadPitCrewColors();
+
+            for (int i = 0; i <= 17; i++)
+            {
+                var pitCrewInExe = list[i];
+                var pitCrewInEditor = viewModel.Teams[i].PitCrew;
+
+                pitCrewInExe.ShirtPrimary = pitCrewInEditor.ShirtPrimaryColorIndex;
+                pitCrewInExe.ShirtSecondary = pitCrewInEditor.ShirtSecondaryColorIndex;
+                pitCrewInExe.PantsPrimary = pitCrewInEditor.PantsPrimaryColorIndex;
+                pitCrewInExe.PantsSecondary = pitCrewInEditor.PantsSecondaryColorIndex;
+                pitCrewInExe.Socks = pitCrewInEditor.SocksColorIndex;
+            }
+
+            colorEditor.WritePitCrewColors(list);
         }
 
         private static void WriteTeamHorsepower(MainViewModel viewModel, GpExeFile exeFile)

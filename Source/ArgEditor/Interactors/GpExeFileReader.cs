@@ -13,6 +13,7 @@ namespace ArgEditor.Interactors
             var exeFile = new GpExeFile(exePath);
 
             UpdateCarColors(viewModel, exeFile);
+            UpdatePitCrewColors(viewModel, exeFile);
             UpdateTeamHorsepower(viewModel, exeFile);
             UpdateDriverNumbers(viewModel, exeFile);
             UpdateGripLevels(viewModel, exeFile);
@@ -42,6 +43,25 @@ namespace ArgEditor.Interactors
                 carInEditor.EngineCoverRearColorIndex = carInExe.EngineCoverRear;
                 carInEditor.SidepodTopColorIndex = carInExe.SidepodTop;
                 carInEditor.NoseSideColorIndex = carInExe.NoseSide;
+            }
+        }
+
+        private static void UpdatePitCrewColors(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var colorEditor = new PitCrewColorEditor(exeFile);
+
+            var list = colorEditor.ReadPitCrewColors();
+
+            for (int i = 0; i <= 17; i++)
+            {
+                var pitCrewInExe = list[i];
+                var pitCrewInEditor = viewModel.Teams[i].PitCrew;
+
+                pitCrewInEditor.ShirtPrimaryColorIndex = pitCrewInExe.ShirtPrimary;
+                pitCrewInEditor.ShirtSecondaryColorIndex = pitCrewInExe.ShirtSecondary;
+                pitCrewInEditor.PantsPrimaryColorIndex = pitCrewInExe.PantsPrimary;
+                pitCrewInEditor.PantsSecondaryColorIndex = pitCrewInExe.PantsSecondary;
+                pitCrewInEditor.SocksColorIndex = pitCrewInExe.Socks;
             }
         }
 
