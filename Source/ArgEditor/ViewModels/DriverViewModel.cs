@@ -47,6 +47,9 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_raceGripLevel)) { return; }
                 _raceGripLevel = value;
                 OnPropertyChanged("RaceGripLevel");
+
+                // TODO: always set QualifyingGripLevel to the same as RaceGripLevel for now
+                QualifyingGripLevel = _raceGripLevel;
             }
         }
 

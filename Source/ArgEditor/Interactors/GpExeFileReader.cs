@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ArgData;
 using ArgEditor.ViewModels;
 
@@ -12,6 +14,7 @@ namespace ArgEditor.Interactors
 
             UpdateCarColors(viewModel, exeFile);
             UpdateTeamHorsepower(viewModel, exeFile);
+            UpdateDriverNumbers(viewModel, exeFile);
             UpdateGripLevels(viewModel, exeFile);
         }
 
@@ -52,16 +55,41 @@ namespace ArgEditor.Interactors
             }
         }
 
+        private static void UpdateDriverNumbers(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var numbers = new DriverNumberEditor(exeFile);
+
+            var values = numbers.ReadDriverNumbers();
+
+            for (int i = 0; i < 36; i++)
+            {
+                viewModel.Drivers[i].Number = values[i];
+            }
+        }
+
         private static void UpdateGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
             var gripLevels = new GripLevelEditor(exeFile);
 
-            for (int i = 0; i < 36; i++)
+            for (int i = 0; i < 40; i++)
             {
-                var driver = viewModel.Drivers[i];
+                var driver = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1));
+
                 driver.QualifyingGripLevel = gripLevels.ReadQualifyingGripLevel(i);
                 driver.RaceGripLevel = gripLevels.ReadRaceGripLevel(i);
             }
+        }
+
+        private static DriverViewModel GetDriverWithNumber(List<DriverViewModel> drivers, byte number)
+        {
+            var driver = drivers.SingleOrDefault(d => d.Number == number);
+
+            if (driver == default(DriverViewModel))
+            {
+                driver = new DriverViewModel(number, "", 0, 0);
+            }
+
+            return driver;
         }
     }
 }

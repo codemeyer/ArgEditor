@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using ArgData;
 using ArgEditor.ViewModels;
 
@@ -12,6 +14,7 @@ namespace ArgEditor.Interactors
 
             WriteCarColors(viewModel, exeFile);
             WriteTeamHorsepower(viewModel, exeFile);
+            WriteDriverNumbers(viewModel, exeFile);
             WriteGripLevels(viewModel, exeFile);
         }
 
@@ -55,16 +58,42 @@ namespace ArgEditor.Interactors
             }
         }
 
+        private static void WriteDriverNumbers(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            byte[] values = new byte[40];
+
+            for (int i = 0; i < 36; i++)
+            {
+                values[i] = viewModel.Drivers[i].Number;
+            }
+
+            var numbers = new DriverNumberEditor(exeFile);
+            numbers.WriteDriverNumbers(values);
+        }
+
         private static void WriteGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
             var gripLevels = new GripLevelEditor(exeFile);
 
-            for (int i = 0; i < 36; i++)
+            for (int i = 0; i < 40; i++)
             {
-                var driver = viewModel.Drivers[i];
+                var driver = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1));
+
                 gripLevels.WriteQualifyingGripLevel(i, driver.QualifyingGripLevel);
                 gripLevels.WriteRaceGripLevel(i, driver.RaceGripLevel);
             }
+        }
+
+        private static DriverViewModel GetDriverWithNumber(List<DriverViewModel> drivers, byte number)
+        {
+            var driver = drivers.SingleOrDefault(d => d.Number == number);
+
+            if (driver == default(DriverViewModel))
+            {
+                driver = new DriverViewModel(number, "", 0, 0);
+            }
+
+            return driver;
         }
     }
 }

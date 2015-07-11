@@ -43,7 +43,11 @@ namespace ArgEditor.ViewModels.Utils
                 new Tuple<byte, string, byte, byte>(32, "Bertrand Gachot", 13, 13),
                 new Tuple<byte, string, byte, byte>(33, "Andrea de Cesaris", 10, 10),
                 new Tuple<byte, string, byte, byte>(34, "Nicola Larini", 29, 29),
-                new Tuple<byte, string, byte, byte>(35, "Eric van de Poele", 33, 33)
+                new Tuple<byte, string, byte, byte>(35, "Eric van de Poele", 33, 33),
+                new Tuple<byte, string, byte, byte>(0, "", 0, 0),
+                new Tuple<byte, string, byte, byte>(0, "", 0, 0),
+                new Tuple<byte, string, byte, byte>(0, "", 0, 0),
+                new Tuple<byte, string, byte, byte>(0, "", 0, 0)
             };
 
             var teams = new[]
@@ -65,7 +69,9 @@ namespace ArgEditor.ViewModels.Utils
                 new Tuple<string, string, int, byte[], byte[]>("Larrousse", "Ford", 630, new byte[]{ 32, 61, 32, 32, 32, 32, 111, 62, 34, 34, 60, 60, 36 }, DefaultPitCrewColors()),
                 new Tuple<string, string, int, byte[], byte[]>("Coloni", "Ford", 610, new byte[]{ 94, 40, 45, 45, 45, 45, 47, 40, 39, 39, 39, 39, 47  }, DefaultPitCrewColors()),
                 new Tuple<string, string, int, byte[], byte[]>("Jordan", "Ford", 680, new byte[]{ 71, 72, 70, 70, 91, 92, 72, 72, 71, 71, 71, 71, 72 }, DefaultPitCrewColors()),
-                new Tuple<string, string, int, byte[], byte[]>("Modena Team", "Lamborghini", 615, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors())
+                new Tuple<string, string, int, byte[], byte[]>("Modena Team", "Lamborghini", 615, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors()),
+                new Tuple<string, string, int, byte[], byte[]>("", "", 0, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors()),
+                new Tuple<string, string, int, byte[], byte[]>("", "", 0, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors())
             };
 
             var mainViewModel = new MainViewModel();

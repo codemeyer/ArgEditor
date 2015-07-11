@@ -12,15 +12,19 @@ namespace ArgEditor.ViewModels
         public MainViewModel()
         {
             Drivers = new List<DriverViewModel>();
-            for (int driverIndex = 0; driverIndex < 36; driverIndex++)
+            for (int driverIndex = 0; driverIndex < 40; driverIndex++)
             {
                 byte number = Convert.ToByte(driverIndex + 1);
+
+                if (driverIndex >= 36)
+                    number = 0;
+
                 string driverName = string.Format("Driver {0}", driverIndex + 1);
                 Drivers.Add(new DriverViewModel(number, driverName, number, number));
             }
 
             Teams = new List<TeamViewModel>();
-            for (int teamIndex = 0; teamIndex < 18; teamIndex++)
+            for (int teamIndex = 0; teamIndex < 20; teamIndex++)
             {
                 string teamName = string.Format("Team {0}", teamIndex + 1);
                 string engineName = string.Format("Engine {0}", teamIndex + 1);
@@ -31,10 +35,10 @@ namespace ArgEditor.ViewModels
             SelectedTeam = Teams[0];
         }
 
-        // TODO: striktare lista!
+        // TODO: stricter list?
         public List<DriverViewModel> Drivers { get; private set; }
 
-        // TODO: striktare lista!
+        // TODO: stricter list?
         public List<TeamViewModel> Teams { get; private set; }
 
         public TeamViewModel SelectedTeam
