@@ -8,6 +8,9 @@
     <Grid Margin="5">
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="FileOpenMenuItem_Click"></MenuItem>
+                <MenuItem Header="_Save" Click="FileSaveMenuItem_Click"></MenuItem>
+                <Separator></Separator>
                 <MenuItem Header="Import" Click="FileImportMenuItem_Click"></MenuItem>
                 <MenuItem Header="Export" Click="FileExportMenuItem_Click"></MenuItem>
                 <Separator></Separator>

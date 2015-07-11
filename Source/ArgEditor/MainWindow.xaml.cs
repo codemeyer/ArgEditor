@@ -24,6 +24,19 @@ namespace ArgEditor
 
         private readonly MainViewModel _mainViewModel;
 
+
+        private void FileOpenMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var doSaveisch = new SavedGameLoader();
+            doSaveisch.Load(_mainViewModel);
+        }
+
+        private void FileSaveMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var doSaveisch = new SavedGameSaver();
+            doSaveisch.DoSaveisch(_mainViewModel);
+        }
+
         private void FileImportMenuItem_Click(object sender, RoutedEventArgs e)
         {
             var fileImporter = new GpExeFileReader();
