@@ -10,7 +10,7 @@ namespace ArgEditor.Interactors
 {
     public class SavedGameSaver
     {
-        public void DoSaveisch(MainViewModel viewModel)
+        public void DoSaveisch(MainViewModel viewModel, string path)
         {
             var saveFile = new SaveFile();
             // TODO: no need to save ALL info in the view models
@@ -25,7 +25,7 @@ namespace ArgEditor.Interactors
 
             string saveFileData = JsonConvert.SerializeObject(saveFile, settings);
 
-            File.WriteAllText(@"c:\temp\save-test.argd", saveFileData);
+            File.WriteAllText(path, saveFileData);
         }
 
         private class WritablePropertiesOnlyResolver : DefaultContractResolver

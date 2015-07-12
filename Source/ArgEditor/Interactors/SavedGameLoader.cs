@@ -7,9 +7,9 @@ namespace ArgEditor.Interactors
 {
     public class SavedGameLoader
     {
-        public void Load(MainViewModel viewModel)
+        public void Load(MainViewModel viewModel, string path)
         {
-            string fileData = File.ReadAllText(@"c:\temp\save-test.argd");
+            string fileData = File.ReadAllText(path);
 
             var saveFile = JsonConvert.DeserializeObject<SaveFile>(fileData);
 

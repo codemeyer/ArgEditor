@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
 using ArgEditor.ViewModels.Utils;
@@ -25,37 +26,47 @@ namespace ArgEditor
         private readonly MainViewModel _mainViewModel;
 
 
+
+        // menu items
+
         private void FileOpenMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var doSaveisch = new SavedGameLoader();
-            doSaveisch.Load(_mainViewModel);
+            string path = FileDialog.SelectArgEditorFileToOpen();
+
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            var loader = new SavedGameLoader();
+            loader.Load(_mainViewModel, path);
         }
 
         private void FileSaveMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var doSaveisch = new SavedGameSaver();
-            doSaveisch.DoSaveisch(_mainViewModel);
+            string path = FileDialog.SelectArgEditorFileToSave();
+
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            var saver = new SavedGameSaver();
+            saver.DoSaveisch(_mainViewModel, path);
         }
 
         private void FileImportMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var fileImporter = new GpExeFileReader();
-            string path = SelectGpExe();
+            string path = FileDialog.SelectGpExe();
 
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            var fileImporter = new GpExeFileReader();
             fileImporter.UpdateViewModelFromExe(_mainViewModel, path);
         }
 
         private void FileExportMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            string path = FileDialog.SelectGpExe();
+
+            if (string.IsNullOrEmpty(path)) { return; }
+
             var fileExporter = new GpExeFileWriter();
-            string path = SelectGpExe();
-
             fileExporter.WriteViewModelToExe(_mainViewModel, path);
-        }
-
-        private string SelectGpExe()
-        {
-            return @"C:\Games\gprix\gpARG.exe";
         }
 
         private void FileExitMenuItem_Click(object sender, RoutedEventArgs e)
