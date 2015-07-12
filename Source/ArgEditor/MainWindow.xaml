@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:userControls="clr-namespace:ArgEditor.UserControls"
         Title="ArgEditor" Height="900" Width="1025"
-        WindowStartupLocation="Manual" Left="150" Top="50">
+        WindowStartupLocation="Manual" Left="150" Top="50" ResizeMode="CanMinimize">
 
     <Grid Margin="5">
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top">

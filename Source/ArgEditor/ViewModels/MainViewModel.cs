@@ -9,7 +9,6 @@ namespace ArgEditor.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private TeamViewModel _selectedTeam;
-        private byte _selectedColor;
 
         public MainViewModel()
         {
@@ -40,6 +39,8 @@ namespace ArgEditor.ViewModels
 
             SelectedTeam = Teams[0];
 
+            Palette = new PaletteViewModel();
+
             _driverPerformanceList = new ObservableCollection<DriverPerformanceItemViewModel>();
         }
 
@@ -59,10 +60,8 @@ namespace ArgEditor.ViewModels
             }
         }
 
-        // TODO: stricter list?
         public List<DriverViewModel> Drivers { get; private set; }
 
-        // TODO: stricter list?
         public List<TeamViewModel> Teams { get; private set; }
 
         public TeamViewModel SelectedTeam
@@ -83,16 +82,8 @@ namespace ArgEditor.ViewModels
             SelectedTeam = Teams[teamIndex];
         }
 
-        public byte SelectedColor
-        {
-            get { return _selectedColor; }
-            set
-            {
-                if (value.Equals(_selectedColor)) { return; }
-                _selectedColor = value;
-                OnPropertyChanged("SelectedColor");
-            }
-        }
+
+        public PaletteViewModel Palette { get; private set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

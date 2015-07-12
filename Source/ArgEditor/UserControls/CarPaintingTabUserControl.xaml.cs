@@ -38,7 +38,7 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedCar = DataContextViewModel.SelectedTeam.Car;
             PropertyInfo prop = selectedCar.GetType().GetProperty(clickedPolygonEvent.PolygonName);
-            prop.SetValue(selectedCar, DataContextViewModel.SelectedColor, null);
+            prop.SetValue(selectedCar, DataContextViewModel.Palette.SelectedColor, null);
         }
 
         private void PaintPitCrewUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
@@ -46,7 +46,7 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedPitCrew = DataContextViewModel.SelectedTeam.PitCrew;
             PropertyInfo prop = selectedPitCrew.GetType().GetProperty(clickedPolygonEvent.PolygonName);
-            prop.SetValue(selectedPitCrew, DataContextViewModel.SelectedColor, null);
+            prop.SetValue(selectedPitCrew, DataContextViewModel.Palette.SelectedColor, null);
         }
 
         private MainViewModel DataContextViewModel
