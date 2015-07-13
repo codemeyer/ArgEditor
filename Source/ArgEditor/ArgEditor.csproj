@@ -73,6 +73,7 @@
     <Compile Include="Interactors\DriverPerformanceCalculator.cs" />
     <Compile Include="Interactors\GpExeFileWriter.cs" />
     <Compile Include="Interactors\GpExeFileReader.cs" />
+    <Compile Include="Interactors\NameFileLoader.cs" />
     <Compile Include="Interactors\SavedGameLoader.cs" />
     <Compile Include="Interactors\SavedGameSaver.cs" />
     <Compile Include="Interactors\SaveFile.cs" />

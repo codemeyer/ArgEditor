@@ -45,6 +45,19 @@ namespace ArgEditor
             return GetFilePathFromDialog(fileDialog);
         }
 
+        public static string SelectAnyFile()
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                DefaultExt = ".*",
+                Filter = "All files (*.*)|*.*",
+                FileName = "*.*",
+                CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
         private static string GetFilePathFromDialog(OpenFileDialog fileDialog)
         {
             bool? result = fileDialog.ShowDialog();

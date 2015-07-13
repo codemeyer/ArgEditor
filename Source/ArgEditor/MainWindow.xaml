@@ -11,8 +11,13 @@
                 <MenuItem Header="_Open" Click="FileOpenMenuItem_Click"></MenuItem>
                 <MenuItem Header="_Save" Click="FileSaveMenuItem_Click"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Import" Click="FileImportMenuItem_Click"></MenuItem>
-                <MenuItem Header="Export" Click="FileExportMenuItem_Click"></MenuItem>
+                <MenuItem Header="Import">
+                    <MenuItem Header="From GP.EXE" Click="FileImportFromGpExeMenuItem_Click"></MenuItem>
+                    <MenuItem Header="From Names File" Click="FileImportFromNamesFileMenuItem_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Export">
+                    <MenuItem Header="To GP.EXE" Click="FileExportToGpExeMenuItem_Click"></MenuItem>
+                </MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="E_xit" Click="FileExitMenuItem_Click"></MenuItem>
             </MenuItem>

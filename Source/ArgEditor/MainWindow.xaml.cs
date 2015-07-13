@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
 using ArgEditor.ViewModels.Utils;
@@ -49,7 +48,7 @@ namespace ArgEditor
             saver.DoSaveisch(_mainViewModel, path);
         }
 
-        private void FileImportMenuItem_Click(object sender, RoutedEventArgs e)
+        private void FileImportFromGpExeMenuItem_Click(object sender, RoutedEventArgs e)
         {
             string path = FileDialog.SelectGpExe();
 
@@ -59,7 +58,17 @@ namespace ArgEditor
             fileImporter.UpdateViewModelFromExe(_mainViewModel, path);
         }
 
-        private void FileExportMenuItem_Click(object sender, RoutedEventArgs e)
+        private void FileImportFromNamesFileMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string path = FileDialog.SelectAnyFile();
+
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            var nameFileLoader = new NameFileLoader();
+            nameFileLoader.Load(_mainViewModel, path);
+        }
+
+        private void FileExportToGpExeMenuItem_Click(object sender, RoutedEventArgs e)
         {
             string path = FileDialog.SelectGpExe();
 
