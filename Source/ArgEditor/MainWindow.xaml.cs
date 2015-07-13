@@ -34,7 +34,10 @@ namespace ArgEditor
 
             if (string.IsNullOrEmpty(path)) { return; }
 
-            var loader = new SavedGameLoader();
+            // TODO: must set focus somewhere that isn't a textbox,
+            // otherwise it will not update data for the field you're in
+
+            var loader = new CarSetLoader();
             loader.Load(_mainViewModel, path);
         }
 
@@ -44,8 +47,8 @@ namespace ArgEditor
 
             if (string.IsNullOrEmpty(path)) { return; }
 
-            var saver = new SavedGameSaver();
-            saver.DoSaveisch(_mainViewModel, path);
+            var saver = new CarSetSaver();
+            saver.Save(_mainViewModel, path);
         }
 
         private void FileImportFromGpExeMenuItem_Click(object sender, RoutedEventArgs e)

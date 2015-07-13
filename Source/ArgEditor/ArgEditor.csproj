@@ -71,13 +71,11 @@
     <Compile Include="ColorConverter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="FileDialog.cs" />
+    <Compile Include="Interactors\CarSetFileInteraction.cs" />
     <Compile Include="Interactors\DriverPerformanceCalculator.cs" />
     <Compile Include="Interactors\GpExeFileWriter.cs" />
     <Compile Include="Interactors\GpExeFileReader.cs" />
     <Compile Include="Interactors\NameFileLoader.cs" />
-    <Compile Include="Interactors\SavedGameLoader.cs" />
-    <Compile Include="Interactors\SavedGameSaver.cs" />
-    <Compile Include="Interactors\SaveFile.cs" />
     <Compile Include="PaletteHelper.cs" />
     <Compile Include="UserControls\CarAlternativeUserControl.xaml.cs">
       <DependentUpon>CarAlternativeUserControl.xaml</DependentUpon>

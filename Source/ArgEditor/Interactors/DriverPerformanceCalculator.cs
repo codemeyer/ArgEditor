@@ -6,19 +6,18 @@ namespace ArgEditor.Interactors
 {
     public class DriverPerformanceCalculator
     {
-        //public IList<DriverPerformanceItemViewModel> Calculate(MainViewModel viewModel)
         public IList<DriverPerformanceItemViewModel> Calculate(List<TeamViewModel> teams)
         {
             var originalDriverPerformanceList = new List<DriverPerformanceData>();
 
             foreach (var team in teams)
             {
-                if (team.Drivers[0].Enabled)
+                if (team.Drivers[0].Enabled && team.Drivers[0].Name.Trim().Length > 0)
                 {
                     var driver = new DriverPerformanceData(team.Drivers[0], team.Horsepower);
                     originalDriverPerformanceList.Add(driver);
                 }
-                if (team.Drivers[1].Enabled)
+                if (team.Drivers[1].Enabled && team.Drivers[1].Name.Trim().Length > 0)
                 {
                     var driver = new DriverPerformanceData(team.Drivers[1], team.Horsepower);
                     originalDriverPerformanceList.Add(driver);
