@@ -22,7 +22,7 @@ namespace ArgEditor.UserControls
                 return;
             }
 
-            // TODO: max value?
+            // TODO: check ranges min-max?
 
             var textbox = (TextBox)sender;
             string currentTextValue = textbox.Text;
@@ -33,13 +33,31 @@ namespace ArgEditor.UserControls
 
             if (e.Key == Key.OemPlus)
             {
-                value++;
+                if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
+                {
+                    value += 10;
+                }
+                else
+                    value++;
+
                 e.Handled = true;
             }
 
             if (e.Key == Key.OemMinus && value > 0)
             {
-                value--;
+                if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
+                {
+                    value -= 10;
+                }
+                else
+                    value--;
+
+
+                if (value < 1)
+                {
+                    value = 1;
+                }
+
                 e.Handled = true;
             }
 
