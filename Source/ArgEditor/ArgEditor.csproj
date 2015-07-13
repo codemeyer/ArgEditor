@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ColorConverter.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="FileDialog.cs" />
     <Compile Include="Interactors\DriverPerformanceCalculator.cs" />
     <Compile Include="Interactors\GpExeFileWriter.cs" />

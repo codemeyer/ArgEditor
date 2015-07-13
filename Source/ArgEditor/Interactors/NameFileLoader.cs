@@ -18,7 +18,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateTeamNames(MainViewModel viewModel, NamesFile namesFile)
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {
                 var fileTeam = namesFile.Teams[i];
                 var team = viewModel.Teams[i];
@@ -30,7 +30,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateDriverNames(MainViewModel viewModel, NamesFile namesFile)
         {
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCount; i++)
             {
                 var fileDriver = namesFile.Drivers[i];
                 var driver = viewModel.Drivers.SingleOrDefault(d => d.Number == i + 1);

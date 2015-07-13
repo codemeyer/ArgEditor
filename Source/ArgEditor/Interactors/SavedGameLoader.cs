@@ -13,7 +13,7 @@ namespace ArgEditor.Interactors
 
             var saveFile = JsonConvert.DeserializeObject<SaveFile>(fileData);
 
-            for (int i = 0; i < 36; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 var fileDriver = saveFile.Drivers[i];
                 var driver = viewModel.Drivers[i];
@@ -21,7 +21,7 @@ namespace ArgEditor.Interactors
                 Mapper.Map(fileDriver, driver);
             }
 
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 var fileTeam = saveFile.Teams[i];
                 var team = viewModel.Teams[i];

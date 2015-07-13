@@ -25,7 +25,7 @@ namespace ArgEditor.Interactors
 
             var list = colorEditor.ReadCarColors();
 
-            for (int i = 0; i <= 17; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 var carInExe = list[i];
                 var carInEditor = viewModel.Teams[i].Car;
@@ -54,7 +54,7 @@ namespace ArgEditor.Interactors
 
             var list = colorEditor.ReadPitCrewColors();
 
-            for (int i = 0; i <= 17; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 var pitCrewInExe = list[i];
                 var pitCrewInEditor = viewModel.Teams[i].PitCrew;
@@ -73,7 +73,7 @@ namespace ArgEditor.Interactors
         {
             var teamHorsepowerEditor = new TeamHorsepowerEditor(exeFile);
 
-            for (int i = 0; i <= 17; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 int horsepower = viewModel.Teams[i].Horsepower;
                 teamHorsepowerEditor.WriteTeamHorsepower(i, horsepower);
@@ -82,9 +82,9 @@ namespace ArgEditor.Interactors
 
         private static void WriteDriverNumbers(MainViewModel viewModel, GpExeFile exeFile)
         {
-            byte[] values = new byte[40];
+            byte[] values = new byte[ArgEditorConstants.DriverCount];
 
-            for (int i = 0; i < 36; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
                 values[i] = viewModel.Drivers[i].Number;
             }
@@ -97,7 +97,7 @@ namespace ArgEditor.Interactors
         {
             var gripLevels = new GripLevelEditor(exeFile);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
                 var driver = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1));
 
