@@ -1,0 +1,28 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using ArgEditor.Interactors;
+using ArgEditor.ViewModels;
+using FluentAssertions;
+using Xunit;
+
+namespace ArgEditor.Tests.Interactors
+{
+    public class DriverPerformanceCalculatorFacts
+    {
+        [Fact]
+        public void TwoDriversWithDifferentSkillsAndSameHorsepower_FastestDriverIsFirst()
+        {
+            var driver1 = new DriverViewModel(1, "Driver Slow", 2, 2);
+            var driver2 = new DriverViewModel(2, "Driver Fast", 1, 1);
+            var team = new TeamViewModel("Team", "Engine", driver1, driver2);
+            team.Horsepower = 716;
+            var teams = new List<TeamViewModel> { team };
+            var calculator = new DriverPerformanceCalculator();
+
+            var result = calculator.Calculate(teams);
+
+            result.Count.Should().Be(2);
+            result.First().DriverName.Should().Be("Driver Fast");
+        }
+    }
+}

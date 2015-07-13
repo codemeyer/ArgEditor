@@ -54,7 +54,8 @@ namespace ArgEditor.ViewModels
 
         private void DriverViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
         {
-            if (propertyChangedEventArgs.PropertyName.Equals("RaceGripLevel"))
+            if (propertyChangedEventArgs.PropertyName.Equals("RaceGripLevel") ||
+                propertyChangedEventArgs.PropertyName.Equals("Name"))
             {
                 UpdateDriverPerformanceList();
             }
@@ -104,7 +105,7 @@ namespace ArgEditor.ViewModels
             _driverPerformanceList.Clear();
 
             var performanceCalculator = new DriverPerformanceCalculator();
-            var performanceItems = performanceCalculator.Calculate(this);
+            var performanceItems = performanceCalculator.Calculate(Teams);
 
             foreach (var item in performanceItems)
             {

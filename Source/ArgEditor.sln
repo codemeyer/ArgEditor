@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgEditor", "ArgEditor\ArgEditor.csproj", "{4E8828A9-FA85-421D-8586-01A4C078B3D3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{188713EF-3020-4696-99A4-A5C57F00154A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgEditor.Tests", "ArgEditor.Tests\ArgEditor.Tests.csproj", "{9A34566C-0C32-4911-BA3F-AF2A6791729F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{4E8828A9-FA85-421D-8586-01A4C078B3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E8828A9-FA85-421D-8586-01A4C078B3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E8828A9-FA85-421D-8586-01A4C078B3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A34566C-0C32-4911-BA3F-AF2A6791729F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A34566C-0C32-4911-BA3F-AF2A6791729F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A34566C-0C32-4911-BA3F-AF2A6791729F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A34566C-0C32-4911-BA3F-AF2A6791729F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A34566C-0C32-4911-BA3F-AF2A6791729F} = {188713EF-3020-4696-99A4-A5C57F00154A}
 	EndGlobalSection
 EndGlobal
