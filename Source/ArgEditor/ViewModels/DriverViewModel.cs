@@ -17,6 +17,8 @@ namespace ArgEditor.ViewModels
             Name = name;
             RaceGripLevel = raceGripLevel;
             QualifyingGripLevel = qualifyingGripLevel;
+
+            Helmet = new HelmetViewModel();
         }
 
         public byte Number
@@ -94,6 +96,9 @@ namespace ArgEditor.ViewModels
                 }
             }
         }
+
+
+        public HelmetViewModel Helmet { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

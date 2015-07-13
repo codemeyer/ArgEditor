@@ -18,6 +18,7 @@ namespace ArgEditor
             TeamsAndDriversTab.DataContext = defaultData;
             PerformanceTab.DataContext = defaultData;
             CarPaintingTab.DataContext = defaultData;
+            HelmetPaintingTab.DataContext = defaultData;
 
             _mainViewModel = defaultData;
         }

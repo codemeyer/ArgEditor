@@ -33,6 +33,9 @@
             <TabItem Header="Cars">
                 <userControls:CarPaintingTabUserControl x:Name="CarPaintingTab"></userControls:CarPaintingTabUserControl>
             </TabItem>
+            <TabItem Header="Helmets">
+                <userControls:HelmetPaintingTabUserControl x:Name="HelmetPaintingTab"></userControls:HelmetPaintingTabUserControl>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

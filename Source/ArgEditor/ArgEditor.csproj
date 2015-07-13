@@ -36,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData, Version=0.6.0.110, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ArgData.0.6.0.110\lib\net452\ArgData.dll</HintPath>
+    <Reference Include="ArgData, Version=0.6.0.112, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArgData.0.6.0.112\lib\net452\ArgData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -91,6 +91,9 @@
     <Compile Include="UserControls\CarUserControl.xaml.cs">
       <DependentUpon>CarUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HelmetPaintingTabUserControl.xaml.cs">
+      <DependentUpon>HelmetPaintingTabUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HelmetUserControl.xaml.cs">
       <DependentUpon>HelmetUserControl.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,7 @@
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
     <Compile Include="ViewModels\DriverViewModel.cs" />
+    <Compile Include="ViewModels\HelmetViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PaletteColorViewModel.cs" />
     <Compile Include="ViewModels\PaletteViewModel.cs" />
@@ -146,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\CarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HelmetPaintingTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

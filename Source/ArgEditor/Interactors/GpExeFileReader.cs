@@ -17,6 +17,7 @@ namespace ArgEditor.Interactors
             UpdateTeamHorsepower(viewModel, exeFile);
             UpdateDriverNumbers(viewModel, exeFile);
             UpdateGripLevels(viewModel, exeFile);
+            UpdateHelmetColors(viewModel, exeFile);
         }
 
         private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -110,6 +111,28 @@ namespace ArgEditor.Interactors
             }
 
             return driver;
+        }
+
+        private void UpdateHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var colorEditor = new HelmetEditor(exeFile);
+
+            var list = colorEditor.ReadHelmetColors();
+
+            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            {
+                var helmetInExe = list[i];
+                //var helmetInEditor = viewModel.Drivers[i].Helmet;
+                var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1)).Helmet;
+
+                helmetInEditor.VisorColorIndex = helmetInExe.Visor;
+                helmetInEditor.VisorSurroundColorIndex = helmetInExe.VisorSurround;
+
+                foreach (byte b in helmetInExe.Stripes)
+                {
+                    helmetInEditor.StripeColorIndices.Add(b);
+                }
+            }
         }
     }
 }
