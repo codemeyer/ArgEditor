@@ -9,6 +9,7 @@ namespace ArgEditor.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private TeamViewModel _selectedTeam;
+        private HelmetViewModel _selectedHelmet;
 
         public MainViewModel()
         {
@@ -38,6 +39,7 @@ namespace ArgEditor.ViewModels
             }
 
             SelectedTeam = Teams[0];
+            SelectedHelmet = Drivers[0].Helmet;
 
             Palette = new PaletteViewModel();
 
@@ -81,6 +83,20 @@ namespace ArgEditor.ViewModels
         public void SelectTeamByIndex(int teamIndex)
         {
             SelectedTeam = Teams[teamIndex];
+        }
+
+
+        public HelmetViewModel SelectedHelmet
+        {
+            get { return _selectedHelmet; }
+            set
+            {
+                {
+                    if (value.Equals(_selectedHelmet)) { return; }
+                    _selectedHelmet = value;
+                    OnPropertyChanged("SelectedHelmet");
+                }
+            }
         }
 
 
