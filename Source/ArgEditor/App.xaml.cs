@@ -33,10 +33,21 @@ namespace ArgEditor
                 CarColorRedoStacks[i] = new Stack<ColorChange>();
             }
 
+            HelmetColorUndoStacks = new Stack<ColorChange>[40];
+            HelmetColorRedoStacks = new Stack<ColorChange>[40];
+
+            for (int i = 0; i < 40; i++)
+            {
+                HelmetColorUndoStacks[i] = new Stack<ColorChange>();
+                HelmetColorRedoStacks[i] = new Stack<ColorChange>();
+            }
+
             base.OnStartup(e);
         }
 
         public static Stack<ColorChange>[] CarColorUndoStacks { get; private set; }
         public static Stack<ColorChange>[] CarColorRedoStacks { get; private set; }
+        public static Stack<ColorChange>[] HelmetColorUndoStacks { get; private set; }
+        public static Stack<ColorChange>[] HelmetColorRedoStacks { get; private set; }
     }
 }

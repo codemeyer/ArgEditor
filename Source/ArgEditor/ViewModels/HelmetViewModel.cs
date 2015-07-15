@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace ArgEditor.ViewModels
+﻿namespace ArgEditor.ViewModels
 {
     public class HelmetViewModel : BaseViewModel
     {
@@ -9,27 +7,24 @@ namespace ArgEditor.ViewModels
         {
             VisorColorIndex = colors[0];
             VisorSurroundColorIndex = colors[6];
-            StripeColorIndices = new ObservableCollection<byte>
-            {
-                colors[2],
-                colors[3],
-                colors[4],
-                colors[5],
-                colors[7],
-                colors[8],
-                colors[9],
-                colors[10],
-                colors[11],
-                colors[12],
-                colors[13],
-                colors[14],
-                colors[15],
-            };
+            Stripe1ColorIndex = colors[2];
+            Stripe2ColorIndex = colors[3];
+            Stripe3ColorIndex = colors[4];
+            Stripe4ColorIndex = colors[5];
+            Stripe5ColorIndex = colors[7];
+            Stripe6ColorIndex = colors[8];
+            Stripe7ColorIndex = colors[9];
+            Stripe8ColorIndex = colors[10];
+            Stripe9ColorIndex = colors[11];
+            Stripe10ColorIndex = colors[12];
+            Stripe11ColorIndex = colors[13];
+            Stripe12ColorIndex = colors[14];
+            Stripe13ColorIndex = colors[15];
         }
 
         public HelmetViewModel()
         {
-            StripeColorIndices = new ObservableCollection<byte>();
+            VisorSurroundColorIndex = 6;
         }
 
         private byte _visorColorIndex;
@@ -62,21 +57,217 @@ namespace ArgEditor.ViewModels
         }
 
 
+        private byte _stripe1ColorIndex;
 
-        // FUNKAR???
-
-        private ObservableCollection<byte> _stripeColorIndices;
-
-        public ObservableCollection<byte> StripeColorIndices
+        public byte Stripe1ColorIndex
         {
-            get { return _stripeColorIndices; }
+            get { return _stripe1ColorIndex; }
             set
             {
-                if (value.Equals(_stripeColorIndices)) return;
+                if (value.Equals(_stripe1ColorIndex)) return;
 
-                _stripeColorIndices = value;
+                _stripe1ColorIndex = value;
                 OnPropertyChanged();
             }
         }
+
+        private byte _stripe2ColorIndex;
+
+        public byte Stripe2ColorIndex
+        {
+            get { return _stripe2ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe2ColorIndex)) return;
+
+                _stripe2ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private byte _stripe3ColorIndex;
+
+        public byte Stripe3ColorIndex
+        {
+            get { return _stripe3ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe3ColorIndex)) return;
+
+                _stripe3ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe4ColorIndex;
+
+        public byte Stripe4ColorIndex
+        {
+            get { return _stripe4ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe4ColorIndex)) return;
+
+                _stripe4ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe5ColorIndex;
+
+        public byte Stripe5ColorIndex
+        {
+            get { return _stripe5ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe5ColorIndex)) return;
+
+                _stripe5ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe6ColorIndex;
+
+        public byte Stripe6ColorIndex
+        {
+            get { return _stripe6ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe6ColorIndex)) return;
+
+                _stripe6ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe7ColorIndex;
+
+        public byte Stripe7ColorIndex
+        {
+            get { return _stripe7ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe7ColorIndex)) return;
+
+                _stripe7ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe8ColorIndex;
+
+        public byte Stripe8ColorIndex
+        {
+            get { return _stripe8ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe8ColorIndex)) return;
+
+                _stripe8ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe9ColorIndex;
+
+        public byte Stripe9ColorIndex
+        {
+            get { return _stripe9ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe9ColorIndex)) return;
+
+                _stripe9ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe10ColorIndex;
+
+        public byte Stripe10ColorIndex
+        {
+            get { return _stripe10ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe10ColorIndex)) return;
+
+                _stripe10ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe11ColorIndex;
+
+        public byte Stripe11ColorIndex
+        {
+            get { return _stripe11ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe11ColorIndex)) return;
+
+                _stripe11ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe12ColorIndex;
+
+        public byte Stripe12ColorIndex
+        {
+            get { return _stripe12ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe12ColorIndex)) return;
+
+                _stripe12ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private byte _stripe13ColorIndex;
+
+        public byte Stripe13ColorIndex
+        {
+            get { return _stripe13ColorIndex; }
+            set
+            {
+                if (value.Equals(_stripe13ColorIndex)) return;
+
+                _stripe13ColorIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+
+
+
+        // FUNKAR???
+
+        //private ObservableCollection<byte> _stripeColorIndices;
+
+        //public ObservableCollection<byte> StripeColorIndices
+        //{
+        //    get { return _stripeColorIndices; }
+        //    set
+        //    {
+        //        if (value.Equals(_stripeColorIndices)) return;
+
+        //        _stripeColorIndices = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
     }
 }

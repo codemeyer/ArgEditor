@@ -122,16 +122,24 @@ namespace ArgEditor.Interactors
             for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {
                 var helmetInExe = list[i];
-                //var helmetInEditor = viewModel.Drivers[i].Helmet;
                 var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1)).Helmet;
 
                 helmetInEditor.VisorColorIndex = helmetInExe.Visor;
                 helmetInEditor.VisorSurroundColorIndex = helmetInExe.VisorSurround;
 
-                foreach (byte b in helmetInExe.Stripes)
-                {
-                    helmetInEditor.StripeColorIndices.Add(b);
-                }
+                helmetInEditor.Stripe1ColorIndex = helmetInExe.Stripes[0];
+                helmetInEditor.Stripe2ColorIndex = helmetInExe.Stripes[1];
+                helmetInEditor.Stripe3ColorIndex = helmetInExe.Stripes[2];
+                helmetInEditor.Stripe4ColorIndex = helmetInExe.Stripes[3];
+                helmetInEditor.Stripe5ColorIndex = helmetInExe.Stripes[4];
+                helmetInEditor.Stripe6ColorIndex = helmetInExe.Stripes[5];
+                helmetInEditor.Stripe7ColorIndex = helmetInExe.Stripes[6];
+                helmetInEditor.Stripe8ColorIndex = helmetInExe.Stripes[7];
+                helmetInEditor.Stripe9ColorIndex = helmetInExe.Stripes[8];
+                helmetInEditor.Stripe10ColorIndex = helmetInExe.Stripes[9];
+                helmetInEditor.Stripe11ColorIndex = helmetInExe.Stripes[10];
+                helmetInEditor.Stripe12ColorIndex = helmetInExe.Stripes[11];
+                helmetInEditor.Stripe13ColorIndex = helmetInExe.Stripes[12];
             }
         }
     }

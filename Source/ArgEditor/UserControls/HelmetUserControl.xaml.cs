@@ -1,7 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -28,27 +32,23 @@ namespace ArgEditor.UserControls
             var bindingExpression = polygon.GetBindingExpression(Shape.FillProperty);
             string bindingPath = bindingExpression.ParentBinding.Path.Path;
 
-            RaiseEvent(new ClickedHelmetPolygonEventArgs(ClickedHelmetPolygonUpdatedEvent, bindingPath));
+            var selectedHelmet = DataContext as HelmetViewModel;
+
+            PropertyInfo prop = selectedHelmet.GetType().GetProperty(bindingPath);
+
+            var property = new ColorPropertyWrapper(prop);
+
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 
-        private static readonly RoutedEvent ClickedHelmetPolygonUpdatedEvent =
-            EventManager.RegisterRoutedEvent("ClickedHelmetPolygon", RoutingStrategy.Bubble,
-                typeof(RoutedEventHandler), typeof(CarSelectionUserControl));
+        private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
+            EventManager.RegisterRoutedEvent("ClickedPolygon", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(HelmetUserControl));
 
         public event RoutedEventHandler ClickedHelmetPolygon
         {
-            add { AddHandler(ClickedHelmetPolygonUpdatedEvent, value); }
-            remove { RemoveHandler(ClickedHelmetPolygonUpdatedEvent, value); }
+            add { AddHandler(ClickedPolygonUpdatedEvent, value); }
+            remove { RemoveHandler(ClickedPolygonUpdatedEvent, value); }
         }
-    }
-
-    public class ClickedHelmetPolygonEventArgs : RoutedEventArgs
-    {
-        public ClickedHelmetPolygonEventArgs(RoutedEvent routedEvent, string polygonName)
-            : base(routedEvent)
-        {
-            PolygonName = polygonName;
-        }
-        public string PolygonName { get; set; }
     }
 }

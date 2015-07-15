@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="900" d:DesignWidth="1025">
-    <Grid>
+    <Grid KeyDown="PaintingTab_KeyDown">
         <ItemsControl ItemsSource="{Binding Drivers}" Margin="10,10,565,10" x:Name="HelmetPanel">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
