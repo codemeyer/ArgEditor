@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -40,41 +39,32 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedCar = DataContextViewModel.SelectedTeam.Car;
 
-            byte currentColor = clickedPolygonEvent.Property.GetValue(selectedCar);
-
-            clickedPolygonEvent.Property.SetValue(selectedCar, DataContextViewModel.Palette.SelectedColor);
-
-            int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
-            var change = new ColorChange
-            {
-                OldValue = currentColor,
-                NewValue = DataContextViewModel.Palette.SelectedColor,
-                Property = clickedPolygonEvent.Property,
-                PaintedElement = PaintedElement.Car
-            };
-            App.CarColorUndoStacks[index].Push(change);
-            App.CarColorRedoStacks[index].Clear();
+            AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car);
         }
 
         private void PaintPitCrewUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
         {
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedPitCrew = DataContextViewModel.SelectedTeam.PitCrew;
-            //PropertyInfo prop = selectedPitCrew.GetType().GetProperty(clickedPolygonEvent.PolygonName);
-            //prop.SetValue(selectedPitCrew, DataContextViewModel.Palette.SelectedColor, null);
 
-            byte currentColor = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
+            AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew);
+        }
 
-            clickedPolygonEvent.Property.SetValue(selectedPitCrew, DataContextViewModel.Palette.SelectedColor);
+        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement)
+        {
+            byte currentColor = property.GetValue(viewModel);
+
+            property.SetValue(viewModel, DataContextViewModel.Palette.SelectedColor);
 
             int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
             var change = new ColorChange
             {
                 OldValue = currentColor,
                 NewValue = DataContextViewModel.Palette.SelectedColor,
-                Property = clickedPolygonEvent.Property,
-                PaintedElement = PaintedElement.PitCrew
+                Property = property,
+                PaintedElement = paintedElement
             };
+
             App.CarColorUndoStacks[index].Push(change);
             App.CarColorRedoStacks[index].Clear();
         }
@@ -91,50 +81,39 @@ namespace ArgEditor.UserControls
         {
             if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
             {
+                int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
+
                 if (e.Key == Key.Z)
                 {
-                    int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
+                    if (App.CarColorUndoStacks[index].Count == 0) { return; }
 
-                    if (App.CarColorUndoStacks[index].Count == 0)
-                        return;
-
-                    var latestChange = App.CarColorUndoStacks[index].Pop();
-                    var viewModel = GetViewModelForChange(DataContextViewModel.SelectedTeam, latestChange.PaintedElement);
-
-                    latestChange.Property.SetValue(viewModel, latestChange.OldValue);
-
-                    var reverseChange = new ColorChange
-                    {
-                        NewValue = latestChange.OldValue,
-                        OldValue = latestChange.NewValue,
-                        Property = latestChange.Property,
-                        PaintedElement = latestChange.PaintedElement
-                    };
-                    App.CarColorRedoStacks[index].Push(reverseChange);
+                    ProcessColorChangeStacks(App.CarColorUndoStacks[index], App.CarColorRedoStacks[index]);
                 }
-                // TODO: refactor until you drop!
+
                 if (e.Key == Key.Y)
                 {
-                    int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
+                    if (App.CarColorRedoStacks[index].Count == 0) { return; }
 
-                    if (App.CarColorRedoStacks[index].Count == 0)
-                        return;
-
-                    var latestChange = App.CarColorRedoStacks[index].Pop();
-                    var viewModel = GetViewModelForChange(DataContextViewModel.SelectedTeam, latestChange.PaintedElement);
-
-                    latestChange.Property.SetValue(viewModel, latestChange.OldValue);
-
-                    var reverseChange = new ColorChange
-                    {
-                        NewValue = latestChange.OldValue,
-                        OldValue = latestChange.NewValue,
-                        Property = latestChange.Property,
-                        PaintedElement = latestChange.PaintedElement
-                    };
-                    App.CarColorUndoStacks[index].Push(reverseChange);
+                    ProcessColorChangeStacks(App.CarColorRedoStacks[index], App.CarColorUndoStacks[index]);
                 }
             }
+        }
+
+        private void ProcessColorChangeStacks(Stack<ColorChange> popStack, Stack<ColorChange> pushStack)
+        {
+            var latestChange = popStack.Pop();
+            var viewModel = GetViewModelForChange(DataContextViewModel.SelectedTeam, latestChange.PaintedElement);
+
+            latestChange.Property.SetValue(viewModel, latestChange.OldValue);
+
+            var reverseChange = new ColorChange
+            {
+                NewValue = latestChange.OldValue,
+                OldValue = latestChange.NewValue,
+                Property = latestChange.Property,
+                PaintedElement = latestChange.PaintedElement
+            };
+            pushStack.Push(reverseChange);
         }
 
         private object GetViewModelForChange(TeamViewModel selectedTeam, PaintedElement paintedElement)

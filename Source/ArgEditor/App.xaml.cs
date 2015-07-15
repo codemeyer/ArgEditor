@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
@@ -38,23 +36,7 @@ namespace ArgEditor
             base.OnStartup(e);
         }
 
-        public static Stack<ColorChange>[] CarColorUndoStacks { get; set; }
-        public static Stack<ColorChange>[] CarColorRedoStacks { get; set; }
-
-    }
-
-    public class ColorChange
-    {
-        public byte OldValue { get; set; }
-        public byte NewValue { get; set; }
-        public ColorPropertyWrapper Property { get; set; }
-        public PaintedElement PaintedElement { get; set; }
-    }
-
-    public enum PaintedElement
-    {
-        Car,
-        PitCrew,
-        Helmet
+        public static Stack<ColorChange>[] CarColorUndoStacks { get; private set; }
+        public static Stack<ColorChange>[] CarColorRedoStacks { get; private set; }
     }
 }

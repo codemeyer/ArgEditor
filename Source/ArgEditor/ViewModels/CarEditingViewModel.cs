@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace ArgEditor.ViewModels
 {
@@ -233,29 +231,6 @@ namespace ArgEditor.ViewModels
         public DesignerCarEditingViewModel()
             : base(new byte[] { 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78 })
         {
-        }
-    }
-
-
-
-
-    public class ColorPropertyWrapper
-    {
-        private PropertyInfo _propertyInfo;
-
-        public ColorPropertyWrapper(PropertyInfo propertyInfo)
-        {
-            _propertyInfo = propertyInfo;
-        }
-
-        public byte GetValue(object viewModel)
-        {
-            return (byte)_propertyInfo.GetValue(viewModel);
-        }
-
-        public void SetValue(object viewModel, byte value)
-        {
-            _propertyInfo.SetValue(viewModel, value, null);
         }
     }
 }

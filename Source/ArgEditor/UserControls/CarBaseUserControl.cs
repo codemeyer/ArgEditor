@@ -1,4 +1,3 @@
-using System;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,7 +39,7 @@ namespace ArgEditor.UserControls
             PropertyInfo prop = selectedCar.GetType().GetProperty(bindingPath);
             var property = new ColorPropertyWrapper(prop);
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, bindingPath, property));
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
@@ -56,14 +55,12 @@ namespace ArgEditor.UserControls
 
     public class ClickedPolygonEventArgs : RoutedEventArgs
     {
-        public ClickedPolygonEventArgs(RoutedEvent routedEvent, string polygonName, ColorPropertyWrapper property)
+        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property)
             : base(routedEvent)
         {
-            PolygonName = polygonName;
             Property = property;
         }
 
         public ColorPropertyWrapper Property { get; set; }
-        public string PolygonName { get; set; }
     }
 }
