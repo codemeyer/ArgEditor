@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
              xmlns:argEditor="clr-namespace:ArgEditor"
+             xmlns:utils="clr-namespace:ArgEditor.ViewModels.Utils"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Type=viewModels:DesignerPitCrewViewModel, IsDesignTimeCreatable=True}"
+             d:DataContext="{d:DesignInstance Type=utils:DesignerPitCrewViewModel, IsDesignTimeCreatable=True}"
              d:DesignWidth="245" d:DesignHeight="431">
     <UserControl.Resources>
         <argEditor:ColorConverter x:Key="ColorConverter" />

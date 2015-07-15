@@ -1,8 +1,6 @@
-﻿using System.ComponentModel;
-
-namespace ArgEditor.ViewModels
+﻿namespace ArgEditor.ViewModels
 {
-    public class PitCrewViewModel : INotifyPropertyChanged
+    public class PitCrewViewModel : BaseViewModel
     {
         // TODO: if this remains, it should be hidden
         public PitCrewViewModel(byte[] colors)
@@ -32,7 +30,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_shirtPrimaryColorIndex)) return;
 
                 _shirtPrimaryColorIndex = value;
-                OnPropertyChanged("ShirtPrimaryColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -44,7 +42,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_shirtSecondaryColorIndex)) return;
 
                 _shirtSecondaryColorIndex = value;
-                OnPropertyChanged("ShirtSecondaryColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -56,7 +54,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_pantsPrimaryColorIndex)) return;
 
                 _pantsPrimaryColorIndex = value;
-                OnPropertyChanged("PantsPrimaryColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -68,7 +66,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_pantsSecondaryColorIndex)) return;
 
                 _pantsSecondaryColorIndex = value;
-                OnPropertyChanged("PantsSecondaryColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -80,28 +78,8 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_socksColorIndex)) return;
 
                 _socksColorIndex = value;
-                OnPropertyChanged("SocksColorIndex");
+                OnPropertyChanged();
             }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-    }
-
-    public class DesignerPitCrewViewModel : PitCrewViewModel
-    {
-        public DesignerPitCrewViewModel()
-            : base(new byte[] { 72, 68, 58, 56, 38 })
-        {
         }
     }
 }

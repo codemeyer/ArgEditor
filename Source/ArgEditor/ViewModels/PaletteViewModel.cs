@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace ArgEditor.ViewModels
 {
-    public class PaletteViewModel : INotifyPropertyChanged
+    public class PaletteViewModel : BaseViewModel
     {
         private byte _selectedColor;
         private ObservableCollection<PaletteColorViewModel> _colors;
@@ -39,24 +38,12 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_selectedColor)) { return; }
                 _selectedColor = value;
-                OnPropertyChanged("SelectedColor");
+                OnPropertyChanged();
 
                 foreach (var color in _colors)
                 {
                     color.IsSelected = (color.ColorIndex == _selectedColor);
                 }
-            }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

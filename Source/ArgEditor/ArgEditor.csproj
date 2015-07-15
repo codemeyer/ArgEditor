@@ -116,6 +116,7 @@
     <Compile Include="UserControls\PerformanceUserControl.xaml.cs">
       <DependentUpon>PerformanceUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
     <Compile Include="ViewModels\DriverViewModel.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="ViewModels\PitCrewViewModel.cs" />
     <Compile Include="ViewModels\TeamViewModel.cs" />
     <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
+    <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

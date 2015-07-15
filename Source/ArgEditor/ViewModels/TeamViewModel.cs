@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace ArgEditor.ViewModels
 {
-    public class TeamViewModel : INotifyPropertyChanged
+    public class TeamViewModel : BaseViewModel
     {
         private string _name;
         private string _engine;
@@ -36,7 +34,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_name)) { return; }
                 _name = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged();
             }
         }
 
@@ -47,7 +45,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_engine)) { return; }
                 _engine = value;
-                OnPropertyChanged("Engine");
+                OnPropertyChanged();
             }
         }
 
@@ -58,7 +56,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_horsepower)) { return; }
                 _horsepower = value;
-                OnPropertyChanged("Horsepower");
+                OnPropertyChanged();
             }
         }
 
@@ -66,36 +64,21 @@ namespace ArgEditor.ViewModels
 
         public PitCrewViewModel PitCrew { get; set; }
 
-        // TODO: striktare lista!
+
         public List<DriverViewModel> Drivers { get; private set; }
 
 
 
-        // TODO: somewhere else
-        //public List<int> AvailableDriverNumbers
-        public ObservableCollection<byte> AvailableDriverNumbers
+        public List<byte> AvailableDriverNumbers
         {
             get
             {
-                var list = new ObservableCollection<byte>();
+                var list = new List<byte>();
                 for (byte i = 1; i <= 40; i++)
                 {
                     list.Add(i);
                 }
                 return list;
-            }
-        }
-
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 
 namespace ArgEditor.ViewModels
 {
-    public class PaletteColorViewModel : INotifyPropertyChanged
+    public class PaletteColorViewModel : BaseViewModel
     {
         private Color _color;
-        private bool _isSelected;
         private byte _colorIndex;
+        private bool _isSelected;
 
         public Color Color
         {
@@ -16,7 +15,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_color)) { return; }
                 _color = value;
-                OnPropertyChanged("Color");
+                OnPropertyChanged();
             }
         }
 
@@ -27,7 +26,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_colorIndex)) { return; }
                 _colorIndex = value;
-                OnPropertyChanged("ColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -38,19 +37,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_isSelected)) { return; }
                 _isSelected = value;
-                OnPropertyChanged("IsSelected");
-            }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
+                OnPropertyChanged();
             }
         }
     }

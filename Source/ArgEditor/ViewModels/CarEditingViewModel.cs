@@ -1,8 +1,6 @@
-﻿using System.ComponentModel;
-
-namespace ArgEditor.ViewModels
+﻿namespace ArgEditor.ViewModels
 {
-    public class CarEditingViewModel : INotifyPropertyChanged
+    public class CarEditingViewModel : BaseViewModel
     {
         // TODO: if this remains, it should be hidden
         public CarEditingViewModel(byte[] colors)
@@ -28,9 +26,6 @@ namespace ArgEditor.ViewModels
             _opacity = 1.0;
         }
 
-        private double _opacity;
-        private bool _disabled;
-
         private byte _frontAndRearWingColorIndex;
         private byte _frontWingEndplateColorIndex;
         private byte _engineCoverColorIndex;
@@ -44,6 +39,7 @@ namespace ArgEditor.ViewModels
         private byte _sidepodColorIndex;
         private byte _engineCoverSideColorIndex;
         private byte _engineCoverRearColorIndex;
+        private double _opacity;
 
         public byte FrontAndRearWingColorIndex
         {
@@ -53,7 +49,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_frontAndRearWingColorIndex)) return;
 
                 _frontAndRearWingColorIndex = value;
-                OnPropertyChanged("FrontAndRearWingColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -65,7 +61,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_frontWingEndplateColorIndex)) return;
 
                 _frontWingEndplateColorIndex = value;
-                OnPropertyChanged("FrontWingEndplateColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -76,7 +72,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _rearWingSideColorIndex) return;
                 _rearWingSideColorIndex = value;
-                OnPropertyChanged("RearWingSideColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -87,7 +83,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _engineCoverColorIndex) return;
                 _engineCoverColorIndex = value;
-                OnPropertyChanged("EngineCoverColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -98,7 +94,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _cockpitFrontColorIndex) return;
                 _cockpitFrontColorIndex = value;
-                OnPropertyChanged("CockpitFrontColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -109,7 +105,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _cockpitSideColorIndex) return;
                 _cockpitSideColorIndex = value;
-                OnPropertyChanged("CockpitSideColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -120,7 +116,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _noseTopColorIndex) return;
                 _noseTopColorIndex = value;
-                OnPropertyChanged("NoseTopColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -131,7 +127,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _noseSideColorIndex) return;
                 _noseSideColorIndex = value;
-                OnPropertyChanged("NoseSideColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -142,7 +138,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _noseAngleColorIndex) return;
                 _noseAngleColorIndex = value;
-                OnPropertyChanged("NoseAngleColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -153,7 +149,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _sidepodTopColorIndex) return;
                 _sidepodTopColorIndex = value;
-                OnPropertyChanged("SidepodTopColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -164,7 +160,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _sidepodColorIndex) return;
                 _sidepodColorIndex = value;
-                OnPropertyChanged("SidepodColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -175,7 +171,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _engineCoverSideColorIndex) return;
                 _engineCoverSideColorIndex = value;
-                OnPropertyChanged("EngineCoverSideColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -186,22 +182,9 @@ namespace ArgEditor.ViewModels
             {
                 if (value == _engineCoverRearColorIndex) return;
                 _engineCoverRearColorIndex = value;
-                OnPropertyChanged("EngineCoverRearColorIndex");
+                OnPropertyChanged();
             }
         }
-
-        public bool Disabled
-        {
-            get { return _disabled; }
-            set
-            {
-                if (value.Equals(_disabled)) return;
-
-                _disabled = value;
-                Opacity = (_disabled) ? 0.2 : 1.0;
-            }
-        }
-
 
         public double Opacity
         {
@@ -209,28 +192,8 @@ namespace ArgEditor.ViewModels
             set
             {
                 _opacity = value;
-                OnPropertyChanged("Opacity");
+                OnPropertyChanged();
             }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-    }
-
-    public class DesignerCarEditingViewModel : CarEditingViewModel
-    {
-        public DesignerCarEditingViewModel()
-            : base(new byte[] { 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78 })
-        {
         }
     }
 }

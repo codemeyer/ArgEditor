@@ -26,7 +26,7 @@ namespace ArgEditor.UserControls
 
             var textbox = (TextBox)sender;
             string currentTextValue = textbox.Text;
-            int value = 0;
+            int value;
 
             if (!int.TryParse(currentTextValue, out value))
                 return;

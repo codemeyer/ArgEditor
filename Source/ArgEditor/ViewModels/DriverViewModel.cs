@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 
 namespace ArgEditor.ViewModels
 {
-    public class DriverViewModel : INotifyPropertyChanged
+    public class DriverViewModel : BaseViewModel
     {
         private byte _number;
         private string _name;
@@ -28,7 +27,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_number)) { return; }
                 _number = value;
-                OnPropertyChanged("Number");
+                OnPropertyChanged();
             }
         }
 
@@ -39,7 +38,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_name)) { return; }
                 _name = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged();
 
                 Enabled = !string.IsNullOrEmpty(_name);
             }
@@ -52,7 +51,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_raceGripLevel)) { return; }
                 _raceGripLevel = value;
-                OnPropertyChanged("RaceGripLevel");
+                OnPropertyChanged();
 
                 // TODO: always set QualifyingGripLevel to the same as RaceGripLevel for now
                 QualifyingGripLevel = _raceGripLevel;
@@ -66,11 +65,9 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_qualifyingGripLevel)) { return; }
                 _qualifyingGripLevel = value;
-                OnPropertyChanged("QualifyingGripLevel");
+                OnPropertyChanged();
             }
         }
-
-
 
         public bool Enabled
         {
@@ -79,7 +76,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_enabled)) return;
                 _enabled = value;
-                OnPropertyChanged("Enabled");
+                OnPropertyChanged();
                 OnPropertyChanged("Visibility");    // hacky
             }
         }
@@ -97,19 +94,6 @@ namespace ArgEditor.ViewModels
             }
         }
 
-
         public HelmetViewModel Helmet { get; set; }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
     }
 }

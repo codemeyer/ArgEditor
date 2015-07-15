@@ -1,9 +1,8 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace ArgEditor.ViewModels
 {
-    public class HelmetViewModel : INotifyPropertyChanged
+    public class HelmetViewModel : BaseViewModel
     {
         // TODO: if this remains, it should be hidden
         public HelmetViewModel(byte[] colors)
@@ -43,7 +42,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_visorColorIndex)) return;
 
                 _visorColorIndex = value;
-                OnPropertyChanged("VisorColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -58,7 +57,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_visorSurroundColorIndex)) return;
 
                 _visorSurroundColorIndex = value;
-                OnPropertyChanged("VisorSurroundColorIndex");
+                OnPropertyChanged();
             }
         }
 
@@ -76,30 +75,8 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripeColorIndices)) return;
 
                 _stripeColorIndices = value;
-                OnPropertyChanged("StripeColorIndices");
+                OnPropertyChanged();
             }
-        }
-
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-    }
-
-
-    public class DesignerHelmetViewModel : HelmetViewModel
-    {
-        public DesignerHelmetViewModel()
-            : base(new byte[] { 0, 1, 111, 111, 111, 111, 6, 79, 79, 111, 111, 95, 111, 111, 111, 111 })
-        {
         }
     }
 }
