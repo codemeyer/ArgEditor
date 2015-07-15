@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -26,7 +28,12 @@ namespace ArgEditor.UserControls
             var bindingExpression = polygon.GetBindingExpression(Shape.FillProperty);
             string bindingPath = bindingExpression.ParentBinding.Path.Path;
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, bindingPath));
+            var selectedPitCrew = DataContext as PitCrewViewModel;
+
+            PropertyInfo prop = selectedPitCrew.GetType().GetProperty(bindingPath);
+            var property = new ColorPropertyWrapper(prop);
+
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, bindingPath, property));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =

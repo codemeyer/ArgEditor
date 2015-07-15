@@ -1,7 +1,10 @@
+using System;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -32,7 +35,12 @@ namespace ArgEditor.UserControls
             var bindingExpression = polygon.GetBindingExpression(Shape.FillProperty);
             string bindingPath = bindingExpression.ParentBinding.Path.Path;
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, bindingPath));
+            var selectedCar = DataContext as CarEditingViewModel;
+
+            PropertyInfo prop = selectedCar.GetType().GetProperty(bindingPath);
+            var property = new ColorPropertyWrapper(prop);
+
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, bindingPath, property));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
@@ -48,11 +56,14 @@ namespace ArgEditor.UserControls
 
     public class ClickedPolygonEventArgs : RoutedEventArgs
     {
-        public ClickedPolygonEventArgs(RoutedEvent routedEvent, string polygonName)
+        public ClickedPolygonEventArgs(RoutedEvent routedEvent, string polygonName, ColorPropertyWrapper property)
             : base(routedEvent)
         {
             PolygonName = polygonName;
+            Property = property;
         }
+
+        public ColorPropertyWrapper Property { get; set; }
         public string PolygonName { get; set; }
     }
 }
