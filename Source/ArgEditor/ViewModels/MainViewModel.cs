@@ -51,6 +51,8 @@ namespace ArgEditor.ViewModels
                 int driverStartIndex = teamIndex*2;
                 var teamViewModel = new TeamViewModel(teamName, engineName, Drivers[driverStartIndex],
                     Drivers[driverStartIndex + 1]);
+                Drivers[driverStartIndex].Team = teamViewModel;
+                Drivers[driverStartIndex + 1].Team = teamViewModel;
                 teamViewModel.PropertyChanged += TeamViewModelOnPropertyChanged;
                 Teams.Add(teamViewModel);
             }

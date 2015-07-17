@@ -12,7 +12,7 @@
         <userControls:CarUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="54" Height="23" DataContext="{Binding Car}" Margin="3,0,0,0" />
 
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120" Margin="67,0,0,0" MaxLength="12" />
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Engine}" VerticalAlignment="Top" Width="120" Margin="192,0,0,0" MaxLength="12" />
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Engine}" Visibility="{Binding Visibility}" VerticalAlignment="Top" Width="120" Margin="192,0,0,0" MaxLength="12" />
         <ComboBox HorizontalAlignment="Left" Margin="331,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" SelectedItem="{Binding Drivers[0].Number}" IsEnabled="{Binding Drivers[0].Enabled}" Width="44" Height="23" />
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Drivers[0].Name}" VerticalAlignment="Top" Width="160" Margin="380,0,0,0" MaxLength="23" />
         <ComboBox HorizontalAlignment="Left" Margin="552,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" SelectedItem="{Binding Drivers[1].Number}" IsEnabled="{Binding Drivers[1].Enabled}" Width="44" Height="23" />

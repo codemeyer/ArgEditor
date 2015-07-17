@@ -87,7 +87,19 @@ namespace ArgEditor.Interactors
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
-                values[i] = viewModel.Drivers[i].Number;
+                var driver = viewModel.Drivers[i];
+
+                byte value = viewModel.Drivers[i].Number;
+                if (!driver.Enabled)
+                {
+                    value = 0;
+                }
+                if (!driver.Team.Enabled)
+                {
+                    value = 0;
+                }
+
+                values[i] = value;
             }
 
             var numbers = new DriverNumberEditor(exeFile);

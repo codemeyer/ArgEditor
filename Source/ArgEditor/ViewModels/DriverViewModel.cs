@@ -95,5 +95,7 @@ namespace ArgEditor.ViewModels
         }
 
         public HelmetViewModel Helmet { get; set; }
+
+        public TeamViewModel Team { get; set; }
     }
 }

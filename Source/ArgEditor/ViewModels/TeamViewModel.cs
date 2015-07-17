@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 
 namespace ArgEditor.ViewModels
 {
@@ -7,11 +8,13 @@ namespace ArgEditor.ViewModels
         private string _name;
         private string _engine;
         private int _horsepower;
+        private bool _enabled;
 
         public TeamViewModel()
         {
             Drivers = new List<DriverViewModel>();
             Car = new CarEditingViewModel();
+            Enabled = true;
         }
 
         public TeamViewModel(string name, string engine, DriverViewModel driver1, DriverViewModel driver2)
@@ -25,6 +28,8 @@ namespace ArgEditor.ViewModels
 
             Car = new CarEditingViewModel();
             PitCrew = new PitCrewViewModel();
+
+            //Enabled = true;
         }
 
         public string Name
@@ -35,6 +40,8 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_name)) { return; }
                 _name = value;
                 OnPropertyChanged();
+
+                Enabled = !string.IsNullOrEmpty(_name);
             }
         }
 
@@ -57,6 +64,31 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_horsepower)) { return; }
                 _horsepower = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public bool Enabled
+        {
+            get { return _enabled; }
+            set
+            {
+                if (value.Equals(_enabled)) return;
+                _enabled = value;
+                OnPropertyChanged();
+                OnPropertyChanged("Visibility");    // hacky
+            }
+        }
+
+        public Visibility Visibility
+        {
+            get
+            {
+                if (_enabled)
+                    return Visibility.Visible;
+                else
+                {
+                    return Visibility.Hidden;
+                }
             }
         }
 
