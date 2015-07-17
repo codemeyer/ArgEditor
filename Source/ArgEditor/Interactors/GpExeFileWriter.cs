@@ -17,6 +17,7 @@ namespace ArgEditor.Interactors
             WriteTeamHorsepower(viewModel, exeFile);
             WriteDriverNumbers(viewModel, exeFile);
             WriteGripLevels(viewModel, exeFile);
+            WriteHelmetColors(viewModel, exeFile);
         }
 
         private static void WriteCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -116,6 +117,37 @@ namespace ArgEditor.Interactors
             }
 
             return driver;
+        }
+
+        private void WriteHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var helmetEditor = new HelmetEditor(exeFile);
+
+            var list = helmetEditor.ReadHelmetColors();
+
+            for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
+            {
+                var helmetInExe = list[i];
+                var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1)).Helmet;
+
+                helmetInExe.Visor = helmetInEditor.VisorColorIndex;
+                helmetInExe.VisorSurround = helmetInEditor.VisorSurroundColorIndex;
+                helmetInExe.Stripes[0] = helmetInEditor.Stripe1ColorIndex;
+                helmetInExe.Stripes[1] = helmetInEditor.Stripe2ColorIndex;
+                helmetInExe.Stripes[2] = helmetInEditor.Stripe3ColorIndex;
+                helmetInExe.Stripes[3] = helmetInEditor.Stripe4ColorIndex;
+                helmetInExe.Stripes[4] = helmetInEditor.Stripe5ColorIndex;
+                helmetInExe.Stripes[5] = helmetInEditor.Stripe6ColorIndex;
+                helmetInExe.Stripes[6] = helmetInEditor.Stripe7ColorIndex;
+                helmetInExe.Stripes[7] = helmetInEditor.Stripe8ColorIndex;
+                helmetInExe.Stripes[8] = helmetInEditor.Stripe9ColorIndex;
+                helmetInExe.Stripes[9] = helmetInEditor.Stripe10ColorIndex;
+                helmetInExe.Stripes[10] = helmetInEditor.Stripe11ColorIndex;
+                helmetInExe.Stripes[11] = helmetInEditor.Stripe12ColorIndex;
+                helmetInExe.Stripes[12] = helmetInEditor.Stripe13ColorIndex;
+            }
+
+            helmetEditor.WriteHelmetColors(list);
         }
     }
 }
