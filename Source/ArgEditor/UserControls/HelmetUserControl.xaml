@@ -12,7 +12,7 @@
         <argEditor:ColorConverter x:Key="ColorConverter" />
     </UserControl.Resources>
     <Viewbox Stretch="Uniform">
-        <Canvas Width="200" Height="166" Background="Transparent">
+        <Canvas Width="200" Height="166" Background="Transparent" Visibility="{Binding Parent.Visibility}">
         <!-- TODO: add polygon around outer edges, so that the Stroke of all other items can be removed for the thumbnails -->
 
         <Polygon Points="65,15 82,8 96,4 119,4 129,6 138,9 150,15"

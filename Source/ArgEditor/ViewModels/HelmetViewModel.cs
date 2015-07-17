@@ -2,8 +2,6 @@
 {
     public class HelmetViewModel : BaseViewModel
     {
-        private readonly DriverViewModel _parentDriverViewModel;
-
         public HelmetViewModel(DriverViewModel parentDriverViewModel)
         {
             VisorSurroundColorIndex = 6;
@@ -28,6 +26,15 @@
             Stripe12ColorIndex = colors[14];
             Stripe13ColorIndex = colors[15];
         }
+
+
+        private readonly DriverViewModel _parentDriverViewModel;
+
+        public DriverViewModel Parent
+        {
+            get { return _parentDriverViewModel; }
+        }
+
 
         private byte _visorColorIndex;
 
