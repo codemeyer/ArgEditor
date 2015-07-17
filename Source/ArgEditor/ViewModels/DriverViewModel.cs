@@ -17,7 +17,7 @@ namespace ArgEditor.ViewModels
             RaceGripLevel = raceGripLevel;
             QualifyingGripLevel = qualifyingGripLevel;
 
-            Helmet = new HelmetViewModel();
+            Helmet = new HelmetViewModel(this);
         }
 
         public byte Number

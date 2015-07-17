@@ -2,8 +2,15 @@
 {
     public class HelmetViewModel : BaseViewModel
     {
-        // TODO: if this remains, it should be hidden
-        public HelmetViewModel(byte[] colors)
+        private readonly DriverViewModel _parentDriverViewModel;
+
+        public HelmetViewModel(DriverViewModel parentDriverViewModel)
+        {
+            VisorSurroundColorIndex = 6;
+            _parentDriverViewModel = parentDriverViewModel;
+        }
+
+        protected HelmetViewModel(byte[] colors)
         {
             VisorColorIndex = colors[0];
             VisorSurroundColorIndex = colors[6];
@@ -20,11 +27,6 @@
             Stripe11ColorIndex = colors[13];
             Stripe12ColorIndex = colors[14];
             Stripe13ColorIndex = colors[15];
-        }
-
-        public HelmetViewModel()
-        {
-            VisorSurroundColorIndex = 6;
         }
 
         private byte _visorColorIndex;
@@ -126,6 +128,8 @@
 
                 _stripe5ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -141,6 +145,8 @@
 
                 _stripe6ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -156,6 +162,8 @@
 
                 _stripe7ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -171,6 +179,8 @@
 
                 _stripe8ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -186,6 +196,8 @@
 
                 _stripe9ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -201,6 +213,8 @@
 
                 _stripe10ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -216,6 +230,8 @@
 
                 _stripe11ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -231,6 +247,8 @@
 
                 _stripe12ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -246,28 +264,26 @@
 
                 _stripe13ColorIndex = value;
                 OnPropertyChanged();
+
+                SetBottomStripesIfNeeded(value);
             }
         }
 
 
-
-
-
-
-        // FUNKAR???
-
-        //private ObservableCollection<byte> _stripeColorIndices;
-
-        //public ObservableCollection<byte> StripeColorIndices
-        //{
-        //    get { return _stripeColorIndices; }
-        //    set
-        //    {
-        //        if (value.Equals(_stripeColorIndices)) return;
-
-        //        _stripeColorIndices = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        private void SetBottomStripesIfNeeded(byte colorIndex)
+        {
+            if (_parentDriverViewModel.Number == 15)
+            {
+                Stripe5ColorIndex = colorIndex;
+                Stripe6ColorIndex = colorIndex;
+                Stripe7ColorIndex = colorIndex;
+                Stripe8ColorIndex = colorIndex;
+                Stripe9ColorIndex = colorIndex;
+                Stripe10ColorIndex = colorIndex;
+                Stripe11ColorIndex = colorIndex;
+                Stripe12ColorIndex = colorIndex;
+                Stripe13ColorIndex = colorIndex;
+            }
+        }
     }
 }
