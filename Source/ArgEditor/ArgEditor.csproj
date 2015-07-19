@@ -36,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData, Version=0.6.0.115, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ArgData.0.6.0.115\lib\net452\ArgData.dll</HintPath>
+    <Reference Include="ArgData, Version=0.6.0.116, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArgData.0.6.0.116\lib\net452\ArgData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">

@@ -108,15 +108,21 @@ namespace ArgEditor.Interactors
 
         private static void WriteGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var gripLevels = new GripLevelEditor(exeFile);
+            var gripLevelEditor = new GripLevelEditor(exeFile);
+
+            byte[] raceGripLevels = new byte[40];
+            byte[] qualifyingGripLevels = new byte[40];
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
                 var driver = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1));
 
-                gripLevels.WriteQualifyingGripLevel(i, driver.QualifyingGripLevel);
-                gripLevels.WriteRaceGripLevel(i, driver.RaceGripLevel);
+                raceGripLevels[i] = driver.RaceGripLevel;
+                qualifyingGripLevels[i] = driver.QualifyingGripLevel;
             }
+
+            gripLevelEditor.WriteRaceGripLevels(raceGripLevels);
+            gripLevelEditor.WriteQualifyingGripLevels(qualifyingGripLevels);
         }
 
         private static DriverViewModel GetDriverWithNumber(IList<DriverViewModel> drivers, byte number)
