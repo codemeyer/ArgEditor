@@ -39,7 +39,15 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedCar = DataContextViewModel.SelectedTeam.Car;
 
-            AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car);
+            if (clickedPolygonEvent.PaletteTool == PaletteTool.Paint)
+            {
+                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car);
+            }
+            else if (clickedPolygonEvent.PaletteTool == PaletteTool.PickupColor)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
+                DataContextViewModel.Palette.SelectedColor = colorIndex;
+            }
         }
 
         private void PaintPitCrewUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
@@ -47,7 +55,15 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedPitCrew = DataContextViewModel.SelectedTeam.PitCrew;
 
-            AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew);
+            if (clickedPolygonEvent.PaletteTool == PaletteTool.Paint)
+            {
+                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew);
+            }
+            else if (clickedPolygonEvent.PaletteTool == PaletteTool.PickupColor)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
+                DataContextViewModel.Palette.SelectedColor = colorIndex;
+            }
         }
 
         private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement)

@@ -21,7 +21,15 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedHelmet = DataContextViewModel.SelectedHelmet;
 
-            AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet);
+            if (clickedPolygonEvent.PaletteTool == PaletteTool.Paint)
+            {
+                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet);
+            }
+            else if (clickedPolygonEvent.PaletteTool == PaletteTool.PickupColor)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
+                DataContextViewModel.Palette.SelectedColor = colorIndex;
+            }
         }
 
         // TODO: in some base class?

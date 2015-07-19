@@ -17,6 +17,12 @@ namespace ArgEditor.UserControls
 
         protected void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
         {
+            if (!IsEditable) { return; }
+
+            if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
+                Cursor = Cursors.Cross;
+            else
+                Cursor = Cursors.Pen;
         }
 
         protected void UIElement_OnMouseLeave(object sender, MouseEventArgs e)
@@ -36,10 +42,14 @@ namespace ArgEditor.UserControls
 
             var selectedCar = DataContext as CarEditingViewModel;
 
+            var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                ? PaletteTool.PickupColor
+                : PaletteTool.Paint;
+
             PropertyInfo prop = selectedCar.GetType().GetProperty(bindingPath);
             var property = new ColorPropertyWrapper(prop);
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
@@ -55,12 +65,21 @@ namespace ArgEditor.UserControls
 
     public class ClickedPolygonEventArgs : RoutedEventArgs
     {
-        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property)
+        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property, PaletteTool paletteTool)
             : base(routedEvent)
         {
             Property = property;
+            PaletteTool = paletteTool;
         }
 
         public ColorPropertyWrapper Property { get; set; }
+        public PaletteTool PaletteTool { get; set; }
+    }
+
+
+    public enum PaletteTool
+    {
+        Paint,
+        PickupColor
     }
 }

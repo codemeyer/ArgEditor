@@ -34,11 +34,15 @@ namespace ArgEditor.UserControls
 
             var selectedHelmet = DataContext as HelmetViewModel;
 
+            var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                ? PaletteTool.PickupColor
+                : PaletteTool.Paint;
+
             PropertyInfo prop = selectedHelmet.GetType().GetProperty(bindingPath);
 
             var property = new ColorPropertyWrapper(prop);
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
@@ -49,6 +53,16 @@ namespace ArgEditor.UserControls
         {
             add { AddHandler(ClickedPolygonUpdatedEvent, value); }
             remove { RemoveHandler(ClickedPolygonUpdatedEvent, value); }
+        }
+
+        private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (!IsEditable) { return; }
+
+            if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
+                Cursor = Cursors.Cross;
+            else
+                Cursor = Cursors.Pen;
         }
     }
 }
