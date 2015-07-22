@@ -9,8 +9,8 @@ namespace ArgEditor.Interactors
     {
         public void Load(MainViewModel viewModel, string path)
         {
-            NamesFileParser parser = new NamesFileParser();
-            var namesFile = parser.Parse(path);
+            var editor = new NamesFileEditor();
+            var namesFile = editor.Read(path);
 
             UpdateTeamNames(viewModel, namesFile);
             UpdateDriverNames(viewModel, namesFile);
@@ -18,7 +18,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateTeamNames(MainViewModel viewModel, NamesFile namesFile)
         {
-            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCount; i++)
             {
                 var fileTeam = namesFile.Teams[i];
                 var team = viewModel.Teams[i];
@@ -30,7 +30,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateDriverNames(MainViewModel viewModel, NamesFile namesFile)
         {
-            for (int i = 0; i < ArgEditorConstants.TeamCount; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {
                 var fileDriver = namesFile.Drivers[i];
                 var driver = viewModel.Drivers.SingleOrDefault(d => d.Number == i + 1);
