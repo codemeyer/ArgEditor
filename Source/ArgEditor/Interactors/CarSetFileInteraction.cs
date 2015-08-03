@@ -45,7 +45,6 @@ namespace ArgEditor.Interactors
         public void Save(MainViewModel viewModel, string path)
         {
             var carSet = new CarSetFile();
-            // TODO: no need to save ALL info in the view models
 
             foreach (var team in viewModel.Teams.Take(ArgEditorConstants.TeamCountSupported))
             {

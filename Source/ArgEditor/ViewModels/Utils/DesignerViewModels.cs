@@ -1,6 +1,6 @@
-﻿namespace ArgEditor.ViewModels.Utils
+﻿// ReSharper disable ClassNeverInstantiated.Global
+namespace ArgEditor.ViewModels.Utils
 {
-    // ReSharper disable once ClassNeverInstantiated.Global - Used by XAML Designer
     public class DesignerCarEditingViewModel : CarEditingViewModel
     {
         public DesignerCarEditingViewModel()
@@ -9,7 +9,6 @@
         }
     }
 
-    // ReSharper disable once ClassNeverInstantiated.Global - Used by XAML Designer
     public class DesignerHelmetViewModel : HelmetViewModel
     {
         public DesignerHelmetViewModel()
@@ -18,11 +17,18 @@
         }
     }
 
-    // ReSharper disable once ClassNeverInstantiated.Global - Used by XAML Designer
     public class DesignerPitCrewViewModel : PitCrewViewModel
     {
         public DesignerPitCrewViewModel()
             : base(new byte[] { 72, 68, 58, 56, 38 })
+        {
+        }
+    }
+
+    public class DesignerTeamViewModel : TeamViewModel
+    {
+        public DesignerTeamViewModel()
+            : base("Team", "Engine", new DriverViewModel(1, "Driver One", 1, 1), new DriverViewModel(2, "Driver Two", 2, 2))
         {
         }
     }

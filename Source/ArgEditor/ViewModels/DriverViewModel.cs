@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 
 namespace ArgEditor.ViewModels
 {
@@ -39,8 +40,25 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_name)) { return; }
                 _name = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(ShortName));
 
                 Enabled = !string.IsNullOrEmpty(_name);
+            }
+        }
+
+        public string ShortName
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_name)) { return string.Empty; }
+
+                var nameParts = _name.Split(' ');
+                if (nameParts.Length == 1)
+                    return _name;
+
+                var namio = nameParts[0].Substring(0, 1) + ". " + string.Join(" ", nameParts.Skip(1));
+
+                return namio;
             }
         }
 
@@ -52,9 +70,6 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_raceGripLevel)) { return; }
                 _raceGripLevel = value;
                 OnPropertyChanged();
-
-                // TODO: always set QualifyingGripLevel to the same as RaceGripLevel for now
-                QualifyingGripLevel = _raceGripLevel;
             }
         }
 
