@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ColorChange.cs" />
     <Compile Include="ColorConverter.cs" />
     <Compile Include="Constants.cs" />
@@ -130,6 +133,10 @@
     <Compile Include="ViewModels\TeamViewModel.cs" />
     <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
     <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
+    <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -86,5 +86,15 @@ namespace ArgEditor
         {
             Application.Current.Shutdown();
         }
+
+        private void HelpAboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var about = new AboutWindow
+            {
+                Owner = this
+            };
+
+            about.ShowDialog();
+        }
     }
 }
