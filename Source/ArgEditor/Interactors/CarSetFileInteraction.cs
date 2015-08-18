@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ArgEditor.ViewModels;
-using AutoMapper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -22,7 +21,7 @@ namespace ArgEditor.Interactors
                 var fileDriver = carSet.Drivers[i];
                 var driver = viewModel.Drivers[i];
 
-                Mapper.Map(fileDriver, driver);
+                Mapper.MapCarSetDriverToDriverViewModel(fileDriver, driver);
             }
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
@@ -30,9 +29,9 @@ namespace ArgEditor.Interactors
                 var fileTeam = carSet.Teams[i];
                 var team = viewModel.Teams[i];
 
-                Mapper.Map(fileTeam, team);
-                Mapper.Map(fileTeam.CarColors, team.Car);
-                Mapper.Map(fileTeam.PitCrewColors, team.PitCrew);
+                Mapper.MapCarSetTeamToTeamViewModel(fileTeam, team);
+                Mapper.MapCarSetCarColorsToCarEditingViewModel(fileTeam.CarColors, team.Car);
+                Mapper.MapCarSetPitCrewColorsToPitCrewViewModel(fileTeam.PitCrewColors, team.PitCrew);
 
                 team.Drivers.Add(viewModel.Drivers[i * 2]);
                 team.Drivers.Add(viewModel.Drivers[i * 2 + 1]);
@@ -48,15 +47,15 @@ namespace ArgEditor.Interactors
 
             foreach (var team in viewModel.Teams.Take(ArgEditorConstants.TeamCountSupported))
             {
-                var fileTeam = Mapper.Map<CarSetTeam>(team);
-                fileTeam.CarColors = Mapper.Map<CarSetCarColors>(team.Car);
-                fileTeam.PitCrewColors = Mapper.Map<CarSetPitCrewColors>(team.PitCrew);
+                var fileTeam = Mapper.MapCarSetTeam(team);
+                fileTeam.CarColors = Mapper.MapCarSetCarColors(team.Car);
+                fileTeam.PitCrewColors = Mapper.MapCarSetPitCrewColors(team.PitCrew);
                 carSet.Teams.Add(fileTeam);
             }
 
             foreach (var driver in viewModel.Drivers.Take(ArgEditorConstants.DriverCountSupported))
             {
-                var fileDriver = Mapper.Map<CarSetDriver>(driver);
+                var fileDriver = Mapper.MapCarSetDriver(driver);
                 carSet.Drivers.Add(fileDriver);
             }
 
