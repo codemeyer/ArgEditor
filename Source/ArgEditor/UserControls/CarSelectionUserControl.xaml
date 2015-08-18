@@ -11,40 +11,40 @@
         <WrapPanel Name="CarsPanel" HorizontalAlignment="Left" Height="795" Margin="10,10,0,0" VerticalAlignment="Top" Width="300">
             <userControls:CarAlternativeUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[0].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[1].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[0].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[1].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[0].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[1].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[2].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[3].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[2].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[3].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[2].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[3].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[4].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[5].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[4].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[5].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[4].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[5].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[6].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[7].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[6].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[7].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[6].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[7].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[8].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[9].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[8].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[9].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[8].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[9].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[10].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[11].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[10].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[11].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[10].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[11].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[12].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[13].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[12].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[13].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[12].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[13].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[14].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[15].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[14].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[15].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[14].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[15].Name}" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[16].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
             <userControls:CarUserControl Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="60" DataContext="{Binding Teams[17].Car}" MouseLeftButtonDown="CarUserControl_OnMouseLeftButtonDown" />
-            <Label Width="140" Height="25" Content="{Binding Teams[16].Name}" />
-            <Label Width="140" Height="25" Content="{Binding Teams[17].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[16].Name}" />
+            <Label Width="140" Height="25" Margin="0,-18,0,4" HorizontalContentAlignment="Right" Content="{Binding Teams[17].Name}" />
         </WrapPanel>
     </Grid>
 </UserControl>
