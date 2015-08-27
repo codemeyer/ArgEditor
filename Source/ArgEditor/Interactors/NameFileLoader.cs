@@ -9,14 +9,14 @@ namespace ArgEditor.Interactors
     {
         public void Load(MainViewModel viewModel, string path)
         {
-            var editor = new NamesFileEditor();
+            var editor = new NameFileEditor();
             var namesFile = editor.Read(path);
 
             UpdateTeamNames(viewModel, namesFile);
             UpdateDriverNames(viewModel, namesFile);
         }
 
-        private static void UpdateTeamNames(MainViewModel viewModel, NamesFile namesFile)
+        private static void UpdateTeamNames(MainViewModel viewModel, NameFile namesFile)
         {
             for (int i = 0; i < ArgEditorConstants.TeamCount; i++)
             {
@@ -28,7 +28,7 @@ namespace ArgEditor.Interactors
             }
         }
 
-        private static void UpdateDriverNames(MainViewModel viewModel, NamesFile namesFile)
+        private static void UpdateDriverNames(MainViewModel viewModel, NameFile namesFile)
         {
             for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {
