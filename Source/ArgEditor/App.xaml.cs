@@ -12,17 +12,6 @@ namespace ArgEditor
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            //Mapper.CreateMap<TeamViewModel, CarSetTeam>();
-            //Mapper.CreateMap<DriverViewModel, CarSetDriver>();
-            //Mapper.CreateMap<CarEditingViewModel, CarSetCarColors>();
-            //Mapper.CreateMap<PitCrewViewModel, CarSetPitCrewColors>();
-
-            //Mapper.CreateMap<CarSetTeam, TeamViewModel>();
-            //Mapper.CreateMap<CarSetDriver, DriverViewModel>();
-            //Mapper.CreateMap<CarSetCarColors, CarEditingViewModel>();
-            //Mapper.CreateMap<CarSetPitCrewColors, PitCrewViewModel>();
-
-
             CarColorUndoStacks = new Stack<ColorChange>[20];
             CarColorRedoStacks = new Stack<ColorChange>[20];
 
@@ -41,6 +30,9 @@ namespace ArgEditor
                 HelmetColorRedoStacks[i] = new Stack<ColorChange>();
             }
 
+            ClipboardCar = null;
+            ClipboardHelmet = null;
+
             base.OnStartup(e);
         }
 
@@ -48,5 +40,8 @@ namespace ArgEditor
         public static Stack<ColorChange>[] CarColorRedoStacks { get; private set; }
         public static Stack<ColorChange>[] HelmetColorUndoStacks { get; private set; }
         public static Stack<ColorChange>[] HelmetColorRedoStacks { get; private set; }
+
+        public static CarEditingViewModel ClipboardCar { get; set; }
+        public static HelmetViewModel ClipboardHelmet { get; set; }
     }
 }

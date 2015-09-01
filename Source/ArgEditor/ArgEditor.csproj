@@ -39,8 +39,8 @@
     <StartupObject>ArgEditor.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData, Version=0.6.0.122, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ArgData.0.6.0.122\lib\net452\ArgData.dll</HintPath>
+    <Reference Include="ArgData, Version=0.6.0.123, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArgData.0.6.0.123\lib\net452\ArgData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -88,8 +88,11 @@
     <Compile Include="UserControls\CarPaintingTabUserControl.xaml.cs">
       <DependentUpon>CarPaintingTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSelectionUserControl.xaml.cs">
-      <DependentUpon>CarSelectionUserControl.xaml</DependentUpon>
+    <Compile Include="UserControls\CarSelectionItemUserControl.xaml.cs">
+      <DependentUpon>CarSelectionItemUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CarSelectionListUserControl.xaml.cs">
+      <DependentUpon>CarSelectionListUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CarUserControl.xaml.cs">
       <DependentUpon>CarUserControl.xaml</DependentUpon>
@@ -133,6 +136,7 @@
     <Compile Include="ViewModels\TeamViewModel.cs" />
     <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
     <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
+    <Compile Include="WpfUtils.cs" />
     <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,7 +161,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSelectionUserControl.xaml">
+    <Page Include="UserControls\CarSelectionItemUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CarSelectionListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

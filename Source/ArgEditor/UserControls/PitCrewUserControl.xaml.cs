@@ -42,7 +42,7 @@ namespace ArgEditor.UserControls
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
             EventManager.RegisterRoutedEvent("ClickedPitCrewPolygon", RoutingStrategy.Bubble,
-                typeof(RoutedEventHandler), typeof(CarSelectionUserControl));
+                typeof(RoutedEventHandler), typeof(CarSelectionItemUserControl));   // ?
 
         public event RoutedEventHandler ClickedPitCrewPolygon
         {

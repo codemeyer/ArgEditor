@@ -100,5 +100,22 @@ namespace ArgEditor
         }
 
         // TODO: helmets
+
+        public static void MapCarEditingViewModel(CarEditingViewModel source, CarEditingViewModel target)
+        {
+            target.CockpitFrontColorIndex = source.CockpitFrontColorIndex;
+            target.CockpitSideColorIndex = source.CockpitSideColorIndex;
+            target.EngineCoverColorIndex = source.EngineCoverColorIndex;
+            target.EngineCoverRearColorIndex = source.EngineCoverRearColorIndex;
+            target.EngineCoverSideColorIndex = source.EngineCoverSideColorIndex;
+            target.FrontAndRearWingColorIndex = source.FrontAndRearWingColorIndex;
+            target.FrontWingEndplateColorIndex = source.FrontWingEndplateColorIndex;
+            target.NoseAngleColorIndex = source.NoseAngleColorIndex;
+            target.NoseSideColorIndex = source.NoseSideColorIndex;
+            target.NoseTopColorIndex = source.NoseTopColorIndex;
+            target.RearWingSideColorIndex = source.RearWingSideColorIndex;
+            target.SidepodColorIndex = source.SidepodColorIndex;
+            target.SidepodTopColorIndex = source.SidepodTopColorIndex;
+        }
     }
 }
