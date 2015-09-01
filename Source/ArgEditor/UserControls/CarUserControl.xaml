@@ -1,16 +1,16 @@
-﻿<userControls:CarBaseUserControl x:Class="ArgEditor.UserControls.CarUserControl"
+﻿<UserControl x:Class="ArgEditor.UserControls.CarUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:argEditor="clr-namespace:ArgEditor"
-             xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              xmlns:utils="clr-namespace:ArgEditor.ViewModels.Utils"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=utils:DesignerCarEditingViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="280" d:DesignWidth="780">
     <UserControl.Resources>
         <argEditor:ColorConverter x:Key="ColorConverter" />
+        <argEditor:VisibilityConverter x:Key="VisibilityConverter" />
     </UserControl.Resources>
     <Viewbox Stretch="Uniform">
         <Canvas Width="780" Height="280" Opacity="{Binding Opacity}" Background="Transparent">
@@ -19,11 +19,24 @@
             <Polygon Points="12,223 92,170 92,200" Stroke="Black" Fill="Black" Canvas.Top="-27" Canvas.Left="-4" />
             <Polygon Points="44,282 12,223 92,198 138,259" Stroke="Black" Fill="{Binding FrontAndRearWingColorIndex, Converter={StaticResource ColorConverter}}" Tag="FrontAndRearWingColorIndex"
                      MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
+
+            <!-- Regular Nose -->
             <Polygon Points="24,243 230,153 332,138 30,253" Stroke="Black" Fill="{Binding NoseTopColorIndex, Converter={StaticResource ColorConverter}}" Tag="NoseTopColorIndex"
+                     Visibility="{Binding IsRegularShape, Converter={StaticResource VisibilityConverter}}"
                      MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseDown="UIElement_OnMouseDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
             <Polygon Points="230,153 332,138 320,117" Stroke="Black" Fill="{Binding CockpitFrontColorIndex, Converter={StaticResource ColorConverter}}" Tag="CockpitTopColorIndex"
+                     Visibility="{Binding IsRegularShape, Converter={StaticResource VisibilityConverter}}"
                      MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseDown="UIElement_OnMouseDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
             <Polygon Points="33,253 332,138 341,176" Stroke="Black" Fill="{Binding NoseAngleColorIndex, Converter={StaticResource ColorConverter}}" Tag="NoseAngleColorIndex"
+                     Visibility="{Binding IsRegularShape, Converter={StaticResource VisibilityConverter}}"
+                     MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseDown="UIElement_OnMouseDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
+
+            <!-- Special Nose -->
+            <Polygon Points="24,243 270,138 220,207 30,253" Stroke="Black" Fill="{Binding NoseTopColorIndex, Converter={StaticResource ColorConverter}}" Tag="NoseTopColorIndex"
+                     Visibility="{Binding IsSpecialShape, Converter={StaticResource VisibilityConverter}}"
+                     MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseDown="UIElement_OnMouseDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
+            <Polygon Points="270,138 220,207 341,176 332,138 320,117" Stroke="Black" Fill="{Binding CockpitFrontColorIndex, Converter={StaticResource ColorConverter}}" Tag="CockpitTopColorIndex"
+                     Visibility="{Binding IsSpecialShape, Converter={StaticResource VisibilityConverter}}"
                      MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseDown="UIElement_OnMouseDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
 
             <Polygon Points="33,253 341,176 437,159 437,208" Stroke="Black" Fill="{Binding NoseSideColorIndex, Converter={StaticResource ColorConverter}}" Tag="NoseSideColorIndex"
@@ -64,4 +77,4 @@
             <Image Source="/ArgEditor;component/Resources/left-rear.png" Canvas.Left="656" Canvas.Top="91" Width="119"></Image>
         </Canvas>
     </Viewbox>
-</userControls:CarBaseUserControl>
+</UserControl>

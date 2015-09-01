@@ -20,17 +20,6 @@ namespace ArgEditor.UserControls
         {
             int teamIndex = (e as SelectedTeamEventArgs).TeamIndex;
 
-            if (teamIndex > 0)
-            {
-                PaintCarUserControl.Visibility = Visibility.Visible;
-                PaintCarAlternativeUserControl.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                PaintCarAlternativeUserControl.Visibility = Visibility.Visible;
-                PaintCarUserControl.Visibility = Visibility.Hidden;
-            }
-
             DataContextViewModel.SelectTeamByIndex(teamIndex);
         }
 

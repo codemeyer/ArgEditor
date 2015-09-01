@@ -8,8 +8,7 @@
              d:DesignHeight="740" d:DesignWidth="1000">
     <Grid KeyDown="CarPaintingTab_KeyDown">
         <userControls:CarSelectionListUserControl SelectedTeamUpdated="CarSelectionUserControl_OnSelectedTeamUpdated" HorizontalAlignment="Left" Height="699" Margin="10,10,0,0" VerticalAlignment="Top" Width="362"/>
-        <userControls:CarUserControl DataContext="{Binding SelectedTeam.Car}"  Margin="379,10,10,439" Visibility="Hidden" x:Name="PaintCarUserControl" IsEditable="true" ClickedPolygon="PaintCarUserControl_OnClickedPolygon"></userControls:CarUserControl>
-        <userControls:CarAlternativeUserControl DataContext="{Binding SelectedTeam.Car}"  Margin="379,10,10,439" x:Name="PaintCarAlternativeUserControl" IsEditable="true" ClickedPolygon="PaintCarUserControl_OnClickedPolygon"/>
+        <userControls:CarUserControl DataContext="{Binding SelectedTeam.Car}"  Margin="379,10,10,439"  x:Name="PaintCarUserControl" IsEditable="true" ClickedPolygon="PaintCarUserControl_OnClickedPolygon"></userControls:CarUserControl>
         <userControls:PitCrewUserControl DataContext="{Binding SelectedTeam.PitCrew}" Margin="312,262,330,87" ClickedPitCrewPolygon="PaintPitCrewUserControl_OnClickedPolygon"></userControls:PitCrewUserControl>
         <userControls:PaletteUserControl DataContext="{Binding Palette}" HorizontalAlignment="Left" Margin="650,326,0,0" VerticalAlignment="Top" Height="327"/>
     </Grid>

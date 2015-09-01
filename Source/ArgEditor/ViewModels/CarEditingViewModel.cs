@@ -40,6 +40,7 @@
         private byte _engineCoverSideColorIndex;
         private byte _engineCoverRearColorIndex;
         private double _opacity;
+        private bool _isSpecialShape;
 
         public byte FrontAndRearWingColorIndex
         {
@@ -117,6 +118,11 @@
                 if (value == _noseTopColorIndex) return;
                 _noseTopColorIndex = value;
                 OnPropertyChanged();
+
+                if (IsSpecialShape)
+                {
+                    NoseAngleColorIndex = value;
+                }
             }
         }
 
@@ -194,6 +200,20 @@
                 _opacity = value;
                 OnPropertyChanged();
             }
+        }
+
+        public bool IsSpecialShape
+        {
+            get { return _isSpecialShape; }
+            set
+            {
+                _isSpecialShape = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool IsRegularShape
+        {
+            get { return !_isSpecialShape; }
         }
     }
 }

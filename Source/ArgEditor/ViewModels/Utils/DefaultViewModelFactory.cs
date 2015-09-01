@@ -90,6 +90,10 @@ namespace ArgEditor.ViewModels.Utils
                 mainViewModel.Teams[t].Engine = teams[t].Item2;
                 mainViewModel.Teams[t].Horsepower = teams[t].Item3;
                 mainViewModel.Teams[t].Car = new CarEditingViewModel(teams[t].Item4);
+                if (t == 0)
+                {
+                    mainViewModel.Teams[t].Car.IsSpecialShape = true;
+                }
                 mainViewModel.Teams[t].PitCrew = new PitCrewViewModel(teams[t].Item5);
             }
 

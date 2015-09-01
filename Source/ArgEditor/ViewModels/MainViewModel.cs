@@ -34,7 +34,7 @@ namespace ArgEditor.ViewModels
                 if (driverIndex >= ArgEditorConstants.DriverCountSupported)
                     number = 0;
 
-                string driverName = string.Format("Driver {0}", driverIndex + 1);
+                string driverName = $"Driver {driverIndex + 1}";
                 var driverViewModel = new DriverViewModel(number, driverName, number, number);
                 driverViewModel.PropertyChanged += DriverViewModelOnPropertyChanged;
                 Drivers.Add(driverViewModel);
@@ -46,14 +46,20 @@ namespace ArgEditor.ViewModels
             Teams = new List<TeamViewModel>();
             for (int teamIndex = 0; teamIndex < ArgEditorConstants.TeamCount; teamIndex++)
             {
-                string teamName = string.Format("Team {0}", teamIndex + 1);
-                string engineName = string.Format("Engine {0}", teamIndex + 1);
+                string teamName = $"Team {teamIndex + 1}";
+                string engineName = $"Engine {teamIndex + 1}";
                 int driverStartIndex = teamIndex*2;
                 var teamViewModel = new TeamViewModel(teamName, engineName, Drivers[driverStartIndex],
                     Drivers[driverStartIndex + 1]);
                 Drivers[driverStartIndex].Team = teamViewModel;
                 Drivers[driverStartIndex + 1].Team = teamViewModel;
                 teamViewModel.PropertyChanged += TeamViewModelOnPropertyChanged;
+
+                if (teamIndex == 0)
+                {
+                    teamViewModel.Car.IsSpecialShape = true;
+                }
+
                 Teams.Add(teamViewModel);
             }
         }
