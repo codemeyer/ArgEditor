@@ -70,8 +70,8 @@ namespace ArgEditor.ViewModels.Utils
                 new Tuple<string, string, int, byte[], byte[]>("Coloni", "Ford", 610, new byte[]{ 94, 40, 45, 45, 45, 45, 47, 40, 39, 39, 39, 39, 47  }, DefaultPitCrewColors()),
                 new Tuple<string, string, int, byte[], byte[]>("Jordan", "Ford", 680, new byte[]{ 71, 72, 70, 70, 91, 92, 72, 72, 71, 71, 71, 71, 72 }, DefaultPitCrewColors()),
                 new Tuple<string, string, int, byte[], byte[]>("Modena Team", "Lamborghini", 615, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors()),
-                new Tuple<string, string, int, byte[], byte[]>("", "", 0, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors()),
-                new Tuple<string, string, int, byte[], byte[]>("", "", 0, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors())
+                //new Tuple<string, string, int, byte[], byte[]>("", "", 0, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors()),
+                //new Tuple<string, string, int, byte[], byte[]>("", "", 0, new byte[]{ 88, 88, 32, 32, 86, 86, 33, 88, 87, 87, 87, 87, 88 }, DefaultPitCrewColors())
             };
 
             var mainViewModel = new MainViewModel();

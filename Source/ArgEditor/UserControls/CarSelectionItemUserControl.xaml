@@ -9,6 +9,6 @@
     <Grid Width="140" Height="65">
         <Border BorderThickness="0.5" BorderBrush="DarkGray"></Border>
         <userControls:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="48" DataContext="{Binding Car}" />
-        <Label Width="140" Height="24" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
+        <Label Width="140" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
     </Grid>
 </UserControl>

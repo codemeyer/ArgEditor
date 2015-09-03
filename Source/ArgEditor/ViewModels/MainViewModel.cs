@@ -44,7 +44,7 @@ namespace ArgEditor.ViewModels
         private void SetupTeams()
         {
             Teams = new List<TeamViewModel>();
-            for (int teamIndex = 0; teamIndex < ArgEditorConstants.TeamCount; teamIndex++)
+            for (int teamIndex = 0; teamIndex < ArgEditorConstants.TeamCountSupported; teamIndex++)
             {
                 string teamName = $"Team {teamIndex + 1}";
                 string engineName = $"Engine {teamIndex + 1}";
