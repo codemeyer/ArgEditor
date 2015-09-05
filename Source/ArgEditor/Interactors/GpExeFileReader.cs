@@ -22,9 +22,9 @@ namespace ArgEditor.Interactors
 
         private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorEditor = new CarColorEditor(exeFile);
+            var carColorReader = new CarColorReader(exeFile);
 
-            var list = colorEditor.ReadCarColors();
+            var list = carColorReader.ReadCarColors();
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
@@ -49,9 +49,9 @@ namespace ArgEditor.Interactors
 
         private static void UpdatePitCrewColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorEditor = new PitCrewColorEditor(exeFile);
+            var crewColorReader = new PitCrewColorReader(exeFile);
 
-            var list = colorEditor.ReadPitCrewColors();
+            var list = crewColorReader.ReadPitCrewColors();
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
@@ -68,17 +68,17 @@ namespace ArgEditor.Interactors
 
         private static void UpdateTeamHorsepower(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var teamHorsepowerEditor = new TeamHorsepowerEditor(exeFile);
+            var horsepowerReader = new TeamHorsepowerReader(exeFile);
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
-                viewModel.Teams[i].Horsepower = teamHorsepowerEditor.ReadTeamHorsepower(i);
+                viewModel.Teams[i].Horsepower = horsepowerReader.ReadTeamHorsepower(i);
             }
         }
 
         private static void UpdateDriverNumbers(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var numbers = new DriverNumberEditor(exeFile);
+            var numbers = new DriverNumberReader(exeFile);
 
             var values = numbers.ReadDriverNumbers();
 
@@ -90,7 +90,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var gripLevels = new GripLevelEditor(exeFile);
+            var gripLevels = new GripLevelReader(exeFile);
 
             for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {
@@ -115,9 +115,9 @@ namespace ArgEditor.Interactors
 
         private void UpdateHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorEditor = new HelmetEditor(exeFile);
+            var helmetColorReader = new HelmetReader(exeFile);
 
-            var list = colorEditor.ReadHelmetColors();
+            var list = helmetColorReader.ReadHelmetColors();
 
             for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {

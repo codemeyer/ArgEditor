@@ -9,7 +9,7 @@ namespace ArgEditor.Interactors
     {
         public void Load(MainViewModel viewModel, string path)
         {
-            var editor = new NameFileEditor();
+            var editor = new NameFileReader();
             var namesFile = editor.Read(path);
 
             UpdateTeamNames(viewModel, namesFile);

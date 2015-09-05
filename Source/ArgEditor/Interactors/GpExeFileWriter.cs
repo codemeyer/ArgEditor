@@ -22,9 +22,9 @@ namespace ArgEditor.Interactors
 
         private static void WriteCarColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorEditor = new CarColorEditor(exeFile);
+            var colorReader = new CarColorReader(exeFile);
 
-            var list = colorEditor.ReadCarColors();
+            var list = colorReader.ReadCarColors();
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
@@ -46,14 +46,16 @@ namespace ArgEditor.Interactors
                 carInExe.NoseSide = carInEditor.NoseSideColorIndex;
             }
 
-            colorEditor.WriteCarColors(list);
+            var colorWriter = new CarColorWriter(exeFile);
+
+            colorWriter.WriteCarColors(list);
         }
 
         private static void WritePitCrewColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorEditor = new PitCrewColorEditor(exeFile);
+            var colorReader = new PitCrewColorReader(exeFile);
 
-            var list = colorEditor.ReadPitCrewColors();
+            var list = colorReader.ReadPitCrewColors();
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
@@ -67,12 +69,14 @@ namespace ArgEditor.Interactors
                 pitCrewInExe.Socks = pitCrewInEditor.SocksColorIndex;
             }
 
-            colorEditor.WritePitCrewColors(list);
+            var colorWriter = new PitCrewColorWriter(exeFile);
+
+            colorWriter.WritePitCrewColors(list);
         }
 
         private static void WriteTeamHorsepower(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var teamHorsepowerEditor = new TeamHorsepowerEditor(exeFile);
+            var teamHorsepowerEditor = new TeamHorsepowerWriter(exeFile);
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
@@ -102,13 +106,13 @@ namespace ArgEditor.Interactors
                 values[i] = value;
             }
 
-            var numbers = new DriverNumberEditor(exeFile);
+            var numbers = new DriverNumberWriter(exeFile);
             numbers.WriteDriverNumbers(values);
         }
 
         private static void WriteGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var gripLevelEditor = new GripLevelEditor(exeFile);
+            var gripLevelEditor = new GripLevelWriter(exeFile);
 
             byte[] raceGripLevels = new byte[40];
             byte[] qualifyingGripLevels = new byte[40];
@@ -139,9 +143,9 @@ namespace ArgEditor.Interactors
 
         private void WriteHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var helmetEditor = new HelmetEditor(exeFile);
+            var helmetReader = new HelmetReader(exeFile);
 
-            var list = helmetEditor.ReadHelmetColors();
+            var list = helmetReader.ReadHelmetColors();
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
@@ -165,7 +169,9 @@ namespace ArgEditor.Interactors
                 helmetInExe.Stripes[12] = helmetInEditor.Stripe13ColorIndex;
             }
 
-            helmetEditor.WriteHelmetColors(list);
+            var helmetWriter = new HelmetWriter(exeFile);
+
+            helmetWriter.WriteHelmetColors(list);
         }
     }
 }
