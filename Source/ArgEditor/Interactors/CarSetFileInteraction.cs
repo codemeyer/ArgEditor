@@ -22,6 +22,7 @@ namespace ArgEditor.Interactors
                 var driver = viewModel.Drivers[i];
 
                 Mapper.MapCarSetDriverToDriverViewModel(fileDriver, driver);
+                Mapper.MapCarSetHelmetToHelmetViewModel(fileDriver.HelmetColors, driver.Helmet);
             }
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
@@ -56,6 +57,7 @@ namespace ArgEditor.Interactors
             foreach (var driver in viewModel.Drivers.Take(ArgEditorConstants.DriverCountSupported))
             {
                 var fileDriver = Mapper.MapCarSetDriver(driver);
+                fileDriver.HelmetColors = Mapper.MapCarSetHelmetColors(driver.Helmet);
                 carSet.Drivers.Add(fileDriver);
             }
 
@@ -100,6 +102,7 @@ namespace ArgEditor.Interactors
         public string Name { get; set; }
         public byte RaceGripLevel { get; set; }
         public byte QualifyingGripLevel { get; set; }
+        public CarSetHelmetColors HelmetColors { get; set; }
     }
 
     public class CarSetTeam
@@ -113,27 +116,46 @@ namespace ArgEditor.Interactors
 
     public class CarSetPitCrewColors
     {
-        public byte ShirtPrimaryColorIndex { get; set; }
-        public byte ShirtSecondaryColorIndex { get; set; }
-        public byte PantsPrimaryColorIndex { get; set; }
-        public byte PantsSecondaryColorIndex  { get; set; }
-        public byte SocksColorIndex { get; set; }
+        public byte ShirtPrimary { get; set; }
+        public byte ShirtSecondary { get; set; }
+        public byte PantsPrimary { get; set; }
+        public byte PantsSecondary { get; set; }
+        public byte Socks { get; set; }
     }
 
     public class CarSetCarColors
     {
-            public byte EngineCoverColorIndex { get; set; }
-            public byte CockpitFrontColorIndex { get; set; }
-            public byte FrontWingEndplateColorIndex { get; set; }
-            public byte RearWingSideColorIndex { get; set; }
-            public byte NoseSideColorIndex { get; set; }
-            public byte SidepodColorIndex { get; set; }
-            public byte FrontAndRearWingColorIndex { get; set; }
-            public byte NoseTopColorIndex { get; set; }
-            public byte NoseAngleColorIndex { get; set; }
-            public byte CockpitSideColorIndex { get; set; }
-            public byte EngineCoverSideColorIndex { get; set; }
-            public byte EngineCoverRearColorIndex { get; set; }
-            public byte SidepodTopColorIndex { get; set; }
+        public byte EngineCover { get; set; }
+        public byte CockpitFront { get; set; }
+        public byte FrontWingEndplate { get; set; }
+        public byte RearWingSide { get; set; }
+        public byte NoseSide { get; set; }
+        public byte Sidepod { get; set; }
+        public byte FrontAndRearWing { get; set; }
+        public byte NoseTop { get; set; }
+        public byte NoseAngle { get; set; }
+        public byte CockpitSide { get; set; }
+        public byte EngineCoverSide { get; set; }
+        public byte EngineCoverRear { get; set; }
+        public byte SidepodTop { get; set; }
+    }
+
+    public class CarSetHelmetColors
+    {
+        public byte Stripe1 { get; set; }
+        public byte Stripe2 { get; set; }
+        public byte Stripe3 { get; set; }
+        public byte Stripe4 { get; set; }
+        public byte Stripe5 { get; set; }
+        public byte Stripe6 { get; set; }
+        public byte Stripe7 { get; set; }
+        public byte Stripe8 { get; set; }
+        public byte Stripe9 { get; set; }
+        public byte Stripe10 { get; set; }
+        public byte Stripe11 { get; set; }
+        public byte Stripe12 { get; set; }
+        public byte Stripe13 { get; set; }
+        public byte Visor { get; set; }
+        public byte VisorSurround { get; set; }
     }
 }

@@ -143,7 +143,7 @@ namespace ArgEditor.Interactors
 
         private void WriteHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var helmetReader = new HelmetReader(exeFile);
+            var helmetReader = new HelmetColorReader(exeFile);
 
             var list = helmetReader.ReadHelmetColors();
 
@@ -169,7 +169,7 @@ namespace ArgEditor.Interactors
                 helmetInExe.Stripes[12] = helmetInEditor.Stripe13ColorIndex;
             }
 
-            var helmetWriter = new HelmetWriter(exeFile);
+            var helmetWriter = new HelmetColorWriter(exeFile);
 
             helmetWriter.WriteHelmetColors(list);
         }

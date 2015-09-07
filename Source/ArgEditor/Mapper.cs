@@ -19,19 +19,19 @@ namespace ArgEditor
         {
             return new CarSetCarColors
             {
-                CockpitFrontColorIndex = car.CockpitFrontColorIndex,
-                CockpitSideColorIndex = car.CockpitSideColorIndex,
-                EngineCoverColorIndex = car.EngineCoverColorIndex,
-                EngineCoverRearColorIndex = car.EngineCoverRearColorIndex,
-                EngineCoverSideColorIndex = car.EngineCoverSideColorIndex,
-                FrontAndRearWingColorIndex = car.FrontAndRearWingColorIndex,
-                FrontWingEndplateColorIndex = car.FrontWingEndplateColorIndex,
-                NoseAngleColorIndex = car.NoseAngleColorIndex,
-                NoseSideColorIndex = car.NoseSideColorIndex,
-                NoseTopColorIndex = car.NoseTopColorIndex,
-                RearWingSideColorIndex = car.RearWingSideColorIndex,
-                SidepodColorIndex = car.SidepodColorIndex,
-                SidepodTopColorIndex = car.SidepodTopColorIndex
+                CockpitFront = car.CockpitFrontColorIndex,
+                CockpitSide = car.CockpitSideColorIndex,
+                EngineCover = car.EngineCoverColorIndex,
+                EngineCoverRear = car.EngineCoverRearColorIndex,
+                EngineCoverSide = car.EngineCoverSideColorIndex,
+                FrontAndRearWing = car.FrontAndRearWingColorIndex,
+                FrontWingEndplate = car.FrontWingEndplateColorIndex,
+                NoseAngle = car.NoseAngleColorIndex,
+                NoseSide = car.NoseSideColorIndex,
+                NoseTop = car.NoseTopColorIndex,
+                RearWingSide = car.RearWingSideColorIndex,
+                Sidepod = car.SidepodColorIndex,
+                SidepodTop = car.SidepodTopColorIndex
             };
         }
 
@@ -39,11 +39,11 @@ namespace ArgEditor
         {
             return new CarSetPitCrewColors
             {
-                PantsPrimaryColorIndex = pitCrew.PantsPrimaryColorIndex,
-                PantsSecondaryColorIndex = pitCrew.PantsSecondaryColorIndex,
-                ShirtPrimaryColorIndex = pitCrew.ShirtPrimaryColorIndex,
-                ShirtSecondaryColorIndex = pitCrew.ShirtSecondaryColorIndex,
-                SocksColorIndex = pitCrew.SocksColorIndex
+                PantsPrimary = pitCrew.PantsPrimaryColorIndex,
+                PantsSecondary = pitCrew.PantsSecondaryColorIndex,
+                ShirtPrimary = pitCrew.ShirtPrimaryColorIndex,
+                ShirtSecondary = pitCrew.ShirtSecondaryColorIndex,
+                Socks = pitCrew.SocksColorIndex
             };
         }
 
@@ -54,7 +54,29 @@ namespace ArgEditor
                 Name = driver.Name,
                 Number = driver.Number,
                 QualifyingGripLevel = driver.QualifyingGripLevel,
-                RaceGripLevel = driver.RaceGripLevel
+                RaceGripLevel = driver.RaceGripLevel,
+            };
+        }
+
+        public static CarSetHelmetColors MapCarSetHelmetColors(HelmetViewModel helmet)
+        {
+            return new CarSetHelmetColors
+            {
+                Stripe1 = helmet.Stripe1ColorIndex,
+                Stripe2 = helmet.Stripe2ColorIndex,
+                Stripe3 = helmet.Stripe3ColorIndex,
+                Stripe4 = helmet.Stripe4ColorIndex,
+                Stripe5 = helmet.Stripe5ColorIndex,
+                Stripe6 = helmet.Stripe6ColorIndex,
+                Stripe7 = helmet.Stripe7ColorIndex,
+                Stripe8 = helmet.Stripe8ColorIndex,
+                Stripe9 = helmet.Stripe9ColorIndex,
+                Stripe10 = helmet.Stripe10ColorIndex,
+                Stripe11 = helmet.Stripe11ColorIndex,
+                Stripe12 = helmet.Stripe12ColorIndex,
+                Stripe13 = helmet.Stripe13ColorIndex,
+                Visor = helmet.VisorColorIndex,
+                VisorSurround = helmet.VisorSurroundColorIndex
             };
         }
 
@@ -67,28 +89,28 @@ namespace ArgEditor
 
         public static void MapCarSetCarColorsToCarEditingViewModel(CarSetCarColors carColors, CarEditingViewModel car)
         {
-            car.CockpitFrontColorIndex = carColors.CockpitFrontColorIndex;
-            car.CockpitSideColorIndex = carColors.CockpitSideColorIndex;
-            car.EngineCoverColorIndex = carColors.EngineCoverColorIndex;
-            car.EngineCoverRearColorIndex = carColors.EngineCoverRearColorIndex;
-            car.EngineCoverSideColorIndex = carColors.EngineCoverSideColorIndex;
-            car.FrontAndRearWingColorIndex = carColors.FrontAndRearWingColorIndex;
-            car.FrontWingEndplateColorIndex = carColors.FrontWingEndplateColorIndex;
-            car.NoseAngleColorIndex = carColors.NoseAngleColorIndex;
-            car.NoseSideColorIndex = carColors.NoseSideColorIndex;
-            car.NoseTopColorIndex = carColors.NoseTopColorIndex;
-            car.RearWingSideColorIndex = carColors.RearWingSideColorIndex;
-            car.SidepodColorIndex = carColors.SidepodColorIndex;
-            car.SidepodTopColorIndex = carColors.SidepodTopColorIndex;
+            car.CockpitFrontColorIndex = carColors.CockpitFront;
+            car.CockpitSideColorIndex = carColors.CockpitSide;
+            car.EngineCoverColorIndex = carColors.EngineCover;
+            car.EngineCoverRearColorIndex = carColors.EngineCoverRear;
+            car.EngineCoverSideColorIndex = carColors.EngineCoverSide;
+            car.FrontAndRearWingColorIndex = carColors.FrontAndRearWing;
+            car.FrontWingEndplateColorIndex = carColors.FrontWingEndplate;
+            car.NoseAngleColorIndex = carColors.NoseAngle;
+            car.NoseSideColorIndex = carColors.NoseSide;
+            car.NoseTopColorIndex = carColors.NoseTop;
+            car.RearWingSideColorIndex = carColors.RearWingSide;
+            car.SidepodColorIndex = carColors.Sidepod;
+            car.SidepodTopColorIndex = carColors.SidepodTop;
         }
 
         public static void MapCarSetPitCrewColorsToPitCrewViewModel(CarSetPitCrewColors pitCrewColors, PitCrewViewModel pitCrew)
         {
-            pitCrew.ShirtPrimaryColorIndex = pitCrewColors.ShirtPrimaryColorIndex;
-            pitCrew.ShirtSecondaryColorIndex = pitCrewColors.ShirtSecondaryColorIndex;
-            pitCrew.PantsPrimaryColorIndex = pitCrewColors.PantsPrimaryColorIndex;
-            pitCrew.PantsSecondaryColorIndex = pitCrewColors.PantsSecondaryColorIndex;
-            pitCrew.SocksColorIndex = pitCrewColors.SocksColorIndex;
+            pitCrew.ShirtPrimaryColorIndex = pitCrewColors.ShirtPrimary;
+            pitCrew.ShirtSecondaryColorIndex = pitCrewColors.ShirtSecondary;
+            pitCrew.PantsPrimaryColorIndex = pitCrewColors.PantsPrimary;
+            pitCrew.PantsSecondaryColorIndex = pitCrewColors.PantsSecondary;
+            pitCrew.SocksColorIndex = pitCrewColors.Socks;
         }
 
         public static void MapCarSetDriverToDriverViewModel(CarSetDriver fileDriver, DriverViewModel driver)
@@ -99,7 +121,24 @@ namespace ArgEditor
             driver.RaceGripLevel = fileDriver.RaceGripLevel;
         }
 
-        // TODO: helmets
+        public static void MapCarSetHelmetToHelmetViewModel(CarSetHelmetColors fileHelmet, HelmetViewModel helmet)
+        {
+            helmet.Stripe1ColorIndex = fileHelmet.Stripe1;
+            helmet.Stripe2ColorIndex = fileHelmet.Stripe2;
+            helmet.Stripe3ColorIndex = fileHelmet.Stripe3;
+            helmet.Stripe4ColorIndex = fileHelmet.Stripe4;
+            helmet.Stripe5ColorIndex = fileHelmet.Stripe5;
+            helmet.Stripe6ColorIndex = fileHelmet.Stripe6;
+            helmet.Stripe7ColorIndex = fileHelmet.Stripe7;
+            helmet.Stripe8ColorIndex = fileHelmet.Stripe8;
+            helmet.Stripe9ColorIndex = fileHelmet.Stripe9;
+            helmet.Stripe10ColorIndex = fileHelmet.Stripe10;
+            helmet.Stripe11ColorIndex = fileHelmet.Stripe11;
+            helmet.Stripe12ColorIndex = fileHelmet.Stripe12;
+            helmet.Stripe13ColorIndex = fileHelmet.Stripe13;
+            helmet.VisorColorIndex = fileHelmet.Visor;
+            helmet.VisorSurroundColorIndex = fileHelmet.VisorSurround;
+        }
 
         public static void MapCarEditingViewModel(CarEditingViewModel source, CarEditingViewModel target)
         {

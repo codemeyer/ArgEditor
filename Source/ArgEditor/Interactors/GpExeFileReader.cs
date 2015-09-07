@@ -115,7 +115,7 @@ namespace ArgEditor.Interactors
 
         private void UpdateHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var helmetColorReader = new HelmetReader(exeFile);
+            var helmetColorReader = new HelmetColorReader(exeFile);
 
             var list = helmetColorReader.ReadHelmetColors();
 
