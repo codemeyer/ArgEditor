@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
 using ArgEditor.ViewModels.Utils;
@@ -87,6 +88,11 @@ namespace ArgEditor
             Application.Current.Shutdown();
         }
 
+        private void HelpViewHelpMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            OpenDocsInBrowser();
+        }
+
         private void HelpAboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
             var about = new AboutWindow
@@ -95,6 +101,19 @@ namespace ArgEditor
             };
 
             about.ShowDialog();
+        }
+
+        private void UIElement_OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                OpenDocsInBrowser();
+            }
+        }
+
+        private void OpenDocsInBrowser()
+        {
+            System.Diagnostics.Process.Start(@"http://manicomio.se/projects/argeditor/");
         }
     }
 }
