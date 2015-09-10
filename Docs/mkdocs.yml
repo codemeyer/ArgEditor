@@ -1,0 +1,6 @@
+site_name: ArgEditor
+theme: cosmo
+pages:
+- Home: index.md
+- Documentation: documentation.md
+- Download: download.md
