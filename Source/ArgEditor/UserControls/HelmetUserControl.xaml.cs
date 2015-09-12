@@ -34,9 +34,10 @@ namespace ArgEditor.UserControls
 
             var selectedHelmet = DataContext as HelmetViewModel;
 
-            var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                ? PaletteTool.PickupColor
-                : PaletteTool.Paint;
+            var paletteTool = PaletteTool.Paint;
+            //var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+            //    ? PaletteTool.PickupColor
+            //    : PaletteTool.Paint;
 
             PropertyInfo prop = selectedHelmet.GetType().GetProperty(bindingPath);
 
@@ -59,10 +60,10 @@ namespace ArgEditor.UserControls
         {
             if (!IsEditable) { return; }
 
-            if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
-                Cursor = Cursors.Cross;
-            else
-                Cursor = Cursors.Pen;
+            //if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
+            //    Cursor = Cursors.Cross;
+            //else
+            //    Cursor = Cursors.Pen;
         }
     }
 }
