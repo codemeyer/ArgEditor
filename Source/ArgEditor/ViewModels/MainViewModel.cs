@@ -22,6 +22,7 @@ namespace ArgEditor.ViewModels
             Palette = new PaletteViewModel();
 
             _driverPerformanceList = new ObservableCollection<DriverPerformanceItemViewModel>();
+            PlayerHorsepower = 716;
         }
 
         private void SetupDrivers()
@@ -118,6 +119,21 @@ namespace ArgEditor.ViewModels
         }
 
 
+        public int PlayerHorsepower
+        {
+            get
+            {
+                return _playerHorsepower;
+            }
+            set
+            {
+                if (value.Equals(_playerHorsepower)) { return; }
+                _playerHorsepower = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public PaletteViewModel Palette { get; private set; }
 
 
@@ -138,6 +154,7 @@ namespace ArgEditor.ViewModels
 
 
         private readonly ObservableCollection<DriverPerformanceItemViewModel> _driverPerformanceList;
+        private int _playerHorsepower;
 
         public ObservableCollection<DriverPerformanceItemViewModel> DriverPerformanceList
         {

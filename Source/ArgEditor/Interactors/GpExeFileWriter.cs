@@ -18,6 +18,7 @@ namespace ArgEditor.Interactors
             WriteDriverNumbers(viewModel, exeFile);
             WriteGripLevels(viewModel, exeFile);
             WriteHelmetColors(viewModel, exeFile);
+            WritePlayerHorsepower(viewModel, exeFile);
         }
 
         private static void WriteCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -172,6 +173,12 @@ namespace ArgEditor.Interactors
             var helmetWriter = new HelmetColorWriter(exeFile);
 
             helmetWriter.WriteHelmetColors(list);
+        }
+
+        private static void WritePlayerHorsepower(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var horsepower = new PlayerHorsepowerWriter(exeFile);
+            horsepower.WritePlayerHorsepower(viewModel.PlayerHorsepower);
         }
     }
 }

@@ -15,13 +15,14 @@ namespace ArgEditor
         {
             InitializeComponent();
 
-            var defaultData = DefaultViewModelFactory.DefaultData();
-            TeamsAndDriversTab.DataContext = defaultData;
-            PerformanceTab.DataContext = defaultData;
-            CarPaintingTab.DataContext = defaultData;
-            HelmetPaintingTab.DataContext = defaultData;
+            var defaultMainViewModel = DefaultViewModelFactory.DefaultData();
+            TeamsAndDriversTab.DataContext = defaultMainViewModel;
+            PerformanceTab.DataContext = defaultMainViewModel;
+            CarPaintingTab.DataContext = defaultMainViewModel;
+            HelmetPaintingTab.DataContext = defaultMainViewModel;
+            SettingsTab.DataContext = defaultMainViewModel;
 
-            _mainViewModel = defaultData;
+            _mainViewModel = defaultMainViewModel;
         }
 
         private readonly MainViewModel _mainViewModel;

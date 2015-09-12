@@ -18,6 +18,7 @@ namespace ArgEditor.Interactors
             UpdateDriverNumbers(viewModel, exeFile);
             UpdateGripLevels(viewModel, exeFile);
             UpdateHelmetColors(viewModel, exeFile);
+            UpdatePlayerHorsepower(viewModel, exeFile);
         }
 
         private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -141,6 +142,12 @@ namespace ArgEditor.Interactors
                 helmetInEditor.Stripe12ColorIndex = helmetInExe.Stripes[11];
                 helmetInEditor.Stripe13ColorIndex = helmetInExe.Stripes[12];
             }
+        }
+
+        private static void UpdatePlayerHorsepower(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var horsepowerReader = new PlayerHorsepowerReader(exeFile);
+            viewModel.PlayerHorsepower = horsepowerReader.ReadPlayerHorsepower();
         }
     }
 }

@@ -120,6 +120,9 @@
     <Compile Include="UserControls\SelectCarUserControl.xaml.cs">
       <DependentUpon>SelectCarUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SettingsTabUserControl.xaml.cs">
+      <DependentUpon>SettingsTabUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\SelectCarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SettingsTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

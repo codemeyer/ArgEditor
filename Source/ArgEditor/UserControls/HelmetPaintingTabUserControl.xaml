@@ -9,7 +9,7 @@
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="740" d:DesignWidth="1025">
     <Grid KeyDown="PaintingTab_KeyDown">
-        <ItemsControl ItemsSource="{Binding Drivers}" Margin="10,10,565,10" x:Name="HelmetPanel">
+        <ItemsControl ItemsSource="{Binding Drivers}" Margin="10,10,514,10" x:Name="HelmetPanel">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -29,7 +29,7 @@
         <userControls:HelmetUserControl DataContext="{Binding SelectedHelmet}" HorizontalAlignment="Left" Margin="633,41,0,0"
                                         VerticalAlignment="Top" Height="200" Width="200" IsEditable="true"
                                         ClickedHelmetPolygon="PaintHelmetUserControl_OnClickedPolygon" />
-        <userControls:PaletteUserControl DataContext="{Binding Palette}" HorizontalAlignment="Left" Margin="583,348,0,0" VerticalAlignment="Top"/>
+        <userControls:PaletteUserControl DataContext="{Binding Palette}" HorizontalAlignment="Left" Margin="585,246,0,0" VerticalAlignment="Top"/>
     </Grid>
 
 </UserControl>
