@@ -21,12 +21,12 @@ namespace ArgEditor
 
         public static string SelectArgEditorFileToSave()
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            SaveFileDialog fileDialog = new SaveFileDialog
             {
                 DefaultExt = ".arged",
                 Filter = "ArgEditor files (*.arged)|.arged|All files (*.*)|*.*",
                 FileName = "*.arged",
-                CheckFileExists = false     //?
+                CheckFileExists = false
             };
 
             return GetFilePathFromDialog(fileDialog);

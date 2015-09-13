@@ -24,5 +24,7 @@ namespace ArgEditor.ViewModels
                 }
             }
         }
+
+        public int Rank { get; set; }
     }
 }

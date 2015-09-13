@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
@@ -37,8 +38,8 @@ namespace ArgEditor
 
             if (string.IsNullOrEmpty(path)) { return; }
 
-            // TODO: must set focus somewhere that isn't a textbox,
-            // otherwise it will not update data for the field you're in
+            // HACK: stupid temporary workaround to avoid not updating a textbox that currently has focus
+            HiddenTextElement.Focus();
 
             var loader = new CarSetLoader();
             loader.Load(_mainViewModel, path);
@@ -76,12 +77,35 @@ namespace ArgEditor
 
         private void FileExportToGpExeMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            bool valid = ValidateExport();
+            if (!valid)
+            {
+                return;
+            }
+
             string path = FileDialog.SelectGpExe();
 
             if (string.IsNullOrEmpty(path)) { return; }
 
             var fileExporter = new GpExeFileWriter();
             fileExporter.WriteViewModelToExe(_mainViewModel, path);
+        }
+
+        private bool ValidateExport()
+        {
+            var groupBys = _mainViewModel.Drivers
+                .Where(d => d.Enabled)
+                .GroupBy(d => d.Number)
+                .Where(grp => grp.Count() > 1 && grp.Key > 0);
+            var groupedNumbers = groupBys.ToList();
+
+            if (groupedNumbers.Count > 0)
+            {
+                MessageBox.Show("Cannot export! Each driver must have a unique number.", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return false;
+            }
+
+            return true;
         }
 
         private void FileExportToNameFileMenuItem_Click(object sender, RoutedEventArgs e)

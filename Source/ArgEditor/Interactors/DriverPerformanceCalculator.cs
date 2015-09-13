@@ -31,7 +31,7 @@ namespace ArgEditor.Interactors
                 list.Add(new DriverPerformanceItemViewModel
                 {
                     DriverName = item.Name,
-                    RelativePerformance = item.GetRelativePerformance(716, 1)
+                    RelativePerformance = item.GetRelativePerformance(716, 1),
                 });
             }
 
@@ -45,11 +45,18 @@ namespace ArgEditor.Interactors
                 updatedList.Add(new DriverPerformanceItemViewModel
                 {
                     DriverName = item.Name,
-                    RelativePerformance = item.GetRelativePerformance(bestDriver.Horsepower, bestDriver.GripLevel)
+                    RelativePerformance = item.GetRelativePerformance(bestDriver.Horsepower, bestDriver.GripLevel),
                 });
             }
 
-            return updatedList.OrderBy(d => d.RelativePerformance).ToList();
+            var finalList = updatedList.OrderBy(d => d.RelativePerformance).ToList();
+
+            foreach (var driver in finalList)
+            {
+                driver.Rank = finalList.IndexOf(driver) + 1;
+            }
+
+            return finalList;
         }
     }
 

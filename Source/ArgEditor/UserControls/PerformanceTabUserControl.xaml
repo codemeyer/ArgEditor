@@ -5,49 +5,73 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              mc:Ignorable="d"
-             d:DesignHeight="740" d:DesignWidth="800">
+             d:DesignHeight="740" d:DesignWidth="900">
+    <UserControl.Resources>
+        <Style x:Key="headerStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Visibility" Value="Collapsed" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel Margin="0,24,-320,0">
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[0]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[1]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[2]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[3]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[4]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[5]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[6]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[7]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[8]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[9]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[10]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[11]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[12]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[13]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[14]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[15]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[16]}"></userControls:TeamDriverPerformanceUserControl>
-            <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[17]}"></userControls:TeamDriverPerformanceUserControl>
-        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="640"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,0,0,0">
+                <StackPanel Margin="315,0,0,0" Orientation="Horizontal">
+                    <Label>Qual</Label>
+                    <Label>Race</Label>
+                    <Label Margin="145,0,0,0">Qual</Label>
+                    <Label>Race</Label>
+                </StackPanel>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[0]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[1]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[2]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[3]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[4]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[5]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[6]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[7]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[8]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[9]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[10]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[11]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[12]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[13]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[14]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[15]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[16]}"></userControls:TeamDriverPerformanceUserControl>
+                <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[17]}"></userControls:TeamDriverPerformanceUserControl>
+            </StackPanel>
 
-        <ListView Margin="683,20,10,10" ItemsSource="{Binding DriverPerformanceList}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding DriverName}" Width="150" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding RelativePerformanceText}" TextAlignment="Right" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            <ListView Grid.Column="1" Width="260" ItemsSource="{Binding DriverPerformanceList}" Margin="0,24,0,0">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource headerStyle}">
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Rank}" Width="15" TextAlignment="Right" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DriverName}" Width="140" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RelativePerformanceText}" TextAlignment="Right" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
 
     </Grid>
 </UserControl>

@@ -30,9 +30,10 @@ namespace ArgEditor.UserControls
 
             var selectedPitCrew = DataContext as PitCrewViewModel;
 
-            var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                ? PaletteTool.PickupColor
-                : PaletteTool.Paint;
+            var paletteTool = PaletteTool.Paint;
+            //var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+            //    ? PaletteTool.PickupColor
+            //    : PaletteTool.Paint;
 
             PropertyInfo prop = selectedPitCrew.GetType().GetProperty(bindingPath);
             var property = new ColorPropertyWrapper(prop);
@@ -52,10 +53,10 @@ namespace ArgEditor.UserControls
 
         private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
         {
-            if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
-                Cursor = Cursors.Cross;
-            else
-                Cursor = Cursors.Pen;
+            //if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
+            //    Cursor = Cursors.Cross;
+            //else
+            //    Cursor = Cursors.Pen;
         }
     }
 }

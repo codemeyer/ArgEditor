@@ -4,8 +4,22 @@
     {
         public HelmetViewModel(DriverViewModel parentDriverViewModel)
         {
-            VisorSurroundColorIndex = 6;
             _parentDriverViewModel = parentDriverViewModel;
+            VisorColorIndex = 0;
+            VisorSurroundColorIndex = 6;
+            Stripe1ColorIndex = 8;
+            Stripe2ColorIndex = 8;
+            Stripe3ColorIndex = 8;
+            Stripe4ColorIndex = 8;
+            Stripe5ColorIndex = 8;
+            Stripe6ColorIndex = 8;
+            Stripe7ColorIndex = 8;
+            Stripe8ColorIndex = 8;
+            Stripe9ColorIndex = 8;
+            Stripe10ColorIndex = 8;
+            Stripe11ColorIndex = 8;
+            Stripe12ColorIndex = 8;
+            Stripe13ColorIndex = 8;
         }
 
         protected HelmetViewModel(byte[] colors)
