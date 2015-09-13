@@ -14,10 +14,11 @@
                 <Separator></Separator>
                 <MenuItem Header="Import">
                     <MenuItem Header="From GP.EXE" Click="FileImportFromGpExeMenuItem_Click"></MenuItem>
-                    <MenuItem Header="From Names File" Click="FileImportFromNamesFileMenuItem_Click"></MenuItem>
+                    <MenuItem Header="From Name File" Click="FileImportFromNamesFileMenuItem_Click"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Export">
                     <MenuItem Header="To GP.EXE" Click="FileExportToGpExeMenuItem_Click"></MenuItem>
+                    <MenuItem Header="To Name File" Click="FileExportToNameFileMenuItem_Click"></MenuItem>
                 </MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="E_xit" Click="FileExitMenuItem_Click"></MenuItem>

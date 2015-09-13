@@ -58,7 +58,32 @@ namespace ArgEditor
             return GetFilePathFromDialog(fileDialog);
         }
 
+        public static string SelectNameFileToSave()
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog
+            {
+                DefaultExt = ".*",
+                Filter = "All files (*.*)|*.*",
+                FileName = "*.*"
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+
+        }
+
         private static string GetFilePathFromDialog(OpenFileDialog fileDialog)
+        {
+            bool? result = fileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                return fileDialog.FileName;
+            }
+
+            return string.Empty;
+        }
+
+        private static string GetFilePathFromDialog(SaveFileDialog fileDialog)
         {
             bool? result = fileDialog.ShowDialog();
 

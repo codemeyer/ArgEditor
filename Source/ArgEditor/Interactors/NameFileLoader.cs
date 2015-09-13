@@ -44,4 +44,44 @@ namespace ArgEditor.Interactors
             }
         }
     }
+
+    public class NameFileSaver
+    {
+        public void Save(MainViewModel viewModel, string path)
+        {
+            var drivers = new NameFileDriverList();
+
+            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            {
+                int number = i + 1;
+
+                var driver = viewModel.Drivers.FirstOrDefault(d => d.Number == number);
+
+                if (driver != null)
+                {
+                    drivers[i].Name = driver.Name;
+                }
+                else
+                {
+                    drivers[i].Name = $"Spare {number}";
+                }
+            }
+
+            var teams = new NameFileTeamList();
+
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
+            {
+                teams[i].Name = viewModel.Teams[i].Name;
+                teams[i].Engine = viewModel.Teams[i].Engine;
+            }
+
+            teams[18].Name = "Team 19";
+            teams[18].Engine = "Engine 19";
+            teams[19].Name = "Team 19";
+            teams[19].Engine = "Engine 19";
+
+            var nameWriter = new NameFileWriter();
+            nameWriter.Write(path, drivers, teams);
+        }
+    }
 }

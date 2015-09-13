@@ -84,6 +84,16 @@ namespace ArgEditor
             fileExporter.WriteViewModelToExe(_mainViewModel, path);
         }
 
+        private void FileExportToNameFileMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string path = FileDialog.SelectNameFileToSave();
+
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            var fileExporter = new NameFileSaver();
+            fileExporter.Save(_mainViewModel, path);
+        }
+
         private void FileExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
