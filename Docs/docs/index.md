@@ -9,7 +9,7 @@ unfortunately do not work on modern versions of Windows.
 
 ArgEditor is a fresh take on an F1GP editor.
 
-![ArgEditor screenshot](img/argeditor-teaser.png)
+![ArgEditor screenshot](img/cars.png)
 
 
 ## Features
