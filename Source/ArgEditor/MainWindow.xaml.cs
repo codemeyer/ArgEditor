@@ -148,7 +148,7 @@ namespace ArgEditor
 
         private void OpenDocsInBrowser()
         {
-            System.Diagnostics.Process.Start(@"http://manicomio.se/projects/argeditor/");
+            System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/");
         }
     }
 }
