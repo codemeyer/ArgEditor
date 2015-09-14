@@ -1,9 +1,9 @@
 site_name: ArgEditor
 site_description: Editor for Microprose F1GP
 site_author: Fredrik Meyer
-theme: cosmo
+theme: yeti
 pages:
 - Home: index.md
 - Documentation: documentation.md
 - Download: download.md
-copyright: Copyright (c) 2015 Fredrik Meyer
+copyright: Copyright &copy; 2015 Fredrik Meyer
