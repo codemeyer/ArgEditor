@@ -1,6 +1,6 @@
 # Download
 
-The latest version can be downloaded here: [argeditor.zip](http://www.manicomio.se/argeditor/download/ArgEditor-0.8.0.69.zip)
+The latest version is $ArgEditorVersion$. It can be downloaded here: [argeditor.zip](http://www.manicomio.se/argeditor/download/ArgEditor-%ArgEditorVersion%.zip)
 
 
 ## Installation
@@ -15,12 +15,12 @@ Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from 
 
 * No undo action available when copy-pasting car colors
 * Helmets for drivers with numbers #35 and above are not exported correctly
-* User Interface needing improvements in all kinds of ways
-* and more...(?)
+* User Interface needs improvements in all kinds of ways
+* More...(?)
 
 
 ## Release notes
 
-### 0.8.0.69 (2015-09-15)
+### %ArgEditorVersion% (2015-09-15)
 
 * First release
