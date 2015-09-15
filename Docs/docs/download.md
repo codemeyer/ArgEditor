@@ -1,6 +1,6 @@
 # Download
 
-The latest version is $ArgEditorVersion$. It can be downloaded here: [argeditor.zip](http://www.manicomio.se/argeditor/download/ArgEditor-%ArgEditorVersion%.zip)
+The latest version is %ArgEditorVersion%. It can be downloaded here: [argeditor.zip](http://www.manicomio.se/argeditor/download/ArgEditor-%ArgEditorVersion%.zip)
 
 
 ## Installation
