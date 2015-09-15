@@ -32,6 +32,11 @@ before using this software.
 * F1GP (European) or World Circuit (US) version 1.05
 
 
+## Feedback
+
+Please send any feedback to [fredrik@codemeyer.net](mailto:fredrik@codemeyer.net)
+
+
 ## Acknowledgements
 
 This simple piece of software stands on the shoulders of giants. Huge gratitude goes out
