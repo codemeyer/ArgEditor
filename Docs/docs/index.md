@@ -11,21 +11,18 @@ ArgEditor is a fresh take on an F1GP editor.
 
 ![ArgEditor screenshot](img/cars.png)
 
+Note: This software is still in beta, and many more features will be
+added in due time.
+
+It is better to be safe than sorry! Please make a backup of your F1GP folder
+before using this software.
+
 
 ## Features
 
 * Update the names of teams and drivers
 * Set computer car horsepower levels and driver grip levels
 * Paint cars, pit crew clothing and helmets
-
-
-## This is BETA
-
-Note: This software is still in beta, and many more features will be
-added in due time.
-
-It is better to be safe than sorry! Please make a backup of your F1GP folder
-before using this software.
 
 
 ## System requirements

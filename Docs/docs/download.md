@@ -1,6 +1,6 @@
 # Download
 
-The latest version is %ArgEditorVersion%. It can be downloaded here: [argeditor.zip](http://www.manicomio.se/argeditor/download/ArgEditor-%ArgEditorVersion%.zip)
+The latest version is ArgEditorVersionValue. It can be downloaded here: [argeditor-ArgEditorVersionValue.zip](http://www.manicomio.se/argeditor/download/ArgEditor-ArgEditorVersionValue.zip)
 
 
 ## Installation
@@ -21,6 +21,6 @@ Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from 
 
 ## Release notes
 
-### %ArgEditorVersion% (2015-09-15)
+### ArgEditorVersionValue (2015-09-15)
 
 * First release

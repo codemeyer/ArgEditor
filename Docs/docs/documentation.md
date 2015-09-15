@@ -105,7 +105,7 @@ other stripes will be painted as well.
 
 By clicking on the cogwheel on the left, you get to the game settings screen.
 
-![Settings tab screenshot](img/helmets.png)
+![Settings tab screenshot](img/game-settings.png)
 
 Currently, the only thing you can edit here is the horsepower value that
 the player's (that is you!) car will have. The default value is 716, just like
