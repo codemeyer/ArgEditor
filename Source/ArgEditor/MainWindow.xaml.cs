@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using ArgEditor.Interactors;
@@ -88,7 +89,15 @@ namespace ArgEditor
             if (string.IsNullOrEmpty(path)) { return; }
 
             var fileExporter = new GpExeFileWriter();
-            fileExporter.WriteViewModelToExe(_mainViewModel, path);
+            try
+            {
+                fileExporter.WriteViewModelToExe(_mainViewModel, path);
+            }
+            catch (Exception ex)
+            {
+                // TODO: log?
+                MessageBox.Show("An error occurred when exporting data. Please try again!", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private bool ValidateExport()
