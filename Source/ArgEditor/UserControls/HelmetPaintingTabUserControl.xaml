@@ -7,9 +7,17 @@
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="740" d:DesignWidth="1025">
+             d:DesignHeight="620" d:DesignWidth="920">
     <Grid KeyDown="PaintingTab_KeyDown">
-        <ItemsControl ItemsSource="{Binding Drivers}" Margin="10,10,514,10" x:Name="HelmetPanel">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="420" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="230" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ItemsControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Drivers}" Margin="10">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -21,15 +29,21 @@
                         <userControls:HelmetUserControl DataContext="{Binding Helmet}"
                                                     Width="50" Margin="10,5,10,5" Height="40"
                                                     MouseLeftButtonDown="SelectHelmet_OnMouseLeftButtonDown"></userControls:HelmetUserControl>
-                        <TextBlock Text="{Binding Name}" Width="94" TextAlignment="Center" TextTrimming="CharacterEllipsis"></TextBlock>
+                        <TextBlock Text="{Binding ShortName}" Width="94" TextAlignment="Center" TextTrimming="CharacterEllipsis"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <userControls:HelmetUserControl DataContext="{Binding SelectedHelmet}" HorizontalAlignment="Left" Margin="633,41,0,0"
-                                        VerticalAlignment="Top" Height="200" Width="200" IsEditable="true"
+        <userControls:HelmetUserControl Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedHelmet}"
+                                        HorizontalAlignment="Right" Margin="0,0,70,10" VerticalAlignment="Top"
+                                        Height="200" Width="200" IsEditable="true"
                                         ClickedHelmetPolygon="PaintHelmetUserControl_OnClickedPolygon" />
-        <userControls:PaletteUserControl DataContext="{Binding Palette}" HorizontalAlignment="Left" Margin="585,246,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+               Margin="90,10,10,10"
+               Content="{Binding SelectedHelmet.Parent.Name}" />
+        <userControls:PaletteUserControl Grid.Column="1" Grid.Row="1" DataContext="{Binding Palette}"
+                                         HorizontalAlignment="Right" Margin="10"
+                                         VerticalAlignment="Top"/>
     </Grid>
 
 </UserControl>
