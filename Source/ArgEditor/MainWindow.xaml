@@ -26,6 +26,8 @@
             <MenuItem Header="_Help">
                 <MenuItem Header="View _Help" Click="HelpViewHelpMenuItem_Click"></MenuItem>
                 <Separator></Separator>
+                <MenuItem Header="Check For Update" Click="HelpCheckForUpdate_Click"></MenuItem>
+                <Separator></Separator>
                 <MenuItem Header="_About ArgEditor" Click="HelpAboutMenuItem_Click"></MenuItem>
             </MenuItem>
         </Menu>

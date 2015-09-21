@@ -137,16 +137,6 @@ namespace ArgEditor
             OpenDocsInBrowser();
         }
 
-        private void HelpAboutMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            var about = new AboutWindow
-            {
-                Owner = this
-            };
-
-            about.ShowDialog();
-        }
-
         private void UIElement_OnPreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F1)
@@ -158,6 +148,26 @@ namespace ArgEditor
         private void OpenDocsInBrowser()
         {
             System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/");
+        }
+
+        private void HelpCheckForUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var checkUpdates = new CheckVersionWindow
+            {
+                Owner = this
+            };
+
+            checkUpdates.ShowDialog();
+        }
+
+        private void HelpAboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var about = new AboutWindow
+            {
+                Owner = this
+            };
+
+            about.ShowDialog();
         }
     }
 }

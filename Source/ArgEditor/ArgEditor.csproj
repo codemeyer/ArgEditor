@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CheckVersion.xaml.cs">
+      <DependentUpon>CheckVersion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,7 @@
     <Compile Include="Interactors\GpExeFileWriter.cs" />
     <Compile Include="Interactors\GpExeFileReader.cs" />
     <Compile Include="Interactors\NameFileLoader.cs" />
+    <Compile Include="Interactors\VersionChecker.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="PaletteHelper.cs" />
     <Compile Include="Program.cs" />
@@ -134,6 +138,10 @@
     <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
     <Compile Include="VisibilityConverter.cs" />
     <Compile Include="WpfUtils.cs" />
+    <Page Include="CheckVersion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
