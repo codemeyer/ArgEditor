@@ -19,8 +19,13 @@ by emptying their name.
 
 There must be at least 26 active drivers. Two drivers cannot have the same numbers.
 
+A driver's name can be 23 characters long, but may appear cut off in-game if it
+is longer than 18 characters, depending on the width of the characters.
+Team and engine names can be 12 characters long.
+
 Note that the first team in the list has a different car shape than the other
-teams. This was to make the McLaren have the well-known Marlboro paint scheme
+teams. This is because the first team in 1991 was McLaren,
+which had the well-known Marlboro paint scheme
 with a red diagonal stripe across the nose cone. So if you are making a car set
 that does not feature a classic McLaren paint scheme, it would be advisable to
 leave the first team empty, and also skip the second theme for nicer symmetry
@@ -43,7 +48,8 @@ Silverstone track, which was chosen because of its mix of straights and differen
 corners. At high speed tracks like Hockenheim and Monza, the horsepower value
 will have a much greater effect on the lap times. At the opposite end of the
 spectrum, lap times at Monaco will be much more influenced by the grip level
-of the drivers.
+of the drivers. Note that the list currently only displays the race level
+performance.
 
 ### Suitable values
 
@@ -78,6 +84,8 @@ The same applies for painting the pit crew.
 
 As noted above in the Teams and Drivers section, the first car - McLaren in
 the default game - has a slightly different panel layout on the nose.
+
+You can undo a painting action with Ctrl+Z and redo actions with Ctrl+Y.
 
 
 ## Helmets
@@ -115,6 +123,10 @@ the top teams.
 ## Open and Save
 
 The File menu at the top of the screen lets you open and save car sets.
+A car set includes the team and driver names, car colors, pit crew colors
+and helmet colors.
+
+Game settings such as player horsepower is not saved in a car set.
 
 
 ## Import and Export
