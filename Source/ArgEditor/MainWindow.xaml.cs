@@ -102,6 +102,8 @@ namespace ArgEditor
 
         private bool ValidateExport()
         {
+            // TODO: move this code away from .xaml file
+
             var groupBys = _mainViewModel.Drivers
                 .Where(d => d.Enabled)
                 .GroupBy(d => d.Number)
@@ -111,6 +113,14 @@ namespace ArgEditor
             if (groupedNumbers.Count > 0)
             {
                 MessageBox.Show("Cannot export! Each driver must have a unique number.", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return false;
+            }
+
+            var activeCount = _mainViewModel.Drivers.Count(d => d.Enabled);
+
+            if (activeCount < 26)
+            {
+                MessageBox.Show("Cannot export! There must be at least 26 active drivers", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return false;
             }
 
