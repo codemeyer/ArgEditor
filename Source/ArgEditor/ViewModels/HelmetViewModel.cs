@@ -1,4 +1,6 @@
-﻿namespace ArgEditor.ViewModels
+﻿using System.Linq;
+
+namespace ArgEditor.ViewModels
 {
     public class HelmetViewModel : BaseViewModel
     {
@@ -293,7 +295,7 @@
 
         private void SetBottomStripesIfNeeded(byte colorIndex)
         {
-            if (_parentDriverViewModel.Number == 15)
+            if (_specialHelmetNumbers.Contains(Parent.Number))
             {
                 Stripe5ColorIndex = colorIndex;
                 Stripe6ColorIndex = colorIndex;
@@ -306,5 +308,7 @@
                 Stripe13ColorIndex = colorIndex;
             }
         }
+
+        private readonly byte[] _specialHelmetNumbers = { 13, 15, 36, 37, 38, 39, 40 };
     }
 }

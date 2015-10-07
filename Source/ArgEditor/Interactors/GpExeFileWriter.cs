@@ -148,7 +148,7 @@ namespace ArgEditor.Interactors
 
             var list = helmetReader.ReadHelmetColors();
 
-            for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
             {
                 var helmetInExe = list[i];
                 var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1)).Helmet;
