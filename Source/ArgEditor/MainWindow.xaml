@@ -4,6 +4,7 @@
         xmlns:userControls="clr-namespace:ArgEditor.UserControls"
         Title="ArgEditor" Height="770" Width="1025"
         WindowStartupLocation="Manual" Left="150" Top="50" ResizeMode="CanMinimize"
+        Icon="Resources/argeditor.ico"
         PreviewKeyDown="UIElement_OnPreviewKeyDown">
     <Grid Margin="0" Background="#204161">
         <TextBox Margin="1200,0,0,0" Name="HiddenTextElement"></TextBox>

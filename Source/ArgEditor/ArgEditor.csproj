@@ -38,6 +38,9 @@
   <PropertyGroup>
     <StartupObject>ArgEditor.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\argeditor.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ArgData, Version=0.8.1.129, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ArgData.0.8.1.129\lib\net452\ArgData.dll</HintPath>
@@ -250,6 +253,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\pitcrew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\argeditor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
