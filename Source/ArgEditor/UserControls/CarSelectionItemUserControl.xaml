@@ -8,7 +8,22 @@
              d:DesignHeight="65" d:DesignWidth="140">
     <Grid Width="140" Height="65">
         <Border BorderThickness="0.5" BorderBrush="DarkGray"></Border>
-        <userControls:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="48" DataContext="{Binding Car}" />
+        <userControls:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="48" DataContext="{Binding Car}">
+            <userControls:CarUserControl.Style>
+                <Style TargetType="{x:Type userControls:CarUserControl}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.03" ScaleY="1.03"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </userControls:CarUserControl.Style>
+        </userControls:CarUserControl>
         <Label Width="140" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
     </Grid>
 </UserControl>
