@@ -44,6 +44,14 @@
                 <userControls:TeamDriverPerformanceUserControl DataContext="{Binding Teams[17]}"></userControls:TeamDriverPerformanceUserControl>
             </StackPanel>
 
+            <StackPanel Grid.Column="1" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,6,0,0" Visibility="Visible">
+                <RadioButton GroupName="PerformanceViewRadioButtons" Name="PerformanceToggleShowQualifying" Margin="0,0,20,0" Checked="PerformanceViewToggle">
+                    Qual
+                </RadioButton>
+                <RadioButton GroupName="PerformanceViewRadioButtons" Name="PerformanceToggleShowRace" IsChecked="True" Checked="PerformanceViewToggle">
+                    Race
+                </RadioButton>
+            </StackPanel>
             <ListView Grid.Column="1" Width="260" ItemsSource="{Binding DriverPerformanceList}" Margin="0,24,0,0">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource headerStyle}">

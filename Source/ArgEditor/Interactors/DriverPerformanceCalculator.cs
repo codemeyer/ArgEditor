@@ -6,7 +6,7 @@ namespace ArgEditor.Interactors
 {
     public class DriverPerformanceCalculator
     {
-        public IList<DriverPerformanceItemViewModel> Calculate(List<TeamViewModel> teams)
+        public IList<DriverPerformanceItemViewModel> Calculate(List<TeamViewModel> teams, PerformanceMetric metric)
         {
             var originalDriverPerformanceList = new List<DriverPerformanceData>();
 
@@ -14,12 +14,12 @@ namespace ArgEditor.Interactors
             {
                 if (team.Drivers[0].Enabled && team.Drivers[0].Name.Trim().Length > 0)
                 {
-                    var driver = new DriverPerformanceData(team.Drivers[0], team.Horsepower);
+                    var driver = new DriverPerformanceData(team.Drivers[0], team.Horsepower, metric);
                     originalDriverPerformanceList.Add(driver);
                 }
                 if (team.Drivers[1].Enabled && team.Drivers[1].Name.Trim().Length > 0)
                 {
-                    var driver = new DriverPerformanceData(team.Drivers[1], team.Horsepower);
+                    var driver = new DriverPerformanceData(team.Drivers[1], team.Horsepower, metric);
                     originalDriverPerformanceList.Add(driver);
                 }
             }
@@ -62,10 +62,11 @@ namespace ArgEditor.Interactors
 
     public class DriverPerformanceData
     {
-        public DriverPerformanceData(DriverViewModel driver, int horsepower)
+        public DriverPerformanceData(DriverViewModel driver, int horsepower, PerformanceMetric metric)
         {
             Name = driver.Name;
-            GripLevel = driver.RaceGripLevel;
+            GripLevel = (metric == PerformanceMetric.Race)
+                ? driver.RaceGripLevel : driver.QualifyingGripLevel;
             Horsepower = horsepower;
         }
 

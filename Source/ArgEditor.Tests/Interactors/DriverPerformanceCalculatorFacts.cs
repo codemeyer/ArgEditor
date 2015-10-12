@@ -19,7 +19,7 @@ namespace ArgEditor.Tests.Interactors
             var teams = new List<TeamViewModel> { team };
             var calculator = new DriverPerformanceCalculator();
 
-            var result = calculator.Calculate(teams);
+            var result = calculator.Calculate(teams, PerformanceMetric.Race);
 
             result.Count.Should().Be(2);
             result.First().DriverName.Should().Be("Driver Fast");

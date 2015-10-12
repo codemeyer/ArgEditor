@@ -142,7 +142,7 @@ namespace ArgEditor.ViewModels
             _driverPerformanceList.Clear();
 
             var performanceCalculator = new DriverPerformanceCalculator();
-            var performanceItems = performanceCalculator.Calculate(Teams);
+            var performanceItems = performanceCalculator.Calculate(Teams, DriverPerformanceMetric);
 
             foreach (var item in performanceItems)
             {
@@ -155,6 +155,7 @@ namespace ArgEditor.ViewModels
 
         private readonly ObservableCollection<DriverPerformanceItemViewModel> _driverPerformanceList;
         private int _playerHorsepower;
+        private PerformanceMetric _driverPerformanceMetric;
 
         public ObservableCollection<DriverPerformanceItemViewModel> DriverPerformanceList
         {
@@ -163,5 +164,22 @@ namespace ArgEditor.ViewModels
                 return _driverPerformanceList;
             }
         }
+
+        public PerformanceMetric DriverPerformanceMetric
+        {
+            get { return _driverPerformanceMetric; }
+            set
+            {
+                _driverPerformanceMetric = value;
+                OnPropertyChanged();
+                UpdateDriverPerformanceList();
+            }
+        }
+    }
+
+    public enum PerformanceMetric
+    {
+        Race = 0,
+        Qualifying = 1
     }
 }
