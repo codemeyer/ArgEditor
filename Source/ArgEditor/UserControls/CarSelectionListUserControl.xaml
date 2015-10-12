@@ -17,7 +17,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <userControls:CarSelectionItemUserControl MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
+                    <userControls:CarSelectionItemUserControl MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" Opacity="{Binding Car.Opacity}">
                         <userControls:CarSelectionItemUserControl.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Copy" Click="CarSelectionCopy_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>

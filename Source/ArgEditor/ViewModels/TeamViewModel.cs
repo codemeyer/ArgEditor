@@ -76,6 +76,11 @@ namespace ArgEditor.ViewModels
                 _enabled = value;
                 OnPropertyChanged();
                 OnPropertyChanged("Visibility");    // hacky
+
+                if (Car != null)
+                {
+                    Car.Opacity = (_enabled) ? 1.0 : 0.2;
+                }
             }
         }
 
