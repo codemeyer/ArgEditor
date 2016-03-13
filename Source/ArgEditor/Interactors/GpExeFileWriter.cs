@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ArgData;
+using ArgData.Entities;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Interactors
@@ -89,6 +90,7 @@ namespace ArgEditor.Interactors
         private static void WriteDriverNumbers(MainViewModel viewModel, GpExeFile exeFile)
         {
             byte[] values = new byte[ArgEditorConstants.DriverCount];
+            var theNumbers = new DriverNumberList();
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
@@ -105,25 +107,26 @@ namespace ArgEditor.Interactors
                 }
 
                 values[i] = value;
+                theNumbers[Convert.ToByte(i)] = value;
             }
 
             var numbers = new DriverNumberWriter(exeFile);
-            numbers.WriteDriverNumbers(values);
+            numbers.WriteDriverNumbers(theNumbers);
         }
 
         private static void WriteGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
             var gripLevelEditor = new GripLevelWriter(exeFile);
 
-            byte[] raceGripLevels = new byte[40];
-            byte[] qualifyingGripLevels = new byte[40];
+            var raceGripLevels = new GripLevelList();
+            var qualifyingGripLevels = new GripLevelList();
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
                 var driver = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1));
 
-                raceGripLevels[i] = driver.RaceGripLevel;
-                qualifyingGripLevels[i] = driver.QualifyingGripLevel;
+                raceGripLevels.SetByDriverNumber(Convert.ToByte(i + 1), driver.RaceGripLevel);
+                qualifyingGripLevels.SetByDriverNumber(Convert.ToByte(i + 1), driver.QualifyingGripLevel);
             }
 
             gripLevelEditor.WriteRaceGripLevels(raceGripLevels);
@@ -148,10 +151,10 @@ namespace ArgEditor.Interactors
 
             var list = helmetReader.ReadHelmetColors();
 
-            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            for (byte b = 1; b <= ArgEditorConstants.DriverCount; b++)
             {
-                var helmetInExe = list[i];
-                var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1)).Helmet;
+                var helmetInExe = list.GetByDriverNumber(b);
+                var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, b).Helmet;
 
                 helmetInExe.Visor = helmetInEditor.VisorColorIndex;
                 helmetInExe.VisorSurround = helmetInEditor.VisorSurroundColorIndex;

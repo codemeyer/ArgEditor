@@ -77,8 +77,8 @@ namespace ArgEditor.Interactors
 
             teams[18].Name = "Team 19";
             teams[18].Engine = "Engine 19";
-            teams[19].Name = "Team 19";
-            teams[19].Engine = "Engine 19";
+            teams[19].Name = "Team 20";
+            teams[19].Engine = "Engine 20";
 
             var nameWriter = new NameFileWriter();
             nameWriter.Write(path, drivers, teams);

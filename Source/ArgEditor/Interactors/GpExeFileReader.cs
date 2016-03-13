@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using ArgData;
 using ArgEditor.ViewModels;
 
@@ -10,7 +11,9 @@ namespace ArgEditor.Interactors
     {
         public void UpdateViewModelFromExe(MainViewModel viewModel, string exePath)
         {
-            var exeFile = new GpExeFile(exePath);
+            var exeFile = GetExeFile(exePath);
+
+            if (exeFile == null) { return; }
 
             UpdateCarColors(viewModel, exeFile);
             UpdatePitCrewColors(viewModel, exeFile);
@@ -19,6 +22,19 @@ namespace ArgEditor.Interactors
             UpdateGripLevels(viewModel, exeFile);
             UpdateHelmetColors(viewModel, exeFile);
             UpdatePlayerHorsepower(viewModel, exeFile);
+        }
+
+        private static GpExeFile GetExeFile(string exePath)
+        {
+            try
+            {
+                return new GpExeFile(exePath);
+            }
+            catch
+            {
+                MessageBox.Show("Not a valid GP.EXE file. Please try again!", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
         }
 
         private static void UpdateCarColors(MainViewModel viewModel, GpExeFile exeFile)
@@ -85,7 +101,7 @@ namespace ArgEditor.Interactors
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
-                viewModel.Drivers[i].Number = values[i];
+                viewModel.Drivers[i].Number = values[(byte)i];
             }
         }
 
@@ -120,10 +136,10 @@ namespace ArgEditor.Interactors
 
             var list = helmetColorReader.ReadHelmetColors();
 
-            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            for (byte i = 1; i <= ArgEditorConstants.DriverCount; i++)
             {
-                var helmetInExe = list[i];
-                var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, Convert.ToByte(i + 1)).Helmet;
+                var helmetInExe = list.GetByDriverNumber(i);
+                var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, i).Helmet;
 
                 helmetInEditor.VisorColorIndex = helmetInExe.Visor;
                 helmetInEditor.VisorSurroundColorIndex = helmetInExe.VisorSurround;
