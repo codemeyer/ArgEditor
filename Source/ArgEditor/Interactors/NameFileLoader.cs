@@ -9,8 +9,7 @@ namespace ArgEditor.Interactors
     {
         public void Load(MainViewModel viewModel, string path)
         {
-            var editor = new NameFileReader();
-            var namesFile = editor.Read(path);
+            var namesFile = NameFileReader.Read(path);
 
             UpdateTeamNames(viewModel, namesFile);
             UpdateDriverNames(viewModel, namesFile);
@@ -80,8 +79,7 @@ namespace ArgEditor.Interactors
             teams[19].Name = "Team 20";
             teams[19].Engine = "Engine 20";
 
-            var nameWriter = new NameFileWriter();
-            nameWriter.Write(path, drivers, teams);
+            NameFileWriter.Write(path, drivers, teams);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using ArgData;
 using ArgData.Entities;
 using ArgEditor.ViewModels;
@@ -11,7 +12,7 @@ namespace ArgEditor.Interactors
     {
         public void WriteViewModelToExe(MainViewModel viewModel, string exePath)
         {
-            var exeFile = new GpExeFile(exePath);
+            var exeFile = GetExeFile(exePath);
 
             WriteCarColors(viewModel, exeFile);
             WritePitCrewColors(viewModel, exeFile);
@@ -22,9 +23,22 @@ namespace ArgEditor.Interactors
             WritePlayerHorsepower(viewModel, exeFile);
         }
 
+        private static GpExeFile GetExeFile(string exePath)
+        {
+            try
+            {
+                return GpExeFile.At(exePath);
+            }
+            catch
+            {
+                MessageBox.Show("Not a valid GP.EXE file. Please try again!", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+        }
+
         private static void WriteCarColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorReader = new CarColorReader(exeFile);
+            var colorReader = CarColorReader.For(exeFile);
 
             var list = colorReader.ReadCarColors();
 
@@ -48,14 +62,14 @@ namespace ArgEditor.Interactors
                 carInExe.NoseSide = carInEditor.NoseSideColorIndex;
             }
 
-            var colorWriter = new CarColorWriter(exeFile);
+            var colorWriter = CarColorWriter.For(exeFile);
 
             colorWriter.WriteCarColors(list);
         }
 
         private static void WritePitCrewColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var colorReader = new PitCrewColorReader(exeFile);
+            var colorReader = PitCrewColorReader.For(exeFile);
 
             var list = colorReader.ReadPitCrewColors();
 
@@ -71,14 +85,14 @@ namespace ArgEditor.Interactors
                 pitCrewInExe.Socks = pitCrewInEditor.SocksColorIndex;
             }
 
-            var colorWriter = new PitCrewColorWriter(exeFile);
+            var colorWriter = PitCrewColorWriter.For(exeFile);
 
             colorWriter.WritePitCrewColors(list);
         }
 
         private static void WriteTeamHorsepower(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var teamHorsepowerEditor = new TeamHorsepowerWriter(exeFile);
+            var teamHorsepowerEditor = TeamHorsepowerWriter.For(exeFile);
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
@@ -110,13 +124,13 @@ namespace ArgEditor.Interactors
                 theNumbers[Convert.ToByte(i)] = value;
             }
 
-            var numbers = new DriverNumberWriter(exeFile);
+            var numbers = DriverNumberWriter.For(exeFile);
             numbers.WriteDriverNumbers(theNumbers);
         }
 
         private static void WriteGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var gripLevelEditor = new GripLevelWriter(exeFile);
+            var gripLevelEditor = GripLevelWriter.For(exeFile);
 
             var raceGripLevels = new GripLevelList();
             var qualifyingGripLevels = new GripLevelList();
@@ -147,7 +161,7 @@ namespace ArgEditor.Interactors
 
         private void WriteHelmetColors(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var helmetReader = new HelmetColorReader(exeFile);
+            var helmetReader = HelmetColorReader.For(exeFile);
 
             var list = helmetReader.ReadHelmetColors();
 
@@ -173,14 +187,14 @@ namespace ArgEditor.Interactors
                 helmetInExe.Stripes[12] = helmetInEditor.Stripe13ColorIndex;
             }
 
-            var helmetWriter = new HelmetColorWriter(exeFile);
+            var helmetWriter = HelmetColorWriter.For(exeFile);
 
             helmetWriter.WriteHelmetColors(list);
         }
 
         private static void WritePlayerHorsepower(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var horsepower = new PlayerHorsepowerWriter(exeFile);
+            var horsepower = PlayerHorsepowerWriter.For(exeFile);
             horsepower.WritePlayerHorsepower(viewModel.PlayerHorsepower);
         }
     }
