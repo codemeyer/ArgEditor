@@ -17,7 +17,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateTeamNames(MainViewModel viewModel, NameFile namesFile)
         {
-            for (int i = 0; i < ArgEditorConstants.TeamCount; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 var fileTeam = namesFile.Teams[i];
                 var team = viewModel.Teams[i];

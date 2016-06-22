@@ -35,8 +35,13 @@ namespace ArgEditor.Interactors
                 });
             }
 
-            var bestDriverViewModel = list.OrderBy(d => d.RelativePerformance).First();
-            var bestDriver = originalDriverPerformanceList.Single(d => d.Name.Equals(bestDriverViewModel.DriverName));
+            var bestDriverViewModel = list.OrderBy(d => d.RelativePerformance).FirstOrDefault();
+            if (bestDriverViewModel == null)
+            {
+                return new List<DriverPerformanceItemViewModel>();
+            }
+
+            var bestDriver = originalDriverPerformanceList.First(d => d.Name.Equals(bestDriverViewModel.DriverName));
 
             var updatedList = new List<DriverPerformanceItemViewModel>();
 

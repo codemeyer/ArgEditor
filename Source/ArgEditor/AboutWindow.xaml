@@ -13,7 +13,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <Label HorizontalAlignment="Center" Margin="0,0,0,10">ArgEditor</Label>
-            <Label HorizontalAlignment="Center">Copyright © 2014-2015 Fredrik Meyer</Label>
+            <Label HorizontalAlignment="Center">Copyright © 2014-2016 Fredrik Meyer</Label>
             <Label HorizontalAlignment="Center" x:Name="VersionLabel">Version 1.0.0</Label>
             <Button VerticalAlignment="Bottom" Margin="80,25,80,5" Height="25" Click="Button_Click">OK</Button>
         </StackPanel>

@@ -111,7 +111,7 @@ namespace ArgEditor.Interactors
             var raceGripLevels = gripLevels.ReadRaceGripLevels();
             var qualGripLevels = gripLevels.ReadQualifyingGripLevels();
 
-            foreach (var dr in viewModel.Drivers.Where(d => d.Enabled))
+            foreach (var dr in viewModel.Drivers) //.Where(d => d.Enabled))
             {
                 dr.RaceGripLevel = raceGripLevels.GetByDriverNumber(dr.Number);
                 dr.QualifyingGripLevel = qualGripLevels.GetByDriverNumber(dr.Number);

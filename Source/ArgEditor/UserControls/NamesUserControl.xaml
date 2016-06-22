@@ -10,10 +10,10 @@
              d:DataContext="{d:DesignInstance Type=viewModels:TeamViewModel, IsDesignTimeCreatable=True}">
     <Grid Margin="2,4,2,4">
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120" Margin="3,0,0,0" MaxLength="12" />
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Engine}" Visibility="{Binding Visibility}" VerticalAlignment="Top" Width="120" Margin="128,0,0,0" MaxLength="12" />
-        <ComboBox HorizontalAlignment="Left" Margin="267,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" SelectedItem="{Binding Drivers[0].Number}" IsEnabled="{Binding Drivers[0].Enabled}" Width="44" Height="23" />
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Drivers[0].Name}" VerticalAlignment="Top" Width="160" Margin="316,0,0,0" MaxLength="23" />
-        <ComboBox HorizontalAlignment="Left" Margin="488,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" SelectedItem="{Binding Drivers[1].Number}" IsEnabled="{Binding Drivers[1].Enabled}" Width="44" Height="23" />
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Drivers[1].Name}" VerticalAlignment="Top" Width="160" Margin="537,0,0,0" MaxLength="23" />
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Engine}" VerticalAlignment="Top" Width="120" Margin="128,0,0,0" MaxLength="12" />
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Drivers[0].Name}" VerticalAlignment="Top" Width="160" Margin="268,0,0,0" MaxLength="23" />
+        <ComboBox HorizontalAlignment="Left" Margin="433,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" SelectedItem="{Binding Drivers[0].Number}" Width="44" Height="23" IsTabStop="True" />
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Drivers[1].Name}" VerticalAlignment="Top" Width="160" Margin="492,0,0,0" MaxLength="23" />
+        <ComboBox HorizontalAlignment="Left" Margin="657,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" SelectedItem="{Binding Drivers[1].Number}" Width="44" Height="23" />
     </Grid>
 </UserControl>

@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ArgData.Entities;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
@@ -22,7 +21,6 @@ namespace ArgEditor.UserControls
             var clickedCarUserControl = sender as CarSelectionItemUserControl;
 
             if (clickedCarUserControl == null) { return; }
-            if (!((TeamViewModel)clickedCarUserControl.DataContext).Enabled) { return; }
 
             var parentContent = WpfUtils.FindParent<ContentPresenter>(clickedCarUserControl);
             var parentPanel = WpfUtils.FindParent<WrapPanel>(clickedCarUserControl);

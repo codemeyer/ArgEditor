@@ -72,7 +72,7 @@
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding RelativePerformanceText}" TextAlignment="Right" />
+                                    <TextBlock Text="{Binding RelativePerformanceText}" Width="40" TextAlignment="Right" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

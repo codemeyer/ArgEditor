@@ -48,8 +48,8 @@ Silverstone track, which was chosen because of its mix of straights and differen
 corners. At high speed tracks like Hockenheim and Monza, the horsepower value
 will have a much greater effect on the lap times. At the opposite end of the
 spectrum, lap times at Monaco will be much more influenced by the grip level
-of the drivers. Note that the list currently only displays the race level
-performance.
+of the drivers.
+
 
 ### Suitable values
 
@@ -60,6 +60,7 @@ the bottom.
 Grip level penalties can be set as high as 255, but then the driver will just
 trundle along the track, sliding like a drift racer. I would not recommend
 going above 50.
+
 
 ### Performance levels and qualifying sessions
 
@@ -136,7 +137,7 @@ existing GP.EXE file. From the File menu, choose Export. When exporting,
 names are not automatically included. You will need to export a name file
 and then load the name file in-game. (ArgEditor will let you handle this more smoothly soon...)
 
-It is better to be save than sorry! Backup your GP.EXE and other files before
+It is better to be safe than sorry! Backup your GP.EXE and other files before
 exporting. You would probably want to export to a copy of the original anyway...
 
 You can also import data from EXEs or name files.

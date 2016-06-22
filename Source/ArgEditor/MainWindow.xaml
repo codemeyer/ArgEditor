@@ -10,8 +10,8 @@
         <TextBox Margin="1200,0,0,0" Name="HiddenTextElement"></TextBox>
         <Menu HorizontalAlignment="Left" Width="1100" Height="22" Margin="1,1,1,0" VerticalAlignment="Top">
             <MenuItem Header="_File" >
-                <MenuItem Header="_Open" Click="FileOpenMenuItem_Click"></MenuItem>
-                <MenuItem Header="_Save" Click="FileSaveMenuItem_Click"></MenuItem>
+                <MenuItem Header="_Open Car Set" Click="FileOpenMenuItem_Click"></MenuItem>
+                <MenuItem Header="_Save Car Set" Click="FileSaveMenuItem_Click"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="Import">
                     <MenuItem Header="From GP.EXE" Click="FileImportFromGpExeMenuItem_Click"></MenuItem>

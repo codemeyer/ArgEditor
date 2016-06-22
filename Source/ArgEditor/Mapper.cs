@@ -123,6 +123,8 @@ namespace ArgEditor
 
         public static void MapCarSetHelmetToHelmetViewModel(CarSetHelmetColors fileHelmet, HelmetViewModel helmet)
         {
+            if (fileHelmet == null) { return; }
+
             helmet.Stripe1ColorIndex = fileHelmet.Stripe1;
             helmet.Stripe2ColorIndex = fileHelmet.Stripe2;
             helmet.Stripe3ColorIndex = fileHelmet.Stripe3;

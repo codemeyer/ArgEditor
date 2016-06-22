@@ -29,7 +29,8 @@ namespace ArgEditor.ViewModels
             Car = new CarEditingViewModel();
             PitCrew = new PitCrewViewModel();
 
-            //Enabled = true;
+            Enabled = false;
+            //Car.Opacity = 0.3;
         }
 
         public string Name
@@ -72,14 +73,15 @@ namespace ArgEditor.ViewModels
             get { return _enabled; }
             set
             {
-                if (value.Equals(_enabled)) return;
+                //if (value.Equals(_enabled)) return;
                 _enabled = value;
                 OnPropertyChanged();
                 OnPropertyChanged("Visibility");    // hacky
 
                 if (Car != null)
                 {
-                    Car.Opacity = (_enabled) ? 1.0 : 0.2;
+                    //Car.Opacity = _enabled ? 1.0 : 0.3;
+                    Car.Opacity = 1.0;
                 }
             }
         }
@@ -101,9 +103,7 @@ namespace ArgEditor.ViewModels
 
         public PitCrewViewModel PitCrew { get; set; }
 
-
         public List<DriverViewModel> Drivers { get; private set; }
-
 
 
         public List<byte> AvailableDriverNumbers

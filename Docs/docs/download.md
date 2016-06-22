@@ -14,13 +14,22 @@ Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from 
 ## Known issues
 
 * No undo action available when copy-pasting car colors
-* Helmets for drivers with numbers #35 and above are not exported correctly
 * User Interface needs improvements in all kinds of ways
-* More...(?)
+* Confusing import/export flow
 
 
 ## Release notes
 
-### ArgEditorVersionValue (2015-09-15)
+### ArgEditorVersionValue (2016-0?-??)
+
+* Check for update functionality
+* Application and window icon
+* All helmets can be painted properly (limitations for some still apply)
+* Cannot export if you have less than 26 drivers active
+* Preview either race or qualifying performance
+* Minor UI tweaks
+
+
+### 0.8.0.73 (2015-09-15)
 
 * First release

@@ -28,7 +28,7 @@ before using this software.
 ## System requirements
 
 * Windows Vista SP2, 7 SP1, 8, 8.1 or 10
-* Microsoft .NET Framework 4.5.2
+* Microsoft .NET Framework 4.5.2 ([download](https://www.microsoft.com/en-us/download/details.aspx?id=42643))
 * F1GP (European) or World Circuit (US) version 1.05
 
 
