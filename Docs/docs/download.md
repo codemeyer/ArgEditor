@@ -20,7 +20,7 @@ Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from 
 
 ## Release notes
 
-### ArgEditorVersionValue (2016-0?-??)
+### ArgEditorVersionValue (2016-08-30)
 
 * Check for update functionality
 * Application and window icon
