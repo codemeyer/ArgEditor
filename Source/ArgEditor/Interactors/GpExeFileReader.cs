@@ -107,9 +107,9 @@ namespace ArgEditor.Interactors
 
         private static void UpdateGripLevels(MainViewModel viewModel, GpExeFile exeFile)
         {
-            var gripLevels = GripLevelReader.For(exeFile);
-            var raceGripLevels = gripLevels.ReadRaceGripLevels();
-            var qualGripLevels = gripLevels.ReadQualifyingGripLevels();
+            var gripLevels = DriverPerformanceReader.For(exeFile);
+            var raceGripLevels = gripLevels.ReadRacePerformanceLevels();
+            var qualGripLevels = gripLevels.ReadQualifyingPerformanceLevels();
 
             foreach (var dr in viewModel.Drivers) //.Where(d => d.Enabled))
             {

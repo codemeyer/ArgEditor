@@ -42,8 +42,8 @@
     <ApplicationIcon>Resources\argeditor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData, Version=0.11.1.135, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ArgData.0.11.1.135\lib\net452\ArgData.dll</HintPath>
+    <Reference Include="ArgData, Version=0.13.0.166, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArgData.0.13.0\lib\net452\ArgData.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
