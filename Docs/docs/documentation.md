@@ -116,9 +116,14 @@ By clicking on the cogwheel on the left, you get to the game settings screen.
 
 ![Settings tab screenshot](img/game-settings.png)
 
-Currently, the only thing you can edit here is the horsepower value that
-the player's (that is you!) car will have. The default value is 716, just like
-the top teams.
+There are two things you can edit here.
+
+The player horsepower value represents how powerful _your_ engine is in the game.
+The default value is 716, just like the top teams.
+
+The other item to edit is the general AI grip level. The default value is 1, but
+by increasing the value you can give yourself more of a challenge. The maximum
+value that can be set is 100.
 
 
 ## Open and Save
@@ -127,7 +132,14 @@ The File menu at the top of the screen lets you open and save car sets.
 A car set includes the team and driver names, car colors, pit crew colors
 and helmet colors.
 
-Game settings such as player horsepower is not saved in a car set.
+When you open a car set file, you can choose both ArgEditor files (.arged) and
+old F1ed files (.1ed).
+
+When saving, you can save either an ArgEditor car set file, or a F1Ed file that
+can be read by F1Ed. 
+
+Game settings such as player horsepower and general grip level are currently _not_ saved
+in the car sets.
 
 
 ## Import and Export

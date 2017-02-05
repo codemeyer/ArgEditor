@@ -9,13 +9,9 @@
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="740" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" VerticalAlignment="Top" Width="120">Player Horsepower</Label>
-        <TextBox Grid.Column="1" VerticalAlignment="Top" Margin="5,5,5,0" Width="50" Text="{Binding PlayerHorsepower}"/>
-        <Button Grid.Column="2" VerticalAlignment="Top" Margin="5,5,5,5" Click="ButtonBase_OnClick">Reset</Button>
+        <StackPanel VerticalAlignment="Top">
+            <userControls:PlayerHorsepowerUserControl></userControls:PlayerHorsepowerUserControl>
+            <userControls:GeneralGripLevelUserControl></userControls:GeneralGripLevelUserControl>
+        </StackPanel>
     </Grid>
 </UserControl>

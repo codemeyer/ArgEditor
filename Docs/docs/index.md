@@ -21,7 +21,7 @@ before using this software.
 ## Features
 
 * Update the names of teams and drivers
-* Set computer car horsepower levels and driver grip levels
+* Set computer car horsepower levels and driver performance levels
 * Paint cars, pit crew clothing and helmets
 
 

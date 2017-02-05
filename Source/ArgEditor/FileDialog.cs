@@ -11,8 +11,11 @@ namespace ArgEditor
             OpenFileDialog fileDialog = new OpenFileDialog
             {
                 DefaultExt = ".arged",
-                Filter = "ArgEditor files (*.arged)|.arged|All files (*.*)|*.*",
-                FileName = "*.arged",
+                Filter = "Car Sets (*.arged, *.1ed)|*.arged;*.1ed|ArgEditor files (*.arged)|*.arged|F1Ed files (*.1ed)|*.1ed|All files (*.*)|*.*",
+                //FileName = "*.arged",
+                //DefaultExt = ".arged",
+                //Filter = "ArgEditor files (*.arged)|.arged|All files (*.*)|*.*",
+                //FileName = "*.arged",
                 CheckFileExists = true
             };
 
@@ -26,6 +29,19 @@ namespace ArgEditor
                 DefaultExt = ".arged",
                 Filter = "ArgEditor files (*.arged)|.arged|All files (*.*)|*.*",
                 FileName = "*.arged",
+                CheckFileExists = false
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public static string SelectF1edFileToSave()
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog
+            {
+                DefaultExt = ".1ed",
+                Filter = "F1Ed files (*.1ed)|*.1ed|All files (*.*)|*.*",
+                FileName = "*.1ed",
                 CheckFileExists = false
             };
 

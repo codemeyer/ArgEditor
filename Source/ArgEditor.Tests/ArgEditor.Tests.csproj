@@ -67,7 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExampleDataHelper.cs" />
     <Compile Include="Interactors\DriverPerformanceCalculatorFacts.cs" />
+    <Compile Include="Interactors\LegacyCarSetFileInteractionFacts.cs" />
+    <Compile Include="MapperFacts.cs" />
     <Compile Include="PaletteHelperFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

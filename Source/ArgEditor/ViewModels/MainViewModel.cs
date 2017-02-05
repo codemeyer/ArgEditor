@@ -23,6 +23,7 @@ namespace ArgEditor.ViewModels
 
             _driverPerformanceList = new ObservableCollection<DriverPerformanceItemViewModel>();
             PlayerHorsepower = 716;
+            GeneralGripLevel = 1;
         }
 
         private void SetupDrivers()
@@ -134,6 +135,23 @@ namespace ArgEditor.ViewModels
         }
 
 
+        public int GeneralGripLevel
+        {
+            get
+            {
+                return _generalGripLevel;
+            }
+            set
+            {
+                if (value.Equals(_generalGripLevel)) { return; }
+                _generalGripLevel = value;
+                OnPropertyChanged(nameof(GeneralGripLevel));
+            }
+        }
+
+
+
+
         public PaletteViewModel Palette { get; private set; }
 
 
@@ -155,6 +173,7 @@ namespace ArgEditor.ViewModels
 
         private readonly ObservableCollection<DriverPerformanceItemViewModel> _driverPerformanceList;
         private int _playerHorsepower;
+        private int _generalGripLevel;
         private PerformanceMetric _driverPerformanceMetric;
 
         public ObservableCollection<DriverPerformanceItemViewModel> DriverPerformanceList

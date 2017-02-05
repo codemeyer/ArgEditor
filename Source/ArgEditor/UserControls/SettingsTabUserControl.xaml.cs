@@ -13,10 +13,5 @@ namespace ArgEditor.UserControls
         {
             InitializeComponent();
         }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            (DataContext as MainViewModel).PlayerHorsepower = 716;
-        }
     }
 }

@@ -1,0 +1,22 @@
+﻿using ArgEditor.ViewModels;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace ArgEditor.UserControls
+{
+    /// <summary>
+    /// Interaction logic for GeneralGripLevel.xaml
+    /// </summary>
+    public partial class GeneralGripLevelUserControl : UserControl
+    {
+        public GeneralGripLevelUserControl()
+        {
+            InitializeComponent();
+        }
+
+        private void SetDefault_OnClick(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).GeneralGripLevel = 1;
+        }
+    }
+}

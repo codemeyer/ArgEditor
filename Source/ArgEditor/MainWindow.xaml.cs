@@ -3,6 +3,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using ArgEditor.Interactors;
+using ArgEditor.Interactors.CarSets;
+using ArgEditor.Interactors.LegacyCarSets;
 using ArgEditor.ViewModels;
 using ArgEditor.ViewModels.Utils;
 
@@ -42,8 +44,17 @@ namespace ArgEditor
             // HACK: stupid temporary workaround to avoid not updating a textbox that currently has focus
             HiddenTextElement.Focus();
 
-            var loader = new CarSetLoader();
-            loader.Load(_mainViewModel, path);
+            if (path.ToLowerInvariant().EndsWith(".arged"))
+            {
+                var loader = new CarSetLoader();
+                loader.Load(_mainViewModel, path);
+            }
+            if (path.ToLowerInvariant().EndsWith(".1ed"))
+            {
+                LegacyCarSetLoader.IntoViewModel(_mainViewModel, path);
+            }
+
+            // TODO: unknown file? try to read as arged?
         }
 
         private void FileSaveMenuItem_Click(object sender, RoutedEventArgs e)
@@ -55,6 +66,18 @@ namespace ArgEditor
             var saver = new CarSetSaver();
             saver.Save(_mainViewModel, path);
         }
+
+        private void FileSaveF1edMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string path = FileDialog.SelectF1edFileToSave();
+
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            var carset = Mapper.LegacyCarSetFromMainViewModel(_mainViewModel);
+            LegacyCarSetSaver.Save(carset, path);
+        }
+
+
 
         private void FileImportFromGpExeMenuItem_Click(object sender, RoutedEventArgs e)
         {

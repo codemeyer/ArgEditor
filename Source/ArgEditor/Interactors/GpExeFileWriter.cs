@@ -21,6 +21,7 @@ namespace ArgEditor.Interactors
             WriteGripLevels(viewModel, exeFile);
             WriteHelmetColors(viewModel, exeFile);
             WritePlayerHorsepower(viewModel, exeFile);
+            WriteGeneralGripLevel(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -196,6 +197,16 @@ namespace ArgEditor.Interactors
         {
             var horsepower = PlayerHorsepowerWriter.For(exeFile);
             horsepower.WritePlayerHorsepower(viewModel.PlayerHorsepower);
+        }
+
+        private static void WriteGeneralGripLevel(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            // TODO: report incorrect value instead of just ignoring
+            if (viewModel.GeneralGripLevel < 1 || viewModel.GeneralGripLevel > 100)
+                return;
+
+            var writer = DriverPerformanceWriter.For(exeFile);
+            writer.WriteGeneralGripLevel(viewModel.GeneralGripLevel);
         }
     }
 }

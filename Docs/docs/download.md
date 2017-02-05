@@ -26,6 +26,13 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Release notes
 
+### 0.10.0 (2017-0?-??)
+
+* Can read and write F1Ed car sets
+* Can edit the general AI grip level
+* Now also runs on Windows XP
+
+
 ### 0.9.2 (2016-08-30)
 
 * Check for update functionality
