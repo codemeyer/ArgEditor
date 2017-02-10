@@ -28,7 +28,7 @@ teams. This is because the first team in 1991 was McLaren,
 which had the well-known Marlboro paint scheme
 with a red diagonal stripe across the nose cone. So if you are making a car set
 that does not feature a classic McLaren paint scheme, it would be advisable to
-leave the first team empty, and also skip the second theme for nicer symmetry
+leave the first team empty, and also skip the second team for nicer symmetry
 on the F1GP driver selection screen.
 
 
@@ -38,26 +38,26 @@ on the F1GP driver selection screen.
 
 Horsepower values determine how fast the cars will be, where higher is better.
 
-Drivers have two grip levels, one for qualifying and one for the race. A lower
-grip level value means better grip, so think of the value you are setting as
-a grip level "penalty".
+Drivers have two performance levels, one for qualifying and one for the race. A lower
+value means better performance level, so think of the value you are setting as
+a "penalty".
 
 On the right you will see a rough estimate of how drivers will perform relative
 to each other. These values are based on data collected for drivers at the
 Silverstone track, which was chosen because of its mix of straights and different
 corners. At high speed tracks like Hockenheim and Monza, the horsepower value
 will have a much greater effect on the lap times. At the opposite end of the
-spectrum, lap times at Monaco will be much more influenced by the grip level
+spectrum, lap times at Monaco will be much more influenced by the performance level
 of the drivers.
 
 
 ### Suitable values
 
 In F1GP, teams have horsepower values ranging from 716 at the top to 610 at the
-bottom. Drivers have their grip levels in order, from 1 at the top to 34 at
+bottom. Drivers have their perforamnce levels in order, from 1 at the top to 34 at
 the bottom.
 
-Grip level penalties can be set as high as 255, but then the driver will just
+Performance levels can be set as high as 255, but then the driver will just
 trundle along the track, sliding like a drift racer. I would not recommend
 going above 50.
 
@@ -66,7 +66,7 @@ going above 50.
 
 A thing to note is that when you completely skip the qualifying session in
 F1GP, the grid that the game sets up for you is _only_ based on the horsepower
-value of the car, and not at all by the grip level. Therefore, skipping the
+value of the car, and not at all by the driver performance level. Therefore, skipping the
 qualifying session will remove any performance differences you have set between
 team-mates.
 

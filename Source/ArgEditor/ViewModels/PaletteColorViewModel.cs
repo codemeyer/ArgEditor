@@ -15,7 +15,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_color)) { return; }
                 _color = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Color));
             }
         }
 
@@ -26,7 +26,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_colorIndex)) { return; }
                 _colorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(ColorIndex));
             }
         }
 
@@ -37,7 +37,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_isSelected)) { return; }
                 _isSelected = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(IsSelected));
             }
         }
     }

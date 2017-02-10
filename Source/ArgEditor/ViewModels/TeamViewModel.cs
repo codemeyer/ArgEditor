@@ -40,7 +40,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_name)) { return; }
                 _name = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Name));
 
                 Enabled = !string.IsNullOrEmpty(_name);
             }
@@ -53,7 +53,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_engine)) { return; }
                 _engine = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Engine));
             }
         }
 
@@ -64,7 +64,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_horsepower)) { return; }
                 _horsepower = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Horsepower));
             }
         }
 
@@ -75,8 +75,8 @@ namespace ArgEditor.ViewModels
             {
                 //if (value.Equals(_enabled)) return;
                 _enabled = value;
-                OnPropertyChanged();
-                OnPropertyChanged("Visibility");    // hacky
+                OnPropertyChanged(nameof(Enabled));
+                OnPropertyChanged(nameof(Visibility));    // hacky
 
                 if (Car != null)
                 {

@@ -19,5 +19,10 @@ namespace ArgEditor
         {
             this.Close();
         }
+
+        private void SiteLink_OnClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/");
+        }
     }
 }

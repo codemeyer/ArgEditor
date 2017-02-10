@@ -38,7 +38,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_selectedColor)) { return; }
                 _selectedColor = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(SelectedColor));
 
                 foreach (var color in _colors)
                 {

@@ -27,8 +27,8 @@ before using this software.
 
 ## System requirements
 
-* Windows Vista SP2, 7 SP1, 8, 8.1 or 10
-* Microsoft .NET Framework 4.5.2 ([download](https://www.microsoft.com/en-us/download/details.aspx?id=42643))
+* Windows XP, Vista SP1, 7, 8, 8.1 or 10
+* Microsoft .NET Framework 4.0
 * F1GP (European) or World Circuit (US) version 1.05
 
 
@@ -46,3 +46,5 @@ to:
 * Trevor Kellaway - for an endless number of F1GP utilities, including GPEditor
 * Steven Young - for GP2edit and GP3edit, inspiring the driver performance calculation
 * Paul Hoad - for the C++ code for calculating F1GP file checksums he sent me in 1998
+* Hrvoje Štimac - additional research material
+* Barrie Millar - additional research material

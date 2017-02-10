@@ -30,7 +30,7 @@
                 if (value.Equals(_shirtPrimaryColorIndex)) return;
 
                 _shirtPrimaryColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(ShirtPrimaryColorIndex));
             }
         }
 
@@ -42,7 +42,7 @@
                 if (value.Equals(_shirtSecondaryColorIndex)) return;
 
                 _shirtSecondaryColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(ShirtSecondaryColorIndex));
             }
         }
 
@@ -54,7 +54,7 @@
                 if (value.Equals(_pantsPrimaryColorIndex)) return;
 
                 _pantsPrimaryColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(PantsPrimaryColorIndex));
             }
         }
 
@@ -66,7 +66,7 @@
                 if (value.Equals(_pantsSecondaryColorIndex)) return;
 
                 _pantsSecondaryColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(PantsSecondaryColorIndex));
             }
         }
 
@@ -78,7 +78,7 @@
                 if (value.Equals(_socksColorIndex)) return;
 
                 _socksColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(SocksColorIndex));
             }
         }
     }

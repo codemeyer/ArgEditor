@@ -28,7 +28,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_number)) { return; }
                 _number = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Number));
             }
         }
 
@@ -39,7 +39,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_name)) { return; }
                 _name = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(ShortName));
 
                 Enabled = !string.IsNullOrEmpty(_name);
@@ -69,7 +69,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_raceGripLevel)) { return; }
                 _raceGripLevel = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(RaceGripLevel));
             }
         }
 
@@ -80,7 +80,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_qualifyingGripLevel)) { return; }
                 _qualifyingGripLevel = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(QualifyingGripLevel));
             }
         }
 
@@ -91,8 +91,8 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_enabled)) return;
                 _enabled = value;
-                OnPropertyChanged();
-                OnPropertyChanged("Visibility");    // hacky
+                OnPropertyChanged(nameof(Enabled));
+                OnPropertyChanged(nameof(Visibility));    // hacky
             }
         }
 

@@ -94,7 +94,7 @@ namespace ArgEditor.ViewModels
                 {
                     if (value.Equals(_selectedTeam)) { return; }
                     _selectedTeam = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(SelectedTeam));
                 }
             }
         }
@@ -113,7 +113,7 @@ namespace ArgEditor.ViewModels
                 {
                     if (value.Equals(_selectedHelmet)) { return; }
                     _selectedHelmet = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(SelectedHelmet));
                 }
             }
         }
@@ -129,7 +129,7 @@ namespace ArgEditor.ViewModels
             {
                 if (value.Equals(_playerHorsepower)) { return; }
                 _playerHorsepower = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(PlayerHorsepower));
             }
         }
 
@@ -149,7 +149,7 @@ namespace ArgEditor.ViewModels
                 _driverPerformanceList.Add(item);
             }
 
-            OnPropertyChanged("DriverPerformanceList");
+            OnPropertyChanged(nameof(DriverPerformanceList));
         }
 
 
@@ -171,7 +171,7 @@ namespace ArgEditor.ViewModels
             set
             {
                 _driverPerformanceMetric = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(DriverPerformanceMetric));
                 UpdateDriverPerformanceList();
             }
         }

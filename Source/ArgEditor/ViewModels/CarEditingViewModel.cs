@@ -50,7 +50,7 @@
                 if (value.Equals(_frontAndRearWingColorIndex)) return;
 
                 _frontAndRearWingColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(FrontAndRearWingColorIndex));
             }
         }
 
@@ -62,7 +62,7 @@
                 if (value.Equals(_frontWingEndplateColorIndex)) return;
 
                 _frontWingEndplateColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(FrontWingEndplateColorIndex));
             }
         }
 
@@ -73,7 +73,7 @@
             {
                 if (value == _rearWingSideColorIndex) return;
                 _rearWingSideColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(RearWingSideColorIndex));
             }
         }
 
@@ -84,7 +84,7 @@
             {
                 if (value == _engineCoverColorIndex) return;
                 _engineCoverColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(EngineCoverColorIndex));
             }
         }
 
@@ -95,7 +95,7 @@
             {
                 if (value == _cockpitFrontColorIndex) return;
                 _cockpitFrontColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(CockpitFrontColorIndex));
             }
         }
 
@@ -106,7 +106,7 @@
             {
                 if (value == _cockpitSideColorIndex) return;
                 _cockpitSideColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(CockpitSideColorIndex));
             }
         }
 
@@ -117,7 +117,7 @@
             {
                 if (value == _noseTopColorIndex) return;
                 _noseTopColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(NoseTopColorIndex));
 
                 if (IsSpecialShape)
                 {
@@ -133,7 +133,7 @@
             {
                 if (value == _noseSideColorIndex) return;
                 _noseSideColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(NoseSideColorIndex));
             }
         }
 
@@ -144,7 +144,7 @@
             {
                 if (value == _noseAngleColorIndex) return;
                 _noseAngleColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(NoseAngleColorIndex));
             }
         }
 
@@ -155,7 +155,7 @@
             {
                 if (value == _sidepodTopColorIndex) return;
                 _sidepodTopColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(SidepodTopColorIndex));
             }
         }
 
@@ -166,7 +166,7 @@
             {
                 if (value == _sidepodColorIndex) return;
                 _sidepodColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(SidepodColorIndex));
             }
         }
 
@@ -177,7 +177,7 @@
             {
                 if (value == _engineCoverSideColorIndex) return;
                 _engineCoverSideColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(EngineCoverSideColorIndex));
             }
         }
 
@@ -188,7 +188,7 @@
             {
                 if (value == _engineCoverRearColorIndex) return;
                 _engineCoverRearColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(EngineCoverRearColorIndex));
             }
         }
 
@@ -198,7 +198,7 @@
             set
             {
                 _opacity = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Opacity));
             }
         }
 
@@ -208,7 +208,7 @@
             set
             {
                 _isSpecialShape = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(IsSpecialShape));
             }
         }
         public bool IsRegularShape

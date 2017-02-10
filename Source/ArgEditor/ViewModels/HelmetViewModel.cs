@@ -62,7 +62,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_visorColorIndex)) return;
 
                 _visorColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(VisorColorIndex));
             }
         }
 
@@ -77,7 +77,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_visorSurroundColorIndex)) return;
 
                 _visorSurroundColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(VisorSurroundColorIndex));
             }
         }
 
@@ -92,7 +92,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe1ColorIndex)) return;
 
                 _stripe1ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe1ColorIndex));
             }
         }
 
@@ -106,7 +106,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe2ColorIndex)) return;
 
                 _stripe2ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe2ColorIndex));
             }
         }
 
@@ -120,7 +120,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe3ColorIndex)) return;
 
                 _stripe3ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe3ColorIndex));
             }
         }
 
@@ -135,7 +135,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe4ColorIndex)) return;
 
                 _stripe4ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe4ColorIndex));
             }
         }
 
@@ -150,7 +150,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe5ColorIndex)) return;
 
                 _stripe5ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe5ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -167,7 +167,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe6ColorIndex)) return;
 
                 _stripe6ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe6ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -184,7 +184,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe7ColorIndex)) return;
 
                 _stripe7ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe7ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -201,7 +201,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe8ColorIndex)) return;
 
                 _stripe8ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe8ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -218,7 +218,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe9ColorIndex)) return;
 
                 _stripe9ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe9ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -235,7 +235,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe10ColorIndex)) return;
 
                 _stripe10ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe10ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -252,7 +252,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe11ColorIndex)) return;
 
                 _stripe11ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe11ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -269,7 +269,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe12ColorIndex)) return;
 
                 _stripe12ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe12ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }
@@ -286,7 +286,7 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_stripe13ColorIndex)) return;
 
                 _stripe13ColorIndex = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Stripe13ColorIndex));
 
                 SetBottomStripesIfNeeded(value);
             }

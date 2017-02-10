@@ -12,7 +12,7 @@ namespace ArgEditor
 
     public class ColorPropertyWrapper
     {
-        private PropertyInfo _propertyInfo;
+        private readonly PropertyInfo _propertyInfo;
 
         public ColorPropertyWrapper(PropertyInfo propertyInfo)
         {
@@ -21,7 +21,7 @@ namespace ArgEditor
 
         public byte GetValue(object viewModel)
         {
-            return (byte)_propertyInfo.GetValue(viewModel);
+            return (byte)_propertyInfo.GetValue(viewModel, null);
         }
 
         public void SetValue(object viewModel, byte value)
