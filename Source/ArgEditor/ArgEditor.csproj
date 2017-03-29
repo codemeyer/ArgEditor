@@ -42,7 +42,7 @@
     <ApplicationIcon>Resources\argeditor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData, Version=0.14.0.168, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ArgData">
       <HintPath>..\packages\ArgData.0.14.0\lib\net40-Client\ArgData.dll</HintPath>
       <Private>True</Private>
     </Reference>
