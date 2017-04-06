@@ -146,6 +146,12 @@
     <Compile Include="UserControls\SettingsTabUserControl.xaml.cs">
       <DependentUpon>SettingsTabUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Settings\RainAtFirstTrackUserControl.xaml.cs">
+      <DependentUpon>RainAtFirstTrackUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Settings\RainProbabilityUserControl.xaml.cs">
+      <DependentUpon>RainProbabilityUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
@@ -237,6 +243,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\SettingsTabUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Settings\RainAtFirstTrackUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Settings\RainProbabilityUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

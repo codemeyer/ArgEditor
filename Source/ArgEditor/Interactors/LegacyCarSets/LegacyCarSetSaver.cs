@@ -136,12 +136,13 @@ namespace ArgEditor.Interactors.LegacyCarSets
 
         private static void WriteSettings(LegacyCarSet carset, List<string> lines)
         {
+            var bhpLegalise = carset.Settings.PlayerHorsepower == 716 ? "1" : "0";
             var rainAtFirstTrack = carset.Settings.RainAtFirstTrack ? "1" : "0";
 
             lines.Add("[F1Ed]");
             lines.Add($"AIGrip={carset.Settings.GeneralGripLevel}");
             lines.Add($"HumanBHP={carset.Settings.PlayerHorsepower}");
-            lines.Add("BHPLegalise=1");
+            lines.Add($"BHPLegalise={bhpLegalise}");
             lines.Add("NameFile=");
             lines.Add("BatchFile=C:\\GPRIX\\STARTGP.BAT");
             lines.Add("Damage1=7424");

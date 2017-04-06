@@ -23,6 +23,7 @@ namespace ArgEditor.Interactors
             UpdateHelmetColors(viewModel, exeFile);
             UpdatePlayerHorsepower(viewModel, exeFile);
             UpdateGeneralGripLevel(viewModel, exeFile);
+            UpdateWeatherSettings(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -167,10 +168,19 @@ namespace ArgEditor.Interactors
             viewModel.PlayerHorsepower = horsepowerReader.ReadPlayerHorsepower();
         }
 
-        private void UpdateGeneralGripLevel(MainViewModel viewModel, GpExeFile exeFile)
+        private static void UpdateGeneralGripLevel(MainViewModel viewModel, GpExeFile exeFile)
         {
             var griplevelReader = DriverPerformanceReader.For(exeFile);
             viewModel.GeneralGripLevel = griplevelReader.ReadGeneralGripLevel();
+        }
+
+        private static void UpdateWeatherSettings(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var weatherSettingsReader = WetWeatherSettingsReader.For(exeFile);
+            var settings = weatherSettingsReader.ReadSettings();
+
+            viewModel.ChanceOfRainPercent = settings.ChanceOfRain;
+            viewModel.RainAtFirstTrack = settings.RainAtFirstTrack;
         }
     }
 }

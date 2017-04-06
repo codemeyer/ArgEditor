@@ -22,8 +22,11 @@ namespace ArgEditor.ViewModels
             Palette = new PaletteViewModel();
 
             _driverPerformanceList = new ObservableCollection<DriverPerformanceItemViewModel>();
+            // TODO: default values from ArgData?
             PlayerHorsepower = 716;
             GeneralGripLevel = 1;
+            ChanceOfRainPercent = 6;
+            RainAtFirstTrack = false;
         }
 
         private void SetupDrivers()
@@ -149,6 +152,34 @@ namespace ArgEditor.ViewModels
             }
         }
 
+        public int ChanceOfRainPercent
+        {
+            get
+            {
+                return _chanceOfRainPercent;
+            }
+            set
+            {
+                if (value.Equals(_chanceOfRainPercent)) { return; }
+                _chanceOfRainPercent = value;
+                OnPropertyChanged(nameof(ChanceOfRainPercent));
+            }
+        }
+
+        public bool RainAtFirstTrack
+        {
+            get
+            {
+                return _rainAtFirstTrack;
+            }
+            set
+            {
+                if (value.Equals(_rainAtFirstTrack)) { return; }
+                _rainAtFirstTrack = value;
+                OnPropertyChanged(nameof(RainAtFirstTrack));
+            }
+        }
+
 
 
 
@@ -174,6 +205,8 @@ namespace ArgEditor.ViewModels
         private readonly ObservableCollection<DriverPerformanceItemViewModel> _driverPerformanceList;
         private int _playerHorsepower;
         private int _generalGripLevel;
+        private int _chanceOfRainPercent;
+        private bool _rainAtFirstTrack;
         private PerformanceMetric _driverPerformanceMetric;
 
         public ObservableCollection<DriverPerformanceItemViewModel> DriverPerformanceList

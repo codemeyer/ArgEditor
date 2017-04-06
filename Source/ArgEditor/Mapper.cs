@@ -264,10 +264,9 @@ namespace ArgEditor
             }
 
             carset.Settings.PlayerHorsepower = viewModel.PlayerHorsepower;
-            carset.Settings.GeneralGripLevel = 1;  // TODO:
-            // TODO: later?
-            carset.Settings.ChanceOfRain = 6;
-            carset.Settings.RainAtFirstTrack = false;
+            carset.Settings.GeneralGripLevel = viewModel.GeneralGripLevel;
+            carset.Settings.ChanceOfRain = viewModel.ChanceOfRainPercent;
+            carset.Settings.RainAtFirstTrack = viewModel.RainAtFirstTrack;
 
             return carset;
         }

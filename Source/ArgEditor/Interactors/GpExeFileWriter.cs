@@ -22,6 +22,7 @@ namespace ArgEditor.Interactors
             WriteHelmetColors(viewModel, exeFile);
             WritePlayerHorsepower(viewModel, exeFile);
             WriteGeneralGripLevel(viewModel, exeFile);
+            WriteWeatherSettings(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -207,6 +208,25 @@ namespace ArgEditor.Interactors
 
             var writer = DriverPerformanceWriter.For(exeFile);
             writer.WriteGeneralGripLevel(viewModel.GeneralGripLevel);
+        }
+
+        private static void WriteWeatherSettings(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            // TODO: report incorrect value instead of just updating?
+            if (viewModel.ChanceOfRainPercent < 0)
+                viewModel.ChanceOfRainPercent = 0;
+
+            if (viewModel.ChanceOfRainPercent > 100)
+                viewModel.ChanceOfRainPercent = 100;
+
+            var writer = WetWeatherSettingsWriter.For(exeFile);
+            var settings = new WetWeatherSettings
+            {
+                ChanceOfRain = (byte)viewModel.ChanceOfRainPercent,
+                RainAtFirstTrack = viewModel.RainAtFirstTrack
+            };
+
+            writer.WriteSettings(settings);
         }
     }
 }

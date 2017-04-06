@@ -14,7 +14,6 @@ namespace ArgEditor.Interactors.LegacyCarSets
 
             var lines = File.ReadAllLines(path);
 
-
             int teamsStartLine = FindLineMatching(lines, "[Teams]");
 
             for (int i = teamsStartLine; i <= teamsStartLine + ArgEditorConstants.TeamCountSupported; i++)
@@ -193,10 +192,6 @@ namespace ArgEditor.Interactors.LegacyCarSets
         // TODO: should have tests
         public static void IntoViewModel(MainViewModel mainViewModel, string path)
         {
-            // TODO:
-            // load into LegacyCarSet
-            // map to mainViewModel
-
             var legacy = LegacyCarSetLoader.Load(path);
 
             for (int teamIndex = 0; teamIndex < ArgEditorConstants.TeamCountSupported; teamIndex++)
@@ -208,7 +203,7 @@ namespace ArgEditor.Interactors.LegacyCarSets
                 vmTeam.Engine = legacyTeam.Engine;
                 vmTeam.Horsepower = legacyTeam.Horsepower;
 
-                // TODO: set team name and engine to "" if no drivers?
+                // set team name and engine to "" if no drivers?
                 if (legacyTeam.Driver1Number == 0 && legacyTeam.Driver2Number == 0)
                 {
                     vmTeam.Name = "";
@@ -237,17 +232,12 @@ namespace ArgEditor.Interactors.LegacyCarSets
                     var helmet = new Helmet(driver2.HelmetColors);
                     Mapper.MapDataHelmetToViewModelHelmet(helmet, vmTeam.Drivers[1].Helmet);
                 }
-
-
-
-                //Mapper.MapCarSetCarColorsToCarEditingViewModel();
-
-                //vmTeam.Car
             }
 
             mainViewModel.PlayerHorsepower = legacy.Settings.PlayerHorsepower;
-            // TODO: AI grip
-            // TODO: wet weather
+            mainViewModel.GeneralGripLevel = legacy.Settings.GeneralGripLevel;
+            mainViewModel.ChanceOfRainPercent = legacy.Settings.ChanceOfRain;
+            mainViewModel.RainAtFirstTrack = legacy.Settings.RainAtFirstTrack;
         }
     }
 }
