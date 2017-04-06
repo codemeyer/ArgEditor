@@ -30,6 +30,7 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 * Can read and write F1Ed car sets
 * Can edit the general AI grip level
+* Can edit wet weather settings
 * Now also runs on Windows XP
 
 
