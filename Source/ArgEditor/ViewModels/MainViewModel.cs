@@ -27,6 +27,8 @@ namespace ArgEditor.ViewModels
             GeneralGripLevel = 1;
             ChanceOfRainPercent = 6;
             RainAtFirstTrack = false;
+
+            PointsSystem = new PointsSystemViewModel();
         }
 
         private void SetupDrivers()
@@ -184,6 +186,8 @@ namespace ArgEditor.ViewModels
 
 
         public PaletteViewModel Palette { get; private set; }
+
+        public PointsSystemViewModel PointsSystem { get; private set; }
 
 
         private void UpdateDriverPerformanceList()

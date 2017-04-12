@@ -23,6 +23,7 @@ namespace ArgEditor.Interactors
             WritePlayerHorsepower(viewModel, exeFile);
             WriteGeneralGripLevel(viewModel, exeFile);
             WriteWeatherSettings(viewModel, exeFile);
+            WritePointsSystem(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -227,6 +228,15 @@ namespace ArgEditor.Interactors
             };
 
             writer.WriteSettings(settings);
+        }
+
+        private static void WritePointsSystem(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var system = new PointsSystem();
+            Mapper.MapPointsSystemViewModelToData(viewModel.PointsSystem, system);
+
+            var writer = PointsSystemWriter.For(exeFile);
+            writer.Write(system);
         }
     }
 }

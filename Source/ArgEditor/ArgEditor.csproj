@@ -42,10 +42,6 @@
     <ApplicationIcon>Resources\argeditor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArgData">
-      <HintPath>..\packages\ArgData.0.14.0\lib\net40-Client\ArgData.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -82,6 +78,7 @@
     <Compile Include="Interactors\CarSets\CarSetCarColors.cs" />
     <Compile Include="Interactors\CarSets\CarSetDriver.cs" />
     <Compile Include="Interactors\CarSets\CarSetFile.cs" />
+    <Compile Include="Interactors\CarSets\CarSetPointsSystem.cs" />
     <Compile Include="Interactors\CarSets\CarSetSaver.cs" />
     <Compile Include="Interactors\CarSets\CarSetHelmetColors.cs" />
     <Compile Include="Interactors\CarSets\CarSetLoader.cs" />
@@ -143,6 +140,9 @@
     <Compile Include="UserControls\PlayerHorsepowerUserControl.xaml.cs">
       <DependentUpon>PlayerHorsepowerUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PointsSystemTabUserControl.xaml.cs">
+      <DependentUpon>PointsSystemTabUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SettingsTabUserControl.xaml.cs">
       <DependentUpon>SettingsTabUserControl.xaml</DependentUpon>
     </Compile>
@@ -161,6 +161,7 @@
     <Compile Include="ViewModels\PaletteColorViewModel.cs" />
     <Compile Include="ViewModels\PaletteViewModel.cs" />
     <Compile Include="ViewModels\PitCrewViewModel.cs" />
+    <Compile Include="ViewModels\PointsSystemViewModel.cs" />
     <Compile Include="ViewModels\TeamViewModel.cs" />
     <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
     <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
@@ -242,6 +243,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\PointsSystemTabUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\SettingsTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,6 +302,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\argeditor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArgData\Source\ArgData\ArgData.csproj">
+      <Project>{84965ad5-70ac-4ddf-acd1-040671510c1a}</Project>
+      <Name>ArgData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,0 +1,3 @@
+[submodule "Source/ArgData"]
+	path = Source/ArgData
+	url = https://github.com/codemeyer/ArgData.git

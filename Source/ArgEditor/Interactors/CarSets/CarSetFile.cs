@@ -9,13 +9,15 @@ namespace ArgEditor.Interactors.CarSets
     {
         public CarSetFile()
         {
-            FileVersion = 1;
+            FileVersion = 2;
             Teams = new List<CarSetTeam>();
             Drivers = new List<CarSetDriver>();
+            PointsSystem = new CarSetPointsSystem();
         }
 
         public int FileVersion { get; set; }
         public List<CarSetTeam> Teams { get; set; }
         public List<CarSetDriver> Drivers { get; set; }
+        public CarSetPointsSystem PointsSystem { get; set; }
     }
 }

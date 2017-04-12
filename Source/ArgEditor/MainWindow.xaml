@@ -58,6 +58,9 @@
                     <TabItem Header="Helmets">
                         <userControls:HelmetPaintingTabUserControl x:Name="HelmetPaintingTab"></userControls:HelmetPaintingTabUserControl>
                     </TabItem>
+                    <TabItem Header="Points System">
+                        <userControls:PointsSystemTabUserControl x:Name="PointsSystemTab"></userControls:PointsSystemTabUserControl>
+                    </TabItem>
                 </TabControl>
 
             </TabItem>

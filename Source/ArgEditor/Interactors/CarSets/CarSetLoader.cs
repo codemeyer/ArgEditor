@@ -33,6 +33,16 @@ namespace ArgEditor.Interactors.CarSets
                 team.Drivers.Add(viewModel.Drivers[i * 2]);
                 team.Drivers.Add(viewModel.Drivers[i * 2 + 1]);
             }
+
+            if (carSet.FileVersion > 1)
+            {
+                Mapper.MapCarSetPointsSystemToViewModel(carSet.PointsSystem, viewModel.PointsSystem);
+            }
+            else
+            {
+                // version 1 does not contain a points system, use default...
+                viewModel.PointsSystem.SetFrom1991To2002();
+            }
         }
     }
 }

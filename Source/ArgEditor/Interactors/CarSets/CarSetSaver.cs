@@ -34,6 +34,8 @@ namespace ArgEditor.Interactors.CarSets
                 carSet.Drivers.Add(fileDriver);
             }
 
+            Mapper.MapPointsSystemViewModelToCarSet(viewModel.PointsSystem, carSet.PointsSystem);
+
             JsonSerializerSettings settings = new JsonSerializerSettings
             {
                 ContractResolver = new WritablePropertiesOnlyResolver(),

@@ -100,26 +100,6 @@ namespace ArgEditor.Interactors.LegacyCarSets
                 driver.QualifyingPerformance = Convert.ToInt32(mainData[1]);
                 driver.RacePerformance = Convert.ToInt32(mainData[2]);
 
-                /*
-                 *                 var teamData = lines[i];
-
-                var team = new LegacyTeam
-                {
-                    Index = Convert.ToInt32(teamData.Split('=')[0])
-                };
-
-                if (team.Index > ArgEditorConstants.TeamCountSupported)
-                    continue;
-
-                var mainData = teamData.Split('=')[1].Split(',');
-                team.Name = mainData[0];
-                team.Engine = mainData[1];
-                team.Horsepower = Convert.ToInt32(mainData[2]);
-                team.Driver1Number = Convert.ToInt32(mainData[3]);
-                team.Driver2Number = Convert.ToInt32(mainData[4]);
-
-                carset.Teams.Add(team);
-*/
                 carset.Drivers.Add(driver);
             }
 
@@ -238,6 +218,9 @@ namespace ArgEditor.Interactors.LegacyCarSets
             mainViewModel.GeneralGripLevel = legacy.Settings.GeneralGripLevel;
             mainViewModel.ChanceOfRainPercent = legacy.Settings.ChanceOfRain;
             mainViewModel.RainAtFirstTrack = legacy.Settings.RainAtFirstTrack;
+
+            // reset points system, since .1ed files do not support editing it
+            mainViewModel.PointsSystem.SetFrom1991To2002();
         }
     }
 }

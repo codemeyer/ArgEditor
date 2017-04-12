@@ -343,5 +343,130 @@ namespace ArgEditor
                 helmet.Stripe13ColorIndex
             };
         }
+
+
+
+
+        public static void MapCarSetPointsSystemToViewModel(CarSetPointsSystem system, PointsSystemViewModel viewModel)
+        {
+            viewModel.PointsFor1st = system.PointsFor1st;
+            viewModel.PointsFor2nd = system.PointsFor2nd;
+            viewModel.PointsFor3rd = system.PointsFor3rd;
+            viewModel.PointsFor4th = system.PointsFor4th;
+            viewModel.PointsFor5th = system.PointsFor5th;
+            viewModel.PointsFor6th = system.PointsFor6th;
+            viewModel.PointsFor7th = system.PointsFor7th;
+            viewModel.PointsFor8th = system.PointsFor8th;
+            viewModel.PointsFor9th = system.PointsFor9th;
+            viewModel.PointsFor10th = system.PointsFor10th;
+            viewModel.PointsFor11th = system.PointsFor11th;
+            viewModel.PointsFor12th = system.PointsFor12th;
+            viewModel.PointsFor13th = system.PointsFor13th;
+            viewModel.PointsFor14th = system.PointsFor14th;
+            viewModel.PointsFor15th = system.PointsFor15th;
+            viewModel.PointsFor16th = system.PointsFor16th;
+            viewModel.PointsFor17th = system.PointsFor17th;
+            viewModel.PointsFor18th = system.PointsFor18th;
+            viewModel.PointsFor19th = system.PointsFor19th;
+            viewModel.PointsFor20th = system.PointsFor20th;
+            viewModel.PointsFor21st = system.PointsFor21st;
+            viewModel.PointsFor22nd = system.PointsFor22nd;
+            viewModel.PointsFor23rd = system.PointsFor23rd;
+            viewModel.PointsFor24th = system.PointsFor24th;
+            viewModel.PointsFor25th = system.PointsFor25th;
+            viewModel.PointsFor26th = system.PointsFor26th;
+        }
+
+        public static void MapPointsSystemViewModelToCarSet(PointsSystemViewModel viewModel, CarSetPointsSystem system)
+        {
+            system.PointsFor1st = viewModel.PointsFor1st;
+            system.PointsFor2nd = viewModel.PointsFor2nd;
+            system.PointsFor3rd = viewModel.PointsFor3rd;
+            system.PointsFor4th = viewModel.PointsFor4th;
+            system.PointsFor5th = viewModel.PointsFor5th;
+            system.PointsFor6th = viewModel.PointsFor6th;
+            system.PointsFor7th = viewModel.PointsFor7th;
+            system.PointsFor8th = viewModel.PointsFor8th;
+            system.PointsFor9th = viewModel.PointsFor9th;
+            system.PointsFor10th = viewModel.PointsFor10th;
+            system.PointsFor11th = viewModel.PointsFor11th;
+            system.PointsFor12th = viewModel.PointsFor12th;
+            system.PointsFor13th = viewModel.PointsFor13th;
+            system.PointsFor14th = viewModel.PointsFor14th;
+            system.PointsFor15th = viewModel.PointsFor15th;
+            system.PointsFor16th = viewModel.PointsFor16th;
+            system.PointsFor17th = viewModel.PointsFor17th;
+            system.PointsFor18th = viewModel.PointsFor18th;
+            system.PointsFor19th = viewModel.PointsFor19th;
+            system.PointsFor20th = viewModel.PointsFor20th;
+            system.PointsFor21st = viewModel.PointsFor21st;
+            system.PointsFor22nd = viewModel.PointsFor22nd;
+            system.PointsFor23rd = viewModel.PointsFor23rd;
+            system.PointsFor24th = viewModel.PointsFor24th;
+            system.PointsFor25th = viewModel.PointsFor25th;
+            system.PointsFor26th = viewModel.PointsFor26th;
+        }
+
+
+
+        public static void MapDataPointsSystemToViewModel(PointsSystem system, PointsSystemViewModel viewModel)
+        {
+            viewModel.PointsFor1st = system.PointsFor1st;
+            viewModel.PointsFor2nd = system.PointsFor2nd;
+            viewModel.PointsFor3rd = system.PointsFor3rd;
+            viewModel.PointsFor4th = system.PointsFor4th;
+            viewModel.PointsFor5th = system.PointsFor5th;
+            viewModel.PointsFor6th = system.PointsFor6th;
+            viewModel.PointsFor7th = system.PointsFor7th;
+            viewModel.PointsFor8th = system.PointsFor8th;
+            viewModel.PointsFor9th = system.PointsFor9th;
+            viewModel.PointsFor10th = system.PointsFor10th;
+            viewModel.PointsFor11th = system.PointsFor11th;
+            viewModel.PointsFor12th = system.PointsFor12th;
+            viewModel.PointsFor13th = system.PointsFor13th;
+            viewModel.PointsFor14th = system.PointsFor14th;
+            viewModel.PointsFor15th = system.PointsFor15th;
+            viewModel.PointsFor16th = system.PointsFor16th;
+            viewModel.PointsFor17th = system.PointsFor17th;
+            viewModel.PointsFor18th = system.PointsFor18th;
+            viewModel.PointsFor19th = system.PointsFor19th;
+            viewModel.PointsFor20th = system.PointsFor20th;
+            viewModel.PointsFor21st = system.PointsFor21st;
+            viewModel.PointsFor22nd = system.PointsFor22nd;
+            viewModel.PointsFor23rd = system.PointsFor23rd;
+            viewModel.PointsFor24th = system.PointsFor24th;
+            viewModel.PointsFor25th = system.PointsFor25th;
+            viewModel.PointsFor26th = system.PointsFor26th;
+        }
+
+        public static void MapPointsSystemViewModelToData(PointsSystemViewModel viewModel, PointsSystem system)
+        {
+            system.PointsFor1st = viewModel.PointsFor1st;
+            system.PointsFor2nd = viewModel.PointsFor2nd;
+            system.PointsFor3rd = viewModel.PointsFor3rd;
+            system.PointsFor4th = viewModel.PointsFor4th;
+            system.PointsFor5th = viewModel.PointsFor5th;
+            system.PointsFor6th = viewModel.PointsFor6th;
+            system.PointsFor7th = viewModel.PointsFor7th;
+            system.PointsFor8th = viewModel.PointsFor8th;
+            system.PointsFor9th = viewModel.PointsFor9th;
+            system.PointsFor10th = viewModel.PointsFor10th;
+            system.PointsFor11th = viewModel.PointsFor11th;
+            system.PointsFor12th = viewModel.PointsFor12th;
+            system.PointsFor13th = viewModel.PointsFor13th;
+            system.PointsFor14th = viewModel.PointsFor14th;
+            system.PointsFor15th = viewModel.PointsFor15th;
+            system.PointsFor16th = viewModel.PointsFor16th;
+            system.PointsFor17th = viewModel.PointsFor17th;
+            system.PointsFor18th = viewModel.PointsFor18th;
+            system.PointsFor19th = viewModel.PointsFor19th;
+            system.PointsFor20th = viewModel.PointsFor20th;
+            system.PointsFor21st = viewModel.PointsFor21st;
+            system.PointsFor22nd = viewModel.PointsFor22nd;
+            system.PointsFor23rd = viewModel.PointsFor23rd;
+            system.PointsFor24th = viewModel.PointsFor24th;
+            system.PointsFor25th = viewModel.PointsFor25th;
+            system.PointsFor26th = viewModel.PointsFor26th;
+        }
     }
 }

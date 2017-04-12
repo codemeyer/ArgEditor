@@ -24,6 +24,7 @@ namespace ArgEditor.Interactors
             UpdatePlayerHorsepower(viewModel, exeFile);
             UpdateGeneralGripLevel(viewModel, exeFile);
             UpdateWeatherSettings(viewModel, exeFile);
+            UpdatePointsSystem(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -181,6 +182,14 @@ namespace ArgEditor.Interactors
 
             viewModel.ChanceOfRainPercent = settings.ChanceOfRain;
             viewModel.RainAtFirstTrack = settings.RainAtFirstTrack;
+        }
+
+        private static void UpdatePointsSystem(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var pointsSystemReader = PointsSystemReader.For(exeFile);
+            var system = pointsSystemReader.Read();
+
+            Mapper.MapDataPointsSystemToViewModel(system, viewModel.PointsSystem);
         }
     }
 }
