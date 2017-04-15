@@ -468,5 +468,24 @@ namespace ArgEditor
             system.PointsFor25th = viewModel.PointsFor25th;
             system.PointsFor26th = viewModel.PointsFor26th;
         }
+
+        public static void MapHelmetViewModel(HelmetViewModel source, HelmetViewModel target)
+        {
+            target.VisorColorIndex = source.VisorColorIndex;
+            target.VisorSurroundColorIndex = source.VisorSurroundColorIndex;
+            target.Stripe1ColorIndex = source.Stripe1ColorIndex;
+            target.Stripe2ColorIndex = source.Stripe2ColorIndex;
+            target.Stripe3ColorIndex = source.Stripe3ColorIndex;
+            target.Stripe4ColorIndex = source.Stripe4ColorIndex;
+            target.Stripe5ColorIndex = source.Stripe5ColorIndex;
+            target.Stripe6ColorIndex = source.Stripe6ColorIndex;
+            target.Stripe7ColorIndex = source.Stripe7ColorIndex;
+            target.Stripe8ColorIndex = source.Stripe8ColorIndex;
+            target.Stripe9ColorIndex = source.Stripe9ColorIndex;
+            target.Stripe10ColorIndex = source.Stripe10ColorIndex;
+            target.Stripe11ColorIndex = source.Stripe11ColorIndex;
+            target.Stripe12ColorIndex = source.Stripe12ColorIndex;
+            target.Stripe13ColorIndex = source.Stripe13ColorIndex;
+        }
     }
 }

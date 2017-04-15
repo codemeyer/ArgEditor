@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
+using ArgData;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
@@ -21,14 +24,30 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedHelmet = DataContextViewModel.SelectedHelmet;
 
-            if (clickedPolygonEvent.PaletteTool == PaletteTool.Paint)
+            var activePaletteTool = DataContextViewModel.Palette.ActivePaletteTool;
+
+            if (activePaletteTool == PaletteTool.Paint)
             {
                 AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet);
             }
-            else if (clickedPolygonEvent.PaletteTool == PaletteTool.PickupColor)
+            else if (activePaletteTool == PaletteTool.PickupColor)
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
                 DataContextViewModel.Palette.SelectedColor = colorIndex;
+            }
+            else if (activePaletteTool == PaletteTool.Darker)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
+                int darker = Palette.GetDarkerColor(colorIndex);
+                // TODO: handle undo
+                clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)darker);
+            }
+            else if (activePaletteTool == PaletteTool.Brighter)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
+                int brighter = Palette.GetBrighterColor(colorIndex);
+                // TODO: handle undo
+                clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)brighter);
             }
         }
 
@@ -48,8 +67,12 @@ namespace ArgEditor.UserControls
                     index = i;
                 }
             }
-            if (index == -1) { return; }
+            if (index == -1)
+            {
+                return;
+            }
 
+            var changeList = new ColorChangeList();
             var change = new ColorChange
             {
                 OldValue = currentColor,
@@ -57,18 +80,16 @@ namespace ArgEditor.UserControls
                 Property = property,
                 PaintedElement = paintedElement
             };
+            changeList.Add(change);
 
-            App.HelmetColorUndoStacks[index].Push(change);
+            App.HelmetColorUndoStacks[index].Push(changeList);
             App.HelmetColorRedoStacks[index].Clear();
         }
 
 
         private MainViewModel DataContextViewModel
         {
-            get
-            {
-                return DataContext as MainViewModel;
-            }
+            get { return DataContext as MainViewModel; }
         }
 
         private void SelectHelmet_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -90,39 +111,214 @@ namespace ArgEditor.UserControls
                         index = i;
                     }
                 }
-                if (index == -1) { return; }
+                if (index == -1)
+                {
+                    return;
+                }
 
                 if (e.Key == Key.Z)
                 {
-                    if (App.HelmetColorUndoStacks[index].Count == 0) { return; }
+                    if (App.HelmetColorUndoStacks[index].Count == 0)
+                    {
+                        return;
+                    }
 
                     ProcessColorChangeStacks(App.HelmetColorUndoStacks[index], App.HelmetColorRedoStacks[index]);
                 }
 
                 if (e.Key == Key.Y)
                 {
-                    if (App.HelmetColorRedoStacks[index].Count == 0) { return; }
+                    if (App.HelmetColorRedoStacks[index].Count == 0)
+                    {
+                        return;
+                    }
 
                     ProcessColorChangeStacks(App.HelmetColorRedoStacks[index], App.HelmetColorUndoStacks[index]);
                 }
             }
         }
 
-        private void ProcessColorChangeStacks(Stack<ColorChange> popStack, Stack<ColorChange> pushStack)
+        private void ProcessColorChangeStacks(Stack<ColorChangeList> popStack, Stack<ColorChangeList> pushStack)
         {
-            var latestChange = popStack.Pop();
+            var latestChanges = popStack.Pop();
+            var reverseChanges = new ColorChangeList();
             var viewModel = DataContextViewModel.SelectedHelmet;
 
-            latestChange.Property.SetValue(viewModel, latestChange.OldValue);
-
-            var reverseChange = new ColorChange
+            foreach (var latestChange in latestChanges)
             {
-                NewValue = latestChange.OldValue,
-                OldValue = latestChange.NewValue,
-                Property = latestChange.Property,
-                PaintedElement = latestChange.PaintedElement
-            };
-            pushStack.Push(reverseChange);
+                latestChange.Property.SetValue(viewModel, latestChange.OldValue);
+
+                var reverseChange = new ColorChange
+                {
+                    NewValue = latestChange.OldValue,
+                    OldValue = latestChange.NewValue,
+                    Property = latestChange.Property,
+                    PaintedElement = latestChange.PaintedElement
+                };
+                reverseChanges.Add(reverseChange);
+            }
+            pushStack.Push(reverseChanges);
+        }
+
+
+        private void HelmetSelectionCopy_Click(object sender, RoutedEventArgs e)
+        {
+            var helmet = GetHelmetViewModelForContextMenuItem(sender as MenuItem);
+
+            if (helmet == null)
+                return;
+
+            if (App.ClipboardHelmet == null)
+            {
+                App.ClipboardHelmet = new HelmetViewModel(null);  // ?
+            }
+
+            Mapper.MapHelmetViewModel(helmet, App.ClipboardHelmet);
+        }
+
+        private void HelmetSelectionPaste_Click(object sender, RoutedEventArgs e)
+        {
+            var helmet = GetHelmetViewModelForContextMenuItem(sender as MenuItem);
+
+            if (helmet == null)
+                return;
+
+            var colorChangeList = CreateColorChangeListForHelmetPasteOperation(helmet, App.ClipboardHelmet);
+            int index = (DataContext as MainViewModel).Drivers.Select(t => t.Helmet).ToList().IndexOf(helmet);
+            App.HelmetColorUndoStacks[index].Push(colorChangeList);
+
+            Mapper.MapHelmetViewModel(App.ClipboardHelmet, helmet);
+        }
+
+        private ColorChangeList CreateColorChangeListForHelmetPasteOperation(HelmetViewModel helmet, HelmetViewModel sourceHelmet)
+        {
+            var colorChangeList = new ColorChangeList();
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.VisorColorIndex))),
+                NewValue = sourceHelmet.VisorColorIndex,
+                OldValue = helmet.VisorColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.VisorSurroundColorIndex))),
+                NewValue = sourceHelmet.VisorSurroundColorIndex,
+                OldValue = helmet.VisorSurroundColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe1ColorIndex))),
+                NewValue = sourceHelmet.Stripe1ColorIndex,
+                OldValue = helmet.Stripe1ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe2ColorIndex))),
+                NewValue = sourceHelmet.Stripe2ColorIndex,
+                OldValue = helmet.Stripe2ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe3ColorIndex))),
+                NewValue = sourceHelmet.Stripe3ColorIndex,
+                OldValue = helmet.Stripe3ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe4ColorIndex))),
+                NewValue = sourceHelmet.Stripe4ColorIndex,
+                OldValue = helmet.Stripe4ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe5ColorIndex))),
+                NewValue = sourceHelmet.Stripe5ColorIndex,
+                OldValue = helmet.Stripe5ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe6ColorIndex))),
+                NewValue = sourceHelmet.Stripe6ColorIndex,
+                OldValue = helmet.Stripe6ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe7ColorIndex))),
+                NewValue = sourceHelmet.Stripe7ColorIndex,
+                OldValue = helmet.Stripe7ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe8ColorIndex))),
+                NewValue = sourceHelmet.Stripe8ColorIndex,
+                OldValue = helmet.Stripe8ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe9ColorIndex))),
+                NewValue = sourceHelmet.Stripe9ColorIndex,
+                OldValue = helmet.Stripe9ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe10ColorIndex))),
+                NewValue = sourceHelmet.Stripe10ColorIndex,
+                OldValue = helmet.Stripe10ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe11ColorIndex))),
+                NewValue = sourceHelmet.Stripe11ColorIndex,
+                OldValue = helmet.Stripe11ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe12ColorIndex))),
+                NewValue = sourceHelmet.Stripe12ColorIndex,
+                OldValue = helmet.Stripe12ColorIndex
+            });
+
+            colorChangeList.Add(new ColorChange
+            {
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe13ColorIndex))),
+                NewValue = sourceHelmet.Stripe13ColorIndex,
+                OldValue = helmet.Stripe13ColorIndex
+            });
+
+            return colorChangeList;
+        }
+
+        private HelmetViewModel GetHelmetViewModelForContextMenuItem(MenuItem menuItem)
+        {
+            ContextMenu cm = menuItem.CommandParameter as ContextMenu;
+            if (cm != null)
+            {
+                var g = cm.PlacementTarget as HelmetUserControl;
+
+                var team = g.DataContext as HelmetViewModel;
+                return team;
+            }
+
+            return null;
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/decompressed-exe");
         }
     }
 }

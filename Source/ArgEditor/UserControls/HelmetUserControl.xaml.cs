@@ -43,7 +43,8 @@ namespace ArgEditor.UserControls
 
             var property = new ColorPropertyWrapper(prop);
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
+            //RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =

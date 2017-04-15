@@ -55,10 +55,13 @@ namespace ArgEditor.UserControls
             //    ? PaletteTool.PickupColor
             //    : PaletteTool.Paint;
 
+            // TODO: remove paletteTool from here, it is overridden when the event is handled...
+
             PropertyInfo prop = selectedCar.GetType().GetProperty(bindingPath);
             var property = new ColorPropertyWrapper(prop);
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
+            //RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =
@@ -74,22 +77,23 @@ namespace ArgEditor.UserControls
 
     public class ClickedPolygonEventArgs : RoutedEventArgs
     {
-        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property, PaletteTool paletteTool)
+        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property) //, PaletteTool paletteTool)
             : base(routedEvent)
         {
             Property = property;
-            PaletteTool = paletteTool;
+            //PaletteTool = paletteTool;
         }
 
         public ColorPropertyWrapper Property { get; set; }
-        public PaletteTool PaletteTool { get; set; }
+        //public PaletteTool PaletteTool { get; set; }
     }
 
 
     public enum PaletteTool
     {
         Paint,
-        PickupColor
+        PickupColor,
+        Darker,
+        Brighter
     }
 }
-

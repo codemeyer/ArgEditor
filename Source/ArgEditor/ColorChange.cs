@@ -1,7 +1,34 @@
-﻿using System.Reflection;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace ArgEditor
 {
+    public class ColorChangeList : IEnumerable<ColorChange>
+    {
+        private readonly List<ColorChange> _colorChanges;
+
+        public ColorChangeList()
+        {
+            _colorChanges = new List<ColorChange>();
+        }
+
+        public void Add(ColorChange change)
+        {
+            _colorChanges.Add(change);
+        }
+
+        public IEnumerator<ColorChange> GetEnumerator()
+        {
+            return _colorChanges.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
+
     public class ColorChange
     {
         public byte OldValue { get; set; }

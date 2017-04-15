@@ -12,22 +12,22 @@ namespace ArgEditor
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            CarColorUndoStacks = new Stack<ColorChange>[20];
-            CarColorRedoStacks = new Stack<ColorChange>[20];
+            CarColorUndoStacks = new Stack<ColorChangeList>[20];
+            CarColorRedoStacks = new Stack<ColorChangeList>[20];
 
             for (int i = 0; i < 20; i++)
             {
-                CarColorUndoStacks[i] = new Stack<ColorChange>();
-                CarColorRedoStacks[i] = new Stack<ColorChange>();
+                CarColorUndoStacks[i] = new Stack<ColorChangeList>();
+                CarColorRedoStacks[i] = new Stack<ColorChangeList>();
             }
 
-            HelmetColorUndoStacks = new Stack<ColorChange>[40];
-            HelmetColorRedoStacks = new Stack<ColorChange>[40];
+            HelmetColorUndoStacks = new Stack<ColorChangeList>[40];
+            HelmetColorRedoStacks = new Stack<ColorChangeList>[40];
 
             for (int i = 0; i < 40; i++)
             {
-                HelmetColorUndoStacks[i] = new Stack<ColorChange>();
-                HelmetColorRedoStacks[i] = new Stack<ColorChange>();
+                HelmetColorUndoStacks[i] = new Stack<ColorChangeList>();
+                HelmetColorRedoStacks[i] = new Stack<ColorChangeList>();
             }
 
             ClipboardCar = null;
@@ -36,10 +36,10 @@ namespace ArgEditor
             base.OnStartup(e);
         }
 
-        public static Stack<ColorChange>[] CarColorUndoStacks { get; private set; }
-        public static Stack<ColorChange>[] CarColorRedoStacks { get; private set; }
-        public static Stack<ColorChange>[] HelmetColorUndoStacks { get; private set; }
-        public static Stack<ColorChange>[] HelmetColorRedoStacks { get; private set; }
+        public static Stack<ColorChangeList>[] CarColorUndoStacks { get; private set; }
+        public static Stack<ColorChangeList>[] CarColorRedoStacks { get; private set; }
+        public static Stack<ColorChangeList>[] HelmetColorUndoStacks { get; private set; }
+        public static Stack<ColorChangeList>[] HelmetColorRedoStacks { get; private set; }
 
         public static CarEditingViewModel ClipboardCar { get; set; }
         public static HelmetViewModel ClipboardHelmet { get; set; }

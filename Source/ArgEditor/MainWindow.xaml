@@ -45,7 +45,7 @@
                         </Path>
                     </Canvas>
                 </TabItem.Header>
-                <TabControl Margin="5,5,5,5">
+                <TabControl x:Name="MainCarSetTab" Margin="5,5,5,5">
                     <TabItem Header="Teams and Drivers">
                         <userControls:TeamDriverNamesTabUserControl x:Name="TeamsAndDriversTab"></userControls:TeamDriverNamesTabUserControl>
                     </TabItem>

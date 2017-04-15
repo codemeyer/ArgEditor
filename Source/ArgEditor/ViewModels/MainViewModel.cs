@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ArgEditor.Interactors;
+using ArgEditor.UserControls;
 
 namespace ArgEditor.ViewModels
 {
@@ -20,6 +21,7 @@ namespace ArgEditor.ViewModels
             SelectedHelmet = Drivers[0].Helmet;
 
             Palette = new PaletteViewModel();
+            Palette.ActivePaletteTool = PaletteTool.Paint;
 
             _driverPerformanceList = new ObservableCollection<DriverPerformanceItemViewModel>();
             // TODO: default values from ArgData?

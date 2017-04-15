@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Windows;
 
 namespace ArgEditor.ViewModels
 {
@@ -293,20 +294,42 @@ namespace ArgEditor.ViewModels
         }
 
 
+
+        private Visibility _showDecompressedExeMessage;
+
+        public Visibility ShowDecompressedExeMessage
+        {
+            get { return _showDecompressedExeMessage; }
+            set
+            {
+                if (value.Equals(_showDecompressedExeMessage)) return;
+                _showDecompressedExeMessage = value;
+                OnPropertyChanged(nameof(ShowDecompressedExeMessage));
+            }
+        }
+
+
+        // TODO: rename
         private void SetBottomStripesIfNeeded(byte colorIndex)
         {
-            if (_specialHelmetNumbers.Contains(Parent.Number))
-            {
-                Stripe5ColorIndex = colorIndex;
-                Stripe6ColorIndex = colorIndex;
-                Stripe7ColorIndex = colorIndex;
-                Stripe8ColorIndex = colorIndex;
-                Stripe9ColorIndex = colorIndex;
-                Stripe10ColorIndex = colorIndex;
-                Stripe11ColorIndex = colorIndex;
-                Stripe12ColorIndex = colorIndex;
-                Stripe13ColorIndex = colorIndex;
-            }
+            if (Parent == null)
+                return;
+
+            ShowDecompressedExeMessage = _specialHelmetNumbers.Contains(Parent.Number)
+                ? Visibility.Visible : Visibility.Hidden;
+
+            //if (_specialHelmetNumbers.Contains(Parent.Number))
+            //{
+            //    Stripe5ColorIndex = colorIndex;
+            //    Stripe6ColorIndex = colorIndex;
+            //    Stripe7ColorIndex = colorIndex;
+            //    Stripe8ColorIndex = colorIndex;
+            //    Stripe9ColorIndex = colorIndex;
+            //    Stripe10ColorIndex = colorIndex;
+            //    Stripe11ColorIndex = colorIndex;
+            //    Stripe12ColorIndex = colorIndex;
+            //    Stripe13ColorIndex = colorIndex;
+            //}
         }
 
         private readonly byte[] _specialHelmetNumbers = { 13, 15, 36, 37, 38, 39, 40 };

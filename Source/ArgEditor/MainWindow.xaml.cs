@@ -5,6 +5,7 @@ using System.Windows.Input;
 using ArgEditor.Interactors;
 using ArgEditor.Interactors.CarSets;
 using ArgEditor.Interactors.LegacyCarSets;
+using ArgEditor.UserControls;
 using ArgEditor.ViewModels;
 using ArgEditor.ViewModels.Utils;
 

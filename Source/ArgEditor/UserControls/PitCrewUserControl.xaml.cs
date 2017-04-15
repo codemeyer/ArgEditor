@@ -38,7 +38,8 @@ namespace ArgEditor.UserControls
             PropertyInfo prop = selectedPitCrew.GetType().GetProperty(bindingPath);
             var property = new ColorPropertyWrapper(prop);
 
-            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
+            //RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
+            RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 
         private static readonly RoutedEvent ClickedPolygonUpdatedEvent =

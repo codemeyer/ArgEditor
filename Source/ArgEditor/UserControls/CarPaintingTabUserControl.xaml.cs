@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ArgData;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
@@ -28,14 +29,31 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedCar = DataContextViewModel.SelectedTeam.Car;
 
-            if (clickedPolygonEvent.PaletteTool == PaletteTool.Paint)
+            var activePaletteTool = DataContextViewModel.Palette.ActivePaletteTool;
+            // LOL
+
+            if (activePaletteTool == PaletteTool.Paint)
             {
                 AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car);
             }
-            else if (clickedPolygonEvent.PaletteTool == PaletteTool.PickupColor)
+            else if (activePaletteTool == PaletteTool.PickupColor)
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
                 DataContextViewModel.Palette.SelectedColor = colorIndex;
+            }
+            else if (activePaletteTool == PaletteTool.Darker)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
+                int darker = Palette.GetDarkerColor(colorIndex);
+                // TODO: handle undo
+                clickedPolygonEvent.Property.SetValue(selectedCar, (byte)darker);
+            }
+            else if (activePaletteTool == PaletteTool.Brighter)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
+                int brighter = Palette.GetBrighterColor(colorIndex);
+                // TODO: handle undo
+                clickedPolygonEvent.Property.SetValue(selectedCar, (byte)brighter);
             }
         }
 
@@ -44,21 +62,40 @@ namespace ArgEditor.UserControls
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
             var selectedPitCrew = DataContextViewModel.SelectedTeam.PitCrew;
 
-            if (clickedPolygonEvent.PaletteTool == PaletteTool.Paint)
+            var activePaletteTool = DataContextViewModel.Palette.ActivePaletteTool;
+
+            if (activePaletteTool == PaletteTool.Paint)
             {
                 AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew);
             }
-            else if (clickedPolygonEvent.PaletteTool == PaletteTool.PickupColor)
+            else if (activePaletteTool == PaletteTool.PickupColor)
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
                 DataContextViewModel.Palette.SelectedColor = colorIndex;
+            }
+            else if (activePaletteTool == PaletteTool.Darker)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
+                int darker = Palette.GetDarkerColor(colorIndex);
+                // TODO: handle undo
+                clickedPolygonEvent.Property.SetValue(selectedPitCrew, (byte)darker);
+            }
+            else if (activePaletteTool == PaletteTool.Brighter)
+            {
+                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
+                int brighter = Palette.GetBrighterColor(colorIndex);
+                // TODO: handle undo
+                clickedPolygonEvent.Property.SetValue(selectedPitCrew, (byte)brighter);
             }
         }
 
         private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement)
         {
+            // TODO: support for one action that can contain multiple color changes
+
             byte currentColor = property.GetValue(viewModel);
 
+            // TODO: pass selectedColor in, instead of doing this...
             property.SetValue(viewModel, DataContextViewModel.Palette.SelectedColor);
 
             int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
@@ -69,8 +106,9 @@ namespace ArgEditor.UserControls
                 Property = property,
                 PaintedElement = paintedElement
             };
+            var changeList = new ColorChangeList { change };
 
-            App.CarColorUndoStacks[index].Push(change);
+            App.CarColorUndoStacks[index].Push(changeList);
             App.CarColorRedoStacks[index].Clear();
         }
 
@@ -104,21 +142,28 @@ namespace ArgEditor.UserControls
             }
         }
 
-        private void ProcessColorChangeStacks(Stack<ColorChange> popStack, Stack<ColorChange> pushStack)
+        private void ProcessColorChangeStacks(Stack<ColorChangeList> popStack, Stack<ColorChangeList> pushStack)
         {
-            var latestChange = popStack.Pop();
-            var viewModel = GetViewModelForChange(DataContextViewModel.SelectedTeam, latestChange.PaintedElement);
+            var latestChanges = popStack.Pop();
+            var reverseChanges = new ColorChangeList();
 
-            latestChange.Property.SetValue(viewModel, latestChange.OldValue);
-
-            var reverseChange = new ColorChange
+            foreach (var latestChange in latestChanges)
             {
-                NewValue = latestChange.OldValue,
-                OldValue = latestChange.NewValue,
-                Property = latestChange.Property,
-                PaintedElement = latestChange.PaintedElement
-            };
-            pushStack.Push(reverseChange);
+                var viewModel = GetViewModelForChange(DataContextViewModel.SelectedTeam, latestChange.PaintedElement);
+
+                latestChange.Property.SetValue(viewModel, latestChange.OldValue);
+
+                var reverseChange = new ColorChange
+                {
+                    NewValue = latestChange.OldValue,
+                    OldValue = latestChange.NewValue,
+                    Property = latestChange.Property,
+                    PaintedElement = latestChange.PaintedElement
+                };
+                reverseChanges.Add(reverseChange);
+            }
+
+            pushStack.Push(reverseChanges);
         }
 
         private object GetViewModelForChange(TeamViewModel selectedTeam, PaintedElement paintedElement)

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using ArgEditor.ViewModels;
@@ -25,6 +26,26 @@ namespace ArgEditor.UserControls
         private PaletteViewModel DataContextViewModel
         {
             get { return DataContext as PaletteViewModel; }
+        }
+
+        private void PaletteToolFill_Click(object sender, RoutedEventArgs e)
+        {
+            DataContextViewModel.ActivePaletteTool = PaletteTool.Paint;
+        }
+
+        private void PaletteToolPickup_Click(object sender, RoutedEventArgs e)
+        {
+            DataContextViewModel.ActivePaletteTool = PaletteTool.PickupColor;
+        }
+
+        private void PaletteToolDarker_Click(object sender, RoutedEventArgs e)
+        {
+            DataContextViewModel.ActivePaletteTool = PaletteTool.Darker;
+        }
+
+        private void PaletteToolBrighter_Click(object sender, RoutedEventArgs e)
+        {
+            DataContextViewModel.ActivePaletteTool = PaletteTool.Brighter;
         }
     }
 }

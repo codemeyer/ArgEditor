@@ -23,6 +23,25 @@
         </Style>
     </UserControl.Resources>
     <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
+                             Height="25" Width="71" Margin="0,0,5,5"
+                             Click="PaletteToolFill_Click"
+                             IsChecked="{Binding IsPaletteToolFill}">Fill</RadioButton>
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
+                             Height="25" Width="71" Margin="0,0,5,5"
+                             Click="PaletteToolPickup_Click"
+                             IsChecked="{Binding IsPaletteToolPickup}">Pickup</RadioButton>
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
+                             Height="25" Width="71" Margin="0,0,5,5"
+                             Click="PaletteToolDarker_Click"
+                             IsChecked="{Binding IsPaletteToolDarker}">Darken</RadioButton>
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
+                             Height="25" Width="71" Margin="0,0,0,5"
+                             Click="PaletteToolBrighter_Click"
+                             IsChecked="{Binding IsPaletteToolBrighter}">Brighten</RadioButton>
+            </StackPanel>
         <ItemsControl ItemsSource="{Binding Colors}" Width="320" Height="320" x:Name="PaletteContainer">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -41,5 +60,6 @@
 
         <Rectangle HorizontalAlignment="Left" Height="25" Margin="178,365,0,0" VerticalAlignment="Top" Width="100"
                    Stroke="Black" Fill="{Binding SelectedColor, Converter={StaticResource ColorConverter}}" />
+        </StackPanel>
     </Grid>
 </UserControl>
