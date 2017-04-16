@@ -104,39 +104,55 @@ namespace ArgEditor.UserControls
         {
             if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
             {
-                int index = -1;
-                for (int i = 0; i < 40; i++)
-                {
-                    if (DataContextViewModel.Drivers[i].Helmet == DataContextViewModel.SelectedHelmet)
-                    {
-                        index = i;
-                    }
-                }
-                if (index == -1)
-                {
-                    return;
-                }
-
                 if (e.Key == Key.Z)
                 {
-                    if (App.HelmetColorUndoStacks[index].Count == 0)
-                    {
-                        return;
-                    }
-
-                    ProcessColorChangeStacks(App.HelmetColorUndoStacks[index], App.HelmetColorRedoStacks[index]);
+                    PerformUndo();
                 }
 
                 if (e.Key == Key.Y)
                 {
-                    if (App.HelmetColorRedoStacks[index].Count == 0)
-                    {
-                        return;
-                    }
-
-                    ProcessColorChangeStacks(App.HelmetColorRedoStacks[index], App.HelmetColorUndoStacks[index]);
+                    PerformRedo();
                 }
             }
+        }
+
+        // TODO: somewhere else, yeah?
+        public void PerformUndo()
+        {
+            int index = GetIndex();
+
+            if (App.HelmetColorUndoStacks[index].Count == 0)
+            {
+                return;
+            }
+
+            ProcessColorChangeStacks(App.HelmetColorUndoStacks[index], App.HelmetColorRedoStacks[index]);
+        }
+
+        public void PerformRedo()
+        {
+            int index = GetIndex();
+
+            if (App.HelmetColorRedoStacks[index].Count == 0)
+            {
+                return;
+            }
+
+            ProcessColorChangeStacks(App.HelmetColorRedoStacks[index], App.HelmetColorUndoStacks[index]);
+        }
+
+        private int GetIndex()
+        {
+            int index = -1;
+            for (int i = 0; i < 40; i++)
+            {
+                if (DataContextViewModel.Drivers[i].Helmet == DataContextViewModel.SelectedHelmet)
+                {
+                    index = i;
+                }
+            }
+
+            return index;
         }
 
         private void ProcessColorChangeStacks(Stack<ColorChangeList> popStack, Stack<ColorChangeList> pushStack)

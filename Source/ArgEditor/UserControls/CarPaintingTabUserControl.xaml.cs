@@ -117,24 +117,38 @@ namespace ArgEditor.UserControls
 
         private void CarPaintingTab_KeyDown(object sender, KeyEventArgs e)
         {
+            // TODO: use proper WPF commands instead?
             if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
             {
-                int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
-
                 if (e.Key == Key.Z)
                 {
-                    if (App.CarColorUndoStacks[index].Count == 0) { return; }
-
-                    ProcessColorChangeStacks(App.CarColorUndoStacks[index], App.CarColorRedoStacks[index]);
+                    PerformUndo();
                 }
 
                 if (e.Key == Key.Y)
                 {
-                    if (App.CarColorRedoStacks[index].Count == 0) { return; }
-
-                    ProcessColorChangeStacks(App.CarColorRedoStacks[index], App.CarColorUndoStacks[index]);
+                    PerformRedo();
                 }
             }
+        }
+
+        // TODO: put somewhere else, yeah?
+        public void PerformUndo()
+        {
+            int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
+
+            if (App.CarColorUndoStacks[index].Count == 0) { return; }
+
+            ProcessColorChangeStacks(App.CarColorUndoStacks[index], App.CarColorRedoStacks[index]);
+        }
+
+        public void PerformRedo()
+        {
+            int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
+
+            if (App.CarColorRedoStacks[index].Count == 0) { return; }
+
+            ProcessColorChangeStacks(App.CarColorRedoStacks[index], App.CarColorUndoStacks[index]);
         }
 
         private void ProcessColorChangeStacks(Stack<ColorChangeList> popStack, Stack<ColorChangeList> pushStack)

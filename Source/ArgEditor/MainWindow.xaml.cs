@@ -171,15 +171,24 @@ namespace ArgEditor
         {
             if (MainCarSetTab.SelectedIndex == 2)   // cars/pitcrews
             {
-
+                CarPaintingTab.PerformUndo();
             }
             else if (MainCarSetTab.SelectedIndex == 3)  // helmets
             {
+                HelmetPaintingTab.PerformUndo();
             }
         }
 
         private void EditRedoMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            if (MainCarSetTab.SelectedIndex == 2)   // cars/pitcrews
+            {
+                CarPaintingTab.PerformRedo();
+            }
+            else if (MainCarSetTab.SelectedIndex == 3)  // helmets
+            {
+                HelmetPaintingTab.PerformRedo();
+            }
         }
 
         private void HelpViewHelpMenuItem_Click(object sender, RoutedEventArgs e)
