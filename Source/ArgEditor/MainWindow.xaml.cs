@@ -167,6 +167,21 @@ namespace ArgEditor
             Application.Current.Shutdown();
         }
 
+        private void EditUndoMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainCarSetTab.SelectedIndex == 2)   // cars/pitcrews
+            {
+
+            }
+            else if (MainCarSetTab.SelectedIndex == 3)  // helmets
+            {
+            }
+        }
+
+        private void EditRedoMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
         private void HelpViewHelpMenuItem_Click(object sender, RoutedEventArgs e)
         {
             OpenDocsInBrowser();

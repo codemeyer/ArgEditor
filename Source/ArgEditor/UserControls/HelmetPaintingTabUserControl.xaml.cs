@@ -28,7 +28,7 @@ namespace ArgEditor.UserControls
 
             if (activePaletteTool == PaletteTool.Paint)
             {
-                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet);
+                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet, DataContextViewModel.Palette.SelectedColor);
             }
             else if (activePaletteTool == PaletteTool.PickupColor)
             {
@@ -39,25 +39,26 @@ namespace ArgEditor.UserControls
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
                 int darker = Palette.GetDarkerColor(colorIndex);
-                // TODO: handle undo
-                clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)darker);
+                //clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)darker);
+                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet, (byte)darker);
             }
             else if (activePaletteTool == PaletteTool.Brighter)
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
                 int brighter = Palette.GetBrighterColor(colorIndex);
-                // TODO: handle undo
-                clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)brighter);
+                //clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)brighter);
+                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet, (byte)brighter);
             }
         }
 
         // TODO: in some base class?
         // TODO: does more than just Undo!
-        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement)
+        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement, byte newColor)
         {
             byte currentColor = property.GetValue(viewModel);
 
-            property.SetValue(viewModel, DataContextViewModel.Palette.SelectedColor);
+            //property.SetValue(viewModel, DataContextViewModel.Palette.SelectedColor);
+            property.SetValue(viewModel, newColor);
 
             int index = -1;
             for (int i = 0; i < 40; i++)
@@ -76,7 +77,7 @@ namespace ArgEditor.UserControls
             var change = new ColorChange
             {
                 OldValue = currentColor,
-                NewValue = DataContextViewModel.Palette.SelectedColor,
+                NewValue = newColor,
                 Property = property,
                 PaintedElement = paintedElement
             };

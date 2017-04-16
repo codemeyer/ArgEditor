@@ -34,7 +34,7 @@ namespace ArgEditor.UserControls
 
             if (activePaletteTool == PaletteTool.Paint)
             {
-                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car);
+                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car, DataContextViewModel.Palette.SelectedColor);
             }
             else if (activePaletteTool == PaletteTool.PickupColor)
             {
@@ -45,15 +45,15 @@ namespace ArgEditor.UserControls
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
                 int darker = Palette.GetDarkerColor(colorIndex);
-                // TODO: handle undo
-                clickedPolygonEvent.Property.SetValue(selectedCar, (byte)darker);
+                //clickedPolygonEvent.Property.SetValue(selectedCar, (byte)darker);
+                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car, (byte)darker);
             }
             else if (activePaletteTool == PaletteTool.Brighter)
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
                 int brighter = Palette.GetBrighterColor(colorIndex);
-                // TODO: handle undo
-                clickedPolygonEvent.Property.SetValue(selectedCar, (byte)brighter);
+                //clickedPolygonEvent.Property.SetValue(selectedCar, (byte)brighter);
+                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car, (byte)brighter);
             }
         }
 
@@ -66,7 +66,7 @@ namespace ArgEditor.UserControls
 
             if (activePaletteTool == PaletteTool.Paint)
             {
-                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew);
+                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew, DataContextViewModel.Palette.SelectedColor);
             }
             else if (activePaletteTool == PaletteTool.PickupColor)
             {
@@ -77,32 +77,27 @@ namespace ArgEditor.UserControls
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
                 int darker = Palette.GetDarkerColor(colorIndex);
-                // TODO: handle undo
-                clickedPolygonEvent.Property.SetValue(selectedPitCrew, (byte)darker);
+                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew, (byte)darker);
             }
             else if (activePaletteTool == PaletteTool.Brighter)
             {
                 byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
                 int brighter = Palette.GetBrighterColor(colorIndex);
-                // TODO: handle undo
-                clickedPolygonEvent.Property.SetValue(selectedPitCrew, (byte)brighter);
+                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew, (byte)brighter);
             }
         }
 
-        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement)
+        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement, byte newColor)
         {
-            // TODO: support for one action that can contain multiple color changes
-
             byte currentColor = property.GetValue(viewModel);
 
-            // TODO: pass selectedColor in, instead of doing this...
-            property.SetValue(viewModel, DataContextViewModel.Palette.SelectedColor);
+            property.SetValue(viewModel, newColor);
 
             int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
             var change = new ColorChange
             {
                 OldValue = currentColor,
-                NewValue = DataContextViewModel.Palette.SelectedColor,
+                NewValue = newColor,
                 Property = property,
                 PaintedElement = paintedElement
             };

@@ -25,10 +25,14 @@
                 <Separator></Separator>
                 <MenuItem Header="E_xit" Click="FileExitMenuItem_Click"></MenuItem>
             </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Undo" Click="EditUndoMenuItem_Click"></MenuItem>
+                <MenuItem Header="_Redo" Click="EditRedoMenuItem_Click"></MenuItem>
+            </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="View _Help" Click="HelpViewHelpMenuItem_Click"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Check For Update" Click="HelpCheckForUpdate_Click"></MenuItem>
+                <MenuItem Header="Check For _Update" Click="HelpCheckForUpdate_Click"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="_About ArgEditor" Click="HelpAboutMenuItem_Click"></MenuItem>
             </MenuItem>
