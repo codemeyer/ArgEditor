@@ -87,6 +87,32 @@ namespace ArgEditor
 
         }
 
+
+        public static string SelectLegacyCarFileToOpen()
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                DefaultExt = ".arged",
+                Filter = "CAR File (*.car)|*.car|All files (*.*)|*.*",
+                CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public static string SelectLegacyHelmetFileToOpen()
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                DefaultExt = ".arged",
+                Filter = "HEL File (*.hel)|*.hel|All files (*.*)|*.*",
+                CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+
         private static string GetFilePathFromDialog(OpenFileDialog fileDialog)
         {
             bool? result = fileDialog.ShowDialog();

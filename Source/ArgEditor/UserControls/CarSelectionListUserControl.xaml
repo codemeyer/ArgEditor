@@ -22,6 +22,8 @@
                             <ContextMenu>
                                 <MenuItem Header="Copy" Click="CarSelectionCopy_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>
                                 <MenuItem Header="Paste" Click="CarSelectionPaste_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>
+                                <Separator></Separator>
+                                <MenuItem Header="Load .CAR File" Click="CarSelectionLoadCarFile_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>
                             </ContextMenu>
                         </userControls:CarSelectionItemUserControl.ContextMenu>
                     </userControls:CarSelectionItemUserControl>

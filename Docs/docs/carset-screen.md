@@ -1,9 +1,10 @@
-# Documentation
+# Car Sets
 
-The tabs at the top have something of a natural order to them. In the first,
+The Car Sets screen has a number of tabs at the top of the screen, with
+something of a natural order to them. In the first,
 you enter the teams and drivers, on the second tab you set their performance,
-on the third you paint the cars and pit crews, and on the fourth and last
-tab you paint the drivers' helmets.
+on the third you paint the cars and pit crews. On the fourth
+tab you paint the drivers' helmets, and on the final tab you edit the points system.
 
 
 ## Teams and drivers
@@ -78,8 +79,8 @@ This is where you paint cars and pit crews.
 ![Cars tab screenshot](img/cars.png)
 
 Click on a car in the left part of the screen to paint it. Painting is done by
-selecting a color in the palette and then clicking a panel that you want to paint
-on the large car above the palette.
+using the [palette tools](palette-tools.md), which allow you to paint panels,
+select the color of an existing panel, and darken or brighten a panel.
 
 The same applies for painting the pit crew.
 
@@ -88,6 +89,12 @@ the default game - has a slightly different panel layout on the nose.
 
 You can undo a painting action with Ctrl+Z and redo actions with Ctrl+Y.
 
+By right-clicking on a car, a context menu appears. It has three actions:
+
+* Copy, which copies the selected car to the clipboard
+* Paste, which pastes a car from the clipboard to the selected position
+* Load .CAR File, which allows you to load a .CAR file from disk to update the selected car
+
 
 ## Helmets
 
@@ -95,7 +102,14 @@ Here is where you paint driver helmets.
 
 ![Settings tab screenshot](img/helmets.png)
 
-The selection and painting works in the same way as in the Cars tab.
+The selection and painting works in the same way as in the Cars tab, see the
+[palette tools](palette-tools.md) page for more information.
+
+By right-clicking on a helmet, a context menu appears. It has three actions:
+
+* Copy, which copies the selected helmet to the clipboard
+* Paste, which pastes a helmet from the clipboard to the selected position
+* Load .HEL File, which allows you to load a .HEL file from disk to update the selected helmet
 
 
 ### Helmets behaving differently
@@ -106,55 +120,29 @@ will always have the same color for the bottom two-thirds of their helmets.
 The only driver this affects among the default drivers is #15 Mauricio Gugelmin,
 who has a helmet that is mostly dark red anyway.
 
-When editing one of these helmets and clicking one of the affected stripes, the
-other stripes will be painted as well.
+However, if you use a [decompressed EXE](decompressed-exe.md) these limitations go away.
+
+When editing one of these helmets, a message will be displayed, reminding you that it
+will not export in the way you have painted it unless you are using a decompressed EXE file.
 
 
-## Game Settings
+## Points System
 
-By clicking on the cogwheel on the left, you get to the game settings screen.
+This is where you set the number of points each finishing position scores for
+the championship.
 
-![Settings tab screenshot](img/game-settings.png)
+![Points System tab](img/points-system.png)
 
-There are four things you can edit here.
+You can edit the number of points scored for each finishing position, from 1st down
+to 26th. However, to award points to finishers in position 7th to 26th you need to
+use a [decompressed EXE](decompressed-exe.md).
 
-The player horsepower value represents how powerful _your_ engine is in the game.
-The default value is 716, just like the top teams.
+The maximum number of points that a finish can score is 255. Another thing to note
+is that drivers that do not finish the races do not receive any points at all.
 
-You can also adjust the general AI grip level. The default value is 1, but
-by increasing the value you can give yourself more of a challenge. The maximum
-value that can be set is 100.
+On the right is a number of buttons with presets for the F1 points scoring systems
+used since the beginning of the 1960s. Click on a button to update the screen
+with the specified system's points.
 
-Finally, you can change the likelihood of a wet weather race occuring (the default
-change is 6%) and whether there is a chance of rain at the first track (i.e. Phoenix).
-By default, wet weather races don't occur in Phoenix, because a 100% race almost
-always takes two hours anyway.
-
-
-## Open and Save
-
-The File menu at the top of the screen lets you open and save car sets.
-A car set includes the team and driver names, car colors, pit crew colors
-and helmet colors.
-
-When you open a car set file, you can choose both ArgEditor files (.arged) and
-old F1ed files (.1ed).
-
-When saving, you can save either an ArgEditor car set file, or a F1Ed file that
-can be read by F1Ed. 
-
-Game settings such as player horsepower and general grip level are currently _not_ saved
-in the car sets.
-
-
-## Import and Export
-
-When are finished naming and painting, you can export everything to an
-existing GP.EXE file. From the File menu, choose Export. When exporting,
-names are not automatically included. You will need to export a name file
-and then load the name file in-game. (ArgEditor will let you handle this more smoothly soon...)
-
-It is better to be safe than sorry! Backup your GP.EXE and other files before
-exporting. You would probably want to export to a copy of the original anyway...
-
-You can also import data from EXEs or name files.
+If you award points to positions 7th to 26th, a message will appear that informs
+you that they will only be available if using a decompressed EXE file.

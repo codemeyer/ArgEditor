@@ -3,7 +3,9 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
+using Menu = System.Windows.Forms.Menu;
 
 namespace ArgEditor.UserControls
 {
@@ -188,6 +190,20 @@ namespace ArgEditor.UserControls
             }
 
             return null;
+        }
+
+        private void CarSelectionLoadCarFile_Click(object sender, RoutedEventArgs e)
+        {
+            var update = GetCarEditingViewModelForContextMenuItem(sender as MenuItem);
+
+            var path = FileDialog.SelectLegacyCarFileToOpen();
+
+            if (path == string.Empty)
+                return;
+
+            var car = LegacyCarFileLoader.Load(path);
+
+            Mapper.MapDataCarToViewModelCar(car, update);
         }
     }
 

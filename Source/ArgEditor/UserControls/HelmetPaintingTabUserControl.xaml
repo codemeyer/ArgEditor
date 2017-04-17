@@ -47,6 +47,8 @@
                                 <ContextMenu>
                                     <MenuItem Header="Copy" Click="HelmetSelectionCopy_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>
                                     <MenuItem Header="Paste" Click="HelmetSelectionPaste_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>
+                                    <Separator></Separator>
+                                    <MenuItem Header="Load .HEL File" Click="HelmetSelectionLoadFile_Click" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"></MenuItem>
                                 </ContextMenu>
                             </userControls:HelmetUserControl.ContextMenu>
                         </userControls:HelmetUserControl>

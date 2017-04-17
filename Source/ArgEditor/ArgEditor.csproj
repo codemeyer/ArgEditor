@@ -87,6 +87,7 @@
     <Compile Include="Interactors\DriverPerformanceCalculator.cs" />
     <Compile Include="Interactors\GpExeFileWriter.cs" />
     <Compile Include="Interactors\GpExeFileReader.cs" />
+    <Compile Include="Interactors\LegacyFileLoaders.cs" />
     <Compile Include="Interactors\LegacyCarSets\LegacyCarSet.cs" />
     <Compile Include="Interactors\LegacyCarSets\LegacyCarSetLoader.cs" />
     <Compile Include="Interactors\LegacyCarSets\LegacyCarSetSaver.cs" />

@@ -14,7 +14,7 @@ ArgEditor is a fresh take on an F1GP editor.
 Note: This software is still in beta, and many more features will be
 added in due time.
 
-It is better to be safe than sorry! Please make a backup of your F1GP folder
+Remember that it is better to be safe than sorry! Please make a backup of your F1GP folder
 before using this software.
 
 
@@ -23,13 +23,19 @@ before using this software.
 * Update the names of teams and drivers
 * Set computer car horsepower levels and driver performance levels
 * Paint cars, pit crew clothing and helmets
+* Full undo/redo functionality when editing
+* Update the points system
+* and more!
+
+To begin your editing adventure [download](download.md) ArgEditor now and go to the
+[introduction](introduction.md) page to get started!
 
 
 ## System requirements
 
 * Windows XP, Vista SP1, 7, 8, 8.1 or 10
 * Microsoft .NET Framework 4.0
-* F1GP (European) or World Circuit (US) version 1.05
+* F1GP (European) or World Circuit (US) version 1.05, including [decompressed](decompressed-exe.md) files
 
 
 ## Feedback
@@ -48,3 +54,6 @@ to:
 * Paul Hoad - for the C++ code for calculating F1GP file checksums he sent me in 1998
 * Hrvoje Štimac - additional research material
 * Barrie Millar - additional research material
+
+ArgEditor is "powered" by the [ArgData API](http://manicomio.se/argdata), for which the 
+source code is available [on GitHub](https://www.github.com/codemeyer/ArgData).

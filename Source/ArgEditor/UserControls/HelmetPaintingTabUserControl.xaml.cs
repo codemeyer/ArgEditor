@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using ArgData;
+using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
@@ -336,6 +337,20 @@ namespace ArgEditor.UserControls
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/decompressed-exe");
+        }
+
+        private void HelmetSelectionLoadFile_Click(object sender, RoutedEventArgs e)
+        {
+            var update = GetHelmetViewModelForContextMenuItem(sender as MenuItem);
+
+            var path = FileDialog.SelectLegacyHelmetFileToOpen();
+
+            if (path == string.Empty)
+                return;
+
+            var helmet = LegacyHelmetFileLoader.Load(path);
+
+            Mapper.MapDataHelmetToViewModelHelmet(helmet, update);
         }
     }
 }

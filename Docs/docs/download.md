@@ -5,10 +5,10 @@ The latest version is ArgEditorVersionValue. It can be downloaded here: [argedit
 
 ## Installation
 
+Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from there.
+
 It is better to be safe than sorry! Please make a backup of your F1GP folder before using
 this software.
-
-Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from there.
 
 Note: If you are running Windows XP, Windows Vista or Windows 7, your installation of Windows may not
 feature the Microsoft .NET Framework 4.0 that is required by ArgEditor. In this case, starting the
@@ -19,7 +19,6 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Known issues
 
-* No undo action available when copy-pasting car colors
 * User Interface needs improvements in all kinds of ways
 * Confusing import/export flow
 
@@ -29,9 +28,15 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 ### 0.10.0 (2017-0?-??)
 
 * Can read and write F1Ed car sets
+* Can edit the points system (scoring down to 26th place if using a [decompressed] exe!)
+* [Palette tools](palette-tools.md) for more advanced painting actions
 * Can edit the general AI grip level
 * Can edit wet weather settings
+* Can load .CAR (car) and .HEL (helmet) files
+* Undo/redo available when copy-pasting car colors
+* Copy/paste helmets (including full undo/redo)
 * Now also runs on Windows XP
+* Minor UI tweaks
 
 
 ### 0.9.2 (2016-08-30)
