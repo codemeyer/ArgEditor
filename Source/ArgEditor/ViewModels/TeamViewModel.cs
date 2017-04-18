@@ -30,7 +30,6 @@ namespace ArgEditor.ViewModels
             PitCrew = new PitCrewViewModel();
 
             Enabled = false;
-            //Car.Opacity = 0.3;
         }
 
         public string Name
@@ -41,8 +40,6 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_name)) { return; }
                 _name = value;
                 OnPropertyChanged(nameof(Name));
-
-                Enabled = !string.IsNullOrEmpty(_name);
             }
         }
 
@@ -68,21 +65,23 @@ namespace ArgEditor.ViewModels
             }
         }
 
+
+        public void UpdateEnabledFlag()
+        {
+            if (Drivers == null)
+                Enabled = false;
+
+            Enabled = Drivers[0].Number > 0 || Drivers[1].Number > 0;
+        }
+
         public bool Enabled
         {
             get { return _enabled; }
             set
             {
-                //if (value.Equals(_enabled)) return;
                 _enabled = value;
                 OnPropertyChanged(nameof(Enabled));
                 OnPropertyChanged(nameof(Visibility));    // hacky
-
-                if (Car != null)
-                {
-                    //Car.Opacity = _enabled ? 1.0 : 0.3;
-                    Car.Opacity = 1.0;
-                }
             }
         }
 
@@ -106,17 +105,33 @@ namespace ArgEditor.ViewModels
         public List<DriverViewModel> Drivers { get; private set; }
 
 
-        public List<byte> AvailableDriverNumbers
+        public List<DriverNumber> AvailableDriverNumbers
         {
             get
             {
-                var list = new List<byte>();
+                var list = new List<DriverNumber>();
+
+                list.Add(new DriverNumber(0, ""));
+
                 for (byte i = 1; i <= 40; i++)
                 {
-                    list.Add(i);
+                    list.Add(new DriverNumber(i, i.ToString()));
                 }
                 return list;
+
             }
         }
+    }
+
+    public class DriverNumber
+    {
+        public DriverNumber(byte value, string displayValue)
+        {
+            Value = value;
+            DisplayValue = displayValue;
+        }
+
+        public byte Value { get; set; }
+        public string DisplayValue { get; set; }
     }
 }

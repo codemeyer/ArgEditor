@@ -29,6 +29,8 @@ namespace ArgEditor.ViewModels
                 if (value.Equals(_number)) { return; }
                 _number = value;
                 OnPropertyChanged(nameof(Number));
+
+                UpdateEnabledFlag();
             }
         }
 
@@ -41,8 +43,6 @@ namespace ArgEditor.ViewModels
                 _name = value;
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(ShortName));
-
-                Enabled = !string.IsNullOrEmpty(_name);
             }
         }
 
@@ -84,6 +84,12 @@ namespace ArgEditor.ViewModels
             }
         }
 
+
+        private void UpdateEnabledFlag()
+        {
+            Enabled = Number > 0;
+        }
+
         public bool Enabled
         {
             get { return _enabled; }
@@ -93,6 +99,8 @@ namespace ArgEditor.ViewModels
                 _enabled = value;
                 OnPropertyChanged(nameof(Enabled));
                 OnPropertyChanged(nameof(Visibility));    // hacky
+
+                Team?.UpdateEnabledFlag();
             }
         }
 

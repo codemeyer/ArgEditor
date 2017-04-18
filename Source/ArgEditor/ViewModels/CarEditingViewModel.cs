@@ -23,7 +23,6 @@
 
         public CarEditingViewModel()
         {
-            _opacity = 1.0;
         }
 
         private byte _frontAndRearWingColorIndex;
@@ -39,7 +38,6 @@
         private byte _sidepodColorIndex;
         private byte _engineCoverSideColorIndex;
         private byte _engineCoverRearColorIndex;
-        private double _opacity;
         private bool _isSpecialShape;
 
         public byte FrontAndRearWingColorIndex
@@ -189,16 +187,6 @@
                 if (value == _engineCoverRearColorIndex) return;
                 _engineCoverRearColorIndex = value;
                 OnPropertyChanged(nameof(EngineCoverRearColorIndex));
-            }
-        }
-
-        public double Opacity
-        {
-            get { return _opacity; }
-            set
-            {
-                _opacity = value;
-                OnPropertyChanged(nameof(Opacity));
             }
         }
 

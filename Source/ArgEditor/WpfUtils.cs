@@ -1,5 +1,10 @@
-﻿using System.Windows;
+﻿using System;
+using System.Drawing;
+using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ArgEditor
 {
@@ -19,6 +24,27 @@ namespace ArgEditor
                 return parent;
             else
                 return FindParent<T>(parentObject);
+        }
+    }
+
+
+    [ContentProperty("Icon")]
+    public class ImageSourceFromIconExtension : MarkupExtension
+    {
+        public Icon Icon { get; set; }
+
+        public ImageSourceFromIconExtension()
+        {
+        }
+
+        public ImageSourceFromIconExtension(Icon icon)
+        {
+            Icon = icon;
+        }
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return Imaging.CreateBitmapSourceFromHIcon(Icon.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         }
     }
 }

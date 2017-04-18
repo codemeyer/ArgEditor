@@ -369,17 +369,22 @@ namespace ArgEditor.ViewModels
             }
         }
 
-
         private void UpdateShowDecompressedExeMessage()
         {
-            bool show = PointsFor7th > 0 || PointsFor8th > 0 || PointsFor9th > 0 || PointsFor10th > 0 ||
-                        PointsFor11th > 0 || PointsFor12th > 0 || PointsFor13th > 0 || PointsFor14th > 0 ||
-                        PointsFor15th > 0 || PointsFor16th > 0 || PointsFor17th > 0 || PointsFor18th > 0 ||
-                        PointsFor19th > 0 || PointsFor20th > 0 || PointsFor21st > 0 || PointsFor22nd > 0 ||
-                        PointsFor23rd > 0 || PointsFor24th > 0 || PointsFor25th > 0 || PointsFor26th > 0;
+            bool show = NeedsDecompressedExe();
 
             ShowDecompressedExeMessage = show ? Visibility.Visible : Visibility.Hidden;
         }
+
+        public bool NeedsDecompressedExe()
+        {
+            return PointsFor7th > 0 || PointsFor8th > 0 || PointsFor9th > 0 || PointsFor10th > 0 ||
+                   PointsFor11th > 0 || PointsFor12th > 0 || PointsFor13th > 0 || PointsFor14th > 0 ||
+                   PointsFor15th > 0 || PointsFor16th > 0 || PointsFor17th > 0 || PointsFor18th > 0 ||
+                   PointsFor19th > 0 || PointsFor20th > 0 || PointsFor21st > 0 || PointsFor22nd > 0 ||
+                   PointsFor23rd > 0 || PointsFor24th > 0 || PointsFor25th > 0 || PointsFor26th > 0;
+        }
+
 
 
         private Visibility _showDecompressedExeMessage;

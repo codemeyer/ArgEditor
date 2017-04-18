@@ -157,7 +157,10 @@
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
     <Compile Include="ViewModels\DriverViewModel.cs" />
+    <Compile Include="ViewModels\ExportViewModel.cs" />
     <Compile Include="ViewModels\HelmetViewModel.cs" />
+    <Compile Include="ViewModels\ImportExportViewModel.cs" />
+    <Compile Include="ViewModels\ImportViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PaletteColorViewModel.cs" />
     <Compile Include="ViewModels\PaletteViewModel.cs" />
@@ -167,6 +170,12 @@
     <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
     <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
     <Compile Include="VisibilityConverter.cs" />
+    <Compile Include="Windows\ExportWindow.xaml.cs">
+      <DependentUpon>ExportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ImportWindow.xaml.cs">
+      <DependentUpon>ImportWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WpfUtils.cs" />
     <Page Include="CheckVersion.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -257,6 +266,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Settings\RainProbabilityUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ExportWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ImportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

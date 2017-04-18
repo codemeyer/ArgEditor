@@ -8,6 +8,7 @@ using ArgEditor.Interactors.LegacyCarSets;
 using ArgEditor.UserControls;
 using ArgEditor.ViewModels;
 using ArgEditor.ViewModels.Utils;
+using ArgEditor.Windows;
 
 namespace ArgEditor
 {
@@ -125,6 +126,7 @@ namespace ArgEditor
             }
         }
 
+        // TODO: same elsewhere
         private bool ValidateExport()
         {
             // TODO: move this code away from .xaml file
@@ -227,6 +229,28 @@ namespace ArgEditor
             };
 
             about.ShowDialog();
+        }
+
+        private void FileImportMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var importWindow = new ImportWindow
+            {
+                Owner = this,
+                DataContext = new ImportViewModel(_mainViewModel)
+            };
+
+            importWindow.ShowDialog();
+        }
+
+        private void FileExportMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var exportWindow = new ExportWindow
+            {
+                Owner = this,
+                DataContext = new ExportViewModel(_mainViewModel)
+            };
+
+            exportWindow.ShowDialog();
         }
     }
 }

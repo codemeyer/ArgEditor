@@ -14,14 +14,13 @@
                 <MenuItem Header="_Save ArgEditor Car Set" Click="FileSaveMenuItem_Click"></MenuItem>
                 <MenuItem Header="_Save F1Ed Car Set" Click="FileSaveF1edMenuItem_Click"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Import">
-                    <MenuItem Header="From GP.EXE" Click="FileImportFromGpExeMenuItem_Click"></MenuItem>
-                    <MenuItem Header="From Name File" Click="FileImportFromNamesFileMenuItem_Click"></MenuItem>
-                </MenuItem>
-                <MenuItem Header="Export">
-                    <MenuItem Header="To GP.EXE" Click="FileExportToGpExeMenuItem_Click"></MenuItem>
-                    <MenuItem Header="To Name File" Click="FileExportToNameFileMenuItem_Click"></MenuItem>
-                </MenuItem>
+                <MenuItem Header="Import..." Click="FileImportMenuItem_Click"></MenuItem>
+                <MenuItem Header="Import from GP.EXE" Click="FileImportFromGpExeMenuItem_Click"></MenuItem>
+                <MenuItem Header="Import from Name File" Click="FileImportFromNamesFileMenuItem_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Export..." Click="FileExportMenuItem_Click"></MenuItem>
+                <MenuItem Header="Export to GP.EXE" Click="FileExportToGpExeMenuItem_Click"></MenuItem>
+                <MenuItem Header="Export to Name File" Click="FileExportToNameFileMenuItem_Click"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="E_xit" Click="FileExitMenuItem_Click"></MenuItem>
             </MenuItem>

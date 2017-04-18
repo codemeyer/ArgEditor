@@ -17,19 +17,15 @@ you should try to download and install the Microsoft .NET Framework 4.0 Client P
 be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 
-## Known issues
-
-* User Interface needs improvements in all kinds of ways
-* Confusing import/export flow
-
 
 ## Release notes
 
 ### 0.10.0 (2017-0?-??)
 
 * Can read and write F1Ed car sets
-* Can edit the points system (scoring down to 26th place if using a [decompressed] exe!)
+* Can edit the points system (scoring down to 26th place if using a [decompressed](decompressed-exe.md) exe!)
 * [Palette tools](palette-tools.md) for more advanced painting actions
+* [Import](importing-and-exporting.md#importing-data) and [Export](importing-and-exporting.md#exporting-data) wizards
 * Can edit the general AI grip level
 * Can edit wet weather settings
 * Can load .CAR (car) and .HEL (helmet) files

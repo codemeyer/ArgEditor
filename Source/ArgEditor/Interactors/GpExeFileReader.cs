@@ -27,6 +27,43 @@ namespace ArgEditor.Interactors
             UpdatePointsSystem(viewModel, exeFile);
         }
 
+        public void UpdateViewModelFromExe(MainViewModel viewModel, string exePath, ImportViewModel importViewModel)
+        {
+            var exeFile = GetExeFile(exePath);
+
+            if (exeFile == null) { return; }
+
+            if (importViewModel.ApplyCarColors)
+                UpdateCarColors(viewModel, exeFile);
+
+            if (importViewModel.ApplyPitCrewColors)
+                UpdatePitCrewColors(viewModel, exeFile);
+
+            if (importViewModel.ApplyTeamHorsepower)
+                UpdateTeamHorsepower(viewModel, exeFile);
+
+            if (importViewModel.ApplyPitCrewColors)
+                UpdateDriverNumbers(viewModel, exeFile);
+
+            if (importViewModel.ApplyDriverPerformanceValues)
+                UpdateGripLevels(viewModel, exeFile);
+
+            if (importViewModel.ApplyHelmetColors)
+                UpdateHelmetColors(viewModel, exeFile);
+
+            if (importViewModel.ApplyPlayerHorsepowerValue)
+                UpdatePlayerHorsepower(viewModel, exeFile);
+
+            if (importViewModel.ApplyGeneralAIGrip)
+                UpdateGeneralGripLevel(viewModel, exeFile);
+
+            if (importViewModel.ApplyWeatherSettings)
+                UpdateWeatherSettings(viewModel, exeFile);
+
+            if (importViewModel.ApplyPointsSystem)
+                UpdatePointsSystem(viewModel, exeFile);
+        }
+
         private static GpExeFile GetExeFile(string exePath)
         {
             try

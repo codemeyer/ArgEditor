@@ -111,7 +111,7 @@
             <Button Width="200" Height="24" Margin="5" Click="Button1990_Click">
                 <TextBlock>9-6-4-3-2-1</TextBlock>
             </Button>
-            <Button Width="200" Height="24" Margin="5" Click="ButtonAll_Click">
+            <Button Width="200" Height="24" Margin="5" Click="ButtonAll_Click" Visibility="Hidden">
                 <TextBlock>All</TextBlock>
             </Button>
         </StackPanel>

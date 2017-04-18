@@ -15,10 +15,10 @@ range from 1 to 40.
 
 ![Teams and drivers tab screenshot](img/teams-and-drivers.png)
 
-A team can be disabled by emptying its name and engine. A driver can be disabled
-by emptying their name.
-
 There must be at least 26 active drivers. Two drivers cannot have the same numbers.
+Active drivers are those that have a number set. If you have enabled a driver by
+giving them a number, you can disable them again by selecting the empty value at the
+top of the driver number list.
 
 A driver's name can be 23 characters long, but may appear cut off in-game if it
 is longer than 18 characters, depending on the width of the characters.
@@ -27,10 +27,7 @@ Team and engine names can be 12 characters long.
 Note that the first team in the list has a different car shape than the other
 teams. This is because the first team in 1991 was McLaren,
 which had the well-known Marlboro paint scheme
-with a red diagonal stripe across the nose cone. So if you are making a car set
-that does not feature a classic McLaren paint scheme, it would be advisable to
-leave the first team empty, and also skip the second team for nicer symmetry
-on the F1GP driver selection screen.
+with a red diagonal stripe across the nose cone.
 
 
 ## Performance

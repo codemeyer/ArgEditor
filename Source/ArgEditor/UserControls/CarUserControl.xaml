@@ -13,7 +13,7 @@
         <argEditor:VisibilityConverter x:Key="VisibilityConverter" />
     </UserControl.Resources>
     <Viewbox Stretch="Uniform">
-        <Canvas Width="780" Height="280" Opacity="{Binding Opacity}" Background="Transparent">
+        <Canvas Width="780" Height="280" Background="Transparent">
             <Image Source="/ArgEditor;component/Resources/right-front.png" Canvas.Left="111" Canvas.Top="98" Width="98"></Image>
 
             <Polygon Points="12,223 92,170 92,200" Stroke="Black" Fill="Black" Canvas.Top="-27" Canvas.Left="-4" />

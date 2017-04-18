@@ -26,6 +26,41 @@ namespace ArgEditor.Interactors
             WritePointsSystem(viewModel, exeFile);
         }
 
+        public void WriteViewModelToExe(MainViewModel viewModel, string exePath, ExportViewModel exportViewModel)
+        {
+            var exeFile = GetExeFile(exePath);
+
+            if (exportViewModel.ApplyCarColors)
+                WriteCarColors(viewModel, exeFile);
+
+            if (exportViewModel.ApplyPitCrewColors)
+                WritePitCrewColors(viewModel, exeFile);
+
+            if (exportViewModel.ApplyTeamHorsepower)
+                WriteTeamHorsepower(viewModel, exeFile);
+
+            if (exportViewModel.ApplyDriverNumbers)
+                WriteDriverNumbers(viewModel, exeFile);
+
+            if (exportViewModel.ApplyDriverPerformanceValues)
+                WriteGripLevels(viewModel, exeFile);
+
+            if (exportViewModel.ApplyHelmetColors)
+                WriteHelmetColors(viewModel, exeFile);
+
+            if (exportViewModel.ApplyPlayerHorsepowerValue)
+                WritePlayerHorsepower(viewModel, exeFile);
+
+            if (exportViewModel.ApplyGeneralAIGrip)
+                WriteGeneralGripLevel(viewModel, exeFile);
+
+            if (exportViewModel.ApplyWeatherSettings)
+                WriteWeatherSettings(viewModel, exeFile);
+
+            if (exportViewModel.ApplyPointsSystem)
+                WritePointsSystem(viewModel, exeFile);
+        }
+
         private static GpExeFile GetExeFile(string exePath)
         {
             try
