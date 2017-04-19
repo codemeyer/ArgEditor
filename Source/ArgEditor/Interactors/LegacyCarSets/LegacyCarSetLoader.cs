@@ -174,6 +174,8 @@ namespace ArgEditor.Interactors.LegacyCarSets
         {
             var legacy = LegacyCarSetLoader.Load(path);
 
+            ClearAll(mainViewModel);
+
             for (int teamIndex = 0; teamIndex < ArgEditorConstants.TeamCountSupported; teamIndex++)
             {
                 var vmTeam = mainViewModel.Teams[teamIndex];
@@ -221,6 +223,16 @@ namespace ArgEditor.Interactors.LegacyCarSets
 
             // reset points system, since .1ed files do not support editing it
             mainViewModel.PointsSystem.SetFrom1991To2002();
+        }
+
+        private static void ClearAll(MainViewModel viewModel)
+        {
+            // otherwise, drivers that weren't active in new .1ed file were not overwritten
+            foreach (var driver in viewModel.Drivers)
+            {
+                driver.Number = 0;
+                driver.Name = "";
+            }
         }
     }
 }

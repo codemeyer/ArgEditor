@@ -204,6 +204,24 @@ namespace ArgEditor
             {
                 OpenDocsInBrowser();
             }
+
+            if (e.Key == Key.OemPlus)
+            {
+                if (MainCarSetTab.SelectedIndex == 2 || MainCarSetTab.SelectedIndex == 3)
+                {
+                    var brighter = ArgData.Palette.GetBrighterColor(_mainViewModel.Palette.SelectedColor);
+                    _mainViewModel.Palette.SelectedColor = (byte)brighter;
+                }
+            }
+
+            if (e.Key == Key.OemMinus)
+            {
+                if (MainCarSetTab.SelectedIndex == 2 || MainCarSetTab.SelectedIndex == 3)
+                {
+                    var darker = ArgData.Palette.GetDarkerColor(_mainViewModel.Palette.SelectedColor);
+                    _mainViewModel.Palette.SelectedColor = (byte)darker;
+                }
+            }
         }
 
         private void OpenDocsInBrowser()

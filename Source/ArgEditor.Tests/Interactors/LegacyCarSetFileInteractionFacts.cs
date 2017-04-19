@@ -228,16 +228,14 @@ namespace ArgEditor.Tests.Interactors
             public void HardcodedStuff()
             {
                 //
-                _lines[211].Should().Be("DriverData1=1:33.125,1,0:00.000,1");
-                _lines[418].Should().Be("DriverData32=1:33.685,0,0:00.000,1");
-                _lines[427].Should().Be("[ComputerCarSetup]");
-                _lines[603].Should().Be("16Gear6=61");
+                _lines[207].Should().Be("[ComputerCarSetup]");
+                _lines[383].Should().Be("16Gear6=61");
             }
 
             [Fact]
-            public void ShouldHave604Lines()
+            public void ShouldHave384Lines()
             {
-                _lines.Count.Should().Be(604);
+                _lines.Count.Should().Be(384);
             }
 
             //[Fact]

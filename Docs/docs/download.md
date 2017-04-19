@@ -2,7 +2,6 @@
 
 The latest version is ArgEditorVersionValue. It can be downloaded here: [argeditor-ArgEditorVersionValue.zip](http://www.manicomio.se/argeditor/download/ArgEditor-ArgEditorVersionValue.zip)
 
-
 ## Installation
 
 Unzip and place the argeditor.exe file in your F1GP/WC folder. Then run it from there.
@@ -17,10 +16,9 @@ you should try to download and install the Microsoft .NET Framework 4.0 Client P
 be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 
-
 ## Release notes
 
-### 0.10.0 (2017-0?-??)
+### 0.10 (2017-04-19)
 
 * Can read and write F1Ed car sets
 * Can edit the points system (scoring down to 26th place if using a [decompressed](decompressed-exe.md) exe!)

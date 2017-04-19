@@ -11,8 +11,7 @@ ArgEditor is a fresh take on an F1GP editor.
 
 ![ArgEditor screenshot](img/cars.png)
 
-Note: This software is still in beta, and many more features will be
-added in due time.
+Note: This software is still in beta, and more features will be added in due time.
 
 Remember that it is better to be safe than sorry! Please make a backup of your F1GP folder
 before using this software.

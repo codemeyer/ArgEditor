@@ -18,9 +18,9 @@ namespace ArgEditor.ViewModels
                 {
                     var extracted = (RelativePerformance * 100) - 100;
 
-                    // TODO: always two decimals
                     var ci = new CultureInfo("en-US");
-                    return "+" + Math.Round(extracted, 2).ToString(ci) + "%";
+                    var value = string.Format(ci, "{0:F}", Math.Round(extracted, 2));
+                    return "+" + value + "%";
                 }
             }
         }

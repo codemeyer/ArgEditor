@@ -1,4 +1,4 @@
-# Car Sets
+# Car Set Screen
 
 The Car Sets screen has a number of tabs at the top of the screen, with
 something of a natural order to them. In the first,
@@ -7,7 +7,7 @@ on the third you paint the cars and pit crews. On the fourth
 tab you paint the drivers' helmets, and on the final tab you edit the points system.
 
 
-## Teams and drivers
+## Teams and Drivers tab
 
 This is where you enter team names and their engines, one or two drivers for
 each team. You must also set a number for the driver, where the numbers available
@@ -30,15 +30,20 @@ which had the well-known Marlboro paint scheme
 with a red diagonal stripe across the nose cone.
 
 
-## Performance
+## Performance tab
 
 ![Performance tab screenshot](img/performance.png)
 
-Horsepower values determine how fast the cars will be, where higher is better.
+Each team has a horsepower value (HP) which determine how fast the cars will be,
+where higher is better.
 
 Drivers have two performance levels, one for qualifying and one for the race. A lower
 value means better performance level, so think of the value you are setting as
-a "penalty".
+a "penalty" that slows the driver down.
+
+Apart from entering a numerical value with the keyboard, you can also use the + and -
+keys to increase/decrease the values. If you hold down the Shift key, values will
+increase/decrease by 10.
 
 On the right you will see a rough estimate of how drivers will perform relative
 to each other. These values are based on data collected for drivers at the
@@ -52,8 +57,9 @@ of the drivers.
 ### Suitable values
 
 In F1GP, teams have horsepower values ranging from 716 at the top to 610 at the
-bottom. Drivers have their perforamnce levels in order, from 1 at the top to 34 at
-the bottom.
+bottom, and drivers have their performance levels in order, from 1 at the top to 34 at
+the bottom. This is not necessary however, any number of drivers can have the
+same performance level values.
 
 Performance levels can be set as high as 255, but then the driver will just
 trundle along the track, sliding like a drift racer. I would not recommend
@@ -69,7 +75,7 @@ qualifying session will remove any performance differences you have set between
 team-mates.
 
 
-## Cars
+## Cars tab
 
 This is where you paint cars and pit crews.
 
@@ -79,7 +85,9 @@ Click on a car in the left part of the screen to paint it. Painting is done by
 using the [palette tools](palette-tools.md), which allow you to paint panels,
 select the color of an existing panel, and darken or brighten a panel.
 
-The same applies for painting the pit crew.
+The same applies for painting the pit crew. To help you paint the socks, which
+have a very small area in the preview box, you can click on the little square
+to the left.
 
 As noted above in the Teams and Drivers section, the first car - McLaren in
 the default game - has a slightly different panel layout on the nose.
@@ -93,7 +101,7 @@ By right-clicking on a car, a context menu appears. It has three actions:
 * Load .CAR File, which allows you to load a .CAR file from disk to update the selected car
 
 
-## Helmets
+## Helmets tab
 
 Here is where you paint driver helmets.
 
@@ -123,7 +131,7 @@ When editing one of these helmets, a message will be displayed, reminding you th
 will not export in the way you have painted it unless you are using a decompressed EXE file.
 
 
-## Points System
+## Points System tab
 
 This is where you set the number of points each finishing position scores for
 the championship.
@@ -143,3 +151,14 @@ with the specified system's points.
 
 If you award points to positions 7th to 26th, a message will appear that informs
 you that they will only be available if using a decompressed EXE file.
+
+
+## I have finished my car set, now what?
+
+After you have created the car set you can either save it to disk, either as an F1Ed .1ed file,
+or as an ArgEditor .arged file.
+
+Note that if you save it as a legacy F1Ed file, the points system you have entered will not
+be saved, since F1Ed has no support for editing that.
+
+You can also [export](importing-and-exporting.md#export) the car set to a GP.EXE file of your choice.

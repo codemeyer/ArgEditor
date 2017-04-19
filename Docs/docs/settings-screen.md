@@ -17,3 +17,6 @@ Finally, you can change the likelihood of a wet weather race occuring (the defau
 change is 6%) and whether there is a chance of rain at the first track (i.e. Phoenix).
 By default, wet weather races don't occur in Phoenix, because a 100% race almost
 always takes two hours anyway.
+
+Note that game settings are _not_ saved in ArgEditor car set files,
+but they _are_ saved in F1Ed files.

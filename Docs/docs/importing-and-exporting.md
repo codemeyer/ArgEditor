@@ -80,7 +80,10 @@ and are trying to export a points system where drivers who finish between 7th to
 You can perform the export, but only the top six finishers will score points for the championship.
 
 You can also select a name file that you want to export at the same time. Enter
-its path or use the Browse button. If you check the "Load Name File when game starts",
+its path or use the Browse button. If the file exists, it will be overwritten.
+By default, ArgEditor suggests gpsaves/arged.nam.
+
+If you check the "Load Name File when game starts",
 ArgEditor will update your F1GP preferences to automatically load the file.
 Note that if you want to auto-load a file, it must be placed in the same folder, or in a child
 folder of the specified GP.EXE.

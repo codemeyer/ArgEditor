@@ -53,7 +53,8 @@
                     Race
                 </RadioButton>
             </StackPanel>
-            <ListView Grid.Column="1" Width="260" ItemsSource="{Binding DriverPerformanceList}" Margin="0,24,0,0">
+            <ListView Grid.Column="1" Width="260" ItemsSource="{Binding DriverPerformanceList}"
+                      Background="Transparent" Margin="0,24,0,0">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource headerStyle}">
                         <GridViewColumn>
@@ -79,6 +80,15 @@
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Height" Value="18" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
 
