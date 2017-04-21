@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:argEditor="clr-namespace:ArgEditor"
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
+             xmlns:converters="clr-namespace:ArgEditor.Converters"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:PaletteViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="380" d:DesignWidth="300">
     <UserControl.Resources>
-        <argEditor:ColorConverter x:Key="ColorConverter" />
+        <converters:ColorConverter x:Key="ColorConverter" />
 
         <Style x:Key="ColorRectangleStyle" TargetType="Rectangle">
             <Setter Property="Stroke" Value="Black"/>
@@ -51,8 +52,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Rectangle Fill="{Binding ColorIndex, Converter={StaticResource ColorConverter}}" Width="20" Height="20"
-                               Style="{StaticResource ColorRectangleStyle}"
-                               MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
+                               Style="{StaticResource ColorRectangleStyle}">
+                        <Rectangle.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding SelectPaletteColorCommand}" CommandParameter="{Binding}"></MouseBinding>
+                        </Rectangle.InputBindings>
                     </Rectangle>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

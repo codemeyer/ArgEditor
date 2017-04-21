@@ -1,16 +1,19 @@
 ﻿using System.Linq;
 using ArgData.Entities;
-using ArgEditor.Interactors;
 using ArgEditor.Interactors.CarSets;
 using ArgEditor.Interactors.LegacyCarSets;
 using ArgEditor.ViewModels;
 using CarSetDriver = ArgEditor.Interactors.CarSets.CarSetDriver;
 using CarSetTeam = ArgEditor.Interactors.CarSets.CarSetTeam;
 
-namespace ArgEditor
+namespace ArgEditor.Mappers
 {
     public static class Mapper
     {
+        // TODO: split into more classes?
+        // TODO: cleanup, standardize naming?
+        // TODO: which create new objects, and which work on existing ones?
+
         public static CarSetTeam MapCarSetTeam(TeamViewModel team)
         {
             return new CarSetTeam

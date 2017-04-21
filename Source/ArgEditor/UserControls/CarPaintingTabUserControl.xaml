@@ -5,9 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
+             xmlns:commands="clr-namespace:ArgEditor.Commands"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="600" d:DesignWidth="920">
+    <UserControl.InputBindings>
+        <KeyBinding Key="OemPlus" Modifiers="Control" Command="{Binding PaletteSelectNextBrighterColorCommand}" CommandParameter="{Binding Palette}"></KeyBinding>
+        <KeyBinding Key="OemMinus" Modifiers="Control" Command="{Binding PaletteSelectNextDarkerColorCommand}" CommandParameter="{Binding Palette}"></KeyBinding>
+    </UserControl.InputBindings>
     <Grid KeyDown="CarPaintingTab_KeyDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="320" />

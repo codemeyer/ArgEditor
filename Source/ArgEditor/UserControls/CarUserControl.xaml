@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:argEditor="clr-namespace:ArgEditor"
              xmlns:utils="clr-namespace:ArgEditor.ViewModels.Utils"
+             xmlns:converters="clr-namespace:ArgEditor.Converters"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=utils:DesignerCarEditingViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="280" d:DesignWidth="780">
     <UserControl.Resources>
-        <argEditor:ColorConverter x:Key="ColorConverter" />
-        <argEditor:VisibilityConverter x:Key="VisibilityConverter" />
+        <converters:ColorConverter x:Key="ColorConverter" />
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
     </UserControl.Resources>
     <Viewbox Stretch="Uniform">
         <Canvas Width="780" Height="280" Background="Transparent">
@@ -18,7 +19,8 @@
 
             <Polygon Points="12,223 92,170 92,200" Stroke="Black" Fill="Black" Canvas.Top="-27" Canvas.Left="-4" />
             <Polygon Points="44,282 12,223 92,198 138,259" Stroke="Black" Fill="{Binding FrontAndRearWingColorIndex, Converter={StaticResource ColorConverter}}" Tag="FrontAndRearWingColorIndex"
-                     MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" />
+                     MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown" MouseEnter="UIElement_OnMouseEnter" MouseLeave="UIElement_OnMouseLeave" Canvas.Top="-27" Canvas.Left="-4" >
+            </Polygon>
 
             <!-- Regular Nose -->
             <Polygon Points="24,243 230,153 332,138 30,253" Stroke="Black" Fill="{Binding NoseTopColorIndex, Converter={StaticResource ColorConverter}}" Tag="NoseTopColorIndex"

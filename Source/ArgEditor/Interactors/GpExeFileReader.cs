@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using ArgData;
+using ArgEditor.Mappers;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Interactors
@@ -176,7 +177,7 @@ namespace ArgEditor.Interactors
 
             var list = helmetColorReader.ReadHelmetColors();
 
-            for (byte i = 1; i <= ArgEditorConstants.DriverCount; i++)
+            for (byte i = 1; i <= ArgEditorConstants.DriverNumberMax; i++)
             {
                 var helmetInExe = list.GetByDriverNumber(i);
                 var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, i).Helmet;

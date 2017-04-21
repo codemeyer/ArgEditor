@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using ArgEditor.Interactors;
 
-namespace ArgEditor
+namespace ArgEditor.Windows
 {
     /// <summary>
     /// Interaction logic for About.xaml
@@ -34,11 +34,6 @@ namespace ArgEditor
             {
                 DownloadLink.Visibility = Visibility.Visible;
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
         private void DownloadLink_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

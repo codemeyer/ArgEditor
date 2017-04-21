@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using ArgEditor.Commands;
 using ArgEditor.UserControls;
 
 namespace ArgEditor.ViewModels
@@ -20,7 +22,8 @@ namespace ArgEditor.ViewModels
                     new PaletteColorViewModel
                     {
                         Color = PaletteHelper.GetColor(i),
-                        ColorIndex = Convert.ToByte(i)
+                        ColorIndex = Convert.ToByte(i),
+                        Parent = this
                     });
             }
 
@@ -138,5 +141,18 @@ namespace ArgEditor.ViewModels
             }
         }
 
+
+
+        public void SelectNextBrighterColor()
+        {
+            var nextColor = ArgData.Palette.GetBrighterColor(SelectedColor);
+            SelectedColor = (byte)nextColor;
+        }
+
+        public void SelectNextDarkerColor()
+        {
+            var nextColor = ArgData.Palette.GetDarkerColor(SelectedColor);
+            SelectedColor = (byte)nextColor;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using ArgData.Entities;
+using ArgEditor.Mappers;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Interactors.LegacyCarSets
@@ -83,7 +84,7 @@ namespace ArgEditor.Interactors.LegacyCarSets
 
             int driversStartLine = FindLineMatching(lines, "[Drivers]");
 
-            for (int i = driversStartLine; i < driversStartLine + ArgEditorConstants.DriverCount; i++)
+            for (int i = driversStartLine; i < driversStartLine + ArgEditorConstants.DriverNumberMax; i++)
             {
                 var driverData = lines[i];
 
@@ -92,7 +93,7 @@ namespace ArgEditor.Interactors.LegacyCarSets
                     Number = Convert.ToInt32(driverData.Split('=')[0])
                 };
 
-                if (driver.Number > ArgEditorConstants.DriverCount)
+                if (driver.Number > ArgEditorConstants.DriverNumberMax)
                     continue;
 
                 var mainData = driverData.Split('=')[1].Split(',');
@@ -107,14 +108,14 @@ namespace ArgEditor.Interactors.LegacyCarSets
 
 
             for (int i = helmetColorsStartLine;
-                i < helmetColorsStartLine + ArgEditorConstants.DriverCount;
+                i < helmetColorsStartLine + ArgEditorConstants.DriverNumberMax;
                 i++)
             {
                 var colorData = lines[i];
 
                 var number = Convert.ToInt32(colorData.Split('=')[0]);
 
-                if (number > ArgEditorConstants.DriverCount)
+                if (number > ArgEditorConstants.DriverNumberMax)
                     continue;
 
                 var driver = carset.Drivers.FirstOrDefault(d => d.Number == number);

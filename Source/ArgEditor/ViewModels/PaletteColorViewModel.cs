@@ -1,4 +1,6 @@
-﻿using System.Windows.Media;
+﻿using System.Windows.Input;
+using System.Windows.Media;
+using ArgEditor.Commands;
 
 namespace ArgEditor.ViewModels
 {
@@ -30,6 +32,8 @@ namespace ArgEditor.ViewModels
             }
         }
 
+        public PaletteViewModel Parent { get; set; }
+
         public bool IsSelected
         {
             get { return _isSelected; }
@@ -40,5 +44,7 @@ namespace ArgEditor.ViewModels
                 OnPropertyChanged(nameof(IsSelected));
             }
         }
+
+        public ICommand SelectPaletteColorCommand { get; } = new SelectPaletteColorCommand();
     }
 }

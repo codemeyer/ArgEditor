@@ -31,7 +31,13 @@ namespace ArgEditor.ViewModels
                 OnPropertyChanged(nameof(Number));
 
                 UpdateEnabledFlag();
+                UpdateHelmetWarningFlag();
             }
+        }
+
+        private void UpdateHelmetWarningFlag()
+        {
+            Helmet?.UpdateSpecialHelmetWarningFlag();
         }
 
         public string Name

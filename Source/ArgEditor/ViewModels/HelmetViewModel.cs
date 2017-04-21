@@ -7,7 +7,7 @@ namespace ArgEditor.ViewModels
     {
         public HelmetViewModel(DriverViewModel parentDriverViewModel)
         {
-            _parentDriverViewModel = parentDriverViewModel;
+            Parent = parentDriverViewModel;
             VisorColorIndex = 0;
             VisorSurroundColorIndex = 6;
             Stripe1ColorIndex = 8;
@@ -23,6 +23,8 @@ namespace ArgEditor.ViewModels
             Stripe11ColorIndex = 8;
             Stripe12ColorIndex = 8;
             Stripe13ColorIndex = 8;
+
+            UpdateSpecialHelmetWarningFlag();
         }
 
         protected HelmetViewModel(byte[] colors)
@@ -45,12 +47,7 @@ namespace ArgEditor.ViewModels
         }
 
 
-        private readonly DriverViewModel _parentDriverViewModel;
-
-        public DriverViewModel Parent
-        {
-            get { return _parentDriverViewModel; }
-        }
+        public DriverViewModel Parent { get; }
 
 
         private byte _visorColorIndex;
@@ -152,8 +149,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe5ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe5ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -169,8 +164,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe6ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe6ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -186,8 +179,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe7ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe7ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -203,8 +194,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe8ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe8ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -220,8 +209,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe9ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe9ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -237,8 +224,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe10ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe10ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -254,8 +239,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe11ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe11ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -271,8 +254,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe12ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe12ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -288,8 +269,6 @@ namespace ArgEditor.ViewModels
 
                 _stripe13ColorIndex = value;
                 OnPropertyChanged(nameof(Stripe13ColorIndex));
-
-                SetBottomStripesIfNeeded(value);
             }
         }
 
@@ -309,27 +288,13 @@ namespace ArgEditor.ViewModels
         }
 
 
-        // TODO: rename
-        private void SetBottomStripesIfNeeded(byte colorIndex)
+        public void UpdateSpecialHelmetWarningFlag()
         {
             if (Parent == null)
                 return;
 
             ShowDecompressedExeMessage = _specialHelmetNumbers.Contains(Parent.Number)
                 ? Visibility.Visible : Visibility.Hidden;
-
-            //if (_specialHelmetNumbers.Contains(Parent.Number))
-            //{
-            //    Stripe5ColorIndex = colorIndex;
-            //    Stripe6ColorIndex = colorIndex;
-            //    Stripe7ColorIndex = colorIndex;
-            //    Stripe8ColorIndex = colorIndex;
-            //    Stripe9ColorIndex = colorIndex;
-            //    Stripe10ColorIndex = colorIndex;
-            //    Stripe11ColorIndex = colorIndex;
-            //    Stripe12ColorIndex = colorIndex;
-            //    Stripe13ColorIndex = colorIndex;
-            //}
         }
 
         private readonly byte[] _specialHelmetNumbers = { 13, 15, 36, 37, 38, 39, 40 };

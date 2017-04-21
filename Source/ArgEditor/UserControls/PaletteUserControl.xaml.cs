@@ -1,8 +1,6 @@
-﻿using System.Windows;
+﻿using ArgEditor.ViewModels;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Shapes;
-using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -14,13 +12,6 @@ namespace ArgEditor.UserControls
         public PaletteUserControl()
         {
             InitializeComponent();
-        }
-
-        private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            byte colorIndex = ((PaletteColorViewModel)(sender as Rectangle).DataContext).ColorIndex;
-
-            DataContextViewModel.SelectedColor = colorIndex;
         }
 
         private PaletteViewModel DataContextViewModel

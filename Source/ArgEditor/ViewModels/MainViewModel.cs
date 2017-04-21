@@ -1,9 +1,11 @@
+using ArgEditor.Commands;
+using ArgEditor.Interactors;
+using ArgEditor.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using ArgEditor.Interactors;
-using ArgEditor.UserControls;
+using System.Windows.Input;
 
 namespace ArgEditor.ViewModels
 {
@@ -36,7 +38,7 @@ namespace ArgEditor.ViewModels
         private void SetupDrivers()
         {
             Drivers = new List<DriverViewModel>();
-            for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverCount; driverIndex++)
+            for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverNumberMax; driverIndex++)
             {
                 byte number = Convert.ToByte(driverIndex + 1);
 
@@ -83,7 +85,8 @@ namespace ArgEditor.ViewModels
 
         private void DriverViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
         {
-            if (propertyChangedEventArgs.PropertyName.Equals("RaceGripLevel") ||
+            if (propertyChangedEventArgs.PropertyName.Equals("QualifyingGripLevel") ||
+                propertyChangedEventArgs.PropertyName.Equals("RaceGripLevel") ||
                 propertyChangedEventArgs.PropertyName.Equals("Name"))
             {
                 UpdateDriverPerformanceList();
@@ -116,16 +119,15 @@ namespace ArgEditor.ViewModels
         public HelmetViewModel SelectedHelmet
         {
             get { return _selectedHelmet; }
-            set
-            {
-                {
-                    if (value.Equals(_selectedHelmet)) { return; }
-                    _selectedHelmet = value;
-                    OnPropertyChanged(nameof(SelectedHelmet));
-                }
+            set { SetProperty(ref _selectedHelmet, value, () => SelectedHelmet);
+                //if (value.Equals(_selectedHelmet)) { return; }
+                //_selectedHelmet = value;
+                //OnPropertyChanged(nameof(SelectedHelmet));
             }
         }
 
+
+        // TODO: put these in a SettingsViewModel ??
 
         public int PlayerHorsepower
         {
@@ -135,9 +137,11 @@ namespace ArgEditor.ViewModels
             }
             set
             {
-                if (value.Equals(_playerHorsepower)) { return; }
-                _playerHorsepower = value;
-                OnPropertyChanged(nameof(PlayerHorsepower));
+                SetProperty(ref _playerHorsepower, value, () => PlayerHorsepower);
+
+                //if (value.Equals(_playerHorsepower)) { return; }
+                //_playerHorsepower = value;
+                //OnPropertyChanged(nameof(PlayerHorsepower));
             }
         }
 
@@ -233,6 +237,48 @@ namespace ArgEditor.ViewModels
                 UpdateDriverPerformanceList();
             }
         }
+
+
+        // Commands!
+
+        // ReSharper disable UnusedMember.Global, since it doesn't seem to find its usage inside the XAML file
+        public ICommand OpenCarSetCommand { get; } = new OpenCarSetCommand(new FileDialog());
+        public ICommand SaveCarSetCommand { get; } = new SaveCarSetCommand(new FileDialog());
+        public ICommand SaveLegacyCarSetCommand { get; } = new SaveLegacyCarSetCommand(new FileDialog());
+
+        public ICommand DisplayImportWizardCommand { get; } = new DisplayImportWizardCommand();
+        public ICommand ImportFromExeCommand { get; } = new ImportFromExeCommand(new FileDialog());
+        public ICommand ImportFromNameFileCommand { get; } = new ImportFromNameFileCommand(new FileDialog());
+
+        public ICommand DisplayExportWizardCommand { get; } = new DisplayExportWizardCommand();
+        public ICommand ExportToExeCommand { get; } = new ExportToExeCommand(new FileDialog());
+        public ICommand ExportToNameFileCommand { get; } = new ExportToNameFileCommand(new FileDialog());
+
+        public ICommand ExitApplicationCommand { get; } = new ExitApplicationCommand();
+
+        public ICommand HelpDocsCommand { get; } = new HelpDocsCommand();
+        public ICommand ShowCheckForUpdatesWindowCommand { get; } = new ShowCheckForUpdatesWindowCommand();
+        public ICommand ShowAboutWindowCommand { get; } = new ShowAboutWindowCommand();
+
+        public ICommand PaletteSelectNextBrighterColorCommand { get; } = new PaletteSelectNextBrighterColorCommand();
+        public ICommand PaletteSelectNextDarkerColorCommand { get; } = new PaletteSelectNextDarkerColorCommand();
+
+        // a test, sort of
+        public ICommand ShowWarningMessageCommand { get; } = new ShowWarningMessageCommand();
+        public ICommand ShowErrorMessageCommand { get; } = new ShowErrorMessageCommand();
+        public ICommand ShowMessageCommand { get; } = new ShowMessageCommand();
+
+        // TODO: more commands
+        // Palette, set mode?
+        // UndoCarPainting
+        // RedoCarPainting
+        // UndoHelmetPainting
+        // RedoHelmetPainting
+        // ExportNameFile
+        // about? checkforupdaes+?
+        // ?
+
+        // ReSharper restore UnusedMember.Global
     }
 
     public enum PerformanceMetric

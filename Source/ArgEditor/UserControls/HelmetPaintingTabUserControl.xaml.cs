@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using ArgEditor.Interactors;
+using ArgEditor.Mappers;
+using ArgEditor.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using ArgData;
-using ArgEditor.Interactors;
-using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -23,76 +23,17 @@ namespace ArgEditor.UserControls
         private void PaintHelmetUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
         {
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
+            if (clickedPolygonEvent == null) return;
+
             var selectedHelmet = DataContextViewModel.SelectedHelmet;
 
             var activePaletteTool = DataContextViewModel.Palette.ActivePaletteTool;
 
-            if (activePaletteTool == PaletteTool.Paint)
-            {
-                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet, DataContextViewModel.Palette.SelectedColor);
-            }
-            else if (activePaletteTool == PaletteTool.PickupColor)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
-                DataContextViewModel.Palette.SelectedColor = colorIndex;
-            }
-            else if (activePaletteTool == PaletteTool.Darker)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
-                int darker = Palette.GetDarkerColor(colorIndex);
-                //clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)darker);
-                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet, (byte)darker);
-            }
-            else if (activePaletteTool == PaletteTool.Brighter)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedHelmet);
-                int brighter = Palette.GetBrighterColor(colorIndex);
-                //clickedPolygonEvent.Property.SetValue(selectedHelmet, (byte)brighter);
-                AddUndoAction(clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet, (byte)brighter);
-            }
+            PaletteActionService.PerformPaletteAction(DataContextViewModel, activePaletteTool, clickedPolygonEvent.Property, selectedHelmet, PaintedElement.Helmet);
         }
 
-        // TODO: in some base class?
-        // TODO: does more than just Undo!
-        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement, byte newColor)
-        {
-            byte currentColor = property.GetValue(viewModel);
+        private MainViewModel DataContextViewModel => DataContext as MainViewModel;
 
-            //property.SetValue(viewModel, DataContextViewModel.Palette.SelectedColor);
-            property.SetValue(viewModel, newColor);
-
-            int index = -1;
-            for (int i = 0; i < 40; i++)
-            {
-                if (DataContextViewModel.Drivers[i].Helmet == DataContextViewModel.SelectedHelmet)
-                {
-                    index = i;
-                }
-            }
-            if (index == -1)
-            {
-                return;
-            }
-
-            var changeList = new ColorChangeList();
-            var change = new ColorChange
-            {
-                OldValue = currentColor,
-                NewValue = newColor,
-                Property = property,
-                PaintedElement = paintedElement
-            };
-            changeList.Add(change);
-
-            App.HelmetColorUndoStacks[index].Push(changeList);
-            App.HelmetColorRedoStacks[index].Clear();
-        }
-
-
-        private MainViewModel DataContextViewModel
-        {
-            get { return DataContext as MainViewModel; }
-        }
 
         private void SelectHelmet_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -343,7 +284,7 @@ namespace ArgEditor.UserControls
         {
             var update = GetHelmetViewModelForContextMenuItem(sender as MenuItem);
 
-            var path = FileDialog.SelectLegacyHelmetFileToOpen();
+            var path = new FileDialog().SelectLegacyHelmetFileToOpen();
 
             if (path == string.Empty)
                 return;

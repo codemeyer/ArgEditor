@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
-using System.Windows.Media;
 
-namespace ArgEditor
+namespace ArgEditor.Converters
 {
-    public class ColorConverter : IValueConverter
+    public class VisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            byte color = (byte)value;
+            bool visible = (bool)value;
 
-            return new SolidColorBrush(PaletteHelper.GetColor(color));
+            return visible ? Visibility.Visible : Visibility.Hidden;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

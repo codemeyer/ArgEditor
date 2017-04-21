@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using ArgEditor.ViewModels;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ArgData;
-using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -27,93 +26,29 @@ namespace ArgEditor.UserControls
         private void PaintCarUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
         {
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
+            if (clickedPolygonEvent == null) return;
+
             var selectedCar = DataContextViewModel.SelectedTeam.Car;
 
             var activePaletteTool = DataContextViewModel.Palette.ActivePaletteTool;
             // LOL
 
-            if (activePaletteTool == PaletteTool.Paint)
-            {
-                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car, DataContextViewModel.Palette.SelectedColor);
-            }
-            else if (activePaletteTool == PaletteTool.PickupColor)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
-                DataContextViewModel.Palette.SelectedColor = colorIndex;
-            }
-            else if (activePaletteTool == PaletteTool.Darker)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
-                int darker = Palette.GetDarkerColor(colorIndex);
-                //clickedPolygonEvent.Property.SetValue(selectedCar, (byte)darker);
-                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car, (byte)darker);
-            }
-            else if (activePaletteTool == PaletteTool.Brighter)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedCar);
-                int brighter = Palette.GetBrighterColor(colorIndex);
-                //clickedPolygonEvent.Property.SetValue(selectedCar, (byte)brighter);
-                AddUndoAction(clickedPolygonEvent.Property, selectedCar, PaintedElement.Car, (byte)brighter);
-            }
+            PaletteActionService.PerformPaletteAction(DataContextViewModel, activePaletteTool, clickedPolygonEvent.Property, selectedCar, PaintedElement.Car);
         }
 
         private void PaintPitCrewUserControl_OnClickedPolygon(object sender, RoutedEventArgs e)
         {
             var clickedPolygonEvent = e as ClickedPolygonEventArgs;
+            if (clickedPolygonEvent == null) return;
+
             var selectedPitCrew = DataContextViewModel.SelectedTeam.PitCrew;
 
             var activePaletteTool = DataContextViewModel.Palette.ActivePaletteTool;
 
-            if (activePaletteTool == PaletteTool.Paint)
-            {
-                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew, DataContextViewModel.Palette.SelectedColor);
-            }
-            else if (activePaletteTool == PaletteTool.PickupColor)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
-                DataContextViewModel.Palette.SelectedColor = colorIndex;
-            }
-            else if (activePaletteTool == PaletteTool.Darker)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
-                int darker = Palette.GetDarkerColor(colorIndex);
-                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew, (byte)darker);
-            }
-            else if (activePaletteTool == PaletteTool.Brighter)
-            {
-                byte colorIndex = clickedPolygonEvent.Property.GetValue(selectedPitCrew);
-                int brighter = Palette.GetBrighterColor(colorIndex);
-                AddUndoAction(clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew, (byte)brighter);
-            }
+            PaletteActionService.PerformPaletteAction(DataContextViewModel, activePaletteTool, clickedPolygonEvent.Property, selectedPitCrew, PaintedElement.PitCrew);
         }
 
-        private void AddUndoAction(ColorPropertyWrapper property, object viewModel, PaintedElement paintedElement, byte newColor)
-        {
-            byte currentColor = property.GetValue(viewModel);
-
-            property.SetValue(viewModel, newColor);
-
-            int index = DataContextViewModel.Teams.IndexOf(DataContextViewModel.SelectedTeam);
-            var change = new ColorChange
-            {
-                OldValue = currentColor,
-                NewValue = newColor,
-                Property = property,
-                PaintedElement = paintedElement
-            };
-            var changeList = new ColorChangeList { change };
-
-            App.CarColorUndoStacks[index].Push(changeList);
-            App.CarColorRedoStacks[index].Clear();
-        }
-
-        private MainViewModel DataContextViewModel
-        {
-            get
-            {
-                return DataContext as MainViewModel;
-            }
-        }
+        private MainViewModel DataContextViewModel => DataContext as MainViewModel;
 
         private void CarPaintingTab_KeyDown(object sender, KeyEventArgs e)
         {

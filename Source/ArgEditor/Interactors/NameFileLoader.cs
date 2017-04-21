@@ -29,7 +29,7 @@ namespace ArgEditor.Interactors
 
         private static void UpdateDriverNames(MainViewModel viewModel, NameFile namesFile)
         {
-            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverNumberMax; i++)
             {
                 var fileDriver = namesFile.Drivers[i];
                 var driver = viewModel.Drivers.SingleOrDefault(d => d.Number == i + 1);
@@ -50,7 +50,7 @@ namespace ArgEditor.Interactors
         {
             var drivers = new NameFileDriverList();
 
-            for (int i = 0; i < ArgEditorConstants.DriverCount; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverNumberMax; i++)
             {
                 int number = i + 1;
 

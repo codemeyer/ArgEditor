@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Input;
 using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
 
@@ -22,17 +23,12 @@ namespace ArgEditor.Windows
         {
             var vm = DataContext as ImportViewModel;
 
-            var path = FileDialog.SelectGpExe();
+            var path = new FileDialog().SelectGpExeFile();
 
             if (!string.IsNullOrEmpty(path))
             {
                 vm.SelectedExeFilePath = path;
             }
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
@@ -82,7 +78,7 @@ namespace ArgEditor.Windows
         {
             var vm = DataContext as ImportViewModel;
 
-            var path = FileDialog.SelectAnyFile();
+            var path = new FileDialog().SelectAnyFile();
 
             if (!string.IsNullOrEmpty(path))
             {

@@ -65,15 +65,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CheckVersion.xaml.cs">
-      <DependentUpon>CheckVersion.xaml</DependentUpon>
+    <Compile Include="Commands\ExportToNameFileCommand.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\DisplayExportWizardCommand.cs" />
+    <Compile Include="Commands\DisplayImportWizardCommand.cs" />
+    <Compile Include="Commands\Application\ExitApplicationCommand.cs" />
+    <Compile Include="Commands\ExportToExeCommand.cs" />
+    <Compile Include="Commands\HelpDocsCommand.cs" />
+    <Compile Include="Commands\ImportFromExeCommand.cs" />
+    <Compile Include="Commands\ImportFromNameFileCommand.cs" />
+    <Compile Include="Commands\OpenCarSetCommand.cs" />
+    <Compile Include="Commands\PaletteSelectNextBrighterColorCommand.cs" />
+    <Compile Include="Commands\PaletteSelectNextDarkerColorCommand.cs" />
+    <Compile Include="Commands\SaveCarSetCommand.cs" />
+    <Compile Include="Commands\SaveLegacyCarSetCommand.cs" />
+    <Compile Include="Commands\Application\ShowAboutWindowCommand.cs" />
+    <Compile Include="Commands\Application\ShowCheckForUpdatesWindowCommand.cs" />
+    <Compile Include="Commands\Application\ShowMessageCommand.cs" />
+    <Compile Include="Commands\SelectPaletteColorCommand.cs" />
+    <Compile Include="PaletteActionService.cs" />
+    <Compile Include="Windows\CheckVersionWindow.xaml.cs">
+      <DependentUpon>CheckVersionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AboutWindow.xaml.cs">
+    <Compile Include="Windows\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ColorChange.cs" />
-    <Compile Include="ColorConverter.cs" />
+    <Compile Include="Converters\ColorConverter.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="ExportValidator.cs" />
     <Compile Include="FileDialog.cs" />
     <Compile Include="Interactors\CarSets\CarSetCarColors.cs" />
     <Compile Include="Interactors\CarSets\CarSetDriver.cs" />
@@ -96,7 +116,7 @@
     <Compile Include="Interactors\LegacyCarSets\LegacyTeam.cs" />
     <Compile Include="Interactors\NameFileLoader.cs" />
     <Compile Include="Interactors\VersionChecker.cs" />
-    <Compile Include="Mapper.cs" />
+    <Compile Include="Mappers\Mapper.cs" />
     <Compile Include="PaletteHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="UserControls\CarPaintingTabUserControl.xaml.cs">
@@ -111,7 +131,7 @@
     <Compile Include="UserControls\CarUserControl.xaml.cs">
       <DependentUpon>CarUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GeneralGripLevelUserControl.xaml.cs">
+    <Compile Include="UserControls\Settings\GeneralGripLevelUserControl.xaml.cs">
       <DependentUpon>GeneralGripLevelUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HelmetPaintingTabUserControl.xaml.cs">
@@ -138,7 +158,7 @@
     <Compile Include="UserControls\PerformanceUserControl.xaml.cs">
       <DependentUpon>PerformanceUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PlayerHorsepowerUserControl.xaml.cs">
+    <Compile Include="UserControls\Settings\PlayerHorsepowerUserControl.xaml.cs">
       <DependentUpon>PlayerHorsepowerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PointsSystemTabUserControl.xaml.cs">
@@ -169,7 +189,7 @@
     <Compile Include="ViewModels\TeamViewModel.cs" />
     <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
     <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
-    <Compile Include="VisibilityConverter.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Windows\ExportWindow.xaml.cs">
       <DependentUpon>ExportWindow.xaml</DependentUpon>
     </Compile>
@@ -177,11 +197,11 @@
       <DependentUpon>ImportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfUtils.cs" />
-    <Page Include="CheckVersion.xaml">
+    <Page Include="Windows\CheckVersionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AboutWindow.xaml">
+    <Page Include="Windows\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,7 +233,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\GeneralGripLevelUserControl.xaml">
+    <Page Include="UserControls\Settings\GeneralGripLevelUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,7 +269,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PlayerHorsepowerUserControl.xaml">
+    <Page Include="UserControls\Settings\PlayerHorsepowerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

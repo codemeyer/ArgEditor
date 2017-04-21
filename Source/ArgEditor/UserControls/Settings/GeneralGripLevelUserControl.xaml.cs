@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ArgEditor.UserControls
+namespace ArgEditor.UserControls.Settings
 {
     /// <summary>
     /// Interaction logic for GeneralGripLevel.xaml

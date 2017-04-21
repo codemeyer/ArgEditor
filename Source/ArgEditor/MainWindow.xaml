@@ -2,38 +2,47 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:userControls="clr-namespace:ArgEditor.UserControls"
+        xmlns:argEditor="clr-namespace:ArgEditor"
+        xmlns:commands="clr-namespace:ArgEditor.Commands"
         Title="ArgEditor" Height="770" Width="1025"
         WindowStartupLocation="Manual" Left="150" Top="50" ResizeMode="CanMinimize"
         Icon="Resources/argeditor.ico"
         PreviewKeyDown="UIElement_OnPreviewKeyDown">
+    <Window.InputBindings>
+        <KeyBinding Key="O" Modifiers="Control" Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}"></KeyBinding>
+        <KeyBinding Key="S" Modifiers="Control" Command="{Binding SaveCarSetCommand}" CommandParameter="{Binding}"></KeyBinding>
+        <KeyBinding Key="S" Modifiers="Control+Alt" Command="{Binding SaveLegacyCarSetCommand}" CommandParameter="{Binding}"></KeyBinding>
+        <KeyBinding Key="F4" Modifiers="Alt" Command="{Binding ExitApplicationCommand}" CommandParameter="{Binding}"></KeyBinding>
+        <KeyBinding Key="F1" Command="{Binding HelpDocsCommand}" CommandParameter="{Binding}"></KeyBinding>
+    </Window.InputBindings>
     <Grid Margin="0" Background="#204161">
         <TextBox Margin="1200,0,0,0" Name="HiddenTextElement"></TextBox>
         <Menu HorizontalAlignment="Left" Width="1100" Height="22" Margin="1,1,1,0" VerticalAlignment="Top">
             <MenuItem Header="_File" >
-                <MenuItem Header="_Open Car Set" Click="FileOpenMenuItem_Click"></MenuItem>
-                <MenuItem Header="_Save ArgEditor Car Set" Click="FileSaveMenuItem_Click"></MenuItem>
-                <MenuItem Header="_Save F1Ed Car Set" Click="FileSaveF1edMenuItem_Click"></MenuItem>
+                <MenuItem Header="_Open Car Set" Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}" InputGestureText="Ctrl+O"></MenuItem>
+                <MenuItem Header="_Save ArgEditor Car Set" Command="{Binding SaveCarSetCommand}" CommandParameter="{Binding}" InputGestureText="Ctrl+S"></MenuItem>
+                <MenuItem Header="_Save F1Ed Car Set" Command="{Binding SaveLegacyCarSetCommand}" CommandParameter="{Binding}" InputGestureText="Ctrl+Alt+S"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Import..." Click="FileImportMenuItem_Click"></MenuItem>
-                <MenuItem Header="Import from GP.EXE" Click="FileImportFromGpExeMenuItem_Click"></MenuItem>
-                <MenuItem Header="Import from Name File" Click="FileImportFromNamesFileMenuItem_Click"></MenuItem>
+                <MenuItem Header="Import..." Command="{Binding DisplayImportWizardCommand}" CommandParameter="{Binding}"></MenuItem>
+                <MenuItem Header="Import from GP.EXE" Command="{Binding ImportFromExeCommand}" CommandParameter="{Binding}"></MenuItem>
+                <MenuItem Header="Import from Name File" Command="{Binding ImportFromNameFileCommand}" CommandParameter="{Binding}"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Export..." Click="FileExportMenuItem_Click"></MenuItem>
-                <MenuItem Header="Export to GP.EXE" Click="FileExportToGpExeMenuItem_Click"></MenuItem>
-                <MenuItem Header="Export to Name File" Click="FileExportToNameFileMenuItem_Click"></MenuItem>
+                <MenuItem Header="Export..." Command="{Binding DisplayExportWizardCommand}" CommandParameter="{Binding}"></MenuItem>
+                <MenuItem Header="Export to GP.EXE" Command="{Binding ExportToExeCommand}" CommandParameter="{Binding}"></MenuItem>
+                <MenuItem Header="Export to Name File" Command="{Binding ExportToNameFileCommand}" CommandParameter="{Binding}"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="E_xit" Click="FileExitMenuItem_Click"></MenuItem>
+                <MenuItem Header="E_xit" Command="{Binding ExitApplicationCommand}" CommandParameter="{Binding}" InputGestureText="Alt+F4"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Edit">
                 <MenuItem Header="_Undo" Click="EditUndoMenuItem_Click"></MenuItem>
                 <MenuItem Header="_Redo" Click="EditRedoMenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help">
-                <MenuItem Header="View _Help" Click="HelpViewHelpMenuItem_Click"></MenuItem>
+                <MenuItem Header="View _Help" Command="{Binding HelpDocsCommand}" CommandParameter="{Binding}" InputGestureText="F1"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Check For _Update" Click="HelpCheckForUpdate_Click"></MenuItem>
+                <MenuItem Header="Check For _Update" Command="{Binding ShowCheckForUpdatesWindowCommand}" CommandParameter="{Binding}"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="_About ArgEditor" Click="HelpAboutMenuItem_Click"></MenuItem>
+                <MenuItem Header="_About ArgEditor" Command="{Binding ShowAboutWindowCommand}" CommandParameter="{Binding}"></MenuItem>
             </MenuItem>
         </Menu>
 

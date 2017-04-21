@@ -59,15 +59,9 @@ namespace ArgEditor.ViewModels
 
         private void UpdateEnoughActiveDrivers()
         {
-            // TODO: similar stuff to be found in MainWindow.xaml, right?
+            var status = ExportValidator.CanExportToExe(Parent);
 
-            var groupBys = Parent.Drivers
-                .Where(d => d.Enabled)
-                .GroupBy(d => d.Number)
-                .Where(grp => grp.Count() > 1 && grp.Key > 0);
-            var groupedNumbers = groupBys.ToList();
-
-            if (groupedNumbers.Count > 0)
+            if (status == CanExportToExeStatus.SharedDriverNumbers)
             {
                 ShowDriverNumbersWarning = Visibility.Visible;
                 ShowDriverNumbersWarningMessage = "Each active driver must have a unique number!";
@@ -75,9 +69,7 @@ namespace ArgEditor.ViewModels
                 return;
             }
 
-            var activeCount = Parent.Drivers.Count(d => d.Enabled);
-
-            if (activeCount < 26)
+            if (status == CanExportToExeStatus.TooFewActiveDrivers)
             {
                 ShowDriverNumbersWarning = Visibility.Visible;
                 ShowDriverNumbersWarningMessage = "There must be at least 26 active drivers!";

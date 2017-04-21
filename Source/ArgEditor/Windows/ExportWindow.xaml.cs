@@ -21,17 +21,12 @@ namespace ArgEditor.Windows
         {
             var vm = DataContext as ExportViewModel;
 
-            var path = FileDialog.SelectGpExe();
+            var path = new FileDialog().SelectGpExeFile();
 
             if (!string.IsNullOrEmpty(path))
             {
                 vm.SelectedExeFilePath = path;
             }
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
@@ -85,7 +80,7 @@ namespace ArgEditor.Windows
 
         private void BrowseNameFile_Click(object sender, RoutedEventArgs e)
         {
-            var path = FileDialog.SelectNameFileToSave();
+            var path = new FileDialog().SelectNameFileToSave();
 
             if (!string.IsNullOrEmpty(path))
             {

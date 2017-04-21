@@ -1,11 +1,10 @@
 ﻿using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using ArgEditor.Interactors;
+using ArgEditor.Mappers;
 using ArgEditor.ViewModels;
-using Menu = System.Windows.Forms.Menu;
 
 namespace ArgEditor.UserControls
 {
@@ -196,7 +195,7 @@ namespace ArgEditor.UserControls
         {
             var update = GetCarEditingViewModelForContextMenuItem(sender as MenuItem);
 
-            var path = FileDialog.SelectLegacyCarFileToOpen();
+            var path = new FileDialog().SelectLegacyCarFileToOpen();
 
             if (path == string.Empty)
                 return;
@@ -214,6 +213,7 @@ namespace ArgEditor.UserControls
         {
             TeamIndex = teamIndex;
         }
-        public int TeamIndex { get; set; }
+
+        public int TeamIndex { get; }
     }
 }

@@ -50,17 +50,9 @@ namespace ArgEditor.UserControls
 
             var selectedCar = DataContext as CarEditingViewModel;
 
-            var paletteTool = PaletteTool.Paint;
-            //var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-            //    ? PaletteTool.PickupColor
-            //    : PaletteTool.Paint;
-
-            // TODO: remove paletteTool from here, it is overridden when the event is handled...
-
             PropertyInfo prop = selectedCar.GetType().GetProperty(bindingPath);
             var property = new ColorPropertyWrapper(prop);
 
-            //RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
             RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 
@@ -77,15 +69,13 @@ namespace ArgEditor.UserControls
 
     public class ClickedPolygonEventArgs : RoutedEventArgs
     {
-        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property) //, PaletteTool paletteTool)
+        public ClickedPolygonEventArgs(RoutedEvent routedEvent, ColorPropertyWrapper property)
             : base(routedEvent)
         {
             Property = property;
-            //PaletteTool = paletteTool;
         }
 
-        public ColorPropertyWrapper Property { get; set; }
-        //public PaletteTool PaletteTool { get; set; }
+        public ColorPropertyWrapper Property { get; }
     }
 
 

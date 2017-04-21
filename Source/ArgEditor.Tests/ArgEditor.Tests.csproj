@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\SaveCarSetCommandFacts.cs" />
     <Compile Include="ExampleDataHelper.cs" />
     <Compile Include="Interactors\DriverPerformanceCalculatorFacts.cs" />
     <Compile Include="Interactors\LegacyCarSetFileInteractionFacts.cs" />

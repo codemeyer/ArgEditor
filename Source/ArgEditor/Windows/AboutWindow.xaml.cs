@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using System.Windows;
+using ArgEditor.Commands;
 
-namespace ArgEditor
+namespace ArgEditor.Windows
 {
     /// <summary>
     /// Interaction logic for About.xaml
@@ -15,14 +16,9 @@ namespace ArgEditor
             VersionLabel.Content = "Version " + Assembly.GetExecutingAssembly().GetName().Version;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void SiteLink_OnClick(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/");
+            new HelpDocsCommand().Execute("");
         }
     }
 }

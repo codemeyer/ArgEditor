@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using ArgData;
 using ArgData.Entities;
+using ArgEditor.Mappers;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Interactors
@@ -141,7 +142,7 @@ namespace ArgEditor.Interactors
 
         private static void WriteDriverNumbers(MainViewModel viewModel, GpExeFile exeFile)
         {
-            byte[] values = new byte[ArgEditorConstants.DriverCount];
+            byte[] values = new byte[ArgEditorConstants.DriverNumberMax];
             var theNumbers = new DriverNumberList();
 
             for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
@@ -203,7 +204,7 @@ namespace ArgEditor.Interactors
 
             var list = helmetReader.ReadHelmetColors();
 
-            for (byte b = 1; b <= ArgEditorConstants.DriverCount; b++)
+            for (byte b = 1; b <= ArgEditorConstants.DriverNumberMax; b++)
             {
                 var helmetInExe = list.GetByDriverNumber(b);
                 var helmetInEditor = GetDriverWithNumber(viewModel.Drivers, b).Helmet;
