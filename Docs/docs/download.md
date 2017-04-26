@@ -18,6 +18,15 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Release notes
 
+### 0.11 (2017-0?-??)
+
+* Can edit damage settings
+* Fix: Correctly show warning when painting a special case helmet
+* Fix: Update qualifying performance list when a driver's performance value changes
+* Fix: Don't add undo event if the same color was applied
+* Minor UI tweaks
+
+
 ### 0.10 (2017-04-19)
 
 * Can read and write F1Ed car sets
