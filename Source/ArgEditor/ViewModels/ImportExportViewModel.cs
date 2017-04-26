@@ -194,6 +194,7 @@ namespace ArgEditor.ViewModels
             ApplyPlayerHorsepowerValue = value;
             ApplyGeneralAIGrip = value;
             ApplyWeatherSettings = value;
+            ApplyDamageSettings = value;
         }
 
         private bool _applyPlayerHorsepowerValue = true;
@@ -235,6 +236,20 @@ namespace ArgEditor.ViewModels
 
                 _applyWeatherSettings = value;
                 OnPropertyChanged(nameof(ApplyWeatherSettings));
+            }
+        }
+
+        private bool _applyDamageSettings = true;
+
+        public bool ApplyDamageSettings
+        {
+            get { return _applyDamageSettings; }
+            set
+            {
+                if (value.Equals(_applyDamageSettings)) return;
+
+                _applyDamageSettings = value;
+                OnPropertyChanged(nameof(ApplyDamageSettings));
             }
         }
 

@@ -8,12 +8,12 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="740" d:DesignWidth="800">
-    <Grid>
+    <Grid Width="460" HorizontalAlignment="Left">
         <StackPanel VerticalAlignment="Top">
-            <userControls:PlayerHorsepowerUserControl></userControls:PlayerHorsepowerUserControl>
-            <userControls:GeneralGripLevelUserControl></userControls:GeneralGripLevelUserControl>
-            <userControls:RainProbabilityUserControl></userControls:RainProbabilityUserControl>
-            <userControls:RainAtFirstTrackUserControl></userControls:RainAtFirstTrackUserControl>
+            <userControls:PlayerHorsepowerUserControl Margin="5,5,5,5"></userControls:PlayerHorsepowerUserControl>
+            <userControls:GeneralGripLevelUserControl Margin="5,5,5,5"></userControls:GeneralGripLevelUserControl>
+            <userControls:WeatherSettingsUserControl Margin="5,5,5,5"></userControls:WeatherSettingsUserControl>
+            <userControls:DamageSettingsUserControl DataContext="{Binding DamageSettings}" Margin="5,5,5,5"></userControls:DamageSettingsUserControl>
         </StackPanel>
     </Grid>
 </UserControl>

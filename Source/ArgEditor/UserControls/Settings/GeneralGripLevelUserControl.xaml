@@ -4,16 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ArgEditor.UserControls.Settings"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="440">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" VerticalAlignment="Top" Width="120">General AI Grip Level</Label>
-        <TextBox Grid.Column="1" VerticalAlignment="Top" Margin="5,5,5,0" Width="50" Text="{Binding GeneralGripLevel}"/>
-        <Button Grid.Column="2" VerticalAlignment="Top" Margin="5,5,5,5" Click="SetDefault_OnClick">Reset</Button>
+        <GroupBox Header="AI Grip">
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">General AI Grip Level</Label>
+                <Slider Minimum="1" Maximum="100" Value="{Binding GeneralGripLevel}"
+                        Margin="10,3,10,0" Width="100"></Slider>
+                <TextBox VerticalAlignment="Top" Margin="5,3,35,0" Width="40" Height="20" Text="{Binding GeneralGripLevel, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="SetDefault_OnClick">Reset</Button>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </UserControl>

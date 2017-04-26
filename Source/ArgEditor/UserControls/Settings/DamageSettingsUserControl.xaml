@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.Settings.DamageSettingsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="440">
+    <Grid>
+        <GroupBox Header="Accident Damage Settings">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="160">Retire after hitting wall</Label>
+                    <Slider Minimum="0" Maximum="32767" SmallChange="100" LargeChange="500" Value="{Binding RetireAfterHittingWall}"
+                            Margin="10,3,10,0" Width="130"></Slider>
+                    <TextBox VerticalAlignment="Top" Margin="5,3,5,0" Width="40" Height="20" Text="{Binding RetireAfterHittingWall, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                    <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="ResetRetireAfterHittingWall_Click">Reset</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="160">Retire after hitting other car</Label>
+                    <Slider Minimum="0" Maximum="32767" SmallChange="100" LargeChange="500" Value="{Binding RetireAfterHittingOtherCar}"
+                            Margin="10,3,10,0" Width="130"></Slider>
+                    <TextBox VerticalAlignment="Top" Margin="5,3,5,0" Width="40" Height="20" Text="{Binding RetireAfterHittingOtherCar, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                    <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="ResetRetireAfterHittingOtherCar_Click">Reset</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="160">Damge after hitting wall</Label>
+                    <Slider Minimum="0" Maximum="32767" SmallChange="100" LargeChange="500" Value="{Binding DamageAfterHittingWall}"
+                            Margin="10,3,10,0" Width="130"></Slider>
+                    <TextBox VerticalAlignment="Top" Margin="5,3,5,0" Width="40" Height="20" Text="{Binding DamageAfterHittingWall, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                    <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="ResetDamageAfterHittingWall_Click">Reset</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="160">Damage after hitting car</Label>
+                    <Slider Minimum="0" Maximum="32767" SmallChange="100" LargeChange="500" Value="{Binding DamageAfterHittingOtherCar}"
+                            Margin="10,3,10,0" Width="130"></Slider>
+                    <TextBox VerticalAlignment="Top" Margin="5,3,5,0" Width="40" Height="20" Text="{Binding DamageAfterHittingOtherCar, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                    <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="ResetDamageAfterHittingOtherCar_Click">Reset</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Width="160">Yellow flags after (seconds)</Label>
+                    <Slider Minimum="1" Maximum="60" SmallChange="1" LargeChange="5" Value="{Binding YellowFlagsAfterSeconds}"
+                            Margin="10,3,10,0" Width="130"></Slider>
+                    <TextBox VerticalAlignment="Top" Margin="5,3,5,0" Width="40" Height="20" Text="{Binding YellowFlagsAfterSeconds, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                    <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="ResetYellowFlags_Click">Reset</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="160">Cars removed after (sec'nds)</Label>
+                    <Slider Minimum="1" Maximum="60" SmallChange="1" LargeChange="5" Value="{Binding RemoveCarsAfterSeconds}"
+                            Margin="10,3,10,0" Width="130"></Slider>
+                    <TextBox VerticalAlignment="Top" Margin="5,3,5,0" Width="40" Height="20" Text="{Binding RemoveCarsAfterSeconds, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                    <Button VerticalAlignment="Top" Margin="5,3,5,5" Width="50" Height="20" Click="ResetRemoveCars_Click">Reset</Button>
+                </StackPanel>
+
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -7,16 +7,16 @@
         xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=viewModels:ImportViewModel, IsDesignTimeCreatable=True}"
-        d:DesignWidth="364" d:DesignHeight="492"
-        Title="Import" Height="492" Width="364"
+        d:DesignWidth="364" d:DesignHeight="512"
+        Title="Import" Height="512" Width="364"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     <Grid>
-        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,-230,0,0">
+        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,-240,0,0">
             <Button Width="38" Height="25" Margin="3" Click="CarSetCheckAllButton_Click">All</Button>
             <Button Width="38" Height="25" Margin="3" Click="CarSetCheckNoneButton_Click">None</Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,100,0,0">
+        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,90,0,0">
             <Button Width="38" Height="25" Margin="3" Click="GameSettingsCheckAllButton_Click">All</Button>
             <Button Width="38" Height="25" Margin="3" Click="GameSettingsCheckNoneButton_Click">None</Button>
         </StackPanel>
@@ -50,6 +50,7 @@
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyPlayerHorsepowerValue}">Player Horsepower Value</CheckBox>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyGeneralAIGrip}">General AI Grip Level</CheckBox>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyWeatherSettings}">Weather Settings</CheckBox>
+                    <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyDamageSettings}">Damage Settings</CheckBox>
                 </StackPanel>
             </GroupBox>
 

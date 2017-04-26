@@ -26,6 +26,7 @@ namespace ArgEditor.Interactors
             UpdateGeneralGripLevel(viewModel, exeFile);
             UpdateWeatherSettings(viewModel, exeFile);
             UpdatePointsSystem(viewModel, exeFile);
+            UpdateDamageSettings(viewModel, exeFile);
         }
 
         public void UpdateViewModelFromExe(MainViewModel viewModel, string exePath, ImportViewModel importViewModel)
@@ -63,6 +64,9 @@ namespace ArgEditor.Interactors
 
             if (importViewModel.ApplyPointsSystem)
                 UpdatePointsSystem(viewModel, exeFile);
+
+            if (importViewModel.ApplyDamageSettings)
+                UpdateDamageSettings(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -228,6 +232,20 @@ namespace ArgEditor.Interactors
             var system = pointsSystemReader.Read();
 
             Mapper.MapDataPointsSystemToViewModel(system, viewModel.PointsSystem);
+        }
+
+        private static void UpdateDamageSettings(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var reader = DamageSettingsReader.For(exeFile);
+            var settings = reader.Read();
+
+            var damageVM = viewModel.DamageSettings;
+            damageVM.RetireAfterHittingWall = settings.RetireAfterHittingWall;
+            damageVM.RetireAfterHittingOtherCar = settings.RetireAfterHittingOtherCar;
+            damageVM.DamageAfterHittingWall = settings.DamageAfterHittingWall;
+            damageVM.DamageAfterHittingOtherCar = settings.DamageAfterHittingOtherCar;
+            damageVM.YellowFlagsAfterSeconds = settings.YellowFlagsForStationaryCarsAfterSeconds;
+            damageVM.RemoveCarsAfterSeconds = settings.RetiredCarsRemovedAfterSeconds;
         }
     }
 }

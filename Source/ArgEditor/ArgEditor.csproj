@@ -84,6 +84,13 @@
     <Compile Include="Commands\Application\ShowMessageCommand.cs" />
     <Compile Include="Commands\SelectPaletteColorCommand.cs" />
     <Compile Include="PaletteActionService.cs" />
+    <Compile Include="UserControls\Settings\DamageSettingsUserControl.xaml.cs">
+      <DependentUpon>DamageSettingsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Settings\WeatherSettingsUserControl.xaml.cs">
+      <DependentUpon>WeatherSettingsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DamageSettingsViewModel.cs" />
     <Compile Include="Windows\CheckVersionWindow.xaml.cs">
       <DependentUpon>CheckVersionWindow.xaml</DependentUpon>
     </Compile>
@@ -167,12 +174,6 @@
     <Compile Include="UserControls\SettingsTabUserControl.xaml.cs">
       <DependentUpon>SettingsTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Settings\RainAtFirstTrackUserControl.xaml.cs">
-      <DependentUpon>RainAtFirstTrackUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Settings\RainProbabilityUserControl.xaml.cs">
-      <DependentUpon>RainProbabilityUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CarEditingViewModel.cs" />
     <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
@@ -197,6 +198,14 @@
       <DependentUpon>ImportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfUtils.cs" />
+    <Page Include="UserControls\Settings\DamageSettingsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Settings\WeatherSettingsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\CheckVersionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -278,14 +287,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\SettingsTabUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Settings\RainAtFirstTrackUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Settings\RainProbabilityUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

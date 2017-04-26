@@ -25,6 +25,7 @@ namespace ArgEditor.Interactors
             WriteGeneralGripLevel(viewModel, exeFile);
             WriteWeatherSettings(viewModel, exeFile);
             WritePointsSystem(viewModel, exeFile);
+            WriteDamageSettings(viewModel, exeFile);
         }
 
         public void WriteViewModelToExe(MainViewModel viewModel, string exePath, ExportViewModel exportViewModel)
@@ -60,6 +61,9 @@ namespace ArgEditor.Interactors
 
             if (exportViewModel.ApplyPointsSystem)
                 WritePointsSystem(viewModel, exeFile);
+
+            if (exportViewModel.ApplyDamageSettings)
+                WriteDamageSettings(viewModel, exeFile);
         }
 
         private static GpExeFile GetExeFile(string exePath)
@@ -273,6 +277,24 @@ namespace ArgEditor.Interactors
 
             var writer = PointsSystemWriter.For(exeFile);
             writer.Write(system);
+        }
+
+        private static void WriteDamageSettings(MainViewModel viewModel, GpExeFile exeFile)
+        {
+            var damageVM = viewModel.DamageSettings;
+
+            var settings = new DamageSettings
+            {
+                RetireAfterHittingWall = damageVM.RetireAfterHittingWall,
+                RetireAfterHittingOtherCar = damageVM.RetireAfterHittingOtherCar,
+                DamageAfterHittingWall = damageVM.DamageAfterHittingWall,
+                DamageAfterHittingOtherCar = damageVM.DamageAfterHittingOtherCar,
+                YellowFlagsForStationaryCarsAfterSeconds = damageVM.YellowFlagsAfterSeconds,
+                RetiredCarsRemovedAfterSeconds = damageVM.RemoveCarsAfterSeconds
+            };
+
+            var writer = DamageSettingsWriter.For(exeFile);
+            writer.Write(settings);
         }
     }
 }

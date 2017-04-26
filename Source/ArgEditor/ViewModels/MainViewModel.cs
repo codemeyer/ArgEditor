@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace ArgEditor.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class MainViewModel : BaseViewModel, IDataErrorInfo
     {
         private TeamViewModel _selectedTeam;
         private HelmetViewModel _selectedHelmet;
@@ -33,6 +33,7 @@ namespace ArgEditor.ViewModels
             RainAtFirstTrack = false;
 
             PointsSystem = new PointsSystemViewModel();
+            DamageSettings = new DamageSettingsViewModel();
         }
 
         private void SetupDrivers()
@@ -189,6 +190,8 @@ namespace ArgEditor.ViewModels
         }
 
 
+        public DamageSettingsViewModel DamageSettings { get; private set; }
+
 
 
         public PaletteViewModel Palette { get; private set; }
@@ -278,7 +281,42 @@ namespace ArgEditor.ViewModels
         // about? checkforupdaes+?
         // ?
 
+
+        //public ValidationRule ValueRangeValidation { get; } = new ValueRangeValidation();
+
         // ReSharper restore UnusedMember.Global
+
+        public string Error { get; }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == nameof(GeneralGripLevel))
+                {
+                    if (GeneralGripLevel < 1 || GeneralGripLevel > 100)
+                    {
+                        return "Value must be between 1 and 100";
+                    }
+                }
+                if (columnName == nameof(PlayerHorsepower))
+                {
+                    if (PlayerHorsepower < 400 || PlayerHorsepower > 1460)
+                    {
+                        return "Value must be between 400 and 1460";
+                    }
+                }
+                if (columnName == nameof(ChanceOfRainPercent))
+                {
+                    if (ChanceOfRainPercent < 0 || ChanceOfRainPercent > 100)
+                    {
+                        return "Value must be between 0 and 100";
+                    }
+                }
+
+                return "";
+            }
+        }
     }
 
     public enum PerformanceMetric
