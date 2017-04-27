@@ -97,7 +97,6 @@ namespace ArgEditor.ViewModels
             if (propertyChangedEventArgs.PropertyName.Equals("Number"))
             {
                 var groupBys = Drivers
-                    .Where(d => d.Enabled)
                     .GroupBy(d => d.Number)
                     .Where(grp => grp.Count() > 1 && grp.Key > 0);
                 var groupedNumbers = groupBys.ToList();
@@ -114,6 +113,14 @@ namespace ArgEditor.ViewModels
                         drv.HasSameNumberAsOtherDriver = true;
                     }
                 }
+
+
+                var count = Drivers.Count(n => n.Number > 0);
+
+                if (count >= 26)
+                    ActiveDriverCountMessage = $"{count} active drivers.";
+                else
+                    ActiveDriverCountMessage = $"{count} active drivers. You need {26 - count} more driver(s) before you can export.";
             }
         }
 
@@ -149,6 +156,15 @@ namespace ArgEditor.ViewModels
                 //OnPropertyChanged(nameof(SelectedHelmet));
             }
         }
+
+        private string _activeDriverCountMessage;
+
+        public string ActiveDriverCountMessage
+        {
+            get { return _activeDriverCountMessage; }
+            set { SetProperty(ref _activeDriverCountMessage, value, () => ActiveDriverCountMessage); }
+        }
+
 
 
         // TODO: put these in a SettingsViewModel ??

@@ -38,5 +38,6 @@
         <Label x:Name="driverNumber1Label" Content="#" HorizontalAlignment="Left" Margin="441,4,0,0" VerticalAlignment="Top"/>
         <Label x:Name="driver2Label" Content="Driver" HorizontalAlignment="Left" Margin="497,4,0,0" VerticalAlignment="Top"/>
         <Label x:Name="driverNumber2Label" Content="#" HorizontalAlignment="Left" Margin="664,4,0,0" VerticalAlignment="Top"/>
+        <Label Margin="10,564,0,0" HorizontalAlignment="Left" Content="{Binding ActiveDriverCountMessage}"></Label>
     </Grid>
 </UserControl>
