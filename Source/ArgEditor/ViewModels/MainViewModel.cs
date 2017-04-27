@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace ArgEditor.ViewModels
@@ -91,6 +92,28 @@ namespace ArgEditor.ViewModels
                 propertyChangedEventArgs.PropertyName.Equals("Name"))
             {
                 UpdateDriverPerformanceList();
+            }
+
+            if (propertyChangedEventArgs.PropertyName.Equals("Number"))
+            {
+                var groupBys = Drivers
+                    .Where(d => d.Enabled)
+                    .GroupBy(d => d.Number)
+                    .Where(grp => grp.Count() > 1 && grp.Key > 0);
+                var groupedNumbers = groupBys.ToList();
+
+                foreach (var driver in Drivers)
+                {
+                    driver.HasSameNumberAsOtherDriver = false;
+                }
+
+                foreach (var number in groupedNumbers)
+                {
+                    foreach (var drv in Drivers.Where(d => d.Number == number.Key))
+                    {
+                        drv.HasSameNumberAsOtherDriver = true;
+                    }
+                }
             }
         }
 

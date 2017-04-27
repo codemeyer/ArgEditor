@@ -126,5 +126,20 @@ namespace ArgEditor.ViewModels
         public HelmetViewModel Helmet { get; set; }
 
         public TeamViewModel Team { get; set; }
+
+
+
+        private bool _hasSameNumberAsOtherDriver;
+
+        public bool HasSameNumberAsOtherDriver
+        {
+            get { return _hasSameNumberAsOtherDriver; }
+            set
+            {
+                if (value.Equals(_hasSameNumberAsOtherDriver)) return;
+                _hasSameNumberAsOtherDriver = value;
+                OnPropertyChanged(nameof(HasSameNumberAsOtherDriver));
+            }
+        }
     }
 }
