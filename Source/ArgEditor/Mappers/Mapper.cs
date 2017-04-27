@@ -267,9 +267,26 @@ namespace ArgEditor.Mappers
             }
 
             carset.Settings.PlayerHorsepower = viewModel.PlayerHorsepower;
+
+            if (carset.Settings.PlayerHorsepower > 999)
+            {
+                carset.Settings.PlayerHorsepower = 999;
+            }
+
+            if (carset.Settings.PlayerHorsepower < 450)
+            {
+                carset.Settings.PlayerHorsepower = 450;
+            }
+
             carset.Settings.GeneralGripLevel = viewModel.GeneralGripLevel;
             carset.Settings.ChanceOfRain = viewModel.ChanceOfRainPercent;
             carset.Settings.RainAtFirstTrack = viewModel.RainAtFirstTrack;
+            carset.Settings.RetireHitWall = viewModel.DamageSettings.RetireAfterHittingWall;
+            carset.Settings.RetireHitCar = viewModel.DamageSettings.RetireAfterHittingOtherCar;
+            carset.Settings.DamageHitWall = viewModel.DamageSettings.DamageAfterHittingWall;
+            carset.Settings.DamageHitCar = viewModel.DamageSettings.DamageAfterHittingOtherCar;
+            carset.Settings.YellowFlags = viewModel.DamageSettings.YellowFlagsAfterSeconds;
+            carset.Settings.RemoveCars = viewModel.DamageSettings.RemoveCarsAfterSeconds;
 
             return carset;
         }

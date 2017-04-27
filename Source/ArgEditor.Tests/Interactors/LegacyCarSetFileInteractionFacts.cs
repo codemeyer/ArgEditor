@@ -130,6 +130,13 @@ namespace ArgEditor.Tests.Interactors
                 _carset.Settings.PlayerHorsepower.Should().Be(716);
                 _carset.Settings.ChanceOfRain.Should().Be(6);
                 _carset.Settings.RainAtFirstTrack.Should().BeFalse();
+
+                _carset.Settings.RetireHitWall.Should().Be(7424);
+                _carset.Settings.RetireHitCar.Should().Be(8192);
+                _carset.Settings.DamageHitCar.Should().Be(1792);
+                _carset.Settings.DamageHitWall.Should().Be(1792);
+                _carset.Settings.YellowFlags.Should().Be(20);
+                _carset.Settings.RemoveCars.Should().Be(15);
             }
         }
 

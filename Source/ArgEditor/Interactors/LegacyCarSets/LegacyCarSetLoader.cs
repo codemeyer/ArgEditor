@@ -130,6 +130,12 @@ namespace ArgEditor.Interactors.LegacyCarSets
             carset.Settings.PlayerHorsepower = GetValueForProperty(lines, "HumanBHP");
             carset.Settings.ChanceOfRain = GetValueForProperty(lines, "WetRace");
             carset.Settings.RainAtFirstTrack = Convert.ToBoolean(GetValueForProperty(lines, "WetRacePhoenix"));
+            carset.Settings.RetireHitWall = GetValueForProperty(lines, "Damage1");
+            carset.Settings.RetireHitCar = GetValueForProperty(lines, "Damage2");
+            carset.Settings.DamageHitWall = GetValueForProperty(lines, "Damage3");
+            carset.Settings.DamageHitCar = GetValueForProperty(lines, "Damage4");
+            carset.Settings.YellowFlags = GetValueForProperty(lines, "YellowFlag");
+            carset.Settings.RemoveCars = GetValueForProperty(lines, "RemoveCrashedCar");
 
             return carset;
         }
@@ -221,6 +227,12 @@ namespace ArgEditor.Interactors.LegacyCarSets
             mainViewModel.GeneralGripLevel = legacy.Settings.GeneralGripLevel;
             mainViewModel.ChanceOfRainPercent = legacy.Settings.ChanceOfRain;
             mainViewModel.RainAtFirstTrack = legacy.Settings.RainAtFirstTrack;
+            mainViewModel.DamageSettings.RetireAfterHittingWall = Convert.ToInt16(legacy.Settings.RetireHitWall);
+            mainViewModel.DamageSettings.RetireAfterHittingOtherCar = Convert.ToInt16(legacy.Settings.RetireHitCar);
+            mainViewModel.DamageSettings.DamageAfterHittingWall = Convert.ToInt16(legacy.Settings.DamageHitWall);
+            mainViewModel.DamageSettings.DamageAfterHittingOtherCar = Convert.ToInt16(legacy.Settings.DamageHitCar);
+            mainViewModel.DamageSettings.YellowFlagsAfterSeconds = Convert.ToByte(legacy.Settings.YellowFlags);
+            mainViewModel.DamageSettings.RemoveCarsAfterSeconds = Convert.ToByte(legacy.Settings.RemoveCars);
 
             // reset points system, since .1ed files do not support editing it
             mainViewModel.PointsSystem.SetFrom1991To2002();
