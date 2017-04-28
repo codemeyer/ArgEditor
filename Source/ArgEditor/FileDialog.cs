@@ -10,17 +10,16 @@ namespace ArgEditor
         string SelectLegacyCarSetFileToSave();
         string SelectLegacyHelmetFileToOpen();
         string SelectGpExeFile();
-        string SelectAnyFile();
+        string SelectAnyFileToOpen();
+        string SelectAnyFileToSave();
         string SelectNameFileToSave();
     }
 
     public class FileDialog : IFileDialog
     {
-        // TODO: more refactoring?
-
         public string SelectCarSetFileToOpen()
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            var fileDialog = new OpenFileDialog
             {
                 DefaultExt = ".arged",
                 Filter = "Car Sets (*.arged, *.1ed)|*.arged;*.1ed|ArgEditor files (*.arged)|*.arged|F1Ed files (*.1ed)|*.1ed|All files (*.*)|*.*",
@@ -32,7 +31,7 @@ namespace ArgEditor
 
         public string SelectCarSetFileToSave()
         {
-            SaveFileDialog fileDialog = new SaveFileDialog
+            var fileDialog = new SaveFileDialog
             {
                 Title = "Save Car Set As",
                 DefaultExt = ".arged",
@@ -46,7 +45,7 @@ namespace ArgEditor
 
         public string SelectLegacyCarSetFileToSave()
         {
-            SaveFileDialog fileDialog = new SaveFileDialog
+            var fileDialog = new SaveFileDialog
             {
                 Title = "Save Legacy Car Set As",
                 DefaultExt = ".1ed",
@@ -60,7 +59,7 @@ namespace ArgEditor
 
         public string SelectGpExeFile()
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            var fileDialog = new OpenFileDialog
             {
                 Title = "Select EXE File",
                 DefaultExt = ".exe",
@@ -72,9 +71,9 @@ namespace ArgEditor
             return GetFilePathFromDialog(fileDialog);
         }
 
-        public string SelectAnyFile()
+        public string SelectAnyFileToOpen()
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            var fileDialog = new OpenFileDialog
             {
                 Title = "Select File",
                 DefaultExt = ".*",
@@ -86,9 +85,22 @@ namespace ArgEditor
             return GetFilePathFromDialog(fileDialog);
         }
 
+        public string SelectAnyFileToSave()
+        {
+            var fileDialog = new SaveFileDialog
+            {
+                Title = "Select File",
+                DefaultExt = "",
+                Filter = "All files (*.*)|*.*",
+                FileName = "*"
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
         public string SelectNameFileToSave()
         {
-            SaveFileDialog fileDialog = new SaveFileDialog
+            var fileDialog = new SaveFileDialog
             {
                 Title = "Select Name File",
                 DefaultExt = ".*",
@@ -102,7 +114,7 @@ namespace ArgEditor
 
         public string SelectLegacyCarFileToOpen()
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            var fileDialog = new OpenFileDialog
             {
                 Title = "Select Car File",
                 DefaultExt = ".car",
@@ -115,7 +127,7 @@ namespace ArgEditor
 
         public string SelectLegacyHelmetFileToOpen()
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            var fileDialog = new OpenFileDialog
             {
                 Title = "Select Helmet File",
                 DefaultExt = ".hel",

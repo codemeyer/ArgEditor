@@ -1,4 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
+using ArgData.Entities;
 
 namespace ArgEditor.ViewModels
 {
@@ -33,7 +38,13 @@ namespace ArgEditor.ViewModels
         public byte GearRatio1
         {
             get { return _gearRatio1; }
-            set { SetProperty(ref _gearRatio1, value, () => GearRatio1); }
+            set
+            {
+                if (SetProperty(ref _gearRatio1, value, () => GearRatio1))
+                {
+                    ValidateGearRatios();
+                }
+            }
         }
 
         private byte _gearRatio2 = 32;
@@ -41,7 +52,13 @@ namespace ArgEditor.ViewModels
         public byte GearRatio2
         {
             get { return _gearRatio2; }
-            set { SetProperty(ref _gearRatio2, value, () => GearRatio2); }
+            set
+            {
+                if (SetProperty(ref _gearRatio2, value, () => GearRatio2))
+                {
+                    ValidateGearRatios();
+                }
+            }
         }
 
         private byte _gearRatio3 = 39;
@@ -49,7 +66,13 @@ namespace ArgEditor.ViewModels
         public byte GearRatio3
         {
             get { return _gearRatio3; }
-            set { SetProperty(ref _gearRatio3, value, () => GearRatio3); }
+            set
+            {
+                if (SetProperty(ref _gearRatio3, value, () => GearRatio3))
+                {
+                    ValidateGearRatios();
+                }
+            }
         }
 
         private byte _gearRatio4 = 46;
@@ -57,7 +80,13 @@ namespace ArgEditor.ViewModels
         public byte GearRatio4
         {
             get { return _gearRatio4; }
-            set { SetProperty(ref _gearRatio4, value, () => GearRatio4); }
+            set
+            {
+                if (SetProperty(ref _gearRatio4, value, () => GearRatio4))
+                {
+                    ValidateGearRatios();
+                }
+            }
         }
 
         private byte _gearRatio5 = 53;
@@ -65,7 +94,13 @@ namespace ArgEditor.ViewModels
         public byte GearRatio5
         {
             get { return _gearRatio5; }
-            set { SetProperty(ref _gearRatio5, value, () => GearRatio5); }
+            set
+            {
+                if (SetProperty(ref _gearRatio5, value, () => GearRatio5))
+                {
+                    ValidateGearRatios();
+                }
+            }
         }
 
         private byte _gearRatio6 = 61;
@@ -73,62 +108,191 @@ namespace ArgEditor.ViewModels
         public byte GearRatio6
         {
             get { return _gearRatio6; }
-            set { SetProperty(ref _gearRatio6, value, () => GearRatio6); }
+            set
+            {
+                if (SetProperty(ref _gearRatio6, value, () => GearRatio6))
+                {
+                    ValidateGearRatios();
+                }
+            }
         }
+
+
+        public bool IsValid
+        {
+            get
+            {
+                if (IncorrectGearRatio1 || IncorrectGearRatio2 || IncorrectGearRatio3 ||
+                    IncorrectGearRatio4 || IncorrectGearRatio5 || IncorrectGearRatio6)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+
+        private void ValidateGearRatios()
+        {
+            // default
+            IncorrectGearRatio1 = false;
+            IncorrectGearRatio2 = false;
+            IncorrectGearRatio3 = false;
+            IncorrectGearRatio4 = false;
+            IncorrectGearRatio5 = false;
+            IncorrectGearRatio6 = false;
+
+            if (GearRatio1 >= GearRatio2)
+                IncorrectGearRatio1 = true;
+
+            if (GearRatio2 >= GearRatio3)
+                IncorrectGearRatio2 = true;
+
+            if (GearRatio3 >= GearRatio4)
+                IncorrectGearRatio3 = true;
+
+            if (GearRatio4 >= GearRatio5)
+                IncorrectGearRatio4 = true;
+
+            if (GearRatio5 >= GearRatio6)
+                IncorrectGearRatio5 = true;
+
+
+            if (GearRatio2 <= GearRatio1)
+                IncorrectGearRatio2 = true;
+
+            if (GearRatio3 <= GearRatio2)
+                IncorrectGearRatio3 = true;
+
+            if (GearRatio4 <= GearRatio3)
+                IncorrectGearRatio4 = true;
+
+            if (GearRatio5 <= GearRatio4)
+                IncorrectGearRatio5 = true;
+
+            if (GearRatio6 <= GearRatio5)
+                IncorrectGearRatio6 = true;
+        }
+
+
+
+
+        private bool _incorrectGearRatio1;
+
+        public bool IncorrectGearRatio1
+        {
+            get { return _incorrectGearRatio1; }
+            set { SetProperty(ref _incorrectGearRatio1, value, () => IncorrectGearRatio1); }
+        }
+
+        private bool _incorrectGearRatio2;
+
+        public bool IncorrectGearRatio2
+        {
+            get { return _incorrectGearRatio2; }
+            set { SetProperty(ref _incorrectGearRatio2, value, () => IncorrectGearRatio2); }
+        }
+
+        private bool _incorrectGearRatio3;
+
+        public bool IncorrectGearRatio3
+        {
+            get { return _incorrectGearRatio3; }
+            set { SetProperty(ref _incorrectGearRatio3, value, () => IncorrectGearRatio3); }
+        }
+
+        private bool _incorrectGearRatio4;
+
+        public bool IncorrectGearRatio4
+        {
+            get { return _incorrectGearRatio4; }
+            set { SetProperty(ref _incorrectGearRatio4, value, () => IncorrectGearRatio4); }
+        }
+
+        private bool _incorrectGearRatio5;
+
+        public bool IncorrectGearRatio5
+        {
+            get { return _incorrectGearRatio5; }
+            set { SetProperty(ref _incorrectGearRatio5, value, () => IncorrectGearRatio5); }
+        }
+
+        private bool _incorrectGearRatio6;
+
+        public bool IncorrectGearRatio6
+        {
+            get { return _incorrectGearRatio6; }
+            set { SetProperty(ref _incorrectGearRatio6, value, () => IncorrectGearRatio6); }
+        }
+
+
+
+        private SetupTyreCompound _tyreCompound = SetupTyreCompound.C;
+
+        public SetupTyreCompound TyreCompound
+        {
+            get { return _tyreCompound; }
+            set { SetProperty(ref _tyreCompound, value, () => TyreCompound); }
+        }
+
+
 
         public string this[string columnName]
         {
             get
             {
-                if (columnName == nameof(GearRatio1))
-                {
-                    if (GearRatio1 >= GearRatio2)
-                        return "No";
-                }
+                //if (columnName == nameof(GearRatio1))
+                //{
+                //    if (GearRatio1 >= GearRatio2)
+                //        return "No";
+                //}
 
-                if (columnName == nameof(GearRatio2))
-                {
-                    if (GearRatio2 < GearRatio1 + 1)
-                        return "No";
+                //if (columnName == nameof(GearRatio2))
+                //{
+                //    if (GearRatio2 < GearRatio1 + 1)
+                //        return "No";
 
-                    if (GearRatio2 >= GearRatio3)
-                        return "No";
-                }
+                //    if (GearRatio2 >= GearRatio3)
+                //        return "No";
+                //}
 
-                if (columnName == nameof(GearRatio3))
-                {
-                    if (GearRatio3 < GearRatio2 + 1)
-                        return "No";
+                //if (columnName == nameof(GearRatio3))
+                //{
+                //    if (GearRatio3 < GearRatio2 + 1)
+                //        return "No";
 
-                    if (GearRatio3 >= GearRatio4)
-                        return "No";
-                }
+                //    if (GearRatio3 >= GearRatio4)
+                //        return "No";
+                //}
 
-                if (columnName == nameof(GearRatio4))
-                {
-                    if (GearRatio4 < GearRatio3 + 1)
-                        return "No";
+                //if (columnName == nameof(GearRatio4))
+                //{
+                //    if (GearRatio4 < GearRatio3 + 1)
+                //        return "No";
 
-                    if (GearRatio4 >= GearRatio5)
-                        return "No";
-                }
+                //    if (GearRatio4 >= GearRatio5)
+                //        return "No";
+                //}
 
-                if (columnName == nameof(GearRatio5))
-                {
-                    if (GearRatio5 < GearRatio4 + 1)
-                        return "No";
+                //if (columnName == nameof(GearRatio5))
+                //{
+                //    if (GearRatio5 < GearRatio4 + 1)
+                //        return "No";
 
-                    if (GearRatio5 >= GearRatio6)
-                        return "No";
-                }
+                //    if (GearRatio5 >= GearRatio6)
+                //        return "No";
+                //}
 
-                if (columnName == nameof(GearRatio5))
-                {
-                    if (GearRatio6 < GearRatio5 + 1)
-                        return "No";
-                }
+                //if (columnName == nameof(GearRatio5))
+                //{
+                //    if (GearRatio6 < GearRatio5 + 1)
+                //        return "No";
+                //}
 
-                // TODO: other ratios
+                //// TODO: other ratios
 
                 return string.Empty;
             }

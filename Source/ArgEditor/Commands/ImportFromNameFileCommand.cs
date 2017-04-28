@@ -17,7 +17,7 @@ namespace ArgEditor.Commands
             var viewModel = parameter as MainViewModel;
             if (viewModel == null) return;
 
-            string path = _fileDialog.SelectAnyFile();
+            string path = _fileDialog.SelectAnyFileToOpen();
 
             if (string.IsNullOrEmpty(path)) { return; }
 

@@ -74,6 +74,7 @@
     <Compile Include="Commands\HelpDocsCommand.cs" />
     <Compile Include="Commands\ImportFromExeCommand.cs" />
     <Compile Include="Commands\ImportFromNameFileCommand.cs" />
+    <Compile Include="Commands\LoadSingleSetupFileCommand.cs" />
     <Compile Include="Commands\OpenCarSetCommand.cs" />
     <Compile Include="Commands\PaletteSelectNextBrighterColorCommand.cs" />
     <Compile Include="Commands\PaletteSelectNextDarkerColorCommand.cs" />
@@ -82,7 +83,10 @@
     <Compile Include="Commands\Application\ShowAboutWindowCommand.cs" />
     <Compile Include="Commands\Application\ShowCheckForUpdatesWindowCommand.cs" />
     <Compile Include="Commands\Application\ShowMessageCommand.cs" />
+    <Compile Include="Commands\SaveSingleSetupFileCommand.cs" />
     <Compile Include="Commands\SelectPaletteColorCommand.cs" />
+    <Compile Include="Converters\EnumBooleanConverter.cs" />
+    <Compile Include="Interactors\SetupFileLoader.cs" />
     <Compile Include="PaletteActionService.cs" />
     <Compile Include="UserControls\CarSetup\CarSetupUserControl.xaml.cs">
       <DependentUpon>CarSetupUserControl.xaml</DependentUpon>

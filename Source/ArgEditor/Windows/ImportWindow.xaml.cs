@@ -78,7 +78,7 @@ namespace ArgEditor.Windows
         {
             var vm = DataContext as ImportViewModel;
 
-            var path = new FileDialog().SelectAnyFile();
+            var path = new FileDialog().SelectAnyFileToOpen();
 
             if (!string.IsNullOrEmpty(path))
             {

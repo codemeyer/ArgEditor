@@ -312,6 +312,9 @@ namespace ArgEditor.ViewModels
         public ICommand ShowErrorMessageCommand { get; } = new ShowErrorMessageCommand();
         public ICommand ShowMessageCommand { get; } = new ShowMessageCommand();
 
+        public ICommand LoadSingleSetupFileCommand { get; } = new LoadSingleSetupFileCommand(new FileDialog());
+        public ICommand SaveSingleSetupFileCommand { get; } = new SaveSingleSetupFileCommand(new FileDialog());
+
         // TODO: more commands
         // Palette, set mode?
         // UndoCarPainting

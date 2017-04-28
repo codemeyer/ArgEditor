@@ -120,7 +120,21 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                 </TabItem.ToolTip>
                 <TabControl Margin="5,5,5,5">
                     <TabItem Header="Setup">
-                        <carSetupUserControls:CarSetupUserControl x:Name="SingleCarSetupTab"></carSetupUserControls:CarSetupUserControl>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="480" />
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <carSetupUserControls:CarSetupUserControl Grid.Column="0" x:Name="SingleCarSetupTab"></carSetupUserControls:CarSetupUserControl>
+
+                            <GroupBox Grid.Column="1" Header="File">
+                                <StackPanel Orientation="Vertical">
+                                    <Button Content="Load" Margin="5" Command="{Binding LoadSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
+                                    <Button Content="Save" Margin="5" Command="{Binding SaveSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
                     </TabItem>
                 </TabControl>
             </TabItem>
