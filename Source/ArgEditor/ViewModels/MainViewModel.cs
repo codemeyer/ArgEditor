@@ -37,6 +37,10 @@ namespace ArgEditor.ViewModels
             DamageSettings = new DamageSettingsViewModel();
 
             SingleSetupViewModel = new SetupViewModel();
+
+            MultiSetupRaceSetups = MultiSetupSetup.SetupList();
+            MultiSetupQualifyingSetups = MultiSetupSetup.SetupList();
+            SelectedSetupMultiSetupViewModel = MultiSetupRaceSetups[0];
         }
 
         private void SetupDrivers()
@@ -373,7 +377,73 @@ namespace ArgEditor.ViewModels
         }
 
 
+        private SetupItemViewModel _selectedSetupMultiSetupViewModel;
+
+        public SetupItemViewModel SelectedSetupMultiSetupViewModel
+        {
+            get { return _selectedSetupMultiSetupViewModel; }
+            set { SetProperty(ref _selectedSetupMultiSetupViewModel, value, () => SelectedSetupMultiSetupViewModel); }
+        }
+
+
+        public List<SetupItemViewModel> MultiSetupQualifyingSetups { get; set; }
+        public List<SetupItemViewModel> MultiSetupRaceSetups { get; set; }
+
     }
+
+
+    public class SetupItemViewModel : BaseViewModel
+    {
+
+        private string _description = "";
+
+        public string Description
+        {
+            get { return _description; }
+            set { SetProperty(ref _description, value, () => Description); }
+        }
+
+        private SetupViewModel _setup = new SetupViewModel();
+
+        public SetupViewModel Setup
+        {
+            get { return _setup; }
+            set { SetProperty(ref _setup, value, () => Setup); }
+        }
+    }
+
+
+    public static class MultiSetupSetup
+    {
+        public static List<SetupItemViewModel> SetupList()
+        {
+            var list = new List<SetupItemViewModel>();
+
+            for (int i = 0; i <= 15; i++)
+            {
+                var item = new SetupItemViewModel
+                {
+                    Description = _trackNames[i],
+                    Setup = new SetupViewModel()
+                    // TODO: track default setup
+                };
+
+                item.Setup.FrontWing = Convert.ToByte(i);
+
+                list.Add(item);
+            }
+
+            return list;
+        }
+
+        private static readonly string[] _trackNames =
+        {
+            "Phoenix", "Interlagos", "Imola", "Monaco", "Montreal", "Mexico City", "Magny-Cours", "Silverstone",
+            "Hockenheim", "Hungaroring", "Spa-Francorchamps", "Monza", "Estoril", "Barcelona", "Suzuka", "Adelaide"
+        };
+
+    }
+
 
     public enum PerformanceMetric
     {

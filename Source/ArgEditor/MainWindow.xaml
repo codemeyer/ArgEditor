@@ -91,7 +91,7 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
             </TabItem>
             <TabItem Height="40" Width="60" Margin="0,0,0,0">
                 <TabItem.Header>
-                    <Canvas Name="svg_1">
+                    <Canvas>
                         <Path Fill="#000000" Stretch="Fill" Width="24" Height="24" Canvas.Left="-10" Canvas.Top="-12">
                             <Path.Data>
                                 <PathGeometry Figures="m300 167.19501v-35.74101l-32.436 -11.91199c-2.82498 -10.911 -6.61499 -21.215 -12.21599 -30.687l0.325 -0.042l15.43799 -32.153l-25.2 -25.269l-32.118 15.299l-0.03101 0.045c-9.472 -5.601 -19.758 -9.156 -30.67099 -11.978l-11.905 -32.75699h-35.739l-11.91301 32.75899c-10.91299 2.821 -21.213 6.774 -30.685 12.379l-0.048 -0.248l-32.149 -15.399l-25.269 25.219l15.299 32.124l0.05 0.039c-5.605 9.471 -11.159 19.764 -13.98 30.675l-34.752 11.906v35.74101l34.753 11.91299c2.821 10.91499 7.774 21.211 13.38 30.685l0.249 0.045l-15.147 32.147l25.343 25.274l32.188 -15.298l0.065 -0.04601c9.474 5.597 19.782 10.826 30.695 13.65199l11.92101 34.43301h35.739l11.91499 -34.43201c10.91301 -2.82599 21.209 -7.61398 30.681 -13.215l0.05 -0.175l32.151 15.192l25.267 -25.32599l-15.299 -32.18201l-0.04601 -0.061c5.60101 -9.47299 8.83499 -19.776 11.66 -30.68799l32.435 -11.918l0 0l0 0zm-146.68201 41.696c-32.897 0 -59.56599 -26.662 -59.56599 -59.565c0 -32.896 26.669 -59.568 59.56599 -59.568c32.901 0 59.56601 26.672 59.56601 59.568c0 32.903 -26.66501 59.565 -59.56601 59.565z" FillRule="NonZero"/>
@@ -119,7 +119,7 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                     <ToolTip>Car Setups</ToolTip>
                 </TabItem.ToolTip>
                 <TabControl Margin="5,5,5,5">
-                    <TabItem Header="Setup">
+                    <TabItem Header="Single Setup">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="480" />
@@ -135,6 +135,69 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                                 </StackPanel>
                             </GroupBox>
                         </Grid>
+                    </TabItem>
+                    <TabItem Header="Multi Setup">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="480" />
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <carSetupUserControls:CarSetupUserControl DataContext="{Binding SelectedSetupMultiSetupViewModel.Setup}" Grid.Column="0" x:Name="MultipleCarSetupTab"></carSetupUserControls:CarSetupUserControl>
+
+                            <GroupBox Grid.Column="1" Header="Trackious">
+                                <ListBox ItemsSource="{Binding MultiSetupRaceSetups}"
+                                         SelectedItem="{Binding SelectedSetupMultiSetupViewModel}"
+                                         DisplayMemberPath="Description" SelectedValuePath="Setup">
+                                </ListBox>
+
+                                <!--<ListView Grid.Column="1" Width="260" ItemsSource="{Binding DriverPerformanceList}"
+                                          Background="Transparent" Margin="0,24,0,0">
+                                    <ListView.View>
+                                        <GridView ColumnHeaderContainerStyle="{StaticResource headerStyle}">
+                                            <GridViewColumn>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Description}" Width="15" TextAlignment="Right" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding DriverName}" Width="140" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding RelativePerformanceText}" Width="40" TextAlignment="Right" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Height" Value="18" />
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Setter Property="Margin" Value="0" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>-->
+
+                            </GroupBox>
+                            <!--<GroupBox Grid.Column="1" Header="File">
+                                <StackPanel Orientation="Vertical">
+                                    <Button Content="Load" Margin="5" Command="{Binding LoadSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
+                                    <Button Content="Save" Margin="5" Command="{Binding SaveSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
+                                </StackPanel>
+                            </GroupBox>-->
+                        </Grid>
+
                     </TabItem>
                 </TabControl>
             </TabItem>

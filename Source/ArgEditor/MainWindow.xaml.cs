@@ -22,6 +22,8 @@ namespace ArgEditor
             PointsSystemTab.DataContext = defaultMainViewModel.PointsSystem;
             SettingsTab.DataContext = defaultMainViewModel;
             SingleCarSetupTab.DataContext = defaultMainViewModel.SingleSetupViewModel;
+            //MultipleCarSetupTab.DataContext = defaultMainViewModel.SelectedSetupMultiSetupViewModel.Setup;
+            //MultipleCarSetupTab.DataContext = defaultMainViewModel.SelectedSetupMultiSetupViewModel;
 
             _mainViewModel = defaultMainViewModel;
 
