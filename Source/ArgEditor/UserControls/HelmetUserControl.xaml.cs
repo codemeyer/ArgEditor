@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using ArgEditor.ViewModels;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
-using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {

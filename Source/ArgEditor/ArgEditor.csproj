@@ -84,6 +84,9 @@
     <Compile Include="Commands\Application\ShowMessageCommand.cs" />
     <Compile Include="Commands\SelectPaletteColorCommand.cs" />
     <Compile Include="PaletteActionService.cs" />
+    <Compile Include="UserControls\CarSetup\CarSetupUserControl.xaml.cs">
+      <DependentUpon>CarSetupUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Settings\DamageSettingsUserControl.xaml.cs">
       <DependentUpon>DamageSettingsUserControl.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,7 @@
       <DependentUpon>WeatherSettingsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DamageSettingsViewModel.cs" />
+    <Compile Include="ViewModels\SetupViewModel.cs" />
     <Compile Include="Windows\CheckVersionWindow.xaml.cs">
       <DependentUpon>CheckVersionWindow.xaml</DependentUpon>
     </Compile>
@@ -198,6 +202,10 @@
       <DependentUpon>ImportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfUtils.cs" />
+    <Page Include="UserControls\CarSetup\CarSetupUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Settings\DamageSettingsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

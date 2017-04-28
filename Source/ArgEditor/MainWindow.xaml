@@ -2,8 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:userControls="clr-namespace:ArgEditor.UserControls"
-        xmlns:argEditor="clr-namespace:ArgEditor"
-        xmlns:commands="clr-namespace:ArgEditor.Commands"
+        xmlns:carSetupUserControls="clr-namespace:ArgEditor.UserControls.CarSetup"
         Title="ArgEditor" Height="770" Width="1025"
         WindowStartupLocation="Manual" Left="150" Top="50" ResizeMode="CanMinimize"
         Icon="Resources/argeditor.ico"
@@ -68,6 +67,9 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                         </Path>
                     </Canvas>
                 </TabItem.Header>
+                <TabItem.ToolTip>
+                    <ToolTip>Car Set</ToolTip>
+                </TabItem.ToolTip>
                 <TabControl x:Name="MainCarSetTab" Margin="5,5,5,5">
                     <TabItem Header="Teams and Drivers">
                         <userControls:TeamDriverNamesTabUserControl x:Name="TeamsAndDriversTab"></userControls:TeamDriverNamesTabUserControl>
@@ -97,9 +99,33 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                         </Path>
                     </Canvas>
                 </TabItem.Header>
+                <TabItem.ToolTip>
+                    <ToolTip>Game Settings</ToolTip>
+                </TabItem.ToolTip>
                 <userControls:SettingsTabUserControl x:Name="SettingsTab"></userControls:SettingsTabUserControl>
+            </TabItem>
+
+            <TabItem Height="40" Width="60" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <Canvas>
+                        <Path Fill="#000000" Stretch="Fill" Width="25" Height="25" Canvas.Left="-14" Canvas.Top="-12">
+                            <Path.Data>
+                                <PathGeometry Figures="M226.495 348.369l29.676-29.677l61.53-61.529l29.676-29.676c29.905 8.297 63.297 0.696 86.809-22.815   c23.511-23.511 31.112-56.903 22.815-86.809l-45.974 45.974c-12.497 12.497-32.758 12.497-45.255 0l-16.617-16.617   c-12.497-12.497-12.497-32.758 0-45.255l45.974-45.973c-29.905-8.297-63.298-0.696-86.809 22.815   c-23.512 23.511-31.113 56.903-22.815 86.809l-29.676 29.676l-61.53 61.53l-29.676 29.676   c-29.905-8.298-63.297-0.696-86.809 22.815s-31.113 56.902-22.815 86.809l45.973-45.974c12.498-12.497 32.758-12.497 45.255 0   l16.617 16.617c12.497 12.497 12.497 32.758 0 45.255l-45.973 45.974c29.906 8.297 63.297 0.695 86.809-22.815   C227.191 411.666 234.793 378.274 226.495 348.369z M228.417 305.788c-5.857 5.857-15.355 5.857-21.213 0   c-5.858-5.857-5.858-15.355 0-21.213l77.781-77.782c5.858-5.858 15.355-5.858 21.214 0c5.857 5.858 5.857 15.355 0 21.213   L228.417 305.788z" FillRule="NonZero"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </TabItem.Header>
+                <TabItem.ToolTip>
+                    <ToolTip>Car Setups</ToolTip>
+                </TabItem.ToolTip>
+                <TabControl Margin="5,5,5,5">
+                    <TabItem Header="Setup">
+                        <carSetupUserControls:CarSetupUserControl x:Name="SingleCarSetupTab"></carSetupUserControls:CarSetupUserControl>
+                    </TabItem>
+                </TabControl>
             </TabItem>
 
         </TabControl>
     </Grid>
 </Window>
+

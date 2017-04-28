@@ -35,6 +35,8 @@ namespace ArgEditor.ViewModels
 
             PointsSystem = new PointsSystemViewModel();
             DamageSettings = new DamageSettingsViewModel();
+
+            SingleSetupViewModel = new SetupViewModel();
         }
 
         private void SetupDrivers()
@@ -356,6 +358,18 @@ namespace ArgEditor.ViewModels
                 return "";
             }
         }
+
+
+
+        private SetupViewModel _singleSetupViewModel;
+
+        public SetupViewModel SingleSetupViewModel
+        {
+            get { return _singleSetupViewModel; }
+            set { SetProperty(ref _singleSetupViewModel, value, () => SingleSetupViewModel); }
+        }
+
+
     }
 
     public enum PerformanceMetric

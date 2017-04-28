@@ -21,6 +21,7 @@ namespace ArgEditor
             HelmetPaintingTab.DataContext = defaultMainViewModel;
             PointsSystemTab.DataContext = defaultMainViewModel.PointsSystem;
             SettingsTab.DataContext = defaultMainViewModel;
+            SingleCarSetupTab.DataContext = defaultMainViewModel.SingleSetupViewModel;
 
             _mainViewModel = defaultMainViewModel;
 
