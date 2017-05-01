@@ -14,27 +14,36 @@
     </UserControl.InputBindings>
     <Grid KeyDown="CarPaintingTab_KeyDown">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="320" />
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="230" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <userControls:CarSelectionListUserControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
                                                   SelectedTeamUpdated="CarSelectionUserControl_OnSelectedTeamUpdated" HorizontalAlignment="Left"
                                                   Height="600" Margin="10" VerticalAlignment="Top" />
-        <userControls:CarUserControl Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10"
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="220" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        <userControls:CarUserControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10"
                                      BorderBrush="#D4D4D4" BorderThickness="1"
                                      DataContext="{Binding SelectedTeam.Car}" x:Name="PaintCarUserControl" IsEditable="true" ClickedPolygon="PaintCarUserControl_OnClickedPolygon"></userControls:CarUserControl>
-        <Label Grid.Column="1" Grid.Row="0" Content="{Binding SelectedTeam.Name}"
+        <Label Grid.Column="0" Grid.Row="0" Content="{Binding SelectedTeam.Name}"
                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" />
-        <userControls:PitCrewUserControl Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"
+        <userControls:PitCrewUserControl Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"
                                          BorderBrush="#D4D4D4" BorderThickness="1"
                                          DataContext="{Binding SelectedTeam.PitCrew}" Margin="10,20,10,10"
                                          ClickedPitCrewPolygon="PaintPitCrewUserControl_OnClickedPolygon"></userControls:PitCrewUserControl>
-        <userControls:PaletteUserControl Grid.Column="2" Grid.Row="1" Margin="10,00,10,10"
+        <userControls:PaletteUserControl Grid.Column="1" Grid.Row="1" Margin="10,0,10,10"
                                          DataContext="{Binding Palette}" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        </Grid>
     </Grid>
 </UserControl>

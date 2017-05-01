@@ -21,7 +21,7 @@
             <RowDefinition Height="230" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ItemsControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Drivers}" Margin="10">
+        <ItemsControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Drivers}" Margin="5">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -69,7 +69,7 @@
                Margin="120,10,10,10"
                Content="{Binding SelectedHelmet.Parent.Name}" />
         <userControls:PaletteUserControl Grid.Column="1" Grid.Row="1" DataContext="{Binding Palette}"
-                                         HorizontalAlignment="Right" Margin="10,0,10,10"
+                                         HorizontalAlignment="Right" Margin="10,-10,10,10"
                                          VerticalAlignment="Top"/>
         <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="20,-100,300,0" Visibility="{Binding SelectedHelmet.ShowDecompressedExeMessage}">
             Note: Limitations apply to helmets for drivers

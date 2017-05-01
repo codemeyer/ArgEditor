@@ -13,11 +13,11 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="640"></ColumnDefinition>
+            <ColumnDefinition Width="625"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="6,-2,0,0">
-            <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+        <StackPanel Grid.Column="0" Margin="6,0,0,0">
+            <StackPanel Margin="0,0,0,-2" Orientation="Horizontal">
                 <Label Margin="125,0,0,0">HP</Label>
                 <Label Margin="160,0,0,0">Qual</Label>
                 <Label Margin="2,0,0,0">Race</Label>
@@ -59,7 +59,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Rank}" Width="12" TextAlignment="Right" />
+                                <TextBlock Text="{Binding Rank}" Width="15" TextAlignment="Right" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
