@@ -3,12 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:argEditor="clr-namespace:ArgEditor"
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
              xmlns:converters="clr-namespace:ArgEditor.Converters"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:PaletteViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="380" d:DesignWidth="300">
+             d:DesignHeight="360" d:DesignWidth="290">
     <UserControl.Resources>
         <converters:ColorConverter x:Key="ColorConverter" />
 
@@ -23,27 +22,27 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Width="291">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
                 <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
-                             Height="25" Width="71" Margin="0,0,5,5"
+                             Height="25" Width="69" Margin="0,0,4,5"
                              Click="PaletteToolFill_Click"
                              IsChecked="{Binding IsPaletteToolFill}">Fill</RadioButton>
                 <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
-                             Height="25" Width="71" Margin="0,0,5,5"
+                             Height="25" Width="69" Margin="0,0,4,5"
                              Click="PaletteToolPickup_Click"
                              IsChecked="{Binding IsPaletteToolPickup}">Pickup</RadioButton>
                 <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
-                             Height="25" Width="71" Margin="0,0,5,5"
+                             Height="25" Width="69" Margin="0,0,4,5"
                              Click="PaletteToolDarker_Click"
                              IsChecked="{Binding IsPaletteToolDarker}">Darken</RadioButton>
                 <RadioButton Style="{StaticResource {x:Type ToggleButton}}"
-                             Height="25" Width="71" Margin="0,0,0,5"
+                             Height="25" Width="69" Margin="0,0,0,5"
                              Click="PaletteToolBrighter_Click"
                              IsChecked="{Binding IsPaletteToolBrighter}">Brighten</RadioButton>
             </StackPanel>
-        <ItemsControl ItemsSource="{Binding Colors}" Width="320" Height="320" x:Name="PaletteContainer">
+        <ItemsControl ItemsSource="{Binding Colors}" HorizontalAlignment="Left" Width="290" Height="290" x:Name="PaletteContainer">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -51,7 +50,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Rectangle Fill="{Binding ColorIndex, Converter={StaticResource ColorConverter}}" Width="20" Height="20"
+                    <Rectangle Fill="{Binding ColorIndex, Converter={StaticResource ColorConverter}}" Width="18" Height="18"
                                Style="{StaticResource ColorRectangleStyle}">
                         <Rectangle.InputBindings>
                             <MouseBinding Gesture="LeftClick" Command="{Binding SelectPaletteColorCommand}" CommandParameter="{Binding}"></MouseBinding>
@@ -61,8 +60,12 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Rectangle HorizontalAlignment="Left" Height="25" Margin="200,10,0,0" VerticalAlignment="Top" Width="120"
-                   Stroke="Black" Fill="{Binding SelectedColor, Converter={StaticResource ColorConverter}}" />
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Margin="0,0,10,0">Selected Color:</Label>
+                <Rectangle HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="160"
+                           Stroke="Black" Fill="{Binding SelectedColor, Converter={StaticResource ColorConverter}}" />
+            </StackPanel>
+
         </StackPanel>
     </Grid>
 </UserControl>

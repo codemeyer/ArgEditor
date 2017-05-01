@@ -6,9 +6,9 @@
              xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              mc:Ignorable="d"
              d:DesignHeight="65" d:DesignWidth="140">
-    <Grid Width="140" Height="65">
+    <Grid Width="135" Height="63">
         <Border BorderThickness="0.5" BorderBrush="DarkGray"></Border>
-        <userControls:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="48" DataContext="{Binding Car}">
+        <userControls:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="46" DataContext="{Binding Car}">
             <userControls:CarUserControl.Style>
                 <Style TargetType="{x:Type userControls:CarUserControl}">
                     <Style.Triggers>
@@ -24,6 +24,6 @@
                 </Style>
             </userControls:CarUserControl.Style>
         </userControls:CarUserControl>
-        <Label Width="140" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
+        <Label Width="132" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
     </Grid>
 </UserControl>

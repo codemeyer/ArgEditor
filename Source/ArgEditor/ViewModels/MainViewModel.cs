@@ -46,12 +46,13 @@ namespace ArgEditor.ViewModels
         private void SetupDrivers()
         {
             Drivers = new List<DriverViewModel>();
-            for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverNumberMax; driverIndex++)
+            //for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverNumberMax; driverIndex++)
+            for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverCountSupported; driverIndex++)
             {
                 byte number = Convert.ToByte(driverIndex + 1);
 
-                if (driverIndex >= ArgEditorConstants.DriverCountSupported)
-                    number = 0;
+                //if (driverIndex >= ArgEditorConstants.DriverCountSupported)
+                //    number = 0;
 
                 string driverName = $"Driver {driverIndex + 1}";
                 var driverViewModel = new DriverViewModel(number, driverName, number, number);
@@ -107,19 +108,21 @@ namespace ArgEditor.ViewModels
                     .Where(grp => grp.Count() > 1 && grp.Key > 0);
                 var groupedNumbers = groupBys.ToList();
 
-                foreach (var driver in Drivers)
-                {
-                    driver.HasSameNumberAsOtherDriver = false;
-                }
-
-                foreach (var number in groupedNumbers)
-                {
-                    foreach (var drv in Drivers.Where(d => d.Number == number.Key))
+                //if (PerformDriverNumberCheck)
+                //{
+                    foreach (var driver in Drivers)
                     {
-                        drv.HasSameNumberAsOtherDriver = true;
+                        driver.HasSameNumberAsOtherDriver = false;
                     }
-                }
 
+                    foreach (var number in groupedNumbers)
+                    {
+                        foreach (var drv in Drivers.Where(d => d.Number == number.Key))
+                        {
+                            drv.HasSameNumberAsOtherDriver = true;
+                        }
+                    }
+                //}
 
                 var count = Drivers.Count(n => n.Number > 0);
 
@@ -129,6 +132,11 @@ namespace ArgEditor.ViewModels
                     ActiveDriverCountMessage = $"{count} active drivers. You need {26 - count} more driver(s) before you can export.";
             }
         }
+
+
+
+        //public bool PerformDriverNumberCheck { get; set; } = false; //true;
+
 
         public List<DriverViewModel> Drivers { get; private set; }
 
