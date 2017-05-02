@@ -102,7 +102,11 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                 <TabItem.ToolTip>
                     <ToolTip>Game Settings</ToolTip>
                 </TabItem.ToolTip>
-                <userControls:SettingsTabUserControl x:Name="SettingsTab"></userControls:SettingsTabUserControl>
+                <TabControl Margin="5,5,5,5">
+                    <TabItem Header="Game Settings">
+                        <userControls:SettingsTabUserControl x:Name="SettingsTab"></userControls:SettingsTabUserControl>
+                    </TabItem>
+                </TabControl>
             </TabItem>
 
             <TabItem Height="40" Width="60" Margin="0,0,0,0">
@@ -120,7 +124,6 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                 </TabItem.ToolTip>
                 <userControls:CarSetupTabUserControl DataContext="{Binding SetupTabViewModel}"></userControls:CarSetupTabUserControl>
             </TabItem>
-
         </TabControl>
     </Grid>
 </Window>
