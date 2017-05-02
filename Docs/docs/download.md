@@ -18,13 +18,21 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Release notes
 
-### 0.11 (2017-0?-??)
+### 0.11 (2017-05-??)
 
+* Can create and edit setup files
 * Can edit damage settings
+* Displays number of active drivers
+* Indication (red bar) if two or more drivers share the same numbers
+* Toolbar buttons at the top of each tab replace the main menu
+* UI tightened up to fit into X*768 pixel resolutions horizontally
+* Fix: Added keyboard shortcuts for commonly used commands
+* Fix: Exported player horsepower values in .1ed files are always within F1Ed's allowed range
+* Fix: Can create a name file without a file extension
 * Fix: Correctly show warning when painting a special case helmet
 * Fix: Update qualifying performance list when a driver's performance value changes
 * Fix: Don't add undo event if the same color was applied
-* Minor UI tweaks
+* Other minor UI tweaks
 
 
 ### 0.10 (2017-04-19)

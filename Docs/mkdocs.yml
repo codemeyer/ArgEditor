@@ -2,16 +2,20 @@ site_name: ArgEditor
 site_description: Editor for Microprose F1GP
 site_author: Fredrik Meyer
 theme: yeti
+extra_css:
+- css/argeditor.css
 pages:
 - Home: index.md
 - Documentation: 
   - Introduction: introduction.md
   - Car Set Screen: carset-screen.md
   - Settings Screen: settings-screen.md
+  - Setups Screen: setups-screen.md
+  - Help/About Screen: help-about-screen.md
   - Menus: menus.md
 - Tools:
   - Importing and Exporting: importing-and-exporting.md
   - Palette Tools: palette-tools.md
   - Decompressed EXE Files: decompressed-exe.md
 - Download: download.md
-copyright: Copyright &copy; 2015-2017 Fredrik Meyer
+copyright: Copyright &copy; 2014-2017 Fredrik Meyer

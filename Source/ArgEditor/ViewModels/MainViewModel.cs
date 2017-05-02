@@ -36,8 +36,8 @@ namespace ArgEditor.ViewModels
 
             PointsSystem = new PointsSystemViewModel();
             DamageSettings = new DamageSettingsViewModel();
-
             SetupTabViewModel = new SetupTabViewModel();
+            AboutTabViewModel = new AboutTabViewModel();
         }
 
         private void SetupDrivers()
@@ -270,8 +270,6 @@ namespace ArgEditor.ViewModels
         public ICommand ExitApplicationCommand { get; } = new ExitApplicationCommand();
 
         public ICommand HelpDocsCommand { get; } = new HelpDocsCommand();
-        public ICommand ShowCheckForUpdatesWindowCommand { get; } = new ShowCheckForUpdatesWindowCommand();
-        public ICommand ShowAboutWindowCommand { get; } = new ShowAboutWindowCommand();
 
         public ICommand PaletteSelectNextBrighterColorCommand { get; } = new PaletteSelectNextBrighterColorCommand();
         public ICommand PaletteSelectNextDarkerColorCommand { get; } = new PaletteSelectNextDarkerColorCommand();
@@ -329,6 +327,8 @@ namespace ArgEditor.ViewModels
         }
 
         public SetupTabViewModel SetupTabViewModel { get; set; }
+
+        public AboutTabViewModel AboutTabViewModel { get; set; }
     }
 
 

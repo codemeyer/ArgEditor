@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\Application\CheckForUpdateCommand.cs" />
+    <Compile Include="Commands\Application\OpenArgDataPageCommand.cs" />
+    <Compile Include="Commands\Application\OpenDownloadPageCommand.cs" />
     <Compile Include="Commands\ExportToNameFileCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\DisplayExportWizardCommand.cs" />
@@ -81,8 +84,6 @@
     <Compile Include="Commands\PaletteSelectNextDarkerColorCommand.cs" />
     <Compile Include="Commands\SaveCarSetCommand.cs" />
     <Compile Include="Commands\SaveLegacyCarSetCommand.cs" />
-    <Compile Include="Commands\Application\ShowAboutWindowCommand.cs" />
-    <Compile Include="Commands\Application\ShowCheckForUpdatesWindowCommand.cs" />
     <Compile Include="Commands\Application\ShowMessageCommand.cs" />
     <Compile Include="Commands\Setups\SaveMultiSetupFileCommand.cs" />
     <Compile Include="Commands\Setups\SaveSingleSetupFileCommand.cs" />
@@ -90,6 +91,9 @@
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Interactors\SetupFileLoader.cs" />
     <Compile Include="PaletteActionService.cs" />
+    <Compile Include="UserControls\AboutTabUserControl.xaml.cs">
+      <DependentUpon>AboutTabUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CarSetupTabUserControl.xaml.cs">
       <DependentUpon>CarSetupTabUserControl.xaml</DependentUpon>
     </Compile>
@@ -105,18 +109,13 @@
     <Compile Include="UserControls\Settings\WeatherSettingsUserControl.xaml.cs">
       <DependentUpon>WeatherSettingsUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AboutTabViewModel.cs" />
     <Compile Include="ViewModels\DamageSettingsViewModel.cs" />
     <Compile Include="ViewModels\MultiSetupViewModel.cs" />
     <Compile Include="ViewModels\SetupItemViewModel.cs" />
     <Compile Include="ViewModels\SetupPairViewModel.cs" />
     <Compile Include="ViewModels\SetupTabViewModel.cs" />
     <Compile Include="ViewModels\SetupViewModel.cs" />
-    <Compile Include="Windows\CheckVersionWindow.xaml.cs">
-      <DependentUpon>CheckVersionWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ColorChange.cs" />
     <Compile Include="Converters\ColorConverter.cs" />
     <Compile Include="Constants.cs" />
@@ -218,6 +217,10 @@
       <DependentUpon>ImportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfUtils.cs" />
+    <Page Include="UserControls\AboutTabUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\CarSetupTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -235,14 +238,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Settings\WeatherSettingsUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CheckVersionWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

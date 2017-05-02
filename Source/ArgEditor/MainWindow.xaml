@@ -20,13 +20,12 @@
                 <Trigger Property="Validation.HasError" Value="true">
                     <Setter Property="ToolTip"
                             Value="{Binding RelativeSource={x:Static RelativeSource.Self},
-Path=(Validation.Errors)[0].ErrorContent}"/>
+                                Path=(Validation.Errors)[0].ErrorContent}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
     <Grid Margin="0" Background="#204161">
-        <TextBox Margin="1200,0,0,0" Name="HiddenTextElement"></TextBox>
         <Menu HorizontalAlignment="Left" Width="1100" Height="22" Margin="1,1,1,0" VerticalAlignment="Top">
             <MenuItem Header="_File" >
                 <MenuItem Header="_Open Car Set" Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}" InputGestureText="Ctrl+O"></MenuItem>
@@ -46,13 +45,6 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
             <MenuItem Header="_Edit">
                 <MenuItem Header="_Undo" Click="EditUndoMenuItem_Click"></MenuItem>
                 <MenuItem Header="_Redo" Click="EditRedoMenuItem_Click"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Help">
-                <MenuItem Header="View _Help" Command="{Binding HelpDocsCommand}" CommandParameter="{Binding}" InputGestureText="F1"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="Check For _Update" Command="{Binding ShowCheckForUpdatesWindowCommand}" CommandParameter="{Binding}"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="_About ArgEditor" Command="{Binding ShowAboutWindowCommand}" CommandParameter="{Binding}"></MenuItem>
             </MenuItem>
         </Menu>
 
@@ -87,8 +79,8 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                         <userControls:PointsSystemTabUserControl x:Name="PointsSystemTab"></userControls:PointsSystemTabUserControl>
                     </TabItem>
                 </TabControl>
-
             </TabItem>
+
             <TabItem Height="40" Width="60" Margin="0,0,0,0">
                 <TabItem.Header>
                     <Canvas>
@@ -123,6 +115,19 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                     <ToolTip>Car Setups</ToolTip>
                 </TabItem.ToolTip>
                 <userControls:CarSetupTabUserControl DataContext="{Binding SetupTabViewModel}"></userControls:CarSetupTabUserControl>
+            </TabItem>
+
+            <TabItem Height="40" Width="60" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <Canvas Width="26" Height="26">
+                        <Path Stretch="Fill" Width="26" Height="26"
+                              Fill="#000000" Data="M11.499 17c-3.036 0-5.499-2.464-5.499-5.5 0-3.037 2.462-5.5 5.499-5.5 3.037 0 5.501 2.462 5.501 5.5 0 3.036-2.464 5.5-5.501 5.5zm.002-12c-3.591 0-6.501 2.91-6.501 6.5s2.91 6.5 6.501 6.5c3.588 0 6.499-2.911 6.499-6.5s-2.911-6.5-6.499-6.5zM12 10v4h1v1h-3v-1h1v-3h-1v-1zM11 8h1v1h-1z" />
+                    </Canvas>
+                </TabItem.Header>
+                <TabItem.ToolTip>
+                    <ToolTip>Help/About</ToolTip>
+                </TabItem.ToolTip>
+                <userControls:AboutTabUserControl DataContext="{Binding AboutTabViewModel}" HorizontalAlignment="Left"></userControls:AboutTabUserControl>
             </TabItem>
         </TabControl>
     </Grid>

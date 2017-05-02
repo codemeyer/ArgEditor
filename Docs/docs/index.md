@@ -24,6 +24,7 @@ before using this software.
 * Paint cars, pit crew clothing and helmets
 * Full undo/redo functionality when editing
 * Update the points system
+* Create and edit car setup files
 * and more!
 
 To begin your editing adventure [download](download.md) ArgEditor now and go to the
