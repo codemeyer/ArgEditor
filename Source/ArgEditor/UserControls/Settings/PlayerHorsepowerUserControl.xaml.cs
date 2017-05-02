@@ -1,6 +1,7 @@
 ﻿using ArgEditor.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using ArgData;
 
 namespace ArgEditor.UserControls.Settings
 {
@@ -16,7 +17,7 @@ namespace ArgEditor.UserControls.Settings
 
         private void SetDefaultHorsepower_OnClick(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainViewModel).PlayerHorsepower = 716;
+            (DataContext as MainViewModel).PlayerHorsepower = DefaultValues.PlayerHorsepowerValue;
         }
     }
 }

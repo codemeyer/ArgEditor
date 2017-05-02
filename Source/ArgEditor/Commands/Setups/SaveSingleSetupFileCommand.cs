@@ -2,7 +2,7 @@ using ArgData;
 using ArgData.Entities;
 using ArgEditor.ViewModels;
 
-namespace ArgEditor.Commands
+namespace ArgEditor.Commands.Setups
 {
     public class SaveSingleSetupFileCommand : CommandBase
     {

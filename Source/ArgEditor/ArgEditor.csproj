@@ -74,7 +74,8 @@
     <Compile Include="Commands\HelpDocsCommand.cs" />
     <Compile Include="Commands\ImportFromExeCommand.cs" />
     <Compile Include="Commands\ImportFromNameFileCommand.cs" />
-    <Compile Include="Commands\LoadSingleSetupFileCommand.cs" />
+    <Compile Include="Commands\Setups\LoadMultiSetupFileCommand.cs" />
+    <Compile Include="Commands\Setups\LoadSingleSetupFileCommand.cs" />
     <Compile Include="Commands\OpenCarSetCommand.cs" />
     <Compile Include="Commands\PaletteSelectNextBrighterColorCommand.cs" />
     <Compile Include="Commands\PaletteSelectNextDarkerColorCommand.cs" />
@@ -83,7 +84,8 @@
     <Compile Include="Commands\Application\ShowAboutWindowCommand.cs" />
     <Compile Include="Commands\Application\ShowCheckForUpdatesWindowCommand.cs" />
     <Compile Include="Commands\Application\ShowMessageCommand.cs" />
-    <Compile Include="Commands\SaveSingleSetupFileCommand.cs" />
+    <Compile Include="Commands\Setups\SaveMultiSetupFileCommand.cs" />
+    <Compile Include="Commands\Setups\SaveSingleSetupFileCommand.cs" />
     <Compile Include="Commands\SelectPaletteColorCommand.cs" />
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Interactors\SetupFileLoader.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="ViewModels\MultiSetupViewModel.cs" />
     <Compile Include="ViewModels\SetupItemViewModel.cs" />
     <Compile Include="ViewModels\SetupPairViewModel.cs" />
+    <Compile Include="ViewModels\SetupTabViewModel.cs" />
     <Compile Include="ViewModels\SetupViewModel.cs" />
     <Compile Include="Windows\CheckVersionWindow.xaml.cs">
       <DependentUpon>CheckVersionWindow.xaml</DependentUpon>

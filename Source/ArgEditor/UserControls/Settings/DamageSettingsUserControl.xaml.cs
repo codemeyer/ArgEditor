@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ArgData;
+using ArgEditor.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls.Settings
 {
@@ -27,32 +17,32 @@ namespace ArgEditor.UserControls.Settings
 
         private void ResetRetireAfterHittingWall_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as DamageSettingsViewModel).RetireAfterHittingWall = 7424;
+            (DataContext as DamageSettingsViewModel).RetireAfterHittingWall = DefaultValues.RetireAfterHittingWall;
         }
 
         private void ResetRetireAfterHittingOtherCar_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as DamageSettingsViewModel).RetireAfterHittingOtherCar = 8192;
+            (DataContext as DamageSettingsViewModel).RetireAfterHittingOtherCar = DefaultValues.RetireAfterHittingOtherCar;
         }
 
         private void ResetDamageAfterHittingWall_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as DamageSettingsViewModel).DamageAfterHittingWall = 1792;
+            (DataContext as DamageSettingsViewModel).DamageAfterHittingWall = DefaultValues.DamageAfterHittingWall;
         }
 
         private void ResetDamageAfterHittingOtherCar_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as DamageSettingsViewModel).DamageAfterHittingOtherCar = 1792;
+            (DataContext as DamageSettingsViewModel).DamageAfterHittingOtherCar = DefaultValues.DamageAfterHittingOtherCar;
         }
 
         private void ResetYellowFlags_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as DamageSettingsViewModel).YellowFlagsAfterSeconds = 20;
+            (DataContext as DamageSettingsViewModel).YellowFlagsAfterSeconds = DefaultValues.YellowFlagsForStationaryCarsAfterSeconds;
         }
 
         private void ResetRemoveCars_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as DamageSettingsViewModel).RemoveCarsAfterSeconds = 15;
+            (DataContext as DamageSettingsViewModel).RemoveCarsAfterSeconds = DefaultValues.RetiredCarsRemovedAfterSeconds;
         }
     }
 }

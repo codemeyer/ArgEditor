@@ -11,6 +11,10 @@ namespace ArgEditor.ViewModels
             TyreCompound = SetupTyreCompound.C;
         }
 
+        public SetupViewModel() : this("DesignTime")
+        {
+        }
+
         private byte _frontWing = 40;
 
         public byte FrontWing

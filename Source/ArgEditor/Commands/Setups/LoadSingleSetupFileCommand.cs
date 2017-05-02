@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ArgEditor.Interactors;
+﻿using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
+using System;
 
-namespace ArgEditor.Commands
+namespace ArgEditor.Commands.Setups
 {
     public class LoadSingleSetupFileCommand : CommandBase
     {
@@ -24,8 +21,21 @@ namespace ArgEditor.Commands
 
             string path = _fileDialog.SelectAnyFileToOpen();
 
+            if (string.IsNullOrEmpty(path))
+                return;
+
             // or just do stuff in here?
-            new SetupFileLoader().Load(viewModel, path);
+            try
+            {
+                new SetupFileLoader().Load(viewModel, path);
+
+            }
+            catch (Exception)
+            {
+                // inject cmd instead?
+                var msg = new ShowErrorMessageCommand();
+                msg.Execute("The specified file does not appear to be a setup file!");
+            }
         }
     }
 }

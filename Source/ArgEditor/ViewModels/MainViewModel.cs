@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using ArgData;
 
 namespace ArgEditor.ViewModels
 {
@@ -27,31 +28,25 @@ namespace ArgEditor.ViewModels
             Palette.ActivePaletteTool = PaletteTool.Paint;
 
             _driverPerformanceList = new ObservableCollection<DriverPerformanceItemViewModel>();
-            // TODO: default values from ArgData?
-            PlayerHorsepower = 716;
-            GeneralGripLevel = 1;
-            ChanceOfRainPercent = 6;
-            RainAtFirstTrack = false;
+
+            PlayerHorsepower = DefaultValues.PlayerHorsepowerValue;
+            GeneralGripLevel = DefaultValues.GeneralGripLevel;
+            ChanceOfRainPercent = DefaultValues.ChanceOfRain;
+            RainAtFirstTrack = DefaultValues.RainAtFirstTrack;
 
             PointsSystem = new PointsSystemViewModel();
             DamageSettings = new DamageSettingsViewModel();
 
-            SingleSetupViewModel = new SetupViewModel("SingleSetupGroup");
-            //MultiSetupRaceSetups = MultiSetupSetup.SetupList();
-            //MultiSetupQualifyingSetups = MultiSetupSetup.SetupList();
-            //SelectedSetupMultiSetupViewModel = MultiSetupRaceSetups[0];
+            SetupTabViewModel = new SetupTabViewModel();
         }
 
         private void SetupDrivers()
         {
             Drivers = new List<DriverViewModel>();
-            //for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverNumberMax; driverIndex++)
+
             for (int driverIndex = 0; driverIndex < ArgEditorConstants.DriverCountSupported; driverIndex++)
             {
                 byte number = Convert.ToByte(driverIndex + 1);
-
-                //if (driverIndex >= ArgEditorConstants.DriverCountSupported)
-                //    number = 0;
 
                 string driverName = $"Driver {driverIndex + 1}";
                 var driverViewModel = new DriverViewModel(number, driverName, number, number);
@@ -164,9 +159,6 @@ namespace ArgEditor.ViewModels
         {
             get { return _selectedHelmet; }
             set { SetProperty(ref _selectedHelmet, value, () => SelectedHelmet);
-                //if (value.Equals(_selectedHelmet)) { return; }
-                //_selectedHelmet = value;
-                //OnPropertyChanged(nameof(SelectedHelmet));
             }
         }
 
@@ -182,69 +174,38 @@ namespace ArgEditor.ViewModels
 
         // TODO: put these in a SettingsViewModel ??
 
+        private int _playerHorsepower;
+        private int _generalGripLevel;
+        private int _chanceOfRainPercent;
+        private bool _rainAtFirstTrack;
+
         public int PlayerHorsepower
         {
-            get
-            {
-                return _playerHorsepower;
-            }
-            set
-            {
-                SetProperty(ref _playerHorsepower, value, () => PlayerHorsepower);
-
-                //if (value.Equals(_playerHorsepower)) { return; }
-                //_playerHorsepower = value;
-                //OnPropertyChanged(nameof(PlayerHorsepower));
-            }
+            get { return _playerHorsepower; }
+            set { SetProperty(ref _playerHorsepower, value, () => PlayerHorsepower); }
         }
 
 
         public int GeneralGripLevel
         {
-            get
-            {
-                return _generalGripLevel;
-            }
-            set
-            {
-                if (value.Equals(_generalGripLevel)) { return; }
-                _generalGripLevel = value;
-                OnPropertyChanged(nameof(GeneralGripLevel));
-            }
+            get { return _generalGripLevel; }
+            set { SetProperty(ref _generalGripLevel, value, () => GeneralGripLevel); }
         }
 
         public int ChanceOfRainPercent
         {
-            get
-            {
-                return _chanceOfRainPercent;
-            }
-            set
-            {
-                if (value.Equals(_chanceOfRainPercent)) { return; }
-                _chanceOfRainPercent = value;
-                OnPropertyChanged(nameof(ChanceOfRainPercent));
-            }
+            get { return _chanceOfRainPercent; }
+            set { SetProperty(ref _chanceOfRainPercent, value, () => ChanceOfRainPercent); }
         }
 
         public bool RainAtFirstTrack
         {
-            get
-            {
-                return _rainAtFirstTrack;
-            }
-            set
-            {
-                if (value.Equals(_rainAtFirstTrack)) { return; }
-                _rainAtFirstTrack = value;
-                OnPropertyChanged(nameof(RainAtFirstTrack));
-            }
+            get { return _rainAtFirstTrack; }
+            set { SetProperty(ref _rainAtFirstTrack, value, () => RainAtFirstTrack); }
         }
 
 
         public DamageSettingsViewModel DamageSettings { get; private set; }
-
-
 
         public PaletteViewModel Palette { get; private set; }
 
@@ -268,10 +229,7 @@ namespace ArgEditor.ViewModels
 
 
         private readonly ObservableCollection<DriverPerformanceItemViewModel> _driverPerformanceList;
-        private int _playerHorsepower;
-        private int _generalGripLevel;
-        private int _chanceOfRainPercent;
-        private bool _rainAtFirstTrack;
+
         private PerformanceMetric _driverPerformanceMetric;
 
         public ObservableCollection<DriverPerformanceItemViewModel> DriverPerformanceList
@@ -323,9 +281,6 @@ namespace ArgEditor.ViewModels
         public ICommand ShowErrorMessageCommand { get; } = new ShowErrorMessageCommand();
         public ICommand ShowMessageCommand { get; } = new ShowMessageCommand();
 
-        public ICommand LoadSingleSetupFileCommand { get; } = new LoadSingleSetupFileCommand(new FileDialog());
-        public ICommand SaveSingleSetupFileCommand { get; } = new SaveSingleSetupFileCommand(new FileDialog());
-
         // TODO: more commands
         // Palette, set mode?
         // UndoCarPainting
@@ -373,20 +328,8 @@ namespace ArgEditor.ViewModels
             }
         }
 
-
-
-        private SetupViewModel _singleSetupViewModel;
-
-        public SetupViewModel SingleSetupViewModel
-        {
-            get { return _singleSetupViewModel; }
-            set { SetProperty(ref _singleSetupViewModel, value, () => SingleSetupViewModel); }
-        }
-
-        public MultiSetupViewModel MultiSetupViewModel { get; set; } = new MultiSetupViewModel();
+        public SetupTabViewModel SetupTabViewModel { get; set; }
     }
-
-
 
 
     public enum PerformanceMetric

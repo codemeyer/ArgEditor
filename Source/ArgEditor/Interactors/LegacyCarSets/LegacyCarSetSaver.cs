@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using ArgData;
 
 namespace ArgEditor.Interactors.LegacyCarSets
 {
@@ -136,7 +137,7 @@ namespace ArgEditor.Interactors.LegacyCarSets
 
         private static void WriteSettings(LegacyCarSet carset, List<string> lines)
         {
-            var bhpLegalise = carset.Settings.PlayerHorsepower == 716 ? "1" : "0";
+            var bhpLegalise = carset.Settings.PlayerHorsepower == DefaultValues.PlayerHorsepowerValue ? "1" : "0";
             var rainAtFirstTrack = carset.Settings.RainAtFirstTrack ? "1" : "0";
 
             lines.Add("[F1Ed]");

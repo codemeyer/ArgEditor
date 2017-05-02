@@ -8,7 +8,37 @@
              mc:Ignorable="d"
              d:DesignHeight="700" d:DesignWidth="900">
     <Grid>
-        <TabControl Margin="5,5,5,5">
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowSingleSetupFileActionButtonsVisibility}">
+                    <Button Width="140" Height="24" Margin="0"
+                            Command="{Binding LoadSingleSetupFileCommand}"
+                            CommandParameter="{Binding SingleSetupViewModel}">
+                        Load Single Setup File
+                    </Button>
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding SaveSingleSetupFileCommand}"
+                            CommandParameter="{Binding SingleSetupViewModel}">
+                        Save Single Setup File
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowMultiSetupFileActionButtonsVisibility}">
+                    <Button Width="140" Height="24" Margin="0"
+                            Command="{Binding LoadMultiSetupFileCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Load Multi-Setup File
+                    </Button>
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding SaveMultiSetupFileCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Save Multi-Setup File
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+        <TabControl SelectedIndex="{Binding SelectedTab}" Margin="5,5,5,5">
             <TabItem Header="Single Setup">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -17,13 +47,6 @@
                     </Grid.ColumnDefinitions>
 
                     <carSetup:CarSetupUserControl Grid.Column="0" DataContext="{Binding SingleSetupViewModel}"></carSetup:CarSetupUserControl>
-
-                    <GroupBox Grid.Column="1" Header="File">
-                        <StackPanel Orientation="Vertical">
-                            <Button Content="Load" Margin="5" Command="{Binding LoadSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
-                            <Button Content="Save" Margin="5" Command="{Binding SaveSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
-                        </StackPanel>
-                    </GroupBox>
                 </Grid>
             </TabItem>
 
@@ -83,5 +106,7 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
+        </StackPanel>
+
     </Grid>
 </UserControl>

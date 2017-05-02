@@ -118,7 +118,7 @@ Path=(Validation.Errors)[0].ErrorContent}"/>
                 <TabItem.ToolTip>
                     <ToolTip>Car Setups</ToolTip>
                 </TabItem.ToolTip>
-                <userControls:CarSetupTabUserControl></userControls:CarSetupTabUserControl>
+                <userControls:CarSetupTabUserControl DataContext="{Binding SetupTabViewModel}"></userControls:CarSetupTabUserControl>
             </TabItem>
 
         </TabControl>
