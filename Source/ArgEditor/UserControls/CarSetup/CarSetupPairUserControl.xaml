@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.CarSetup.CarSetupPairUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ArgEditor.UserControls.CarSetup"
+             mc:Ignorable="d"
+             d:DesignHeight="440" d:DesignWidth="780">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Setup1Description}"></Label>
+                </StackPanel>
+                <local:CarSetupUserControl DataContext="{Binding RaceSetup}"></local:CarSetupUserControl>
+            </StackPanel>
+            <StackPanel Visibility="{Binding ShowSetup2}" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Setup2Description}"></Label>
+                </StackPanel>
+                <local:CarSetupUserControl DataContext="{Binding QualifyingSetup}"></local:CarSetupUserControl>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

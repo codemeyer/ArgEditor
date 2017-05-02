@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.CarSetupTabUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ArgEditor.UserControls"
+             xmlns:carSetup="clr-namespace:ArgEditor.UserControls.CarSetup"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid>
+        <TabControl Margin="5,5,5,5">
+            <TabItem Header="Single Setup">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="480" />
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <carSetup:CarSetupUserControl Grid.Column="0" DataContext="{Binding SingleSetupViewModel}"></carSetup:CarSetupUserControl>
+
+                    <GroupBox Grid.Column="1" Header="File">
+                        <StackPanel Orientation="Vertical">
+                            <Button Content="Load" Margin="5" Command="{Binding LoadSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
+                            <Button Content="Save" Margin="5" Command="{Binding SaveSingleSetupFileCommand}" CommandParameter="{Binding SingleSetupViewModel}"></Button>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Multiple Setups">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox Margin="50,8,5,3" IsChecked="{Binding MultiSetupViewModel.SeparateSetups}">Separate race and qualifying setups?</CheckBox>
+                    <TabControl Margin="5" TabStripPlacement="Left">
+                        <TabItem Height="24" Header="US">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[0]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="BRA">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[1]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="SM">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[2]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="MON">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[3]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="CAN">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[4]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="MEX">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[5]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="FRA">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[6]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="GB">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[7]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="GER">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[8]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="HUN">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[9]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="BEL">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[10]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="ITA">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[11]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="POR">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[12]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="SPA">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[13]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="JAP">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[14]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="AUS">
+                            <carSetup:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[15]}"></carSetup:CarSetupPairUserControl>
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

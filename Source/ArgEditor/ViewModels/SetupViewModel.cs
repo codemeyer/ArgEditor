@@ -1,14 +1,16 @@
-﻿using System;
+﻿using ArgData.Entities;
 using System.ComponentModel;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
-using ArgData.Entities;
 
 namespace ArgEditor.ViewModels
 {
     public class SetupViewModel : BaseViewModel, IDataErrorInfo
     {
+        public SetupViewModel(string group)
+        {
+            TyreCompoundRadioButtonGroup = group;
+            TyreCompound = SetupTyreCompound.C;
+        }
+
         private byte _frontWing = 40;
 
         public byte FrontWing
@@ -230,13 +232,62 @@ namespace ArgEditor.ViewModels
 
 
 
-        private SetupTyreCompound _tyreCompound = SetupTyreCompound.C;
+        private string _tyreCompoundRadioButtonGroup;
+
+        public string TyreCompoundRadioButtonGroup
+        {
+            get { return _tyreCompoundRadioButtonGroup; }
+            set { SetProperty(ref _tyreCompoundRadioButtonGroup, value, () => TyreCompoundRadioButtonGroup); }
+        }
+
+
+        private SetupTyreCompound _tyreCompound;
+        private bool _isTyreCompoundA;
+        private bool _isTyreCompoundB;
+        private bool _isTyreCompoundC;
+        private bool _isTyreCompoundD;
 
         public SetupTyreCompound TyreCompound
         {
             get { return _tyreCompound; }
-            set { SetProperty(ref _tyreCompound, value, () => TyreCompound); }
+            set
+            {
+                if (SetProperty(ref _tyreCompound, value, () => TyreCompound))
+                {
+                    IsTyreCompoundA = _tyreCompound == SetupTyreCompound.A;
+                    IsTyreCompoundB = _tyreCompound == SetupTyreCompound.B;
+                    IsTyreCompoundC = _tyreCompound == SetupTyreCompound.C;
+                    IsTyreCompoundD = _tyreCompound == SetupTyreCompound.D;
+                }
+            }
         }
+
+
+        public bool IsTyreCompoundA
+        {
+            get { return _isTyreCompoundA; }
+            set { SetProperty(ref _isTyreCompoundA, value, () => IsTyreCompoundA); }
+        }
+
+        public bool IsTyreCompoundB
+        {
+            get { return _isTyreCompoundB; }
+            set { SetProperty(ref _isTyreCompoundB, value, () => IsTyreCompoundB); }
+        }
+
+        public bool IsTyreCompoundC
+        {
+            get { return _isTyreCompoundC; }
+            set { SetProperty(ref _isTyreCompoundC, value, () => IsTyreCompoundC); }
+        }
+
+        public bool IsTyreCompoundD
+        {
+            get { return _isTyreCompoundD; }
+            set { SetProperty(ref _isTyreCompoundD, value, () => IsTyreCompoundD); }
+        }
+
+
 
 
 
@@ -244,56 +295,6 @@ namespace ArgEditor.ViewModels
         {
             get
             {
-                //if (columnName == nameof(GearRatio1))
-                //{
-                //    if (GearRatio1 >= GearRatio2)
-                //        return "No";
-                //}
-
-                //if (columnName == nameof(GearRatio2))
-                //{
-                //    if (GearRatio2 < GearRatio1 + 1)
-                //        return "No";
-
-                //    if (GearRatio2 >= GearRatio3)
-                //        return "No";
-                //}
-
-                //if (columnName == nameof(GearRatio3))
-                //{
-                //    if (GearRatio3 < GearRatio2 + 1)
-                //        return "No";
-
-                //    if (GearRatio3 >= GearRatio4)
-                //        return "No";
-                //}
-
-                //if (columnName == nameof(GearRatio4))
-                //{
-                //    if (GearRatio4 < GearRatio3 + 1)
-                //        return "No";
-
-                //    if (GearRatio4 >= GearRatio5)
-                //        return "No";
-                //}
-
-                //if (columnName == nameof(GearRatio5))
-                //{
-                //    if (GearRatio5 < GearRatio4 + 1)
-                //        return "No";
-
-                //    if (GearRatio5 >= GearRatio6)
-                //        return "No";
-                //}
-
-                //if (columnName == nameof(GearRatio5))
-                //{
-                //    if (GearRatio6 < GearRatio5 + 1)
-                //        return "No";
-                //}
-
-                //// TODO: other ratios
-
                 return string.Empty;
             }
         }

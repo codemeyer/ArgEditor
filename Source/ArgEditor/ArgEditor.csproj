@@ -88,6 +88,12 @@
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Interactors\SetupFileLoader.cs" />
     <Compile Include="PaletteActionService.cs" />
+    <Compile Include="UserControls\CarSetupTabUserControl.xaml.cs">
+      <DependentUpon>CarSetupTabUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CarSetup\CarSetupPairUserControl.xaml.cs">
+      <DependentUpon>CarSetupPairUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CarSetup\CarSetupUserControl.xaml.cs">
       <DependentUpon>CarSetupUserControl.xaml</DependentUpon>
     </Compile>
@@ -98,6 +104,9 @@
       <DependentUpon>WeatherSettingsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DamageSettingsViewModel.cs" />
+    <Compile Include="ViewModels\MultiSetupViewModel.cs" />
+    <Compile Include="ViewModels\SetupItemViewModel.cs" />
+    <Compile Include="ViewModels\SetupPairViewModel.cs" />
     <Compile Include="ViewModels\SetupViewModel.cs" />
     <Compile Include="Windows\CheckVersionWindow.xaml.cs">
       <DependentUpon>CheckVersionWindow.xaml</DependentUpon>
@@ -206,6 +215,14 @@
       <DependentUpon>ImportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfUtils.cs" />
+    <Page Include="UserControls\CarSetupTabUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CarSetup\CarSetupPairUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\CarSetup\CarSetupUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
