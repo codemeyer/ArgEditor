@@ -32,16 +32,10 @@ namespace ArgEditor.UserControls
 
             var selectedHelmet = DataContext as HelmetViewModel;
 
-            var paletteTool = PaletteTool.Paint;
-            //var paletteTool = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-            //    ? PaletteTool.PickupColor
-            //    : PaletteTool.Paint;
-
             PropertyInfo prop = selectedHelmet.GetType().GetProperty(bindingPath);
 
             var property = new ColorPropertyWrapper(prop);
 
-            //RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property, paletteTool));
             RaiseEvent(new ClickedPolygonEventArgs(ClickedPolygonUpdatedEvent, property));
         }
 

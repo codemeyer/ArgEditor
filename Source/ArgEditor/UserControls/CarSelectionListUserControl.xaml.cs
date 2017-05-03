@@ -42,6 +42,9 @@ namespace ArgEditor.UserControls
             remove { RemoveHandler(SelectedTeamUpdatedEvent, value); }
         }
 
+        // TODO: this code also exists in the Copy and Paste commands,
+        // refactor this user control to use the commands instead...
+
         private void CarSelectionCopy_Click(object sender, RoutedEventArgs e)
         {
             var car = GetCarEditingViewModelForContextMenuItem(sender as MenuItem);

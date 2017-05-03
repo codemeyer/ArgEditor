@@ -18,6 +18,21 @@
                     <Setter Property="Border.BorderThickness" Value="0"/>
                     <Setter Property="Border.Width" Value="0" />
                     <Style.Triggers>
+                        <DataTrigger Binding="{Binding Drivers[0].HasNumberWithoutName}" Value="True">
+                            <Setter Property="Border.BorderThickness" Value="2"/>
+                            <Setter Property="Border.Width" Value="2" />
+                            <Setter Property="Border.BorderBrush" Value="DarkOrange" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+        <Border Height="22" HorizontalAlignment="Left" Margin="478,0,0,0">
+            <Border.Style>
+                <Style>
+                    <Setter Property="Border.BorderThickness" Value="0"/>
+                    <Setter Property="Border.Width" Value="0" />
+                    <Style.Triggers>
                         <DataTrigger Binding="{Binding Drivers[0].HasSameNumberAsOtherDriver}" Value="True">
                             <Setter Property="Border.BorderThickness" Value="2"/>
                             <Setter Property="Border.Width" Value="2" />
@@ -29,6 +44,21 @@
         </Border>
         <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Drivers[1].Name}" VerticalAlignment="Top" Width="160" Margin="492,0,0,0" MaxLength="23" />
         <ComboBox HorizontalAlignment="Left" Margin="657,0,0,0" VerticalAlignment="Top" ItemsSource="{Binding AvailableDriverNumbers}" DisplayMemberPath="DisplayValue" SelectedValuePath="Value" SelectedValue="{Binding Drivers[1].Number, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Width="44" Height="22"></ComboBox>
+        <Border Height="22" HorizontalAlignment="Left" Margin="702,0,0,0">
+            <Border.Style>
+                <Style>
+                    <Setter Property="Border.BorderThickness" Value="0"/>
+                    <Setter Property="Border.Width" Value="0" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Drivers[1].HasNumberWithoutName}" Value="True">
+                            <Setter Property="Border.BorderThickness" Value="2"/>
+                            <Setter Property="Border.Width" Value="2" />
+                            <Setter Property="Border.BorderBrush" Value="DarkOrange" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
         <Border Height="22" HorizontalAlignment="Left" Margin="702,0,0,0">
             <Border.Style>
                 <Style>

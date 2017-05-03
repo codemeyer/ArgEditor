@@ -17,8 +17,9 @@ namespace ArgEditor.ViewModels
             Enabled = true;
         }
 
-        public TeamViewModel(string name, string engine, DriverViewModel driver1, DriverViewModel driver2)
+        public TeamViewModel(int index, string name, string engine, DriverViewModel driver1, DriverViewModel driver2)
         {
+            Index = index;
             Name = name;
             Engine = engine;
 
@@ -31,6 +32,8 @@ namespace ArgEditor.ViewModels
 
             Enabled = false;
         }
+
+        public int Index { get; set; }
 
         public string Name
         {

@@ -6,7 +6,7 @@ In the main menu, under the File header, you will find functions for
 importing and exporting data.
 
 
-# Importing Data
+## Importing Data
 
 You can import an entire car set, including car colors, driver performance levels,
 horsepower levels, etc, from an existing GP.EXE. It is also possible to import 

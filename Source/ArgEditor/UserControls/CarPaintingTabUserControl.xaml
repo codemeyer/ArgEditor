@@ -9,10 +9,12 @@
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="640" d:DesignWidth="920">
     <UserControl.InputBindings>
-        <KeyBinding Key="OemPlus" Modifiers="Control" Command="{Binding PaletteSelectNextBrighterColorCommand}" CommandParameter="{Binding Palette}"></KeyBinding>
-        <KeyBinding Key="OemMinus" Modifiers="Control" Command="{Binding PaletteSelectNextDarkerColorCommand}" CommandParameter="{Binding Palette}"></KeyBinding>
+        <KeyBinding Key="Z" Modifiers="Control" Command="{Binding UndoCarPitCrewPaintingAction}" CommandParameter="{Binding}"></KeyBinding>
+        <KeyBinding Key="Y" Modifiers="Control" Command="{Binding RedoCarPitCrewPaintingAction}" CommandParameter="{Binding}"></KeyBinding>
+        <KeyBinding Key="OemPlus" Command="{Binding PaletteSelectNextBrighterColorCommand}" CommandParameter="{Binding Palette}"></KeyBinding>
+        <KeyBinding Key="OemMinus" Command="{Binding PaletteSelectNextDarkerColorCommand}" CommandParameter="{Binding Palette}"></KeyBinding>
     </UserControl.InputBindings>
-    <Grid KeyDown="CarPaintingTab_KeyDown">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />

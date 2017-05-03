@@ -68,7 +68,7 @@ namespace ArgEditor
             if (paintedElement == PaintedElement.Helmet)
             {
                 int index = -1;
-                for (int i = 0; i < 40; i++)
+                for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
                 {
                     if (mainViewModel.Drivers[i].Helmet == mainViewModel.SelectedHelmet)
                     {

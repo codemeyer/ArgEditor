@@ -12,19 +12,19 @@ namespace ArgEditor
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            CarColorUndoStacks = new Stack<ColorChangeList>[20];
-            CarColorRedoStacks = new Stack<ColorChangeList>[20];
+            CarColorUndoStacks = new Stack<ColorChangeList>[ArgEditorConstants.TeamCountSupported];
+            CarColorRedoStacks = new Stack<ColorChangeList>[ArgEditorConstants.TeamCountSupported];
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
             {
                 CarColorUndoStacks[i] = new Stack<ColorChangeList>();
                 CarColorRedoStacks[i] = new Stack<ColorChangeList>();
             }
 
-            HelmetColorUndoStacks = new Stack<ColorChangeList>[40];
-            HelmetColorRedoStacks = new Stack<ColorChangeList>[40];
+            HelmetColorUndoStacks = new Stack<ColorChangeList>[ArgEditorConstants.DriverCountSupported];
+            HelmetColorRedoStacks = new Stack<ColorChangeList>[ArgEditorConstants.DriverCountSupported];
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < ArgEditorConstants.DriverCountSupported; i++)
             {
                 HelmetColorUndoStacks[i] = new Stack<ColorChangeList>();
                 HelmetColorRedoStacks[i] = new Stack<ColorChangeList>();

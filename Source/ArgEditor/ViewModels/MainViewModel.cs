@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using ArgData;
 
@@ -18,6 +19,8 @@ namespace ArgEditor.ViewModels
 
         public MainViewModel()
         {
+            // TODO: put CarSet stuff in separate CarSetViewModel ?
+
             SetupDrivers();
             SetupTeams();
 
@@ -38,6 +41,9 @@ namespace ArgEditor.ViewModels
             DamageSettings = new DamageSettingsViewModel();
             SetupTabViewModel = new SetupTabViewModel();
             AboutTabViewModel = new AboutTabViewModel();
+
+            SelectedCarSetTabIndex = 0;
+            UpdateActionButtonsVisibility();
         }
 
         private void SetupDrivers()
@@ -63,7 +69,7 @@ namespace ArgEditor.ViewModels
                 string teamName = $"Team {teamIndex + 1}";
                 string engineName = $"Engine {teamIndex + 1}";
                 int driverStartIndex = teamIndex*2;
-                var teamViewModel = new TeamViewModel(teamName, engineName, Drivers[driverStartIndex],
+                var teamViewModel = new TeamViewModel(teamIndex, teamName, engineName, Drivers[driverStartIndex],
                     Drivers[driverStartIndex + 1]);
                 Drivers[driverStartIndex].Team = teamViewModel;
                 Drivers[driverStartIndex + 1].Team = teamViewModel;
@@ -124,6 +130,21 @@ namespace ArgEditor.ViewModels
                     ActiveDriverCountMessage = $"{count} active drivers.";
                 else
                     ActiveDriverCountMessage = $"{count} active drivers. You need {26 - count} more driver(s) before you can export.";
+            }
+
+            if (propertyChangedEventArgs.PropertyName.Equals("Name") ||
+                propertyChangedEventArgs.PropertyName.Equals("Number"))
+            {
+                foreach (var driver in Drivers)
+                {
+                    if (driver.Number == 0)
+                    {
+                        driver.HasNumberWithoutName = false;
+                        continue;
+                    }
+
+                    driver.HasNumberWithoutName = string.IsNullOrWhiteSpace(driver.Name);
+                }
             }
         }
 
@@ -254,6 +275,7 @@ namespace ArgEditor.ViewModels
 
         // Commands!
 
+        // TODO: same FileDialog injected everywhere?
         // ReSharper disable UnusedMember.Global, since it doesn't seem to find its usage inside the XAML file
         public ICommand OpenCarSetCommand { get; } = new OpenCarSetCommand(new FileDialog());
         public ICommand SaveCarSetCommand { get; } = new SaveCarSetCommand(new FileDialog());
@@ -267,6 +289,9 @@ namespace ArgEditor.ViewModels
         public ICommand ExportToExeCommand { get; } = new ExportToExeCommand(new FileDialog());
         public ICommand ExportToNameFileCommand { get; } = new ExportToNameFileCommand(new FileDialog());
 
+        public ICommand DisplayGameSettingsImportWizardCommand { get; } = new DisplayGameSettingsImportWizardCommand();
+        public ICommand DisplayGameSettingsExportWizardCommand { get; } = new DisplayGameSettingsExportWizardCommand();
+
         public ICommand ExitApplicationCommand { get; } = new ExitApplicationCommand();
 
         public ICommand HelpDocsCommand { get; } = new HelpDocsCommand();
@@ -279,18 +304,22 @@ namespace ArgEditor.ViewModels
         public ICommand ShowErrorMessageCommand { get; } = new ShowErrorMessageCommand();
         public ICommand ShowMessageCommand { get; } = new ShowMessageCommand();
 
+        public ICommand UndoCarPitCrewPaintingActionCommand { get; } = new UndoCarPitCrewPaintingActionCommand();
+        public ICommand RedoCarPitCrewPaintingActionCommand { get; } = new RedoCarPitCrewPaintingActionCommand();
+        public ICommand CopyCarToClipboardCommand { get; } = new CopyCarToClipboardCommand();
+        public ICommand PasteCarFromClipboardCommand { get; } = new PasteCarFromClipboardCommand();
+        public ICommand LoadCarFileCommand { get; } = new LoadCarFileCommand(new FileDialog());
+
+        public ICommand UndoHelmetPaintingActionCommand { get; } = new UndoHelmetPaintingActionCommand();
+        public ICommand RedoHelmetPaintingActionCommand { get; } = new RedoHelmetPaintingActionCommand();
+        public ICommand CopyHelmetToClipboardCommand { get; } = new CopyHelmetToClipboardCommand();
+        public ICommand PasteHelmetFromClipboardCommand { get; } = new PasteHelmetFromClipboardCommand();
+        public ICommand LoadHelmetFileCommand { get; } = new LoadHelmetFileCommand(new FileDialog());
+
         // TODO: more commands
         // Palette, set mode?
-        // UndoCarPainting
-        // RedoCarPainting
-        // UndoHelmetPainting
-        // RedoHelmetPainting
-        // ExportNameFile
-        // about? checkforupdaes+?
         // ?
 
-
-        //public ValidationRule ValueRangeValidation { get; } = new ValueRangeValidation();
 
         // ReSharper restore UnusedMember.Global
 
@@ -329,6 +358,64 @@ namespace ArgEditor.ViewModels
         public SetupTabViewModel SetupTabViewModel { get; set; }
 
         public AboutTabViewModel AboutTabViewModel { get; set; }
+
+
+
+        private int _selectedCarSetTabIndex;
+
+        public int SelectedCarSetTabIndex
+        {
+            get { return _selectedCarSetTabIndex; }
+            set
+            {
+                if (SetProperty(ref _selectedCarSetTabIndex, value, () => SelectedCarSetTabIndex))
+                {
+                    UpdateActionButtonsVisibility();
+                }
+            }
+        }
+
+
+        private Visibility _showCarPitCrewActionButtons;
+
+        public Visibility ShowCarPitCrewActionButtons
+        {
+            get { return _showCarPitCrewActionButtons; }
+            set { SetProperty(ref _showCarPitCrewActionButtons, value, () => ShowCarPitCrewActionButtons); }
+        }
+
+
+        private Visibility _showHelmetActionButtons;
+
+        public Visibility ShowHelmetActionButtons
+        {
+            get { return _showHelmetActionButtons; }
+            set { SetProperty(ref _showHelmetActionButtons, value, () => ShowHelmetActionButtons); }
+        }
+
+
+
+        private void UpdateActionButtonsVisibility()
+        {
+            if (SelectedCarSetTabIndex == 2)
+            {
+                ShowCarPitCrewActionButtons = Visibility.Visible;
+            }
+            else
+            {
+                ShowCarPitCrewActionButtons = Visibility.Collapsed;
+            }
+
+            if (SelectedCarSetTabIndex == 3)
+            {
+                ShowHelmetActionButtons = Visibility.Visible;
+            }
+            else
+            {
+                ShowHelmetActionButtons = Visibility.Collapsed;
+            }
+        }
+
     }
 
 

@@ -20,4 +20,24 @@ namespace ArgEditor.Commands
             importWindow.ShowDialog();
         }
     }
+
+    public class DisplayGameSettingsImportWizardCommand : CommandBase
+    {
+        public override void Execute(object parameter)
+        {
+            var viewModel = parameter as MainViewModel;
+            if (viewModel == null) return;
+
+            var importVM = new ImportViewModel(viewModel);
+            importVM.SetAllCarSetCheckBoxes(false);
+
+            var importWindow = new ImportWindow
+            {
+                Owner = Application.Current.MainWindow,
+                DataContext = importVM
+            };
+
+            importWindow.ShowDialog();
+        }
+    }
 }

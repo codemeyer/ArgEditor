@@ -4,7 +4,7 @@ By clicking on the cogwheel on the left, you get to the game settings screen.
 
 ![Settings tab screenshot](img/game-settings.png)
 
-There are four things you can edit here.
+There are a number things you can edit here.
 
 The player horsepower value represents how powerful _your_ engine is in the game.
 The default value is 716, just like the top teams.
@@ -27,3 +27,6 @@ stationary cars, and the number of seconds before retired cars are removed from 
 
 Note that game settings are _not_ saved in ArgEditor car set files,
 but they _are_ saved in F1Ed files.
+
+You can use the Import and Export buttons at the top to quickly import or export
+only the settings on this screen to or from an EXE file.

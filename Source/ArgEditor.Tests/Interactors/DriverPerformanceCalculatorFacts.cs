@@ -14,7 +14,7 @@ namespace ArgEditor.Tests.Interactors
         {
             var driver1 = new DriverViewModel(1, "Driver Slow", 2, 2);
             var driver2 = new DriverViewModel(2, "Driver Fast", 1, 1);
-            var team = new TeamViewModel("Team", "Engine", driver1, driver2);
+            var team = new TeamViewModel(0, "Team", "Engine", driver1, driver2);
             team.Horsepower = 716;
             var teams = new List<TeamViewModel> { team };
             var calculator = new DriverPerformanceCalculator();

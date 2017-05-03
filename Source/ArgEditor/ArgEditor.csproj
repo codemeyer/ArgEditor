@@ -59,6 +59,30 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -68,6 +92,8 @@
     <Compile Include="Commands\Application\CheckForUpdateCommand.cs" />
     <Compile Include="Commands\Application\OpenArgDataPageCommand.cs" />
     <Compile Include="Commands\Application\OpenDownloadPageCommand.cs" />
+    <Compile Include="Commands\CopyCarToClipboardCommand.cs" />
+    <Compile Include="Commands\CopyHelmetToClipboardCommand.cs" />
     <Compile Include="Commands\ExportToNameFileCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\DisplayExportWizardCommand.cs" />
@@ -77,6 +103,12 @@
     <Compile Include="Commands\HelpDocsCommand.cs" />
     <Compile Include="Commands\ImportFromExeCommand.cs" />
     <Compile Include="Commands\ImportFromNameFileCommand.cs" />
+    <Compile Include="Commands\LoadCarFileCommand.cs" />
+    <Compile Include="Commands\LoadHelmetFileCommand.cs" />
+    <Compile Include="Commands\PasteCarFromClipboardCommand.cs" />
+    <Compile Include="Commands\PasteHelmetFromClipboardCommand.cs" />
+    <Compile Include="Commands\RedoCarPitCrewPaintingActionCommand.cs" />
+    <Compile Include="Commands\RedoHelmetPaintingActionCommand.cs" />
     <Compile Include="Commands\Setups\LoadMultiSetupFileCommand.cs" />
     <Compile Include="Commands\Setups\LoadSingleSetupFileCommand.cs" />
     <Compile Include="Commands\OpenCarSetCommand.cs" />
@@ -88,9 +120,13 @@
     <Compile Include="Commands\Setups\SaveMultiSetupFileCommand.cs" />
     <Compile Include="Commands\Setups\SaveSingleSetupFileCommand.cs" />
     <Compile Include="Commands\SelectPaletteColorCommand.cs" />
+    <Compile Include="Commands\UndoCarPitCrewPaintingActionCommand.cs" />
+    <Compile Include="Commands\UndoHelmetPaintingActionCommand.cs" />
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Interactors\SetupFileLoader.cs" />
+    <Compile Include="MainViewModelPasserArounder.cs" />
     <Compile Include="PaletteActionService.cs" />
+    <Compile Include="UndoRedoService.cs" />
     <Compile Include="UserControls\AboutTabUserControl.xaml.cs">
       <DependentUpon>AboutTabUserControl.xaml</DependentUpon>
     </Compile>

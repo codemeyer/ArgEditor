@@ -28,7 +28,7 @@ namespace ArgEditor.ViewModels.Utils
     public class DesignerTeamViewModel : TeamViewModel
     {
         public DesignerTeamViewModel()
-            : base("Team", "Engine", new DriverViewModel(1, "Driver One", 1, 1), new DriverViewModel(2, "Driver Two", 2, 2))
+            : base(0, "Team", "Engine", new DriverViewModel(1, "Driver One", 1, 1), new DriverViewModel(2, "Driver Two", 2, 2))
         {
         }
     }

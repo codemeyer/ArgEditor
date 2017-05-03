@@ -52,7 +52,7 @@
                 Race
             </RadioButton>
         </StackPanel>
-        <ListView Grid.Column="1" Width="230" ItemsSource="{Binding DriverPerformanceList}"
+        <ListView Grid.Column="1" Width="230" Height="550" VerticalAlignment="Top" ItemsSource="{Binding DriverPerformanceList}"
                     Background="Transparent" Margin="0,24,0,10">
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource headerStyle}">

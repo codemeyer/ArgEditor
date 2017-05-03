@@ -6,6 +6,16 @@ you enter the teams and drivers, on the second tab you set their performance,
 on the third you paint the cars and pit crews. On the fourth
 tab you paint the drivers' helmets, and on the final tab you edit the points system.
 
+At the top you find buttons for loading and saving car sets, and [importing and
+exporting](importing-and-exporting.md) data.
+
+When you open a car set file, you can choose either ArgEditor files (.arged) or old F1ed files (.1ed).
+
+When saving, you can save either an ArgEditor car set file, or a F1Ed file that can be read by F1Ed.
+
+Game settings such as player horsepower, general grip level and weather settings are not
+saved in ArgEditor car set files, but are saved in F1Ed files.
+
 
 ## Teams and Drivers tab
 
@@ -20,9 +30,15 @@ Active drivers are those that have a number set. If you have enabled a driver by
 giving them a number, you can disable them again by selecting the empty value at the
 top of the driver number list.
 
+If you set the same number for two or more drivers, a red marker will appear next
+to the driver number dropdowns for the affected drivers.
+
 A driver's name can be 23 characters long, but may appear cut off in-game if it
 is longer than 18 characters, depending on the width of the characters.
 Team and engine names can be 12 characters long.
+
+If you give a driver a number, but do not set a name, an orange marker will appear
+next to the driver number dropdown for the affected driver.
 
 Note that the first team in the list has a different car shape than the other
 teams. This is because the first team in 1991 was McLaren,
@@ -94,11 +110,15 @@ the default game - has a slightly different panel layout on the nose.
 
 You can undo a painting action with Ctrl+Z and redo actions with Ctrl+Y.
 
-By right-clicking on a car, a context menu appears. It has three actions:
+By right-clicking on a car in the menu on the left,
+a context menu appears. It has three actions:
 
 * Copy, which copies the selected car to the clipboard
 * Paste, which pastes a car from the clipboard to the selected position
 * Load .CAR File, which allows you to load a .CAR file from disk to update the selected car
+
+These options are also available for the currently selected car in the toolbar
+above the tab.
 
 
 ## Helmets tab
@@ -110,11 +130,15 @@ Here is where you paint driver helmets.
 The selection and painting works in the same way as in the Cars tab, see the
 [palette tools](palette-tools.md) page for more information.
 
-By right-clicking on a helmet, a context menu appears. It has three actions:
+By right-clicking on a helmet in the list of helmets on the left,
+a context menu appears. It has three actions:
 
 * Copy, which copies the selected helmet to the clipboard
 * Paste, which pastes a helmet from the clipboard to the selected position
 * Load .HEL File, which allows you to load a .HEL file from disk to update the selected helmet
+
+These options are also available for the currently selected car in the toolbar
+above the tab.
 
 
 ### Helmets behaving differently

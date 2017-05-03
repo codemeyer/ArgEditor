@@ -141,5 +141,15 @@ namespace ArgEditor.ViewModels
                 OnPropertyChanged(nameof(HasSameNumberAsOtherDriver));
             }
         }
+
+
+        private bool _hasNumberWithoutName;
+
+        public bool HasNumberWithoutName
+        {
+            get { return _hasNumberWithoutName; }
+            set { SetProperty(ref _hasNumberWithoutName, value, () => HasNumberWithoutName); }
+        }
+
     }
 }

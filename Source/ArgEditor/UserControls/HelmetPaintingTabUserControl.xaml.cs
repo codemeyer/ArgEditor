@@ -1,7 +1,6 @@
 ﻿using ArgEditor.Interactors;
 using ArgEditor.Mappers;
 using ArgEditor.ViewModels;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,83 +41,8 @@ namespace ArgEditor.UserControls
             DataContextViewModel.SelectedHelmet = selectedHelmet;
         }
 
-        private void PaintingTab_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
-            {
-                if (e.Key == Key.Z)
-                {
-                    PerformUndo();
-                }
-
-                if (e.Key == Key.Y)
-                {
-                    PerformRedo();
-                }
-            }
-        }
-
-        // TODO: somewhere else, yeah?
-        public void PerformUndo()
-        {
-            int index = GetIndex();
-
-            if (App.HelmetColorUndoStacks[index].Count == 0)
-            {
-                return;
-            }
-
-            ProcessColorChangeStacks(App.HelmetColorUndoStacks[index], App.HelmetColorRedoStacks[index]);
-        }
-
-        public void PerformRedo()
-        {
-            int index = GetIndex();
-
-            if (App.HelmetColorRedoStacks[index].Count == 0)
-            {
-                return;
-            }
-
-            ProcessColorChangeStacks(App.HelmetColorRedoStacks[index], App.HelmetColorUndoStacks[index]);
-        }
-
-        private int GetIndex()
-        {
-            int index = -1;
-            for (int i = 0; i < 40; i++)
-            {
-                if (DataContextViewModel.Drivers[i].Helmet == DataContextViewModel.SelectedHelmet)
-                {
-                    index = i;
-                }
-            }
-
-            return index;
-        }
-
-        private void ProcessColorChangeStacks(Stack<ColorChangeList> popStack, Stack<ColorChangeList> pushStack)
-        {
-            var latestChanges = popStack.Pop();
-            var reverseChanges = new ColorChangeList();
-            var viewModel = DataContextViewModel.SelectedHelmet;
-
-            foreach (var latestChange in latestChanges)
-            {
-                latestChange.Property.SetValue(viewModel, latestChange.OldValue);
-
-                var reverseChange = new ColorChange
-                {
-                    NewValue = latestChange.OldValue,
-                    OldValue = latestChange.NewValue,
-                    Property = latestChange.Property,
-                    PaintedElement = latestChange.PaintedElement
-                };
-                reverseChanges.Add(reverseChange);
-            }
-            pushStack.Push(reverseChanges);
-        }
-
+        // TODO: all stuff below is also in various commands
+        // refactor to use commands instead of this code for the context menu!
 
         private void HelmetSelectionCopy_Click(object sender, RoutedEventArgs e)
         {
