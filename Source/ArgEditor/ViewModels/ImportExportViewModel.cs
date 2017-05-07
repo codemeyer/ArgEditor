@@ -126,6 +126,7 @@ namespace ArgEditor.ViewModels
 
                 _applyDriverNumbers = value;
                 OnPropertyChanged(nameof(ApplyDriverNumbers));
+                UpdateInterface();
             }
         }
 

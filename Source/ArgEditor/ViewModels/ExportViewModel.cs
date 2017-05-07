@@ -59,6 +59,13 @@ namespace ArgEditor.ViewModels
 
         private void UpdateEnoughActiveDrivers()
         {
+            if (!ApplyDriverNumbers)
+            {
+                ShowDriverNumbersWarning = Visibility.Hidden;
+                ShowDriverNumbersWarningMessage = string.Empty;
+                return;
+            }
+
             var status = ExportValidator.CanExportToExe(Parent);
 
             if (status == CanExportToExeStatus.SharedDriverNumbers)
