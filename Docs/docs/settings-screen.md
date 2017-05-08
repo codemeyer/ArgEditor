@@ -28,5 +28,7 @@ stationary cars, and the number of seconds before retired cars are removed from 
 Note that game settings are _not_ saved in ArgEditor car set files,
 but they _are_ saved in F1Ed files.
 
+Clicking on the Reset button next to a value resets it to its default value.
+
 You can use the Import and Export buttons at the top to quickly import or export
 only the settings on this screen to or from an EXE file.

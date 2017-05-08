@@ -31,6 +31,11 @@ By toggling the various checkboxes you decide which information you want to impo
 The various things you can import are grouped by car set data (such as car colors
 and driver performance) and game settings (such as the player horsepower value).
 
+If you choose not to import driver numbers, but check the boxes for either driver
+performance values or helmet colors, you will receive a warning. This is because the
+performance values and helmet colors are dependent on the driver numbers being set
+correctly. You can proceed, but results may be unexpected or incorrect.
+
 You can also select a name file that you want to import at the same time. Enter
 its path or use the Browse button.
 
@@ -70,10 +75,14 @@ By toggling the various checkboxes you decide which information you want to impo
 The various things you can import are grouped by car set data (such as car colors
 and driver performance) and game settings (such as the player horsepower value).
 
-If you haven't activated 26 or more drivers, it will not be possible to export. The wizard
-will inform you of this by disabling the Export button, and displaying an error icon next
+If you haven't activated 26 or more drivers, it will not be possible to export driver numbers.
+The wizard will inform you of this by disabling the Export button, and displaying an error icon next
 to the Driver Numbers checkbox. Hover over the icon to read the tooltip. In the same way
 it is not possible to export if two or more drivers have been given the same numbers.
+
+If you do not export driver numbers, you will receive a warning if you try to export driver
+performance values or helmet colors, since they are dependent on the driver numbers being set
+correctly. You can proceed, but results may be unexpected.
 
 You will also receive a warning if you have selected a normal, non-decompressed GP.EXE file
 and are trying to export a points system where drivers who finish between 7th to 26th score any points.

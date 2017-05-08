@@ -10,6 +10,7 @@ namespace ArgEditor.ViewModels
         public ImportViewModel(MainViewModel parent)
         {
             Parent = parent;
+            UpdateInterface();
         }
 
         public ImportViewModel()
@@ -27,6 +28,7 @@ namespace ArgEditor.ViewModels
             if (!File.Exists(SelectedExeFilePath))
             {
                 UpdateFileVersionMessage(null);
+                UpdateDriverNumberRelatedSettingsWarning();
                 CanImport = false;
                 return;
             }
@@ -48,6 +50,7 @@ namespace ArgEditor.ViewModels
             }
 
             UpdateFileVersionMessage(exeInfo);
+            UpdateDriverNumberRelatedSettingsWarning();
         }
 
 

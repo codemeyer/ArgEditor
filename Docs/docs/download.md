@@ -26,10 +26,12 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 * Indication (red marker) if two or more drivers share the same numbers
 * Indication (orange marker) if a driver has a number assigned, but no name
 * Toolbar buttons at the top of each tab replace the main menu
-* UI tightened up to fit into X*768 pixel resolutions horizontally
+* Added keyboard shortcuts for commonly used commands, see [keyboard shortcuts](keyboard-shortcuts.md)
+* UI tightened up to fit into smaller screen resolutions, such as 1024*768
 * Fix: Exported player horsepower values in .1ed files are always within F1Ed's allowed range
 * Fix: Can export other data if too few drivers are active, but driver numbers are unchecked
-* Fix: Added keyboard shortcuts for commonly used commands
+* Fix: No longer imports driver numbers even if the checkbox was unchecked
+* Fix: Cannot export if auto-loaded file name path is too long
 * Fix: Can create a name file without a file extension
 * Fix: Correctly show warning when painting a special case helmet
 * Fix: Correct behavior when using - to select the next darker color in palette

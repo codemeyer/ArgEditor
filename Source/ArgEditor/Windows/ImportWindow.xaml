@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArgEditor.Windows"
         xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
+        xmlns:argEditor="clr-namespace:ArgEditor"
+        xmlns:draw="clr-namespace:System.Drawing;assembly=System.Drawing"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=viewModels:ImportViewModel, IsDesignTimeCreatable=True}"
         d:DesignWidth="364" d:DesignHeight="512"
@@ -39,8 +41,22 @@
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyTeamHorsepower}">Team Horsepower Values</CheckBox>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyPitCrewColors}">Pit Crew Colors</CheckBox>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverNumbers}">Driver Numbers</CheckBox>
-                    <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverPerformanceValues}">Driver Performance Values</CheckBox>
-                    <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyHelmetColors}">Helmet Colors</CheckBox>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Margin="2" Width="180" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverPerformanceValues}">Driver Performance Values</CheckBox>
+                        <Image Visibility="{Binding ShowDriverNumberRelatedPerformanceWarning}" Source="{argEditor:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
+                            <Image.ToolTip>
+                                <ToolTip Content="{Binding ShowDriverNumberRelatedPerformanceWarningMessage}"></ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Margin="2" Width="120" HorizontalAlignment="Left" IsChecked="{Binding ApplyHelmetColors}">Helmet Colors</CheckBox>
+                        <Image Visibility="{Binding ShowDriverNumberRelatedHelmetColorsWarning}" Source="{argEditor:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
+                            <Image.ToolTip>
+                                <ToolTip Content="{Binding ShowDriverNumberRelatedHelmetColorsWarningMessage}"></ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyPointsSystem}">Points System</CheckBox>
                 </StackPanel>
             </GroupBox>

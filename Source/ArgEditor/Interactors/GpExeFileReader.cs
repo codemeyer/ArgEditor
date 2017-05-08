@@ -44,7 +44,7 @@ namespace ArgEditor.Interactors
             if (importViewModel.ApplyTeamHorsepower)
                 UpdateTeamHorsepower(viewModel, exeFile);
 
-            if (importViewModel.ApplyPitCrewColors)
+            if (importViewModel.ApplyDriverNumbers)
                 UpdateDriverNumbers(viewModel, exeFile);
 
             if (importViewModel.ApplyDriverPerformanceValues)

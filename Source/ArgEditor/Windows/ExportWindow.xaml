@@ -48,8 +48,22 @@
                             </Image.ToolTip>
                         </Image>
                     </StackPanel>
-                    <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverPerformanceValues}">Driver Performance Values</CheckBox>
-                    <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyHelmetColors}">Helmet Colors</CheckBox>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Margin="2" Width="180" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverPerformanceValues}">Driver Performance Values</CheckBox>
+                        <Image Visibility="{Binding ShowDriverNumberRelatedPerformanceWarning}" Source="{ext:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
+                            <Image.ToolTip>
+                                <ToolTip Content="{Binding ShowDriverNumberRelatedPerformanceWarningMessage}"></ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Margin="2" Width="120" HorizontalAlignment="Left" IsChecked="{Binding ApplyHelmetColors}">Helmet Colors</CheckBox>
+                        <Image Visibility="{Binding ShowDriverNumberRelatedHelmetColorsWarning}" Source="{ext:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
+                            <Image.ToolTip>
+                                <ToolTip Content="{Binding ShowDriverNumberRelatedHelmetColorsWarningMessage}"></ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox Margin="2" Width="100" HorizontalAlignment="Left" IsChecked="{Binding ApplyPointsSystem}">Points System</CheckBox>
                         <Image Visibility="{Binding ShowPointsSystemWarning}" Source="{ext:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
@@ -72,7 +86,14 @@
 
             <GroupBox Header="Name File" Padding="3" Margin="3">
                 <StackPanel Orientation="Vertical">
-                    <CheckBox Margin="2" IsChecked="{Binding ApplyNameFile}">Name File</CheckBox>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Margin="2" Width="100" IsChecked="{Binding ApplyNameFile}">Name File</CheckBox>
+                        <Image Visibility="{Binding ShowNameFileLengthWarning}" Source="{ext:ImageSourceFromIcon {x:Static draw:SystemIcons.Error}}" Width="14" Height="14">
+                            <Image.ToolTip>
+                                <ToolTip Content="{Binding ShowNameFileLengthWarningMessage}"></ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBox Width="248" Margin="2,2,2,2" Text="{Binding SelectedNameFilePath}"></TextBox>
                         <Button Width="62" Margin="5,2,2,2" Click="BrowseNameFile_Click">Browse...</Button>

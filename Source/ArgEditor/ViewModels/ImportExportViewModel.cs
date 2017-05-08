@@ -1,5 +1,5 @@
-using System.Windows;
 using ArgData;
+using System.Windows;
 
 namespace ArgEditor.ViewModels
 {
@@ -141,6 +141,7 @@ namespace ArgEditor.ViewModels
 
                 _applyDriverPerformanceValues = value;
                 OnPropertyChanged(nameof(ApplyDriverPerformanceValues));
+                UpdateInterface();
             }
         }
 
@@ -171,6 +172,7 @@ namespace ArgEditor.ViewModels
 
                 _applyHelmetColors = value;
                 OnPropertyChanged(nameof(ApplyHelmetColors));
+                UpdateInterface();
             }
         }
 
@@ -283,5 +285,79 @@ namespace ArgEditor.ViewModels
                 UpdateInterface();
             }
         }
+
+
+
+        protected void UpdateDriverNumberRelatedSettingsWarning()
+        {
+            ShowDriverNumberRelatedPerformanceWarning = Visibility.Hidden;
+            ShowDriverNumberRelatedPerformanceWarningMessage = string.Empty;
+
+            if (!ApplyDriverNumbers && ApplyDriverPerformanceValues)
+            {
+                ShowDriverNumberRelatedPerformanceWarning = Visibility.Visible;
+                ShowDriverNumberRelatedPerformanceWarningMessage = "Performance values are dependent on driver numbers. Importing or exporting performance values but not driver numbers may result in unexpected behavior.";
+            }
+
+            ShowDriverNumberRelatedHelmetColorsWarning = Visibility.Hidden;
+            ShowDriverNumberRelatedHelmetColorsWarningMessage = string.Empty;
+
+            if (!ApplyDriverNumbers && ApplyHelmetColors)
+            {
+                ShowDriverNumberRelatedHelmetColorsWarning = Visibility.Visible;
+                ShowDriverNumberRelatedHelmetColorsWarningMessage = "Helmet colors are dependent on driver numbers. Importing or exporting helmet colors but not driver numbers may result in unexpected behavior.";
+            }
+        }
+
+
+
+        private Visibility _showDriverNumberRelatedPerformanceWarning = Visibility.Hidden;
+
+        public Visibility ShowDriverNumberRelatedPerformanceWarning
+        {
+            get { return _showDriverNumberRelatedPerformanceWarning; }
+            set
+            {
+                SetProperty(ref _showDriverNumberRelatedPerformanceWarning, value,
+                    () => ShowDriverNumberRelatedPerformanceWarning);
+            }
+        }
+
+        private string _showDriverNumberRelatedPerformanceWarningMessage;
+
+        public string ShowDriverNumberRelatedPerformanceWarningMessage
+        {
+            get { return _showDriverNumberRelatedPerformanceWarningMessage; }
+            set
+            {
+                SetProperty(ref _showDriverNumberRelatedPerformanceWarningMessage, value,
+                    () => ShowDriverNumberRelatedPerformanceWarningMessage);
+            }
+        }
+
+        private Visibility _showDriverNumberRelatedHelmetColorsWarning = Visibility.Hidden;
+
+        public Visibility ShowDriverNumberRelatedHelmetColorsWarning
+        {
+            get { return _showDriverNumberRelatedHelmetColorsWarning; }
+            set
+            {
+                SetProperty(ref _showDriverNumberRelatedHelmetColorsWarning, value,
+                    () => ShowDriverNumberRelatedHelmetColorsWarning);
+            }
+        }
+
+        private string _showDriverNumberRelatedHelmetColorsWarningMessage;
+
+        public string ShowDriverNumberRelatedHelmetColorsWarningMessage
+        {
+            get { return _showDriverNumberRelatedHelmetColorsWarningMessage; }
+            set
+            {
+                SetProperty(ref _showDriverNumberRelatedHelmetColorsWarningMessage, value,
+                    () => ShowDriverNumberRelatedHelmetColorsWarningMessage);
+            }
+        }
+
     }
 }

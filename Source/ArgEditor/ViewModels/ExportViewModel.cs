@@ -1,7 +1,6 @@
-﻿using System.IO;
-using System.Linq;
+﻿using ArgData;
+using System.IO;
 using System.Windows;
-using ArgData;
 
 namespace ArgEditor.ViewModels
 {
@@ -30,6 +29,11 @@ namespace ArgEditor.ViewModels
             if (!File.Exists(SelectedExeFilePath))
             {
                 UpdateFileVersionMessage(null);
+                UpdateEnoughActiveDrivers();
+                UpdatePointsSystemWarning();
+                UpdateNameFileLengthWarning();
+                UpdateDriverNumberRelatedSettingsWarning();
+
                 CanExport = false;
                 return;
             }
@@ -55,6 +59,8 @@ namespace ArgEditor.ViewModels
             UpdateEnoughActiveDrivers();
             UpdatePointsSystemWarning();
             UpdateAutoLoadNameFileWarning();
+            UpdateNameFileLengthWarning();
+            UpdateDriverNumberRelatedSettingsWarning();
         }
 
         private void UpdateEnoughActiveDrivers()
@@ -165,6 +171,19 @@ namespace ArgEditor.ViewModels
             }
         }
 
+        private void UpdateNameFileLengthWarning()
+        {
+            ShowNameFileLengthWarning = Visibility.Hidden;
+            ShowNameFileLengthWarningMessage = string.Empty;
+
+            if (ApplyNameFile && !string.IsNullOrWhiteSpace(SelectedNameFilePath) && SelectedNameFilePath.Length > 31)      // TODO: const from ArgData?
+            {
+                ShowNameFileLengthWarning = Visibility.Visible;
+                ShowNameFileLengthWarningMessage = "The name file path is too long.";
+                CanExport = false;
+            }
+        }
+
 
         private Visibility _showDriverNumbersWarning = Visibility.Hidden;
 
@@ -250,5 +269,23 @@ namespace ArgEditor.ViewModels
                 OnPropertyChanged(nameof(ShowAutoLoadNameFileWarningMessage));
             }
         }
+
+
+        private Visibility _showNameFileLengthWarning = Visibility.Hidden;
+
+        public Visibility ShowNameFileLengthWarning
+        {
+            get { return _showNameFileLengthWarning; }
+            set { SetProperty(ref _showNameFileLengthWarning, value, () => ShowNameFileLengthWarning); }
+        }
+
+        private string _showNameFileLengthWarningMessage;
+
+        public string ShowNameFileLengthWarningMessage
+        {
+            get { return _showNameFileLengthWarningMessage; }
+            set { SetProperty(ref _showNameFileLengthWarningMessage, value, () => ShowNameFileLengthWarningMessage); }
+        }
+
     }
 }
