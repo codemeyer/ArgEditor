@@ -18,7 +18,7 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Release notes
 
-### 0.11 (2017-05-??)
+### 0.11 (2017-05-10)
 
 * Can create and edit setup files, both single and multiple ones
 * Can edit damage settings
@@ -26,6 +26,8 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 * Indication (red marker) if two or more drivers share the same numbers
 * Indication (orange marker) if a driver has a number assigned, but no name
 * Toolbar buttons at the top of each tab replace the main menu
+* Possible to paint all helmets, even for inactive drivers
+* Show warnings if painting an inactive car or helmet
 * Added keyboard shortcuts for commonly used commands, see [keyboard shortcuts](keyboard-shortcuts.md)
 * UI tightened up to fit into smaller screen resolutions, such as 1024*768
 * Fix: Exported player horsepower values in .1ed files are always within F1Ed's allowed range

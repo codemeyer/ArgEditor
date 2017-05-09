@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              mc:Ignorable="d"
-             d:DesignHeight="740" d:DesignWidth="900">
+             d:DesignWidth="880" d:DesignHeight="590">
     <UserControl.Resources>
         <Style x:Key="headerStyle" TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="Visibility" Value="Collapsed" />
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Width="880" Height="590">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="625"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>

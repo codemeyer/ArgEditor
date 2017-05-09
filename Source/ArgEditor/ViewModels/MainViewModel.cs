@@ -310,6 +310,9 @@ namespace ArgEditor.ViewModels
         public ICommand PasteCarFromClipboardCommand { get; } = new PasteCarFromClipboardCommand();
         public ICommand LoadCarFileCommand { get; } = new LoadCarFileCommand(new FileDialog());
 
+        public ICommand UndoBrokerCommand { get; } = new UndoBrokerCommand();
+        public ICommand RedoBrokerCommand { get; } = new RedoBrokerCommand();
+
         public ICommand UndoHelmetPaintingActionCommand { get; } = new UndoHelmetPaintingActionCommand();
         public ICommand RedoHelmetPaintingActionCommand { get; } = new RedoHelmetPaintingActionCommand();
         public ICommand CopyHelmetToClipboardCommand { get; } = new CopyHelmetToClipboardCommand();
@@ -374,6 +377,16 @@ namespace ArgEditor.ViewModels
                 }
             }
         }
+
+
+        private int _selectedMainTabIndex;
+
+        public int SelectedMainTabIndex
+        {
+            get { return _selectedMainTabIndex; }
+            set { SetProperty(ref _selectedMainTabIndex, value, () => SelectedMainTabIndex); }
+        }
+
 
 
         private Visibility _showCarPitCrewActionButtons;

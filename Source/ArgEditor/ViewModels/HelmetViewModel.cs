@@ -25,6 +25,7 @@ namespace ArgEditor.ViewModels
             Stripe13ColorIndex = 8;
 
             UpdateSpecialHelmetWarningFlag();
+            UpdateHelmetInactiveDriverWarningFlag();
         }
 
         protected HelmetViewModel(byte[] colors)
@@ -288,6 +289,16 @@ namespace ArgEditor.ViewModels
         }
 
 
+        private Visibility _showInactiveDriverMessage;
+
+        public Visibility ShowInactiveDriverMessage
+        {
+            get { return _showInactiveDriverMessage; }
+            set { SetProperty(ref _showInactiveDriverMessage, value, () => ShowInactiveDriverMessage); }
+        }
+
+
+
         public void UpdateSpecialHelmetWarningFlag()
         {
             if (Parent == null)
@@ -296,6 +307,16 @@ namespace ArgEditor.ViewModels
             ShowDecompressedExeMessage = _specialHelmetNumbers.Contains(Parent.Number)
                 ? Visibility.Visible : Visibility.Hidden;
         }
+
+        public void UpdateHelmetInactiveDriverWarningFlag()
+        {
+            if (Parent == null)
+                return;
+
+            ShowInactiveDriverMessage = Parent.Number > 0 ? Visibility.Hidden : Visibility.Visible;
+        }
+
+
 
         private readonly byte[] _specialHelmetNumbers = { 13, 15, 36, 37, 38, 39, 40 };
     }

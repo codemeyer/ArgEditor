@@ -107,6 +107,7 @@
     <Compile Include="Commands\LoadHelmetFileCommand.cs" />
     <Compile Include="Commands\PasteCarFromClipboardCommand.cs" />
     <Compile Include="Commands\PasteHelmetFromClipboardCommand.cs" />
+    <Compile Include="Commands\RedoBrokerCommand.cs" />
     <Compile Include="Commands\RedoCarPitCrewPaintingActionCommand.cs" />
     <Compile Include="Commands\RedoHelmetPaintingActionCommand.cs" />
     <Compile Include="Commands\Setups\LoadMultiSetupFileCommand.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Commands\Setups\SaveMultiSetupFileCommand.cs" />
     <Compile Include="Commands\Setups\SaveSingleSetupFileCommand.cs" />
     <Compile Include="Commands\SelectPaletteColorCommand.cs" />
+    <Compile Include="Commands\UndoBrokerCommand.cs" />
     <Compile Include="Commands\UndoCarPitCrewPaintingActionCommand.cs" />
     <Compile Include="Commands\UndoHelmetPaintingActionCommand.cs" />
     <Compile Include="Converters\EnumBooleanConverter.cs" />
@@ -138,6 +140,9 @@
     </Compile>
     <Compile Include="UserControls\CarSetup\CarSetupUserControl.xaml.cs">
       <DependentUpon>CarSetupUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CarSet\CarSetTopMenuUserControl.xaml.cs">
+      <DependentUpon>CarSetTopMenuUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Settings\DamageSettingsUserControl.xaml.cs">
       <DependentUpon>DamageSettingsUserControl.xaml</DependentUpon>
@@ -266,6 +271,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\CarSetup\CarSetupUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CarSet\CarSetTopMenuUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,7 +15,8 @@ forced to have the same colour for the bottom third of the helmet.
 
 * The points system can only be edited for the top six finishers.
 
-ArgEditor now has support for working with decompressed EXE files. These files work fine to
+By decompressing the EXE file, these limitations go away, and ArgEditor has support for
+working with decompressed EXE files! These files work fine to
 run in e.g. DOSBox.
 
 
@@ -54,3 +55,5 @@ The GPDECOMP.EXE file is now ready to roll!
 During testing with decompressed EXE files in DOSBox, I have noticed that the game occasionally slows down
 for a fraction of a second. I suspect that this behavior is because of decompressing the EXE, since it has
 never occurred when running "normal" EXE files.
+
+However, it is also possible that I haven't perfected my DOSBox performance settings.

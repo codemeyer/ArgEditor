@@ -7,8 +7,8 @@
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
-             d:DesignWidth="720" d:DesignHeight="600">
-    <Grid>
+             d:DesignWidth="880" d:DesignHeight="590">
+    <Grid Width="880" Height="590">
         <StackPanel Margin="5,25,0,0">
             <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[0]}" />
             <userControls:TeamDriverNamesUserControl DataContext="{Binding Teams[1]}" />

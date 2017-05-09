@@ -120,6 +120,10 @@ a context menu appears. It has three actions:
 These options are also available for the currently selected car in the toolbar
 above the tab.
 
+You can paint all cars, including those that belong to teams that have no active drivers.
+However, a team with no active drivers will not appear in the game. One area of usage
+could be if you want to include an alternative paint job in your car set, for example.
+
 
 ## Helmets tab
 
@@ -139,6 +143,10 @@ a context menu appears. It has three actions:
 
 These options are also available for the currently selected car in the toolbar
 above the tab.
+
+You can paint all helmets, including those that belong to drivers that are not active.
+However, an inactive driver will not appear in the game. One are of usage could be
+if you want to include an alternative paint job in your car set, for example.
 
 
 ### Helmets behaving differently

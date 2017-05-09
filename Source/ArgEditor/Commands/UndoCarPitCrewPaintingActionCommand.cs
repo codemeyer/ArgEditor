@@ -1,4 +1,5 @@
-﻿using ArgEditor.ViewModels;
+﻿using System.Linq;
+using ArgEditor.ViewModels;
 
 namespace ArgEditor.Commands
 {
@@ -13,7 +14,21 @@ namespace ArgEditor.Commands
 
             if (App.CarColorUndoStacks[index].Count == 0) { return; }
 
-            UndoRedoService.ProcessColorChangeStacks(viewModel.Teams[index].Car, App.CarColorUndoStacks[index], App.CarColorRedoStacks[index]);
+            var nextActionItem = App.CarColorUndoStacks[index].Peek();
+
+            object paintedItem = null;
+
+            if (nextActionItem.Any() && nextActionItem.First().PaintedElement == PaintedElement.Car)
+            {
+                paintedItem = viewModel.Teams[index].Car;
+            }
+            else
+            {
+                paintedItem = viewModel.Teams[index].PitCrew;
+            }
+
+            UndoRedoService.ProcessColorChangeStacks(paintedItem, App.CarColorUndoStacks[index],
+                App.CarColorRedoStacks[index]);
         }
 
         public override bool CanExecute(object parameter)

@@ -85,6 +85,7 @@ namespace ArgEditor.ViewModels
                 _enabled = value;
                 OnPropertyChanged(nameof(Enabled));
                 OnPropertyChanged(nameof(Visibility));    // hacky
+                UpdateShowNoActiveDriversWarning();
             }
         }
 
@@ -100,6 +101,27 @@ namespace ArgEditor.ViewModels
                 }
             }
         }
+
+
+
+
+        private void UpdateShowNoActiveDriversWarning()
+        {
+            if (Enabled)
+                ShowNoActiveDriversWarning = Visibility.Hidden;
+            else
+                ShowNoActiveDriversWarning = Visibility.Visible;
+        }
+
+
+        private Visibility _showNoActiveDriversWarning = Visibility.Hidden;
+
+        public Visibility ShowNoActiveDriversWarning
+        {
+            get { return _showNoActiveDriversWarning; }
+            set { SetProperty(ref _showNoActiveDriversWarning, value, () => ShowNoActiveDriversWarning); }
+        }
+
 
         public CarEditingViewModel Car { get; set; }
 

@@ -1,0 +1,215 @@
+﻿<UserControl x:Class="ArgEditor.UserControls.CarSet.CarSetTopMenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="880">
+    <Grid>
+        <StackPanel Margin="5" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <Button Width="100" Height="24" Margin="0"
+                        Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}">
+                    Load Car Set
+                </Button>
+                <xctk:SplitButton Width="100" Height="24" Margin="3,0,0,0"
+                                  Command="{Binding SaveCarSetCommand}" CommandParameter="{Binding}">
+                    Save Car Set
+                    <xctk:SplitButton.DropDownContent>
+                        <Button Width="140" Height="24" Margin="0"
+                                Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}">
+                            Save F1Ed Car Set
+                        </Button>
+                    </xctk:SplitButton.DropDownContent>
+                </xctk:SplitButton>
+
+                <xctk:SplitButton Width="80" Height="24" Margin="3,0,0,0"
+                                  Command="{Binding DisplayImportWizardCommand}" CommandParameter="{Binding}">
+                    Import...
+                    <xctk:SplitButton.DropDownContent>
+                        <StackPanel Orientation="Vertical">
+                            <Button Width="140" Height="24" Margin="0"
+                                    Command="{Binding ImportFromExeCommand}" CommandParameter="{Binding}">
+                                Import from GP.EXE
+                            </Button>
+                            <Button Width="140" Height="24" Margin="0"
+                                    Command="{Binding ImportFromNameFileCommand}" CommandParameter="{Binding}">
+                                Import from Name File
+                            </Button>
+                        </StackPanel>
+                    </xctk:SplitButton.DropDownContent>
+                </xctk:SplitButton>
+                <xctk:SplitButton Width="80" Height="24" Margin="3,0,0,0"
+                                  Command="{Binding DisplayExportWizardCommand}" CommandParameter="{Binding}">
+                    Export...
+                    <xctk:SplitButton.DropDownContent>
+                        <StackPanel Orientation="Vertical">
+                            <Button Width="140" Height="24" Margin="0"
+                                    Command="{Binding ExportToExeCommand}" CommandParameter="{Binding}">
+                                Export to GP.EXE
+                            </Button>
+                            <Button Width="140" Height="24" Margin="0"
+                                    Command="{Binding ExportToNameFileCommand}" CommandParameter="{Binding}">
+                                Export to Name File
+                            </Button>
+                        </StackPanel>
+                    </xctk:SplitButton.DropDownContent>
+                </xctk:SplitButton>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Visibility="{Binding ShowCarPitCrewActionButtons}">
+                <Button Width="32" Height="24"
+                        Command="{Binding UndoCarPitCrewPaintingActionCommand}" CommandParameter="{Binding}">
+                    <Button.ToolTip>
+                        <ToolTip>Undo Car/Pit Crew Action</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="3" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Path Stretch="Fill" Width="12" Height="12" Fill="#000000" Data="M404.908 283.853c0 94.282-76.71 170.986-170.986 170.986h-60.526c-10.03 0-18.158-8.127-18.158-18.157v-6.053   c0-10.031 8.127-18.158 18.158-18.158h60.526c70.917 0 128.618-57.701 128.618-128.618c0-70.917-57.701-128.618-128.618-128.618   H122.255l76.905 76.905c8.26 8.257 8.26 21.699 0 29.956c-8.015 8.009-21.964 7.997-29.961 0L56.137 149.031   c-4.001-4.001-6.206-9.321-6.206-14.981c0-5.656 2.205-10.979 6.206-14.978L169.205 6.002c7.997-8.003 21.958-8.003 29.956 0   c8.26 8.255 8.26 21.699 0 29.953l-76.905 76.911h111.666C328.198 112.866 404.908 189.573 404.908 283.853z"/>
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="32" Height="24" Margin="3,0,0,0"
+                        Command="{Binding RedoCarPitCrewPaintingActionCommand}" CommandParameter="{Binding}">
+                    <Button.ToolTip>
+                        <ToolTip>Redo Car/Pit Crew Action</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="3" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="-1 0 0 1 12 0"/>
+                            </Canvas.RenderTransform>
+                            <Path Stretch="Fill" Width="12" Height="12" Fill="#000000" Data="m 404.908 283.853 c 0 94.282 -76.71 170.986 -170.986 170.986 l -60.526 0 c -10.03 0 -18.158 -8.127 -18.158 -18.157 l 0 -6.053 c 0 -10.031 8.127 -18.158 18.158 -18.158 l 60.526 0 c 70.917 0 128.618 -57.701 128.618 -128.618 0 -70.917 -57.701 -128.618 -128.618 -128.618 l -111.667 0 76.905 76.905 c 8.26 8.257 8.26 21.699 0 29.956 -8.015 8.009 -21.964 7.997 -29.961 0 L 56.137 149.031 c -4.001 -4.001 -6.206 -9.321 -6.206 -14.981 0 -5.656 2.205 -10.979 6.206 -14.978 L 169.205 6.002 c 7.997 -8.003 21.958 -8.003 29.956 0 8.26 8.255 8.26 21.699 0 29.953 l -76.905 76.911 111.666 0 c 94.276 0 170.986 76.707 170.986 170.987 z"/>
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="32" Height="24" Margin="3,0,0,0"
+                        Command="{Binding CopyCarToClipboardCommand}" CommandParameter="{Binding SelectedTeam}">
+                    <Button.ToolTip>
+                        <ToolTip>Copy Car to Clipboard</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="4" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="-1 0 0 1 12 0"/>
+                            </Canvas.RenderTransform>
+                            <Path Stretch="Fill" Width="14" Height="14" Fill="#000000" Data="M395.264 60.6h-81.71V21.184C313.554 9.504 304.049 0 292.37 0H50.265C38.583 0 29.081 9.504 29.081 21.184v342.564   c0 11.68 9.502 21.185 21.185 21.185h81.71v39.413c0 11.68 9.502 21.184 21.185 21.184h242.104c11.68 0 21.185-9.504 21.185-21.184   V81.784C416.449 70.102 406.944 60.6 395.264 60.6z M50.265 366.774c-1.664 0-3.026-1.359-3.026-3.026V21.184   c0-1.669 1.362-3.026 3.026-3.026H292.37c1.667 0 3.026 1.357 3.026 3.026V60.6v303.148c0 1.667-1.359 3.026-3.026 3.026H50.265z    M398.291 424.334c0 1.678-1.359 3.025-3.026 3.025H153.16c-1.664 0-3.026-1.348-3.026-3.025v-38.16H292.37   c11.68 0 21.185-9.505 21.185-21.185v-1.253v-5.172h43.367c5.013 0 9.079-4.061 9.079-9.079s-4.066-9.079-9.079-9.079h-43.367   v-44.384h43.367c5.013 0 9.079-4.061 9.079-9.079c0-5.018-4.066-9.078-9.079-9.078h-43.367V232.47h43.367   c5.013 0 9.079-4.061 9.079-9.079s-4.066-9.079-9.079-9.079h-43.367v-43.604h12.087c5.013 0 9.079-4.061 9.079-9.079   c0-5.019-4.066-9.079-9.079-9.079h-12.087V78.758h81.71c1.667 0 3.026 1.356 3.026 3.026V424.334z M70.929 90.789   c0-5.019 4.066-9.079 9.079-9.079h147.279c5.013 0 9.079 4.061 9.079 9.079c0 5.018-4.066 9.079-9.079 9.079H80.008   C74.996 99.868 70.929 95.807 70.929 90.789z M267.645 152.551c0 5.018-4.066 9.079-9.079 9.079H80.008   c-5.012 0-9.079-4.061-9.079-9.079c0-5.019 4.066-9.079 9.079-9.079h178.558C263.579 143.472 267.645 147.532 267.645 152.551z    M267.645 216.103c0 5.018-4.066 9.079-9.079 9.079H80.008c-5.012 0-9.079-4.061-9.079-9.079s4.066-9.079 9.079-9.079h178.558   C263.579 207.024 267.645 211.085 267.645 216.103z M267.645 278.645c0 5.019-4.066 9.079-9.079 9.079H80.008   c-5.012 0-9.079-4.061-9.079-9.079c0-5.018 4.066-9.078 9.079-9.078h178.558C263.579 269.566 267.645 273.633 267.645 278.645z"/>
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="32" Height="24" Margin="3,0,0,0"
+                        Command="{Binding PasteCarFromClipboardCommand}" CommandParameter="{Binding SelectedTeam}">
+                    <Button.ToolTip>
+                        <ToolTip>Paste Car from Clipboard</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="3" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="-1 0 0 1 12 0"/>
+                            </Canvas.RenderTransform>
+                            <Path Stretch="Fill" Width="14" Height="14" Fill="#000000" Data="M12.713 72.139h27.678v2.723H12.713c-1.752 0-3.178-1.426-3.178-3.178V8.143c0-1.752 1.426-3.177 3.178-3.177h10.171   l-0.367 1.656c-0.031 0.139-0.046 0.266-0.046 0.386v7.262c0 1.001 0.814 1.815 1.815 1.815h24.962   c1.001 0 1.816-0.814 1.816-1.815V7.008c0-0.121-0.017-0.247-0.047-0.386l-0.367-1.656h10.172C62.575 4.966 64 6.391 64 8.143   v29.163l-0.354-0.308h-2.369V8.143c0-0.25-0.202-0.454-0.452-0.454h-7.035v6.581c0 2.502-2.036 4.539-4.539 4.539H24.288   c-2.503 0-4.539-2.036-4.539-4.539V7.689h-7.034c-0.25 0-0.454 0.204-0.454 0.454v63.541C12.26 71.934 12.463 72.139 12.713 72.139   z M25.784 14.38h21.97c0.884 0 1.599-0.715 1.599-1.598V6.391c0-0.883-0.715-1.598-1.599-1.598h-5.991   C41.763 2.146 39.514 0 36.742 0c-2.774 0-5.022 2.146-5.022 4.793h-5.935c-0.883 0-1.597 0.715-1.597 1.598v6.391   C24.187 13.664 24.9 14.38 25.784 14.38z M74.083 46.426v34.825c0 1.306-1.062 2.367-2.365 2.367H44.385   c-1.305 0-2.366-1.062-2.366-2.367V41.135c0-1.306 1.062-2.367 2.366-2.367h20.889L74.083 46.426z M65.815 45.811h4.935   l-4.935-4.289V45.811z M72.358 47.536h-8.269v-7.044H44.385c-0.354 0-0.642 0.288-0.642 0.643v40.116   c0 0.354 0.287 0.644 0.642 0.644h27.332c0.354 0 0.641-0.289 0.641-0.644V47.536z M46.623 55.73c0 0.713 0.581 1.293 1.293 1.293   h20.271c0.713 0 1.293-0.58 1.293-1.293c0-0.715-0.58-1.295-1.293-1.295H47.916C47.205 54.436 46.623 55.016 46.623 55.73z    M68.186 62.055H47.916c-0.712 0-1.293 0.58-1.293 1.295c0 0.713 0.581 1.293 1.293 1.293h20.271c0.713 0 1.293-0.58 1.293-1.293   C69.479 62.635 68.899 62.055 68.186 62.055z M68.186 69.282H47.916c-0.712 0-1.293 0.579-1.293 1.294   c0 0.714 0.581 1.293 1.293 1.293h20.271c0.713 0 1.293-0.579 1.293-1.293C69.479 69.861 68.899 69.282 68.186 69.282z" />
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0"
+                        Command="{Binding LoadCarFileCommand}" CommandParameter="{Binding SelectedTeam}">
+                    Load .CAR File
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Visibility="{Binding ShowHelmetActionButtons}">
+                <Button Width="32" Height="24"
+                        Command="{Binding UndoHelmetPaintingActionCommand}" CommandParameter="{Binding}">
+                    <Button.ToolTip>
+                        <ToolTip>Undo Helmet Action</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="3" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Path Stretch="Fill" Width="12" Height="12" Fill="#000000" Data="M404.908 283.853c0 94.282-76.71 170.986-170.986 170.986h-60.526c-10.03 0-18.158-8.127-18.158-18.157v-6.053   c0-10.031 8.127-18.158 18.158-18.158h60.526c70.917 0 128.618-57.701 128.618-128.618c0-70.917-57.701-128.618-128.618-128.618   H122.255l76.905 76.905c8.26 8.257 8.26 21.699 0 29.956c-8.015 8.009-21.964 7.997-29.961 0L56.137 149.031   c-4.001-4.001-6.206-9.321-6.206-14.981c0-5.656 2.205-10.979 6.206-14.978L169.205 6.002c7.997-8.003 21.958-8.003 29.956 0   c8.26 8.255 8.26 21.699 0 29.953l-76.905 76.911h111.666C328.198 112.866 404.908 189.573 404.908 283.853z"/>
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="32" Height="24" Margin="3,0,0,0"
+                        Command="{Binding RedoHelmetPaintingActionCommand}" CommandParameter="{Binding}">
+                    <Button.ToolTip>
+                        <ToolTip>Redo Helmet Action</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="3" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="-1 0 0 1 12 0"/>
+                            </Canvas.RenderTransform>
+                            <Path Stretch="Fill" Width="12" Height="12" Fill="#000000" Data="m 404.908 283.853 c 0 94.282 -76.71 170.986 -170.986 170.986 l -60.526 0 c -10.03 0 -18.158 -8.127 -18.158 -18.157 l 0 -6.053 c 0 -10.031 8.127 -18.158 18.158 -18.158 l 60.526 0 c 70.917 0 128.618 -57.701 128.618 -128.618 0 -70.917 -57.701 -128.618 -128.618 -128.618 l -111.667 0 76.905 76.905 c 8.26 8.257 8.26 21.699 0 29.956 -8.015 8.009 -21.964 7.997 -29.961 0 L 56.137 149.031 c -4.001 -4.001 -6.206 -9.321 -6.206 -14.981 0 -5.656 2.205 -10.979 6.206 -14.978 L 169.205 6.002 c 7.997 -8.003 21.958 -8.003 29.956 0 8.26 8.255 8.26 21.699 0 29.953 l -76.905 76.911 111.666 0 c 94.276 0 170.986 76.707 170.986 170.987 z"/>
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="32" Height="24" Margin="3,0,0,0"
+                        Command="{Binding CopyHelmetToClipboardCommand}" CommandParameter="{Binding SelectedHelmet}">
+                    <Button.ToolTip>
+                        <ToolTip>Copy Helmet to Clipboard</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="4" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="-1 0 0 1 12 0"/>
+                            </Canvas.RenderTransform>
+                            <Path Stretch="Fill" Width="14" Height="14" Fill="#000000" Data="M395.264 60.6h-81.71V21.184C313.554 9.504 304.049 0 292.37 0H50.265C38.583 0 29.081 9.504 29.081 21.184v342.564   c0 11.68 9.502 21.185 21.185 21.185h81.71v39.413c0 11.68 9.502 21.184 21.185 21.184h242.104c11.68 0 21.185-9.504 21.185-21.184   V81.784C416.449 70.102 406.944 60.6 395.264 60.6z M50.265 366.774c-1.664 0-3.026-1.359-3.026-3.026V21.184   c0-1.669 1.362-3.026 3.026-3.026H292.37c1.667 0 3.026 1.357 3.026 3.026V60.6v303.148c0 1.667-1.359 3.026-3.026 3.026H50.265z    M398.291 424.334c0 1.678-1.359 3.025-3.026 3.025H153.16c-1.664 0-3.026-1.348-3.026-3.025v-38.16H292.37   c11.68 0 21.185-9.505 21.185-21.185v-1.253v-5.172h43.367c5.013 0 9.079-4.061 9.079-9.079s-4.066-9.079-9.079-9.079h-43.367   v-44.384h43.367c5.013 0 9.079-4.061 9.079-9.079c0-5.018-4.066-9.078-9.079-9.078h-43.367V232.47h43.367   c5.013 0 9.079-4.061 9.079-9.079s-4.066-9.079-9.079-9.079h-43.367v-43.604h12.087c5.013 0 9.079-4.061 9.079-9.079   c0-5.019-4.066-9.079-9.079-9.079h-12.087V78.758h81.71c1.667 0 3.026 1.356 3.026 3.026V424.334z M70.929 90.789   c0-5.019 4.066-9.079 9.079-9.079h147.279c5.013 0 9.079 4.061 9.079 9.079c0 5.018-4.066 9.079-9.079 9.079H80.008   C74.996 99.868 70.929 95.807 70.929 90.789z M267.645 152.551c0 5.018-4.066 9.079-9.079 9.079H80.008   c-5.012 0-9.079-4.061-9.079-9.079c0-5.019 4.066-9.079 9.079-9.079h178.558C263.579 143.472 267.645 147.532 267.645 152.551z    M267.645 216.103c0 5.018-4.066 9.079-9.079 9.079H80.008c-5.012 0-9.079-4.061-9.079-9.079s4.066-9.079 9.079-9.079h178.558   C263.579 207.024 267.645 211.085 267.645 216.103z M267.645 278.645c0 5.019-4.066 9.079-9.079 9.079H80.008   c-5.012 0-9.079-4.061-9.079-9.079c0-5.018 4.066-9.078 9.079-9.078h178.558C263.579 269.566 267.645 273.633 267.645 278.645z"/>
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="32" Height="24" Margin="3,0,0,0"
+                        Command="{Binding PasteHelmetFromClipboardCommand}" CommandParameter="{Binding SelectedHelmet}">
+                    <Button.ToolTip>
+                        <ToolTip>Paste Helmet from Clipboard</ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Width="20" Height="20" Canvas.Left="0" Canvas.Top="0">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="3" Y="3"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="-1 0 0 1 12 0"/>
+                            </Canvas.RenderTransform>
+                            <Path Stretch="Fill" Width="14" Height="14" Fill="#000000" Data="M12.713 72.139h27.678v2.723H12.713c-1.752 0-3.178-1.426-3.178-3.178V8.143c0-1.752 1.426-3.177 3.178-3.177h10.171   l-0.367 1.656c-0.031 0.139-0.046 0.266-0.046 0.386v7.262c0 1.001 0.814 1.815 1.815 1.815h24.962   c1.001 0 1.816-0.814 1.816-1.815V7.008c0-0.121-0.017-0.247-0.047-0.386l-0.367-1.656h10.172C62.575 4.966 64 6.391 64 8.143   v29.163l-0.354-0.308h-2.369V8.143c0-0.25-0.202-0.454-0.452-0.454h-7.035v6.581c0 2.502-2.036 4.539-4.539 4.539H24.288   c-2.503 0-4.539-2.036-4.539-4.539V7.689h-7.034c-0.25 0-0.454 0.204-0.454 0.454v63.541C12.26 71.934 12.463 72.139 12.713 72.139   z M25.784 14.38h21.97c0.884 0 1.599-0.715 1.599-1.598V6.391c0-0.883-0.715-1.598-1.599-1.598h-5.991   C41.763 2.146 39.514 0 36.742 0c-2.774 0-5.022 2.146-5.022 4.793h-5.935c-0.883 0-1.597 0.715-1.597 1.598v6.391   C24.187 13.664 24.9 14.38 25.784 14.38z M74.083 46.426v34.825c0 1.306-1.062 2.367-2.365 2.367H44.385   c-1.305 0-2.366-1.062-2.366-2.367V41.135c0-1.306 1.062-2.367 2.366-2.367h20.889L74.083 46.426z M65.815 45.811h4.935   l-4.935-4.289V45.811z M72.358 47.536h-8.269v-7.044H44.385c-0.354 0-0.642 0.288-0.642 0.643v40.116   c0 0.354 0.287 0.644 0.642 0.644h27.332c0.354 0 0.641-0.289 0.641-0.644V47.536z M46.623 55.73c0 0.713 0.581 1.293 1.293 1.293   h20.271c0.713 0 1.293-0.58 1.293-1.293c0-0.715-0.58-1.295-1.293-1.295H47.916C47.205 54.436 46.623 55.016 46.623 55.73z    M68.186 62.055H47.916c-0.712 0-1.293 0.58-1.293 1.295c0 0.713 0.581 1.293 1.293 1.293h20.271c0.713 0 1.293-0.58 1.293-1.293   C69.479 62.635 68.899 62.055 68.186 62.055z M68.186 69.282H47.916c-0.712 0-1.293 0.579-1.293 1.294   c0 0.714 0.581 1.293 1.293 1.293h20.271c0.713 0 1.293-0.579 1.293-1.293C69.479 69.861 68.899 69.282 68.186 69.282z" />
+                        </Canvas>
+                    </Canvas>
+                </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0"
+                        Command="{Binding LoadHelmetFileCommand}" CommandParameter="{Binding SelectedHelmet}">
+                    Load .HEL File
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

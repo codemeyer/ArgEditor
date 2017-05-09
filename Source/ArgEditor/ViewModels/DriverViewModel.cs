@@ -30,14 +30,31 @@ namespace ArgEditor.ViewModels
                 _number = value;
                 OnPropertyChanged(nameof(Number));
 
+                DisplayNumber = value > 0 ? $"#{value}" : "";
+
                 UpdateEnabledFlag();
                 UpdateHelmetWarningFlag();
+                UpdateHelmetInactiveDriverWarningFlag();
             }
+        }
+
+
+        private string _displayNumber;
+
+        public string DisplayNumber
+        {
+            get { return _displayNumber; }
+            set { SetProperty(ref _displayNumber, value, () => DisplayNumber); }
         }
 
         private void UpdateHelmetWarningFlag()
         {
             Helmet?.UpdateSpecialHelmetWarningFlag();
+        }
+
+        private void UpdateHelmetInactiveDriverWarningFlag()
+        {
+            Helmet?.UpdateHelmetInactiveDriverWarningFlag();
         }
 
         public string Name
