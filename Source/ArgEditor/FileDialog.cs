@@ -35,8 +35,8 @@ namespace ArgEditor
             {
                 Title = "Save Car Set As",
                 DefaultExt = ".arged",
-                Filter = "ArgEditor files (*.arged)|.arged|All files (*.*)|*.*",
-                FileName = "*.arged",
+                Filter = "ArgEditor car set (*.arged)|*.arged|F1Ed car set (*.1ed)|*.1ed",
+                //FileName = "*.arged",
                 CheckFileExists = false
             };
 
@@ -92,7 +92,8 @@ namespace ArgEditor
                 Title = "Select File",
                 DefaultExt = "",
                 Filter = "All files (*.*)|*.*",
-                FileName = "*"
+                FileName = "*",
+                AddExtension = false
             };
 
             return GetFilePathFromDialog(fileDialog);
@@ -103,9 +104,10 @@ namespace ArgEditor
             var fileDialog = new SaveFileDialog
             {
                 Title = "Select Name File",
-                DefaultExt = ".*",
+                DefaultExt = "",
                 Filter = "All files (*.*)|*.*",
-                FileName = "*.*"
+                FileName = "*",
+                AddExtension = false
             };
 
             return GetFilePathFromDialog(fileDialog);

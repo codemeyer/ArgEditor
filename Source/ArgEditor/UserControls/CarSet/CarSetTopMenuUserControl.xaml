@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="880">
     <Grid>
@@ -13,52 +12,33 @@
                         Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}">
                     Load Car Set
                 </Button>
-                <xctk:SplitButton Width="100" Height="24" Margin="3,0,0,0"
+                <Button Width="100" Height="24" Margin="3,0,0,0"
                                   Command="{Binding SaveCarSetCommand}" CommandParameter="{Binding}">
                     Save Car Set
-                    <xctk:SplitButton.DropDownContent>
-                        <Button Width="140" Height="24" Margin="0"
-                                Command="{Binding OpenCarSetCommand}" CommandParameter="{Binding}">
-                            Save F1Ed Car Set
-                        </Button>
-                    </xctk:SplitButton.DropDownContent>
-                </xctk:SplitButton>
+                </Button>
 
-                <xctk:SplitButton Width="80" Height="24" Margin="3,0,0,0"
+                <Button Width="70" Height="24" Margin="3,0,0,0"
                                   Command="{Binding DisplayImportWizardCommand}" CommandParameter="{Binding}">
                     Import...
-                    <xctk:SplitButton.DropDownContent>
-                        <StackPanel Orientation="Vertical">
-                            <Button Width="140" Height="24" Margin="0"
-                                    Command="{Binding ImportFromExeCommand}" CommandParameter="{Binding}">
-                                Import from GP.EXE
-                            </Button>
-                            <Button Width="140" Height="24" Margin="0"
-                                    Command="{Binding ImportFromNameFileCommand}" CommandParameter="{Binding}">
-                                Import from Name File
-                            </Button>
-                        </StackPanel>
-                    </xctk:SplitButton.DropDownContent>
-                </xctk:SplitButton>
-                <xctk:SplitButton Width="80" Height="24" Margin="3,0,0,0"
+                </Button>
+                <Button Width="70" Height="24" Margin="3,0,0,0"
                                   Command="{Binding DisplayExportWizardCommand}" CommandParameter="{Binding}">
                     Export...
-                    <xctk:SplitButton.DropDownContent>
-                        <StackPanel Orientation="Vertical">
-                            <Button Width="140" Height="24" Margin="0"
-                                    Command="{Binding ExportToExeCommand}" CommandParameter="{Binding}">
-                                Export to GP.EXE
-                            </Button>
-                            <Button Width="140" Height="24" Margin="0"
-                                    Command="{Binding ExportToNameFileCommand}" CommandParameter="{Binding}">
-                                Export to Name File
-                            </Button>
-                        </StackPanel>
-                    </xctk:SplitButton.DropDownContent>
-                </xctk:SplitButton>
+                </Button>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Visibility="{Binding ShowCarPitCrewActionButtons}">
+            <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
+                <Button Width="100" Height="24" Margin="0"
+                        Command="{Binding ImportFromNameFileCommand}" CommandParameter="{Binding}">
+                    Load Name File
+                </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0"
+                        Command="{Binding ExportToNameFileCommand}" CommandParameter="{Binding}">
+                    Save Name File
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowCarPitCrewActionButtons}">
                 <Button Width="32" Height="24"
                         Command="{Binding UndoCarPitCrewPaintingActionCommand}" CommandParameter="{Binding}">
                     <Button.ToolTip>
@@ -134,7 +114,7 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Visibility="{Binding ShowHelmetActionButtons}">
+            <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowHelmetActionButtons}">
                 <Button Width="32" Height="24"
                         Command="{Binding UndoHelmetPaintingActionCommand}" CommandParameter="{Binding}">
                     <Button.ToolTip>

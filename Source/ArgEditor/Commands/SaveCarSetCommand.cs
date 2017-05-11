@@ -1,4 +1,6 @@
 ﻿using ArgEditor.Interactors.CarSets;
+using ArgEditor.Interactors.LegacyCarSets;
+using ArgEditor.Mappers;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Commands
@@ -21,9 +23,18 @@ namespace ArgEditor.Commands
 
             if (string.IsNullOrEmpty(path)) { return; }
 
-            // TODO: interface based?
-            var saver = new CarSetSaver();
-            saver.Save(viewModel, path);
+            if (path.ToLowerInvariant().EndsWith("arged"))
+            {
+                // TODO: interface based?
+                var saver = new CarSetSaver();
+                saver.Save(viewModel, path);
+            }
+            else
+            {
+                var carset = Mapper.LegacyCarSetFromMainViewModel(viewModel);
+                // TODO: interface based?
+                LegacyCarSetSaver.Save(carset, path);
+            }
         }
     }
 }

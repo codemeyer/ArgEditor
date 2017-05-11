@@ -279,7 +279,6 @@ namespace ArgEditor.ViewModels
         // ReSharper disable UnusedMember.Global, since it doesn't seem to find its usage inside the XAML file
         public ICommand OpenCarSetCommand { get; } = new OpenCarSetCommand(new FileDialog());
         public ICommand SaveCarSetCommand { get; } = new SaveCarSetCommand(new FileDialog());
-        public ICommand SaveLegacyCarSetCommand { get; } = new SaveLegacyCarSetCommand(new FileDialog());
 
         public ICommand DisplayImportWizardCommand { get; } = new DisplayImportWizardCommand();
         public ICommand ImportFromExeCommand { get; } = new ImportFromExeCommand(new FileDialog());
@@ -387,7 +386,13 @@ namespace ArgEditor.ViewModels
             set { SetProperty(ref _selectedMainTabIndex, value, () => SelectedMainTabIndex); }
         }
 
+        private Visibility _showTeamDriverNamesActionButtons;
 
+        public Visibility ShowTeamDriverNamesActionButtons
+        {
+            get { return _showTeamDriverNamesActionButtons; }
+            set { SetProperty(ref _showTeamDriverNamesActionButtons, value, () => ShowTeamDriverNamesActionButtons); }
+        }
 
         private Visibility _showCarPitCrewActionButtons;
 
@@ -410,6 +415,15 @@ namespace ArgEditor.ViewModels
 
         private void UpdateActionButtonsVisibility()
         {
+            if (SelectedCarSetTabIndex == 0)
+            {
+                ShowTeamDriverNamesActionButtons = Visibility.Visible;
+            }
+            else
+            {
+                ShowTeamDriverNamesActionButtons = Visibility.Collapsed;
+            }
+
             if (SelectedCarSetTabIndex == 2)
             {
                 ShowCarPitCrewActionButtons = Visibility.Visible;

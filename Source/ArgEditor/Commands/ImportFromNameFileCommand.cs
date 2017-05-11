@@ -1,4 +1,6 @@
-﻿using ArgEditor.Interactors;
+﻿using System;
+using System.Windows;
+using ArgEditor.Interactors;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Commands
@@ -21,8 +23,19 @@ namespace ArgEditor.Commands
 
             if (string.IsNullOrEmpty(path)) { return; }
 
+            // TODO: handle not being a name file
             var nameFileLoader = new NameFileLoader();
-            nameFileLoader.Load(viewModel, path);
+            try
+            {
+                nameFileLoader.Load(viewModel, path);
+
+            }
+            catch (Exception ex)
+            {
+                // TODO: via IMessageSomething
+                MessageBox.Show("Failed to load the specified file. Make sure it is of the correct type and try again!",
+                    "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
