@@ -6,8 +6,21 @@
              xmlns:userControls="clr-namespace:ArgEditor.UserControls"
              mc:Ignorable="d"
              d:DesignHeight="65" d:DesignWidth="140">
-    <Grid Width="135" Height="63">
-        <Border BorderThickness="0.5" BorderBrush="DarkGray"></Border>
+    <Grid Width="135" Height="63" DataContext="{Binding}">
+        <Border BorderThickness="0.5">
+            <Border.Style>
+                <Style>
+                    <Setter Property="Border.BorderBrush" Value="DarkGray" />
+                    <Setter Property="Border.BorderThickness" Value="0.5" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Border.BorderBrush" Value="#404040" />
+                            <Setter Property="Border.BorderThickness" Value="2" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
         <userControls:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="46" DataContext="{Binding Car}">
             <userControls:CarUserControl.Style>
                 <Style TargetType="{x:Type userControls:CarUserControl}">
@@ -27,3 +40,4 @@
         <Label Width="132" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
     </Grid>
 </UserControl>
+

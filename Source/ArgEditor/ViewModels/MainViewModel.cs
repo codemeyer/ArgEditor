@@ -44,6 +44,14 @@ namespace ArgEditor.ViewModels
 
             SelectedCarSetTabIndex = 0;
             UpdateActionButtonsVisibility();
+
+            // hack?
+            UpdateSelectedCar(0);
+            Teams[0].NotifyIsSelected();
+
+            // LOLSOB
+            SelectedTeam = Teams[1];
+            SelectedTeam = Teams[0];
         }
 
         private void SetupDrivers()
@@ -56,6 +64,12 @@ namespace ArgEditor.ViewModels
 
                 string driverName = $"Driver {driverIndex + 1}";
                 var driverViewModel = new DriverViewModel(number, driverName, number, number);
+
+                if (driverIndex == 0)
+                {
+                    driverViewModel.Helmet.IsSelected = true;
+                }
+
                 driverViewModel.PropertyChanged += DriverViewModelOnPropertyChanged;
                 Drivers.Add(driverViewModel);
             }
@@ -78,6 +92,7 @@ namespace ArgEditor.ViewModels
                 if (teamIndex == 0)
                 {
                     teamViewModel.Car.IsSpecialShape = true;
+                    teamViewModel.IsSelected = true;
                 }
 
                 Teams.Add(teamViewModel);
@@ -166,8 +181,20 @@ namespace ArgEditor.ViewModels
                     if (value.Equals(_selectedTeam)) { return; }
                     _selectedTeam = value;
                     OnPropertyChanged(nameof(SelectedTeam));
+                    UpdateSelectedCar(value.Index);
                 }
             }
+        }
+
+        private void UpdateSelectedCar(int selectedIndex)
+        {
+            foreach (var team in Teams)
+            {
+                team.IsSelected = team.Index == selectedIndex;
+                team.NotifyIsSelected();
+            }
+
+            var x = Teams[0].IsSelected;
         }
 
         public void SelectTeamByIndex(int teamIndex)
@@ -179,8 +206,22 @@ namespace ArgEditor.ViewModels
         public HelmetViewModel SelectedHelmet
         {
             get { return _selectedHelmet; }
-            set { SetProperty(ref _selectedHelmet, value, () => SelectedHelmet);
+            set {
+                if (SetProperty(ref _selectedHelmet, value, () => SelectedHelmet))
+                {
+                    UpdateSelectedHelmet(value);
+                }
             }
+        }
+
+        private void UpdateSelectedHelmet(HelmetViewModel helmet)
+        {
+            foreach (var driver in Drivers)
+            {
+                driver.Helmet.IsSelected = false;
+            }
+
+            helmet.IsSelected = true;
         }
 
         private string _activeDriverCountMessage;

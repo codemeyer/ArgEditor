@@ -29,7 +29,20 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="0.5" BorderBrush="DarkGray">
+                    <Border BorderThickness="0.5">
+                        <Border.Style>
+                            <Style>
+                                <Setter Property="Border.BorderBrush" Value="DarkGray" />
+                                <Setter Property="Border.BorderThickness" Value="0.5" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Helmet.IsSelected}" Value="True">
+                                        <Setter Property="Border.BorderBrush" Value="#404040" />
+                                        <Setter Property="Border.BorderThickness" Value="2" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
                     <StackPanel Orientation="Vertical" Margin="0,0,0,1">
                         <userControls:HelmetUserControl DataContext="{Binding Helmet}"
                                                     Width="48" Margin="10,5,10,4" Height="38"

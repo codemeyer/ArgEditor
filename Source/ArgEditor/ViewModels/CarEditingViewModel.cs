@@ -199,6 +199,7 @@
                 OnPropertyChanged(nameof(IsSpecialShape));
             }
         }
+
         public bool IsRegularShape
         {
             get { return !_isSpecialShape; }
