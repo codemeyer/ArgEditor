@@ -18,6 +18,16 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Release notes
 
+### 0.12 (2017-05-12)
+
+* The selected car/helmet is marked with a darker border in the left-side menus
+* Reorganized top menu, importing/exporting is now always done via the wizard
+* The import/export wizards remember your latest settings as long as ArgEditor is running
+* Opening the help documentation by tapping F1 opens documentation for the specific tab that is open
+* Fix: ArgEditor does not crash when attempting to load a name file that is not actually a name file
+* Fix: Can create a name file without a file extension, fixed for real this time...
+
+
 ### 0.11 (2017-05-10)
 
 * Can create and edit setup files, both single and multiple ones

@@ -11,10 +11,14 @@ namespace ArgEditor.Commands
             var viewModel = parameter as MainViewModel;
             if (viewModel == null) return;
 
+            var importViewModel = App.LatestImportViewModel == null
+                ? new ImportViewModel(viewModel)
+                : App.LatestImportViewModel;
+
             var importWindow = new ImportWindow
             {
                 Owner = Application.Current.MainWindow,
-                DataContext = new ImportViewModel(viewModel)
+                DataContext = importViewModel
             };
 
             importWindow.ShowDialog();

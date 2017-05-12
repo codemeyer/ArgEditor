@@ -51,6 +51,8 @@ namespace ArgEditor.Windows
                 prefsWriter.SetAutoLoadedNameFile(ViewModel.SelectedNameFilePath);
             }
 
+            App.LatestExportViewModel = ViewModel;
+
             this.Close();
         }
 

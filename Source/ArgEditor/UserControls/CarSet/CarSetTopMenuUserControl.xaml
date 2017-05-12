@@ -27,7 +27,7 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
+            <!--<StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
                 <Button Width="100" Height="24" Margin="0"
                         Command="{Binding ImportFromNameFileCommand}" CommandParameter="{Binding}">
                     Load Name File
@@ -36,7 +36,7 @@
                         Command="{Binding ExportToNameFileCommand}" CommandParameter="{Binding}">
                     Save Name File
                 </Button>
-            </StackPanel>
+            </StackPanel>-->
 
             <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowCarPitCrewActionButtons}">
                 <Button Width="32" Height="24"

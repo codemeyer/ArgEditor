@@ -43,5 +43,9 @@ namespace ArgEditor
 
         public static CarEditingViewModel ClipboardCar { get; set; }
         public static HelmetViewModel ClipboardHelmet { get; set; }
+
+        // better place for this?
+        public static ImportViewModel LatestImportViewModel { get; set; }
+        public static ExportViewModel LatestExportViewModel { get; set; }
     }
 }

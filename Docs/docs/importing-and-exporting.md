@@ -9,14 +9,10 @@ importing and exporting data.
 ## Importing Data
 
 You can import an entire car set, including car colors, driver performance levels,
-horsepower levels, etc, from an existing GP.EXE. It is also possible to import 
-team and driver names from a name file.
+horsepower levels, etc, from an existing GP.EXE.
 
-There are three ways of importing data:
-
-### Import...
-
-Using this menu option will open up a "wizard" that lets you select an EXE file to
+To Import existing data, click on the "Import" button at the top of the screen.
+This will open up a "wizard" that lets you select an EXE file to
 import data from, and decide which data to import.
 
 ![Import](img/import-wizard.png)
@@ -43,26 +39,12 @@ When you have selected everything, click the Import button and ArgEditor will ma
 the import for you.
 
 
-### Import from GP.EXE
-
-This option imports _all_ data from a GP.EXE. Clicking this option will open a file
-dialog, allowing you to choose which EXE file you want to import data from.
-
-
-### Import from Name File
-
-This options lets you load team and driver names from a name file. Clicking on this
-menu item opens a file dialog, allowing you to choose the name file that you want to import.
-
 
 ## Exporting Data
 
 When are finished naming and painting, you can export everything to an existing GP.EXE file.
 
-There are three ways of exporting data:
-
-### Export...
-
+Click the "Export" button at the top of the screen.
 Using this menu option will open up a "wizard" that lets you select an EXE file to
 export data to, and decide which data to export.
 
@@ -100,16 +82,3 @@ folder of the specified GP.EXE.
 When you have selected everything, click the Export button and ArgEditor will manage
 the export for you.
 
-
-
-### Export to GP.EXE
-
-This option exports _all_ data from ArgEditor to a GP.EXE. Clicking this option will open a file
-dialog, allowing you to choose which EXE file you want to export data to.
-
-
-### Export to Name File
-
-This options lets you save team and driver names to a name file. Clicking on this
-menu item opens a file dialog, allowing you to choose the name file that you want to export.
-The file that you save here can then be loaded in F1GP using the "Load Names" option.

@@ -46,6 +46,8 @@ namespace ArgEditor.Windows
                 nameFileLoader.Load(vm.Parent, vm.SelectedNameFilePath);
             }
 
+            App.LatestImportViewModel = vm;
+
             this.Close();
         }
 

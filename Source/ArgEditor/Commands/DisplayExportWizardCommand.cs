@@ -11,10 +11,14 @@ namespace ArgEditor.Commands
             var viewModel = parameter as MainViewModel;
             if (viewModel == null) return;
 
+            var exportViewModel = App.LatestExportViewModel == null
+                ? new ExportViewModel(viewModel)
+                : App.LatestExportViewModel;
+
             var exportWindow = new ExportWindow
             {
                 Owner = Application.Current.MainWindow,
-                DataContext = new ExportViewModel(viewModel)
+                DataContext = exportViewModel
             };
 
             exportWindow.ShowDialog();
