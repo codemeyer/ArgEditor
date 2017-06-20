@@ -7,12 +7,14 @@
              mc:Ignorable="d"
              d:DesignHeight="65" d:DesignWidth="140">
     <Grid Width="135" Height="63" DataContext="{Binding}">
-        <Border BorderThickness="0.5">
+        <Border>
             <Border.Style>
                 <Style>
+                    <Setter Property="Border.BorderThickness" Value="0.5" />
                     <Setter Property="Border.BorderBrush" Value="DarkGray" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Border.BorderThickness" Value="1" />
                             <Setter Property="Border.BorderBrush" Value="#404040" />
                         </DataTrigger>
                     </Style.Triggers>
@@ -38,4 +40,6 @@
         <Label Width="132" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
     </Grid>
 </UserControl>
+
+
 

@@ -29,12 +29,14 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="0.5">
+                    <Border>
                         <Border.Style>
                             <Style>
+                                <Setter Property="Border.BorderThickness" Value="0.5" />
                                 <Setter Property="Border.BorderBrush" Value="DarkGray" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding Helmet.IsSelected}" Value="True">
+                                        <Setter Property="Border.BorderThickness" Value="1" />
                                         <Setter Property="Border.BorderBrush" Value="#404040" />
                                     </DataTrigger>
                                 </Style.Triggers>
