@@ -35,6 +35,17 @@
                             CommandParameter="{Binding MultiSetupViewModel}">
                         Save Multi-Setup File
                     </Button>
+
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding CopyAllRaceToQualifyingSetupsCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Copy All Race to Qual.
+                    </Button>
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding CopyAllQualifyingToRaceSetupsCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Copy All Qual to Race
+                    </Button>
                 </StackPanel>
             </StackPanel>
 

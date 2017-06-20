@@ -32,6 +32,7 @@ namespace ArgEditor
 
             ClipboardCar = null;
             ClipboardHelmet = null;
+            ClipboardSetup = null;
 
             base.OnStartup(e);
         }
@@ -43,6 +44,7 @@ namespace ArgEditor
 
         public static CarEditingViewModel ClipboardCar { get; set; }
         public static HelmetViewModel ClipboardHelmet { get; set; }
+        public static SetupViewModel ClipboardSetup { get; set; }
 
         // better place for this?
         public static ImportViewModel LatestImportViewModel { get; set; }

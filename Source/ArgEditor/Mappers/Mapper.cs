@@ -537,5 +537,19 @@ namespace ArgEditor.Mappers
             targetData.GearRatio6 = sourceViewModel.GearRatio6;
             targetData.TyreCompound = sourceViewModel.TyreCompound;
         }
+
+        public static void MapCarSetupViewModel(SetupViewModel source, SetupViewModel target)
+        {
+            target.FrontWing = source.FrontWing;
+            target.RearWing = source.RearWing;
+            target.BrakeBalance = source.BrakeBalance;
+            target.GearRatio1 = source.GearRatio1;
+            target.GearRatio2 = source.GearRatio2;
+            target.GearRatio3 = source.GearRatio3;
+            target.GearRatio4 = source.GearRatio4;
+            target.GearRatio5 = source.GearRatio5;
+            target.GearRatio6 = source.GearRatio6;
+            target.TyreCompound = source.TyreCompound;
+        }
     }
 }

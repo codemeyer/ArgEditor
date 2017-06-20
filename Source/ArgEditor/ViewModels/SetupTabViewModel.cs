@@ -19,6 +19,8 @@ namespace ArgEditor.ViewModels
         public ICommand SaveSingleSetupFileCommand { get; } = new SaveSingleSetupFileCommand(new FileDialog());
         public ICommand LoadMultiSetupFileCommand { get; } = new LoadMultiSetupFileCommand(new FileDialog());
         public ICommand SaveMultiSetupFileCommand { get; } = new SaveMultiSetupFileCommand(new FileDialog());
+        public ICommand CopyAllRaceToQualifyingSetupsCommand { get; } = new CopyAllRaceToQualifyingSetupsCommand();
+        public ICommand CopyAllQualifyingToRaceSetupsCommand { get; } = new CopyAllQualifyingToRaceSetupsCommand();
 
         public SetupViewModel SingleSetupViewModel { get; set; } = new SetupViewModel("SingleSetup");
         public MultiSetupViewModel MultiSetupViewModel { get; set; } = new MultiSetupViewModel();

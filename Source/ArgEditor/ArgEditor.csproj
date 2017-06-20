@@ -86,6 +86,9 @@
     <Compile Include="Commands\RedoBrokerCommand.cs" />
     <Compile Include="Commands\RedoCarPitCrewPaintingActionCommand.cs" />
     <Compile Include="Commands\RedoHelmetPaintingActionCommand.cs" />
+    <Compile Include="Commands\Setups\CopyAllRaceToQualifyingSetupsCommand.cs" />
+    <Compile Include="Commands\Setups\CopyQualifyingSetupToRaceCommand.cs" />
+    <Compile Include="Commands\Setups\CopyRaceSetupToQualifyingCommand.cs" />
     <Compile Include="Commands\Setups\LoadMultiSetupFileCommand.cs" />
     <Compile Include="Commands\Setups\LoadSingleSetupFileCommand.cs" />
     <Compile Include="Commands\OpenCarSetCommand.cs" />
@@ -364,6 +367,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="Commands\Setups\CopyAllQualifyingToRaceSetupsCommand.cs" />
+    <Compile Include="Commands\Setups\CopySetupToClipboardCommand.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

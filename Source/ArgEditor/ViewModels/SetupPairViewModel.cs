@@ -1,4 +1,6 @@
 using System.Windows;
+using System.Windows.Input;
+using ArgEditor.Commands.Setups;
 
 namespace ArgEditor.ViewModels
 {
@@ -79,5 +81,11 @@ namespace ArgEditor.ViewModels
             get { return _showSetup2; }
             set { SetProperty(ref _showSetup2, value, () => ShowSetup2); }
         }
+
+
+        public ICommand LoadSingleSetupFileCommand { get; } = new LoadSingleSetupFileCommand(new FileDialog());
+        public ICommand SaveSingleSetupFileCommand { get; } = new SaveSingleSetupFileCommand(new FileDialog());
+        public ICommand CopyRaceSetupToQualifyingCommand { get; } = new CopyRaceSetupToQualifyingCommand();
+        public ICommand CopyQualifyingSetupToRaceCommand { get; } = new CopyQualifyingSetupToRaceCommand();
     }
 }

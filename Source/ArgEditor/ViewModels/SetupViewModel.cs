@@ -258,41 +258,78 @@ namespace ArgEditor.ViewModels
             {
                 if (SetProperty(ref _tyreCompound, value, () => TyreCompound))
                 {
-                    IsTyreCompoundA = _tyreCompound == SetupTyreCompound.A;
-                    IsTyreCompoundB = _tyreCompound == SetupTyreCompound.B;
-                    IsTyreCompoundC = _tyreCompound == SetupTyreCompound.C;
-                    IsTyreCompoundD = _tyreCompound == SetupTyreCompound.D;
+                    UpdateTyreCompoundFlags();
                 }
             }
         }
 
+        private void UpdateTyreCompoundFlags()
+        {
+            IsTyreCompoundA = _tyreCompound == SetupTyreCompound.A;
+            IsTyreCompoundB = _tyreCompound == SetupTyreCompound.B;
+            IsTyreCompoundC = _tyreCompound == SetupTyreCompound.C;
+            IsTyreCompoundD = _tyreCompound == SetupTyreCompound.D;
+        }
 
         public bool IsTyreCompoundA
         {
             get { return _isTyreCompoundA; }
-            set { SetProperty(ref _isTyreCompoundA, value, () => IsTyreCompoundA); }
+            set
+            {
+                if (SetProperty(ref _isTyreCompoundA, value, () => IsTyreCompoundA))
+                {
+                    if (value)
+                    {
+                        TyreCompound = SetupTyreCompound.A;
+                    }
+                }
+            }
         }
 
         public bool IsTyreCompoundB
         {
             get { return _isTyreCompoundB; }
-            set { SetProperty(ref _isTyreCompoundB, value, () => IsTyreCompoundB); }
+            set
+            {
+                if (SetProperty(ref _isTyreCompoundB, value, () => IsTyreCompoundB))
+                {
+                    if (value)
+                    {
+                        TyreCompound = SetupTyreCompound.B;
+                    }
+                }
+            }
         }
 
         public bool IsTyreCompoundC
         {
             get { return _isTyreCompoundC; }
-            set { SetProperty(ref _isTyreCompoundC, value, () => IsTyreCompoundC); }
+            set
+            {
+                if (SetProperty(ref _isTyreCompoundC, value, () => IsTyreCompoundC))
+                {
+                    if (value)
+                    {
+                        TyreCompound = SetupTyreCompound.C;
+                    }
+                }
+            }
         }
 
         public bool IsTyreCompoundD
         {
             get { return _isTyreCompoundD; }
-            set { SetProperty(ref _isTyreCompoundD, value, () => IsTyreCompoundD); }
+            set
+            {
+                if (SetProperty(ref _isTyreCompoundD, value, () => IsTyreCompoundD))
+                {
+                    if (value)
+                    {
+                        TyreCompound = SetupTyreCompound.D;
+                    }
+                }
+            }
         }
-
-
-
 
 
         public string this[string columnName]
