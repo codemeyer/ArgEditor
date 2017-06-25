@@ -18,6 +18,15 @@ be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
 
 ## Release notes
 
+### 0.13 (2017-06-25)
+
+* Can copy all multi-setup race setups to their respective qualifying slots, or vice versa
+* Can copy single multi-setup race setup to its qualifying slot, or vice versa
+* Can load or save single setups to/from multi-setup slots
+* Clearer indication of selected car/helmet
+* Fix: Multi-setups sometimes did not save the selected tyre compound, using the default C instead
+
+
 ### 0.12 (2017-05-12)
 
 * The selected car/helmet is marked with a darker border in the left-side menus

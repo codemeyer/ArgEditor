@@ -40,5 +40,12 @@ the gear ratios and finally the tyre compound that will be used in dry races.
 If you select incorrect gear ratios, there will be an indication to the right
 of the sliders, and you will not be able to save the setups.
 
+You can use "Load Setup" and "Save Setup" to load or save a single setup to/from
+the current slot. Using the "Copy" buttons you can copy the race setup to the
+qualifying slot, or vice versa.
+
 The toolbar buttons at the top allow you to load existing setups, or save the
 current ones you are editing to disk.
+
+You can also copy all the race setups to the qualifying slots for the same track,
+or vice versa.
