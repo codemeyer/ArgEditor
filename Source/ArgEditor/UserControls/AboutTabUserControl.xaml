@@ -35,13 +35,15 @@
                                     <Label>ArgEditor</Label>
                                     <Label Content="{Binding CurrentVersion}"></Label>
                                 </TextBlock>
-                                <Label>Copyright © 2014-2017 Fredrik Meyer</Label>
+                                <TextBlock>
+                                    <Label>Copyright © 2014-2018 Fredrik Meyer</Label>
+                                </TextBlock>
                                 <TextBlock Margin="5">
                                     Website: <Hyperlink Command="{Binding HelpDocsCommand}">http://manicomio.se/argeditor</Hyperlink>
                                 </TextBlock>
-
                             </StackPanel>
                         </GroupBox>
+
                         <GroupBox Margin="5" Header="Credits">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Margin="5" TextWrapping="Wrap">
@@ -56,7 +58,6 @@
                                     <LineBreak/>
                                     Various icons made by Freepik from www.flaticon.com
                                 </TextBlock>
-
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
