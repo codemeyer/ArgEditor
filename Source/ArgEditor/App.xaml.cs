@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using ArgEditor.Interactors;
+using ArgEditor.Interactors.CarSets;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor
@@ -33,6 +34,11 @@ namespace ArgEditor
             ClipboardCar = null;
             ClipboardHelmet = null;
             ClipboardSetup = null;
+
+            if (e.Args.Length > 0)
+            {
+                MainViewModelPasserArounder.QueueLoad(e.Args[0]);
+            }
 
             base.OnStartup(e);
         }

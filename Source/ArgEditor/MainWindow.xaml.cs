@@ -1,5 +1,8 @@
-﻿using ArgEditor.ViewModels.Utils;
+﻿using System;
+using ArgEditor.ViewModels.Utils;
 using System.Windows;
+using ArgEditor.Interactors.CarSets;
+using ArgEditor.Interactors.LegacyCarSets;
 
 namespace ArgEditor
 {
@@ -20,6 +23,31 @@ namespace ArgEditor
 
             // HACK: world class hack!
             MainViewModelPasserArounder.MainViewModel = defaultMainViewModel;
+
+            // HACK: put somewhere else...
+            if (MainViewModelPasserArounder.LoadingQueued)
+            {
+                var path = MainViewModelPasserArounder.LoadPath;
+
+                try
+                {
+                    var viewModel = defaultMainViewModel;
+                
+                    if (path.ToLowerInvariant().EndsWith(".arged"))
+                    {
+                        var loader = new CarSetLoader();
+                        loader.Load(viewModel, path);
+                    }
+                    if (path.ToLowerInvariant().EndsWith(".1ed"))
+                    {
+                        LegacyCarSetLoader.IntoViewModel(viewModel, path);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show($"Failed to load carset '{path}'", "ArgEditor", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
 
             this.DataContext = defaultMainViewModel;
         }
