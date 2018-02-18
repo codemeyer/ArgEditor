@@ -1,6 +1,6 @@
 # Working with decompressed EXE files
 
-To bring the file size (and perhaps memory usage) down, the original GP.EXE file
+To bring the file size and memory usage down, the original GP.EXE file
 (just like many other old DOS games) is compressed with EXEPACK.
 This means that repeating byte data is "compressed" by replacing it with a special
 byte sequence which indicates which value has been compressed, and how many instances

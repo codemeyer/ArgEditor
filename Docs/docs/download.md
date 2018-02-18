@@ -13,10 +13,17 @@ Note: If you are running Windows XP, Windows Vista or Windows 7, your installati
 feature the Microsoft .NET Framework 4.0 that is required by ArgEditor. In this case, starting the
 program will display an error saying "The application failed to initialize properly." If this happens,
 you should try to download and install the Microsoft .NET Framework 4.0 Client Profile, which can
-be found here: https://www.microsoft.com/en-us/download/details.aspx?id=24872
+be found here: [https://www.microsoft.com/en-us/download/details.aspx?id=24872](https://www.microsoft.com/en-us/download/details.aspx?id=24872)
 
 
 ## Release notes
+
+
+### 1.0 (2018-02-18)
+
+* You can associate .arged files with ArgEditor.exe and load carsets directly from e.g. Windows Explorer
+* Fix for the "jumping" helmet selection screen
+
 
 ### 0.13 (2017-06-25)
 

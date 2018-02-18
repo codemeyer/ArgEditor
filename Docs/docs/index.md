@@ -7,15 +7,9 @@ Quite soon, a number of tools and editors appeared for the game. These were
 excellent pieces of software, but time has moved on, and most of them
 unfortunately do not work on modern versions of Windows.
 
-ArgEditor is a fresh take on an F1GP editor.
+ArgEditor is a fresh take on an F1GP editor which works on all recent versions of Windows.
 
 ![ArgEditor screenshot](img/cars.png)
-
-Note: This software is still in beta, and more features will be added in due time.
-
-Remember that it is better to be safe than sorry! Please make a backup of your F1GP folder
-before using this software.
-
 
 ## Features
 
@@ -57,3 +51,6 @@ to:
 
 ArgEditor is "powered" by the [ArgData API](http://manicomio.se/argdata), for which the 
 source code is available [on GitHub](https://www.github.com/codemeyer/ArgData).
+
+Remember that it is better to be safe than sorry! Please make a backup of your F1GP folder
+before using this software.

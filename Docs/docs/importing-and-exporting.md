@@ -53,8 +53,8 @@ export data to, and decide which data to export.
 Start off by entering the path to the GP.EXE file, or use the Browse button to open a 
 file dialog.
 
-By toggling the various checkboxes you decide which information you want to import.
-The various things you can import are grouped by car set data (such as car colors
+By toggling the various checkboxes you decide which information you want to export.
+The various things you can export are grouped by car set data (such as car colors
 and driver performance) and game settings (such as the player horsepower value).
 
 If you haven't activated 26 or more drivers, it will not be possible to export driver numbers.

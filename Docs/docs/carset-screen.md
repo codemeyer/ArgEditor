@@ -13,8 +13,8 @@ When you open a car set file, you can choose either ArgEditor files (.arged) or 
 
 When saving, you can save either an ArgEditor car set file, or a F1Ed file that can be read by F1Ed.
 
-Game settings such as player horsepower, general grip level and weather settings are not
-saved in ArgEditor car set files, but are saved in F1Ed files.
+Game settings such as player horsepower, general grip level and weather settings are _not_
+saved in ArgEditor car set files, but _are_ saved in F1Ed files.
 
 
 ## Teams and Drivers tab
@@ -40,7 +40,7 @@ Team and engine names can be 12 characters long.
 If you give a driver a number, but do not set a name, an orange marker will appear
 next to the driver number dropdown for the affected driver.
 
-Note that the first team in the list has a different car shape than the other
+Note that the first team in the list has different panel shapes compared to the other
 teams. This is because the first team in 1991 was McLaren,
 which had the well-known Marlboro paint scheme
 with a red diagonal stripe across the nose cone.
@@ -50,7 +50,7 @@ with a red diagonal stripe across the nose cone.
 
 ![Performance tab screenshot](img/performance.png)
 
-Each team has a horsepower value (HP) which determine how fast the cars will be,
+Each team has a horsepower value (HP) which determine how fast the cars will be in a straight line,
 where higher is better.
 
 Drivers have two performance levels, one for qualifying and one for the race. A lower
