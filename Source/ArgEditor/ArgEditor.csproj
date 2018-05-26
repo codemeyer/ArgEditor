@@ -42,6 +42,9 @@
     <ApplicationIcon>Resources\argeditor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ArgData, Version=0.16.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArgData.0.16.1\lib\net40\ArgData.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -393,12 +396,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\argeditor.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArgData\Source\ArgData\ArgData.csproj">
-      <Project>{84965ad5-70ac-4ddf-acd1-040671510c1a}</Project>
-      <Name>ArgData</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
