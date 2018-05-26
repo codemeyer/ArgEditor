@@ -76,7 +76,7 @@ namespace ArgEditor.Commands
 
         private void OpenWebSitePage(string relativeChildUrl = "")
         {
-            var fullUrl = $"http://manicomio.se/argeditor/{relativeChildUrl}";
+            var fullUrl = $"http://www.argtools.com/argeditor/{relativeChildUrl}";
 
             Process.Start(fullUrl);
         }

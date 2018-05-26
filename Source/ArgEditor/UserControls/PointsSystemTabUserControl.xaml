@@ -87,7 +87,7 @@
                     if you want to award points to drivers finishing in positions 7 to 26.
 
                     <Hyperlink
-                        NavigateUri="http://manicomio.se/argeditor/decompressed-exe/"
+                        NavigateUri="http://www.argtools.com/argeditor/decompressed-exe/"
                         RequestNavigate="Hyperlink_RequestNavigate">
                         Learn more!
                     </Hyperlink>

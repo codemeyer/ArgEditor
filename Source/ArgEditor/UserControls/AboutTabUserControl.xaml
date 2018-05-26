@@ -39,7 +39,7 @@
                                     <Label>Copyright © 2014-2018 Fredrik Meyer</Label>
                                 </TextBlock>
                                 <TextBlock Margin="5">
-                                    Website: <Hyperlink Command="{Binding HelpDocsCommand}">http://manicomio.se/argeditor</Hyperlink>
+                                    Website: <Hyperlink Command="{Binding HelpDocsCommand}">http://www.argtools.com/argeditor</Hyperlink>
                                 </TextBlock>
                             </StackPanel>
                         </GroupBox>

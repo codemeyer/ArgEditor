@@ -6,7 +6,7 @@ namespace ArgEditor.Commands
     {
         public override void Execute(object parameter)
         {
-            Process.Start(@"http://manicomio.se/argdata");
+            Process.Start(@"http://www.argtools.com/argdata");
         }
     }
 }

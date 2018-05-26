@@ -98,7 +98,7 @@
             unless you are using a decompressed EXE.
 
             <Hyperlink
-                NavigateUri="http://manicomio.se/argeditor/decompressed-exe/"
+                NavigateUri="http://www.argtools.com/argeditor/decompressed-exe/"
                 RequestNavigate="Hyperlink_RequestNavigate">
                 Learn more!
             </Hyperlink>

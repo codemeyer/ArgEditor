@@ -44,7 +44,7 @@ namespace ArgEditor.UserControls
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            System.Diagnostics.Process.Start(@"http://manicomio.se/argeditor/decompressed-exe");
+            System.Diagnostics.Process.Start(@"http://www.argtools.com/argeditor/decompressed-exe/");
         }
     }
 }

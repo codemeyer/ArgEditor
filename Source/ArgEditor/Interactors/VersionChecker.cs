@@ -12,7 +12,7 @@ namespace ArgEditor.Interactors
             var webClient = new WebClient();
             try
             {
-                byte[] latestVersionData = webClient.DownloadData("http://manicomio.se/argeditor/download/latest-version.json");
+                byte[] latestVersionData = webClient.DownloadData("http://www.argtools.com/downloads/argeditor/latest-version.json");
                 string latestVersionText = Encoding.UTF8.GetString(latestVersionData);
                 var latestVersion = JsonConvert.DeserializeObject<LatestVersionClass>(latestVersionText);
 
