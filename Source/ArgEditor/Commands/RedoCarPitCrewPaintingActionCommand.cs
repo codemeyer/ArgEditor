@@ -14,7 +14,7 @@ namespace ArgEditor.Commands
 
             if (App.CarColorRedoStacks[index].Count == 0) { return; }
 
-            var nextActionItem = App.CarColorUndoStacks[index].Peek();
+            var nextActionItem = App.CarColorRedoStacks[index].Peek();
 
             object paintedItem = null;
 
