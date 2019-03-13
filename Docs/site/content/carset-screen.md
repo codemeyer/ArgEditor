@@ -1,3 +1,8 @@
+---
+title: "ArgEditor: Car Set Screen"
+markup: "mmark"
+---
+
 # Car Set Screen
 
 The Car Sets screen has a number of tabs at the top of the screen, with
@@ -6,15 +11,15 @@ you enter the teams and drivers, on the second tab you set their performance,
 on the third you paint the cars and pit crews. On the fourth
 tab you paint the drivers' helmets, and on the final tab you edit the points system.
 
-At the top you find buttons for loading and saving car sets, and [importing and
-exporting](importing-and-exporting.md) data.
+At the top you find buttons for loading and saving car sets, and 
+[importing and exporting](/argeditor/importing-and-exporting) data.
 
 When you open a car set file, you can choose either ArgEditor files (.arged) or old F1ed files (.1ed).
 
 When saving, you can save either an ArgEditor car set file, or a F1Ed file that can be read by F1Ed.
 
-Game settings such as player horsepower, general grip level and weather settings are _not_
-saved in ArgEditor car set files, but _are_ saved in F1Ed files.
+Game settings such as player horsepower, general grip level and weather settings are <em>not</em>
+saved in ArgEditor car set files, but <em>are</em> saved in F1Ed files.
 
 
 ## Teams and Drivers tab
@@ -23,7 +28,7 @@ This is where you enter team names and their engines, one or two drivers for
 each team. You must also set a number for the driver, where the numbers available
 range from 1 to 40.
 
-![Teams and drivers tab screenshot](img/teams-and-drivers.png)
+<img alt="Teams and drivers tab screenshot" src="/argeditor/images/teams-and-drivers.png" class="img-fluid" />
 
 There must be at least 26 active drivers. Two drivers cannot have the same numbers.
 Active drivers are those that have a number set. If you have enabled a driver by
@@ -48,7 +53,7 @@ with a red diagonal stripe across the nose cone.
 
 ## Performance tab
 
-![Performance tab screenshot](img/performance.png)
+<img alt="Performance tab screenshot" src="/argeditor/images/performance.png" class="img-fluid" />
 
 Each team has a horsepower value (HP) which determine how fast the cars will be in a straight line,
 where higher is better.
@@ -85,20 +90,21 @@ going above 50.
 ### Performance levels and qualifying sessions
 
 A thing to note is that when you completely skip the qualifying session in
-F1GP, the grid that the game sets up for you is _only_ based on the horsepower
+F1GP, the grid that the game sets up for you is <em>only</em> based on the horsepower
 value of the car, and not at all by the driver performance level. Therefore, skipping the
 qualifying session will remove any performance differences you have set between
 team-mates.
+
 
 
 ## Cars tab
 
 This is where you paint cars and pit crews.
 
-![Cars tab screenshot](img/cars.png)
+<img alt="Cars tab screenshot" src="/argeditor/images/cars.png" class="img-fluid" />
 
 Click on a car in the left part of the screen to paint it. Painting is done by
-using the [palette tools](palette-tools.md), which allow you to paint panels,
+using the <a href="/argeditor/palette-tools">palette tools</a>, which allow you to paint panels,
 select the color of an existing panel, and darken or brighten a panel.
 
 The same applies for painting the pit crew. To help you paint the socks, which
@@ -120,6 +126,7 @@ a context menu appears. It has three actions:
 These options are also available for the currently selected car in the toolbar
 above the tab.
 
+
 You can paint all cars, including those that belong to teams that have no active drivers.
 However, a team with no active drivers will not appear in the game. One area of usage
 could be if you want to include an alternative paint job in your car set, for example.
@@ -129,10 +136,10 @@ could be if you want to include an alternative paint job in your car set, for ex
 
 Here is where you paint driver helmets.
 
-![Settings tab screenshot](img/helmets.png)
+<img alt="Helmets tab screenshot" src="/argeditor/images/helmets.png" class="img-fluid" />
 
 The selection and painting works in the same way as in the Cars tab, see the
-[palette tools](palette-tools.md) page for more information.
+<a href="/argeditor/palette-tools/">palette tools</a> page for more information.
 
 By right-clicking on a helmet in the list of helmets on the left,
 a context menu appears. It has three actions:
@@ -145,7 +152,7 @@ These options are also available for the currently selected car in the toolbar
 above the tab.
 
 You can paint all helmets, including those that belong to drivers that are not active.
-However, an inactive driver will not appear in the game. One are of usage could be
+However, an inactive driver will not appear in the game. One area of usage could be
 if you want to include an alternative paint job in your car set, for example.
 
 
@@ -157,7 +164,7 @@ will always have the same color for the bottom two-thirds of their helmets.
 The only driver this affects among the default drivers is #15 Mauricio Gugelmin,
 who has a helmet that is mostly dark red anyway.
 
-However, if you use a [decompressed EXE](decompressed-exe.md) these limitations go away.
+However, if you use a <a href="/argeditor/decompressed-exe/">decompressed EXE</a>these limitations go away.
 
 When editing one of these helmets, a message will be displayed, reminding you that it
 will not export in the way you have painted it unless you are using a decompressed EXE file.
@@ -168,14 +175,15 @@ will not export in the way you have painted it unless you are using a decompress
 This is where you set the number of points each finishing position scores for
 the championship.
 
-![Points System tab](img/points-system.png)
+<img alt="Points System tab" src="/argeditor/images/points-system.png" />
 
 You can edit the number of points scored for each finishing position, from 1st down
 to 26th. However, to award points to finishers in position 7th to 26th you need to
-use a [decompressed EXE](decompressed-exe.md).
+use a <a href="/argeditor/decompressed-exe/">decompressed EXE</a>.
 
 The maximum number of points that a finish can score is 255. Another thing to note
-is that drivers that do not finish the races do not receive any points at all.
+is that drivers that do not finish the races do not receive any points at all,
+even if the position they end up in would have been a scoring one.
 
 On the right is a number of buttons with presets for the F1 points scoring systems
 used since the beginning of the 1960s. Click on a button to update the screen
@@ -193,4 +201,5 @@ or as an ArgEditor .arged file.
 Note that if you save it as a legacy F1Ed file, the points system you have entered will not
 be saved, since F1Ed has no support for editing that.
 
-You can also [export](importing-and-exporting.md#export) the car set to a GP.EXE file of your choice.
+You can also <a href="/argeditor/importing-and-exporting/#exporting-data">export</a>
+the car set to a GP.EXE file of your choice.

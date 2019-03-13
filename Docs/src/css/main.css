@@ -1,0 +1,15 @@
+@import 'imports/reset.css';
+@import 'imports/sandstone-bootstrap.min.css';
+@import 'imports/sandstone-overwrites.css';
+
+.table--tiny {
+  max-width: 400px;
+}
+
+.table--small {
+  max-width: 600px;
+}
+
+.table--medium {
+  max-width: 800px;
+}

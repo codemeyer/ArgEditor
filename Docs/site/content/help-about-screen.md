@@ -1,0 +1,25 @@
+---
+title: "ArgEditor: Help/About Screen"
+---
+
+# Help/About Screen
+
+<p>
+    The Help/About screen lets you see which version you are currently
+    running and check if there are any available updates.
+</p>
+<p>
+    <img alt="Help/About tab screenshot" src="/argeditor/images/help-about.png"/>
+</p>
+<p>
+    At the top, you have the Check for Updates button. Clicking it will
+    ask ArgEditor's webserver if there is a newer version available.
+    If there is, a link to the download page will be displayed.
+</p>
+<p>
+    You can also see the current version number, and a link to ArgEditor's
+    website.
+</p>
+<p>
+    Finally, some credits appear.
+</p>
