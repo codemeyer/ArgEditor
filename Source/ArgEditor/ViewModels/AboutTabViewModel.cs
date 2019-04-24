@@ -56,5 +56,7 @@ namespace ArgEditor.ViewModels
         public ICommand OpenDownloadPageCommand { get; } = new OpenDownloadPageCommand();
         public ICommand HelpDocsCommand { get; } = new HelpDocsCommand();
         public ICommand OpenArgDataPageCommand { get; } = new OpenArgDataPageCommand();
+        public ICommand OpenCommunityWebSiteCommand { get; } = new OpenCommunityWebSiteCommand();
+        public ICommand OpenGoogleGroupsWebSiteCommand { get; } = new OpenGoogleGroupsWebSiteCommand();
     }
 }

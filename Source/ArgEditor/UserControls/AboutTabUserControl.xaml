@@ -6,7 +6,7 @@
              xmlns:viewModels="clr-namespace:ArgEditor.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:AboutTabViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="400" d:DesignWidth="520">
+             d:DesignHeight="460" d:DesignWidth="520">
     <Grid Width="520">
         <StackPanel Orientation="Vertical">
 
@@ -36,10 +36,17 @@
                                     <Label Content="{Binding CurrentVersion}"></Label>
                                 </TextBlock>
                                 <TextBlock>
-                                    <Label>Copyright © 2014-2018 Fredrik Meyer</Label>
+                                    <Label>Copyright © 2014-2019 Fredrik Meyer</Label>
                                 </TextBlock>
                                 <TextBlock Margin="5">
                                     Website: <Hyperlink Command="{Binding HelpDocsCommand}">http://www.argtools.com/argeditor</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="5">
+                                    Community sites:
+                                    <LineBreak/>
+                                    <Hyperlink Command="{Binding OpenCommunityWebSiteCommand}">https://sites.google.com/view/f1gpwc/</Hyperlink>
+                                    <LineBreak/>
+                                    <Hyperlink Command="{Binding OpenGoogleGroupsWebSiteCommand}">https://groups.google.com/forum/#!forum/f1gpwc</Hyperlink>
                                 </TextBlock>
                             </StackPanel>
                         </GroupBox>
@@ -53,6 +60,7 @@
                                     Paul Hoad - for the C++ code for calculating F1GP file checksums he sent me in 1998<LineBreak/>
                                     Hrvoje Štimac - additional research material<LineBreak/>
                                     Barrie Millar - additional research material<LineBreak/>
+                                    René Smit - additional research material<LineBreak/>
                                     <LineBreak/>
                                     ArgEditor is powered by the <Hyperlink Command="{Binding OpenArgDataPageCommand}">ArgData API</Hyperlink><LineBreak/>
                                     <LineBreak/>

@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\Application\OpenGoogleGroupWebSiteCommand.cs" />
+    <Compile Include="Commands\Application\OpenCommunityWebSiteCommand.cs" />
     <Compile Include="Commands\Application\CheckForUpdateCommand.cs" />
     <Compile Include="Commands\Application\OpenArgDataPageCommand.cs" />
     <Compile Include="Commands\Application\OpenDownloadPageCommand.cs" />
