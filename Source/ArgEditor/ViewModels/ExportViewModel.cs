@@ -132,6 +132,11 @@ namespace ArgEditor.ViewModels
 
             if (!string.IsNullOrEmpty(SelectedExeFilePath))
             {
+                if (!File.Exists(SelectedExeFilePath))
+                {
+                    return;
+                }
+
                 var exeInfo = GpExeFile.GetFileInfo(SelectedExeFilePath);
                 if (exeInfo.IsEditingSupported && !exeInfo.IsDecompressed)
                 {
