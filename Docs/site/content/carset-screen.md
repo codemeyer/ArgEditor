@@ -164,7 +164,8 @@ will always have the same color for the bottom two-thirds of their helmets.
 The only driver this affects among the default drivers is #15 Mauricio Gugelmin,
 who has a helmet that is mostly dark red anyway.
 
-However, if you use a <a href="/argeditor/decompressed-exe/">decompressed EXE</a>these limitations go away.
+However, if you use a <a href="/argeditor/decompressed-exe/">decompressed EXE</a>
+these limitations go away.
 
 When editing one of these helmets, a message will be displayed, reminding you that it
 will not export in the way you have painted it unless you are using a decompressed EXE file.
