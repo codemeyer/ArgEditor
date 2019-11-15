@@ -5,11 +5,11 @@ title: "ArgEditor: Download"
 # Download
 
 <p>
-    The latest version is <strong>1.0.1</strong>, released on 2019-04-24.
+    The latest version is <strong>1.1</strong>, released on 2019-11-15.
 </p>
 
 <p>
-    <a class="btn btn-primary" href="/downloads/argeditor/ArgEditor-1.0.1.zip">Download</a>
+    <a class="btn btn-primary" href="/downloads/argeditor/ArgEditor-1.1.zip">Download</a>
 </p>
 
 <h2 id="installation">Installation</h2>
@@ -32,6 +32,14 @@ title: "ArgEditor: Download"
 
 
 ## Release notes
+
+### 1.1
+
+Released 2019-11-15 - [Download](/downloads/argeditor/ArgEditor-1.1.zip)
+
+* Estimated driver performance can now show calculation for slow, medium and fast tracks
+* The driver currently being edited is marked in bold in the list
+
 
 ### 1.0.1
 

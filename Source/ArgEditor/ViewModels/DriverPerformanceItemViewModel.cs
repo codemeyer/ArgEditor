@@ -3,10 +3,32 @@ using System.Globalization;
 
 namespace ArgEditor.ViewModels
 {
-    public class DriverPerformanceItemViewModel
+    public class DriverPerformanceItemViewModel : BaseViewModel
     {
         public string DriverName { get; set; }
         public double RelativePerformance { get; set; }
+
+
+        //private short _retireAfterHittingOtherCar = 8192;
+
+        //public short RetireAfterHittingOtherCar
+        //{
+        //    get { return _retireAfterHittingOtherCar; }
+        //    set { SetProperty(ref _retireAfterHittingOtherCar, value, () => RetireAfterHittingOtherCar); }
+        //}
+
+
+        private bool _isCurrentlyBeingEdited;
+
+        public bool IsCurrentlyBeingEdited
+        {
+            get { return _isCurrentlyBeingEdited; }
+            set { SetProperty(ref _isCurrentlyBeingEdited, value, () => IsCurrentlyBeingEdited); }
+        }
+
+        public byte Number { get; set; }
+
+        public double LapTime { get; set; }
 
         public string RelativePerformanceText
         {

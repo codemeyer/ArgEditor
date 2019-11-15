@@ -17,6 +17,8 @@ namespace ArgEditor
 
         public static void PerformPaletteAction(MainViewModel mainViewModel, PaletteTool activePaletteTool, ColorPropertyWrapper property, object viewModel, PaintedElement elementType)
         {
+            var palette = Palette.CreateDrivingPalette();
+
             if (activePaletteTool == PaletteTool.Paint)
             {
                 PerformPaintAction(mainViewModel, property, viewModel, elementType, mainViewModel.Palette.SelectedColor);
@@ -29,13 +31,13 @@ namespace ArgEditor
             else if (activePaletteTool == PaletteTool.Darker)
             {
                 byte colorIndex = property.GetValue(viewModel);
-                int darker = Palette.GetDarkerColor(colorIndex);
+                int darker = palette.GetDarkerColor(colorIndex);
                 PerformPaintAction(mainViewModel, property, viewModel, elementType, (byte)darker);
             }
             else if (activePaletteTool == PaletteTool.Brighter)
             {
                 byte colorIndex = property.GetValue(viewModel);
-                int brighter = Palette.GetBrighterColor(colorIndex);
+                int brighter = palette.GetBrighterColor(colorIndex);
                 PerformPaintAction(mainViewModel, property, viewModel, elementType, (byte)brighter);
             }
         }

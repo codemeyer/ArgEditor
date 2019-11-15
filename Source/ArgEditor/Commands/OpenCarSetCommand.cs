@@ -27,17 +27,26 @@ namespace ArgEditor.Commands
             //hiddenTextElement.Focus();
             // not needed anymore?
 
-            if (path.ToLowerInvariant().EndsWith(".arged"))
+            try
             {
-                var loader = new CarSetLoader();
-                loader.Load(viewModel, path);
-            }
-            if (path.ToLowerInvariant().EndsWith(".1ed"))
-            {
-                LegacyCarSetLoader.IntoViewModel(viewModel, path);
-            }
+                MainViewModelPasserArounder.MainViewModel.IsLoading = true;
 
-            // TODO: unknown file? try to read as arged?
+                if (path.ToLowerInvariant().EndsWith(".arged"))
+                {
+                    var loader = new CarSetLoader();
+                    loader.Load(viewModel, path);
+                }
+                if (path.ToLowerInvariant().EndsWith(".1ed"))
+                {
+                    LegacyCarSetLoader.IntoViewModel(viewModel, path);
+                }
+
+                // TODO: unknown file? try to read as arged?
+            }
+            finally
+            {
+                MainViewModelPasserArounder.MainViewModel.IsLoading = false;
+            }
         }
     }
 

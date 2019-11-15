@@ -145,13 +145,13 @@ namespace ArgEditor.ViewModels
 
         public void SelectNextBrighterColor()
         {
-            var nextColor = ArgData.Palette.GetBrighterColor(SelectedColor);
+            var nextColor = ArgData.Palette.CreateDrivingPalette().GetBrighterColor(SelectedColor);
             SelectedColor = (byte)nextColor;
         }
 
         public void SelectNextDarkerColor()
         {
-            var nextColor = ArgData.Palette.GetDarkerColor(SelectedColor);
+            var nextColor = ArgData.Palette.CreateDrivingPalette().GetDarkerColor(SelectedColor);
             SelectedColor = (byte)nextColor;
         }
     }

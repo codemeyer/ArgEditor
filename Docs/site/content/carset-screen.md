@@ -67,12 +67,21 @@ keys to increase/decrease the values. If you hold down the Shift key, values wil
 increase/decrease by 10.
 
 On the right you will see a rough estimate of how drivers will perform relative
-to each other. These values are based on data collected for drivers at the
-Silverstone track, which was chosen because of its mix of straights and different
-corners. At high speed tracks like Hockenheim and Monza, the horsepower value
+to each other. When you are editing a driver, they will be displayed in bold text in the list.
+When you edit a team, both the team's drivers will appear in bold.
+
+You can toggle between the Qual(ifying) and Race performance values,
+and choose if you want to see the estimated performance for slow, medium or
+fast tracks.
+
+At high speed tracks like Hockenheim and Monza, the horsepower value
 will have a much greater effect on the lap times. At the opposite end of the
-spectrum, lap times at Monaco will be much more influenced by the performance level
-of the drivers.
+spectrum, lap times at Monte Carlo and Phoenix will be much more influenced by the performance level
+of the drivers. Medium speeds tracks are somewhere in the middle, like Mexico City and Estoril.
+
+The relative performance is calculated using a formula developed by Hrvoje Štimac,
+Ivanhoe Vasiljevich and René Smit for the [LapCalc](https://sites.google.com/view/f1gpwc/file-archive/f1gp-wc-related-utilities/lapcalc) tool.
+
 
 
 ### Suitable values

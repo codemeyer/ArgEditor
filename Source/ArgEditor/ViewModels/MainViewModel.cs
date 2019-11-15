@@ -52,6 +52,8 @@ namespace ArgEditor.ViewModels
             // LOLSOB
             SelectedTeam = Teams[1];
             SelectedTeam = Teams[0];
+
+            //SelectedTrackType
         }
 
         private void SetupDrivers()
@@ -274,12 +276,12 @@ namespace ArgEditor.ViewModels
         public PointsSystemViewModel PointsSystem { get; private set; }
 
 
-        private void UpdateDriverPerformanceList()
+        public void UpdateDriverPerformanceList()
         {
             _driverPerformanceList.Clear();
 
             var performanceCalculator = new DriverPerformanceCalculator();
-            var performanceItems = performanceCalculator.Calculate(Teams, DriverPerformanceMetric);
+            var performanceItems = performanceCalculator.Calculate(Teams, DriverPerformanceMetric, SelectedTrackType);
 
             foreach (var item in performanceItems)
             {
@@ -453,6 +455,75 @@ namespace ArgEditor.ViewModels
         }
 
 
+        private byte _isEditingDriverIndex1 = 99;
+
+        public byte IsEditingDriverIndex1
+        {
+            get { return _isEditingDriverIndex1; }
+            set
+            {
+                _isEditingDriverIndex1 = value;
+
+                foreach (var drv in DriverPerformanceList)
+                {
+                    if (IsEditingIgnoreMetric)
+                    {
+                        drv.IsCurrentlyBeingEdited = (drv.Number == value ||
+                                                      drv.Number == IsEditingDriverIndex2);
+                    }
+                    else
+                    {
+                        drv.IsCurrentlyBeingEdited = (drv.Number == value ||
+                                                      drv.Number == IsEditingDriverIndex2)
+                                                     && DriverPerformanceMetric == IsEditingDriverType;
+                    }
+                }
+            }
+        }
+
+        private byte _isEditingDriverIndex2 = 99;
+
+        public byte IsEditingDriverIndex2
+        {
+            get { return _isEditingDriverIndex2; }
+            set
+            {
+                _isEditingDriverIndex2 = value;
+
+                foreach (var drv in DriverPerformanceList)
+                {
+                    if (IsEditingIgnoreMetric)
+                    {
+                        drv.IsCurrentlyBeingEdited = (drv.Number == value ||
+                                                      drv.Number == IsEditingDriverIndex1);
+                    }
+                    else
+                    {
+                        drv.IsCurrentlyBeingEdited = (drv.Number == value ||
+                                                      drv.Number == IsEditingDriverIndex1)
+                                                     && DriverPerformanceMetric == IsEditingDriverType;
+                    }
+                }
+            }
+        }
+
+        public bool IsEditingIgnoreMetric { get; set; } = true;
+
+
+        private PerformanceMetric _isEditingDriverType = PerformanceMetric.Race;
+
+        public PerformanceMetric IsEditingDriverType
+        {
+            get { return _isEditingDriverType; }
+            set
+            {
+                _isEditingDriverType = value;
+                OnPropertyChanged(nameof(IsEditingDriverType));
+                OnPropertyChanged(nameof(IsEditingDriverIndex1));
+                OnPropertyChanged(nameof(IsEditingDriverIndex2));
+            }
+        }
+
 
         private void UpdateActionButtonsVisibility()
         {
@@ -484,6 +555,36 @@ namespace ArgEditor.ViewModels
             }
         }
 
+
+
+        private TrackTypeValue _selectedTrackType = TrackTypeValue.Medium;
+
+
+        public List<TrackType> AvailableTrackTypes
+        {
+            get
+            {
+                var list = new List<TrackType>();
+
+                list.Add(new TrackType("Slow", TrackTypeValue.Slow));
+                list.Add(new TrackType("Medium", TrackTypeValue.Medium));
+                list.Add(new TrackType("Fast", TrackTypeValue.Fast));
+
+                return list;
+            }
+        }
+
+        public TrackTypeValue SelectedTrackType
+        {
+            get { return _selectedTrackType; }
+            set
+            {
+                SetProperty(ref _selectedTrackType, value, () => SelectedTrackType);
+                UpdateDriverPerformanceList();
+            }
+        }
+
+        public bool IsLoading { get; set; }
     }
 
 

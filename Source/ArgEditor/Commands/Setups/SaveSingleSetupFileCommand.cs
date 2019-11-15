@@ -28,7 +28,7 @@ namespace ArgEditor.Commands.Setups
 
             Mappers.Mapper.MapCarSetupToData(viewModel, data);
 
-            SetupWriter.WriteSingle(data, path);
+            new SetupWriter().WriteSingle(data, path);
         }
 
         public override bool CanExecute(object parameter)

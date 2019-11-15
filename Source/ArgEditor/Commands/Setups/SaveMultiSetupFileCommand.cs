@@ -44,7 +44,7 @@ namespace ArgEditor.Commands.Setups
                 Mappers.Mapper.MapCarSetupToData(viewModelSetup, dataSetup2);
             }
 
-            SetupWriter.WriteMultiple(multiSetup, path);
+            new SetupWriter().WriteMultiple(multiSetup, path);
         }
 
         public override bool CanExecute(object parameter)

@@ -51,29 +51,62 @@
             <RadioButton GroupName="PerformanceViewRadioButtons" Name="PerformanceToggleShowRace" IsChecked="True" Checked="PerformanceViewToggle">
                 Race
             </RadioButton>
+            <ComboBox Margin="22,-3,0,0" ItemsSource="{Binding AvailableTrackTypes}" DisplayMemberPath="DisplayValue" SelectedValuePath="Value"
+                      SelectedValue="{Binding SelectedTrackType}" Width="108">
+            </ComboBox>
         </StackPanel>
-        <ListView Grid.Column="1" Width="230" Height="550" VerticalAlignment="Top" ItemsSource="{Binding DriverPerformanceList}"
-                    Background="Transparent" Margin="0,24,0,10">
+        <ListView Grid.Column="1" Width="238" Height="544" VerticalAlignment="Top" ItemsSource="{Binding DriverPerformanceList}"
+                    Background="Transparent" Margin="0,28,0,10">
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource headerStyle}">
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Rank}" Width="15" TextAlignment="Right" />
+                                <TextBlock Text="{Binding Rank}" Width="15" TextAlignment="Right">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsCurrentlyBeingEdited}" Value="True">
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DriverName}" Width="110" />
+                                <TextBlock Text="{Binding DriverName}" Width="110">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsCurrentlyBeingEdited}" Value="True">
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding RelativePerformanceText}" Width="40" TextAlignment="Right" />
+                                <TextBlock Text="{Binding RelativePerformanceText}" Width="50" TextAlignment="Right">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsCurrentlyBeingEdited}" Value="True">
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

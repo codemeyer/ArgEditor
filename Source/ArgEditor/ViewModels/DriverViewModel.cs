@@ -35,6 +35,12 @@ namespace ArgEditor.ViewModels
                 UpdateEnabledFlag();
                 UpdateHelmetWarningFlag();
                 UpdateHelmetInactiveDriverWarningFlag();
+
+                if (MainViewModelPasserArounder.MainViewModel != null &&
+                    !MainViewModelPasserArounder.MainViewModel.IsLoading)
+                {
+                    MainViewModelPasserArounder.MainViewModel?.UpdateDriverPerformanceList();
+                }
             }
         }
 

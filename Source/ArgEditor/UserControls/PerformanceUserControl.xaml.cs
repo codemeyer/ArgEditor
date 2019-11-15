@@ -1,6 +1,8 @@
 ﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ArgEditor.ViewModels;
 
 namespace ArgEditor.UserControls
 {
@@ -73,6 +75,73 @@ namespace ArgEditor.UserControls
         private bool IsValidKey(Key key)
         {
             return (_validKeys.Contains(key));
+        }
+
+        private void Driver1SkillQ_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var x = DataContext as TeamViewModel;
+            ResetDriver();
+            MainViewModelPasserArounder.MainViewModel.IsEditingIgnoreMetric = false;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverType = PerformanceMetric.Qualifying;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = x.Drivers[0].Number;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = x.Drivers[0].Number;
+        }
+
+        private void Driver1SkillR_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var x = DataContext as TeamViewModel;
+            ResetDriver();
+            MainViewModelPasserArounder.MainViewModel.IsEditingIgnoreMetric = false;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverType = PerformanceMetric.Race;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = x.Drivers[0].Number;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = x.Drivers[0].Number;
+        }
+
+        private void Driver2SkillQ_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var x = DataContext as TeamViewModel;
+            ResetDriver();
+            MainViewModelPasserArounder.MainViewModel.IsEditingIgnoreMetric = false;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverType = PerformanceMetric.Qualifying;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = x.Drivers[1].Number;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = x.Drivers[1].Number;
+        }
+
+        private void Driver2SkillR_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var x = DataContext as TeamViewModel;
+            ResetDriver();
+            MainViewModelPasserArounder.MainViewModel.IsEditingIgnoreMetric = false;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverType = PerformanceMetric.Race;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = x.Drivers[1].Number;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = x.Drivers[1].Number;
+        }
+
+        private void DriverSkill_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ResetDriver();
+        }
+
+        private void ResetDriver()
+        {
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = 99;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = 99;
+        }
+
+        private void Team_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var x = DataContext as TeamViewModel;
+            MainViewModelPasserArounder.MainViewModel.IsEditingIgnoreMetric = true;
+            ResetDriver();
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = x.Drivers[0].Number;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = x.Drivers[1].Number;
+        }
+
+        private void Team_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var x = DataContext as TeamViewModel;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = 99;
+            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = 99;
         }
     }
 }

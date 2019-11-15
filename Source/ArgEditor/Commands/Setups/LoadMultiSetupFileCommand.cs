@@ -27,7 +27,7 @@ namespace ArgEditor.Commands.Setups
 
             try
             {
-                var multiSetup = SetupReader.ReadMultiple(path);
+                var multiSetup = new SetupReader().ReadMultiple(path);
 
                 viewModel.SeparateSetups = multiSetup.SeparateSetups;
 

@@ -1,7 +1,9 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Forms;
 using ArgEditor.ViewModels;
 using MessageBox = System.Windows.Forms.MessageBox;
+using RadioButton = System.Windows.Controls.RadioButton;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace ArgEditor.UserControls
 {

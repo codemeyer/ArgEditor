@@ -143,11 +143,8 @@ namespace ArgEditor.ViewModels
                     list.Add(new DriverNumber(i, i.ToString()));
                 }
                 return list;
-
             }
         }
-
-
 
 
         private bool _isSelected;
@@ -176,5 +173,27 @@ namespace ArgEditor.ViewModels
 
         public byte Value { get; set; }
         public string DisplayValue { get; set; }
+    }
+
+    // TODO: move!
+    public class TrackType
+    {
+        public TrackType(string displayValue, TrackTypeValue value)
+        {
+            DisplayValue = displayValue;
+            Value = value;
+        }
+
+        public TrackTypeValue Value { get; set; }
+
+        public string DisplayValue { get; set; }
+    }
+
+    // TODO: move!
+    public enum TrackTypeValue
+    {
+        Medium,
+        Slow,
+        Fast
     }
 }

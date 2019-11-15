@@ -10,7 +10,7 @@ namespace ArgEditor.Interactors
             if (string.IsNullOrWhiteSpace(path))
                 return;
 
-            var data = SetupReader.ReadSingle(path);
+            var data = new SetupReader().ReadSingle(path);
 
             Mappers.Mapper.MapCarSetupToViewModel(data, viewModel);
         }
