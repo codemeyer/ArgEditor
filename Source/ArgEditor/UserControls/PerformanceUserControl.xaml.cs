@@ -139,9 +139,7 @@ namespace ArgEditor.UserControls
 
         private void Team_LostFocus(object sender, RoutedEventArgs e)
         {
-            var x = DataContext as TeamViewModel;
-            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex1 = 99;
-            MainViewModelPasserArounder.MainViewModel.IsEditingDriverIndex2 = 99;
+            ResetDriver();
         }
     }
 }

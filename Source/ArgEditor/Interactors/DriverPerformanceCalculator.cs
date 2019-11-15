@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Navigation;
 using ArgEditor.ViewModels;
 
 namespace ArgEditor.Interactors
@@ -57,10 +58,7 @@ namespace ArgEditor.Interactors
                 {
                     DriverName = item.Name,
                     Number = item.Number,
-                    IsCurrentlyBeingEdited =
-                        (MainViewModelPasserArounder.MainViewModel?.IsEditingDriverIndex1 == item.Number ||
-                         MainViewModelPasserArounder.MainViewModel?.IsEditingDriverIndex2 == item.Number) &&
-                        MainViewModelPasserArounder.MainViewModel?.IsEditingDriverType == metric,
+                    IsCurrentlyBeingEdited = IsBeingEdited(item, metric),
                     RelativePerformance = item.GetRelativePerformanceVsLapTime(bestDriver.CalculateLapTime(trackType), trackType)
                 };
 
@@ -78,49 +76,31 @@ namespace ArgEditor.Interactors
                 driver.Rank = finalList.IndexOf(driver) + 1;
             }
 
-
-
-
-            // old
-
-            //foreach (var item in originalDriverPerformanceList)
-            //{
-            //    list.Add(new DriverPerformanceItemViewModel
-            //    {
-            //        DriverName = item.Name,
-            //        RelativePerformance = item.GetRelativePerformance(716, 1),
-            //    });
-            //}
-
-            //var bestDriverViewModel = list.OrderBy(d => d.RelativePerformance).FirstOrDefault();
-            //if (bestDriverViewModel == null)
-            //{
-            //    return new List<DriverPerformanceItemViewModel>();
-            //}
-
-            //var bestDriver = originalDriverPerformanceList.First(d => d.Name.Equals(bestDriverViewModel.DriverName));
-
-            //var updatedList = new List<DriverPerformanceItemViewModel>();
-
-            //foreach (var item in originalDriverPerformanceList)
-            //{
-            //    updatedList.Add(new DriverPerformanceItemViewModel
-            //    {
-            //        DriverName = item.Name,
-            //        RelativePerformance = item.GetRelativePerformance(bestDriver.Horsepower, bestDriver.GripLevel),
-            //    });
-            //}
-
-            //var finalList = updatedList.OrderBy(d => d.RelativePerformance).ToList();
-
-            //foreach (var driver in finalList)
-            //{
-            //    driver.Rank = finalList.IndexOf(driver) + 1;
-            //}
-
             return finalList;
         }
+
+        private bool IsBeingEdited(DriverPerformanceData item, PerformanceMetric metric)
+        {
+            var vm = MainViewModelPasserArounder.MainViewModel;
+            if (vm == null)
+            {
+                return false;
+            }
+
+            if (vm.IsEditingIgnoreMetric)
+            {
+                return (vm.IsEditingDriverIndex1 == item.Number ||
+                        vm.IsEditingDriverIndex2 == item.Number);
+            }
+            else
+            {
+                return (vm.IsEditingDriverIndex1 == item.Number ||
+                    vm.IsEditingDriverIndex2 == item.Number) &&
+                   vm.IsEditingDriverType == metric;
+            }
+        }
     }
+
 
     public class DriverPerformanceData
     {
