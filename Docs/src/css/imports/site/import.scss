@@ -1,0 +1,14 @@
+// import additional product/tool specific .scss files here
+
+.container {
+  & p {
+      margin: 12px 0 12px 0;
+  }
+
+  & ul {
+    margin-top: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-left: 24px;
+  }
+}

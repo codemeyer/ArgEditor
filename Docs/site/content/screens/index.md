@@ -1,9 +1,10 @@
 ---
-title: "ArgEditor: Introduction"
-markup: "mmark"
+title: "ArgEditor: Screens"
+aliases:
+    - "/introduction"
 ---
 
-# Introduction
+# Screens
 
 When starting ArgEditor, you will notice that there are four horizontal tabs on the left.
 
@@ -26,10 +27,6 @@ Click on the link in the table below for the screen you want to learn more about
     <tr>
         <td><img alt="Help/About Screen" src="/argeditor/images/tab-icon-help-about.png" /></td>
         <td><a href="/argeditor/help-about-screen">Help/About Screen</a> for version information, checking for updates, credits, etc</td>
-    </tr>
-    <tr>
-        <td>Keyboard Shortcuts</td>
-        <td><a href="/argeditor/keyboard-shortcuts">Keyboard Shortcuts</a> that are available on the different screens</td>
     </tr>
     </tbody>
 </table>

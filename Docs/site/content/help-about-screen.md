@@ -9,9 +9,6 @@ title: "ArgEditor: Help/About Screen"
     running and check if there are any available updates.
 </p>
 <p>
-    <img alt="Help/About tab screenshot" src="/argeditor/images/help-about.png"/>
-</p>
-<p>
     At the top, you have the Check for Updates button. Clicking it will
     ask ArgEditor's webserver if there is a newer version available.
     If there is, a link to the download page will be displayed.
