@@ -14,19 +14,19 @@ Click on the link in the table below for the screen you want to learn more about
     <tbody>
     <tr>
         <td width="50px"><img alt="Car Set screen" src="/argeditor/images/tab-icon-carset.png" /></td>
-        <td><a href="/argeditor/carset-screen">Car Set screen</a> for creating year-based car sets</td>
+        <td><a href="/argeditor/carset-screen/">Car Set screen</a> for creating year-based car sets</td>
     </tr>
     <tr>
         <td><img alt="Game Settings screen" src="/argeditor/images/tab-icon-settings.png" /></td>
-        <td><a href="/argeditor/settings-screen">Game Settings screen</a> for changing various game settings</td>
+        <td><a href="/argeditor/settings-screen/">Game Settings screen</a> for changing various game settings</td>
     </tr>
     <tr>
         <td><img alt="Car Setup Screen" src="/argeditor/images/tab-icon-setups.png" /></td>
-        <td><a href="/argeditor/setups-screen">Car Setup Screen</a> for creating and editing car setups</td>
+        <td><a href="/argeditor/setups-screen/">Car Setup Screen</a> for creating and editing car setups</td>
     </tr>
     <tr>
         <td><img alt="Help/About Screen" src="/argeditor/images/tab-icon-help-about.png" /></td>
-        <td><a href="/argeditor/help-about-screen">Help/About Screen</a> for version information, checking for updates, credits, etc</td>
+        <td><a href="/argeditor/help-about-screen/">Help/About Screen</a> for version information, checking for updates, credits, etc</td>
     </tr>
     </tbody>
 </table>

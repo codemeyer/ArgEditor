@@ -12,7 +12,7 @@ on the third you paint the cars and pit crews. On the fourth
 tab you paint the drivers' helmets, and on the final tab you edit the points system.
 
 At the top you find buttons for loading and saving car sets, and 
-[importing and exporting](/argeditor/importing-and-exporting) data.
+[importing and exporting](/argeditor/importing-and-exporting/) data.
 
 When you open a car set file, you can choose either ArgEditor files (.arged) or old F1ed files (.1ed).
 
