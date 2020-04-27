@@ -71,6 +71,7 @@
     <Compile Include="Features\Application\About\OpenGoogleGroupWebSiteCommand.cs" />
     <Compile Include="Features\Application\About\OpenCommunityWebSiteCommand.cs" />
     <Compile Include="Features\Application\About\CheckForUpdateCommand.cs" />
+    <Compile Include="Features\Application\About\OpenWebSitePageCommand.cs" />
     <Compile Include="Features\Application\Shared\OpenArgDataPageCommand.cs" />
     <Compile Include="Features\Application\About\OpenDownloadPageCommand.cs" />
     <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />

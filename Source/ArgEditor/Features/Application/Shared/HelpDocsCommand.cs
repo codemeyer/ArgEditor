@@ -8,6 +8,8 @@ namespace ArgEditor.Features.Application.Shared
     {
         public override void Execute(object parameter)
         {
+            // TODO: these URLs need to be updated/verified
+
             var vm = parameter as MainViewModel;
 
             if (vm == null)
@@ -77,7 +79,7 @@ namespace ArgEditor.Features.Application.Shared
 
         private void OpenWebSitePage(string relativeChildUrl = "")
         {
-            var fullUrl = $"http://www.argtools.com/argeditor/{relativeChildUrl}";
+            var fullUrl = $"https://www.argtools.com/argeditor/{relativeChildUrl}";
 
             Process.Start(fullUrl);
         }

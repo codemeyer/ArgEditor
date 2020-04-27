@@ -59,5 +59,6 @@ namespace ArgEditor.Features.Application.About
         public ICommand OpenArgDataPageCommand { get; } = new OpenArgDataPageCommand();
         public ICommand OpenCommunityWebSiteCommand { get; } = new OpenCommunityWebSiteCommand();
         public ICommand OpenGoogleGroupsWebSiteCommand { get; } = new OpenGoogleGroupsWebSiteCommand();
+        public ICommand OpenAcknowledgementsPageCommand { get; } = new OpenWebSitePageCommand("https://www.argtools.com/acknowledgements/");
     }
 }

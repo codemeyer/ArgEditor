@@ -10,7 +10,7 @@
     <Grid Width="520">
         <StackPanel Orientation="Vertical">
 
-            <StackPanel Margin="5" Orientation="Horizontal">
+            <!--<StackPanel Margin="5" Orientation="Horizontal">
                 <Button HorizontalAlignment="Left" Width="140" Height="24" Margin="0"
                         Command="{Binding CheckForUpdateCommand}" CommandParameter="{Binding}">
                     Check for Updates
@@ -24,7 +24,7 @@
                     </TextBlock>
                     <Hyperlink BaselineAlignment="Center" Command="{Binding OpenDownloadPageCommand}">Download!</Hyperlink>
                 </TextBlock>
-            </StackPanel>
+            </StackPanel>-->
 
             <TabControl Margin="5">
                 <TabItem Header="Help/About">
@@ -36,10 +36,10 @@
                                     <Label Content="{Binding CurrentVersion}"></Label>
                                 </TextBlock>
                                 <TextBlock>
-                                    <Label>Copyright © 2014-2019 Fredrik Meyer</Label>
+                                    <Label>Copyright © 2014-2020 Fredrik Meyer</Label>
                                 </TextBlock>
                                 <TextBlock Margin="5">
-                                    Website: <Hyperlink Command="{Binding HelpDocsCommand}">http://www.argtools.com/argeditor</Hyperlink>
+                                    Website: <Hyperlink Command="{Binding HelpDocsCommand}">https://www.argtools.com/argeditor/</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="5">
                                     Community sites:
@@ -54,13 +54,7 @@
                         <GroupBox Margin="5" Header="Credits">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Margin="5" TextWrapping="Wrap">
-                                    Steve Smith - for the amazing F1Ed<LineBreak/>
-                                    Trevor Kellaway - for an endless number of F1GP utilities, including GPEditor<LineBreak/>
-                                    Steven Young - for GP2edit and GP3edit, inspiring the driver performance calculation<LineBreak/>
-                                    Paul Hoad - for the C++ code for calculating F1GP file checksums he sent me in 1998<LineBreak/>
-                                    Hrvoje Štimac - additional research material<LineBreak/>
-                                    Barrie Millar - additional research material<LineBreak/>
-                                    René Smit - additional research material<LineBreak/>
+                                    <Hyperlink Command="{Binding OpenAcknowledgementsPageCommand}">https://www.argtools.com/acknowledgements/</Hyperlink><LineBreak/>
                                     <LineBreak/>
                                     ArgEditor is powered by the <Hyperlink Command="{Binding OpenArgDataPageCommand}">ArgData API</Hyperlink><LineBreak/>
                                     <LineBreak/>
