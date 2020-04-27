@@ -24,7 +24,7 @@
 
         <StackPanel Orientation="Vertical">
             <!--<Label>Choose what to import</Label>-->
-            <GroupBox Header="F1GP File" Padding="3,3,3,3" Margin="3">
+            <GroupBox Header="F1GP File to Export to" Padding="3,3,3,3" Margin="3">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <TextBox Width="248" Margin="2,2,2,2" Text="{Binding SelectedExeFilePath}"></TextBox>
