@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ArgEditor.Interactors;
-using ArgEditor.Interactors.LegacyCarSets;
+using ArgEditor.Features.Persistence.Common.LegacyCarSets;
+using ArgEditor.Features.Persistence.LoadCarSet;
+using ArgEditor.Features.Persistence.SaveCarSet;
 using FluentAssertions;
 using Xunit;
 
 namespace ArgEditor.Tests.Interactors
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class LegacyCarSetFacts
     {
         public class ReadingDefault1991Carset
@@ -204,9 +206,7 @@ namespace ArgEditor.Tests.Interactors
 
                 _lines[84].Should().Be("1=0,1,202,40,58,43,46,7,8,205,10,56,12,13,14,15");
                 _lines[101].Should().Be("18=0,1,202,40,74,43,46,7,8,205,10,70,12,13,14,15");
-                //_lines[103].Should().Be("20=0,1,202,0,0,0,0,7,8,205,10,0,12,13,14,15");
                 _lines[103].Should().Be("20=0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0");
-                // TODO: we'll see?
             }
 
             [Fact]
@@ -216,9 +216,7 @@ namespace ArgEditor.Tests.Interactors
 
                 _lines[105].Should().Be("1=0,1,111,111,111,111,6,79,79,111,111,95,111,111,111,111");
                 _lines[139].Should().Be("35=0,1,63,63,95,95,6,79,63,79,79,63,79,95,63,63");
-                _lines[144].Should().Be("40=0,1,79,79,79,79,6,79,79,79,79,79,79,79,79,79");  //?
-                //_lines[144].Should().Be("40=0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0");  //?
-                // TODO: we'll see?
+                _lines[144].Should().Be("40=0,1,79,79,79,79,6,79,79,79,79,79,79,79,79,79");
             }
 
             [Fact]
@@ -244,13 +242,6 @@ namespace ArgEditor.Tests.Interactors
             {
                 _lines.Count.Should().Be(384);
             }
-
-            //[Fact]
-            //public void CleanupTheLegacyCodeMaaan()
-            //{
-            //    // LOL
-            //    true.Should().BeFalse();
-            //}
         }
     }
 }

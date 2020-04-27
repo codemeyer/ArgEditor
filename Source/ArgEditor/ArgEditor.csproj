@@ -68,208 +68,206 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\Application\OpenGoogleGroupWebSiteCommand.cs" />
-    <Compile Include="Commands\Application\OpenCommunityWebSiteCommand.cs" />
-    <Compile Include="Commands\Application\CheckForUpdateCommand.cs" />
-    <Compile Include="Commands\Application\OpenArgDataPageCommand.cs" />
-    <Compile Include="Commands\Application\OpenDownloadPageCommand.cs" />
-    <Compile Include="Commands\CopyCarToClipboardCommand.cs" />
-    <Compile Include="Commands\CopyHelmetToClipboardCommand.cs" />
-    <Compile Include="Commands\ExportToNameFileCommand.cs" />
-    <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\DisplayExportWizardCommand.cs" />
-    <Compile Include="Commands\DisplayImportWizardCommand.cs" />
-    <Compile Include="Commands\Application\ExitApplicationCommand.cs" />
-    <Compile Include="Commands\ExportToExeCommand.cs" />
-    <Compile Include="Commands\HelpDocsCommand.cs" />
-    <Compile Include="Commands\ImportFromExeCommand.cs" />
-    <Compile Include="Commands\ImportFromNameFileCommand.cs" />
-    <Compile Include="Commands\LoadCarFileCommand.cs" />
-    <Compile Include="Commands\LoadHelmetFileCommand.cs" />
-    <Compile Include="Commands\PasteCarFromClipboardCommand.cs" />
-    <Compile Include="Commands\PasteHelmetFromClipboardCommand.cs" />
-    <Compile Include="Commands\RedoBrokerCommand.cs" />
-    <Compile Include="Commands\RedoCarPitCrewPaintingActionCommand.cs" />
-    <Compile Include="Commands\RedoHelmetPaintingActionCommand.cs" />
-    <Compile Include="Commands\Setups\CopyAllRaceToQualifyingSetupsCommand.cs" />
-    <Compile Include="Commands\Setups\CopyQualifyingSetupToRaceCommand.cs" />
-    <Compile Include="Commands\Setups\CopyRaceSetupToQualifyingCommand.cs" />
-    <Compile Include="Commands\Setups\LoadMultiSetupFileCommand.cs" />
-    <Compile Include="Commands\Setups\LoadSingleSetupFileCommand.cs" />
-    <Compile Include="Commands\OpenCarSetCommand.cs" />
-    <Compile Include="Commands\PaletteSelectNextBrighterColorCommand.cs" />
-    <Compile Include="Commands\PaletteSelectNextDarkerColorCommand.cs" />
-    <Compile Include="Commands\SaveCarSetCommand.cs" />
-    <Compile Include="Commands\Application\ShowMessageCommand.cs" />
-    <Compile Include="Commands\Setups\SaveMultiSetupFileCommand.cs" />
-    <Compile Include="Commands\Setups\SaveSingleSetupFileCommand.cs" />
-    <Compile Include="Commands\SelectPaletteColorCommand.cs" />
-    <Compile Include="Commands\UndoBrokerCommand.cs" />
-    <Compile Include="Commands\UndoCarPitCrewPaintingActionCommand.cs" />
-    <Compile Include="Commands\UndoHelmetPaintingActionCommand.cs" />
-    <Compile Include="Converters\EnumBooleanConverter.cs" />
-    <Compile Include="Interactors\SetupFileLoader.cs" />
-    <Compile Include="MainViewModelPasserArounder.cs" />
-    <Compile Include="PaletteActionService.cs" />
-    <Compile Include="UndoRedoService.cs" />
-    <Compile Include="UserControls\AboutTabUserControl.xaml.cs">
+    <Compile Include="Features\Application\About\OpenGoogleGroupWebSiteCommand.cs" />
+    <Compile Include="Features\Application\About\OpenCommunityWebSiteCommand.cs" />
+    <Compile Include="Features\Application\About\CheckForUpdateCommand.cs" />
+    <Compile Include="Features\Application\Shared\OpenArgDataPageCommand.cs" />
+    <Compile Include="Features\Application\About\OpenDownloadPageCommand.cs" />
+    <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\CopyHelmetToClipboardCommand.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\ExportToNameFileCommand.cs" />
+    <Compile Include="Infrastructure\CommandBase.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\DisplayExportWizardCommand.cs" />
+    <Compile Include="Features\ImportExport\ImportFrom\DisplayImportWizardCommand.cs" />
+    <Compile Include="Features\Application\Shared\ExitApplicationCommand.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\ExportToExeCommand.cs" />
+    <Compile Include="Features\Application\Shared\HelpDocsCommand.cs" />
+    <Compile Include="Features\ImportExport\ImportFrom\ImportFromExeCommand.cs" />
+    <Compile Include="Features\ImportExport\ImportFrom\ImportFromNameFileCommand.cs" />
+    <Compile Include="Features\CarSet\CarColors\LoadCarFileCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\LoadHelmetFileCommand.cs" />
+    <Compile Include="Features\CarSet\CarColors\PasteCarFromClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\PasteHelmetFromClipboardCommand.cs" />
+    <Compile Include="Features\UndoRedo\RedoBrokerCommand.cs" />
+    <Compile Include="Features\CarSet\RedoCarPitCrewPaintingActionCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\RedoHelmetPaintingActionCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\CopyAllRaceToQualifyingSetupsCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\CopyQualifyingSetupToRaceCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\CopyRaceSetupToQualifyingCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\LoadMultiSetupFileCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\LoadSingleSetupFileCommand.cs" />
+    <Compile Include="Features\Persistence\LoadCarSet\OpenCarSetCommand.cs" />
+    <Compile Include="Features\Palette\PaletteSelectNextBrighterColorCommand.cs" />
+    <Compile Include="Features\Palette\PaletteSelectNextDarkerColorCommand.cs" />
+    <Compile Include="Features\Persistence\SaveCarSet\SaveCarSetCommand.cs" />
+    <Compile Include="Features\Application\Shared\ShowMessageCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\SaveMultiSetupFileCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\SaveSingleSetupFileCommand.cs" />
+    <Compile Include="Features\Palette\SelectPaletteColorCommand.cs" />
+    <Compile Include="Features\UndoRedo\UndoBrokerCommand.cs" />
+    <Compile Include="Features\CarSet\UndoCarPitCrewPaintingActionCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\UndoHelmetPaintingActionCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\SetupFileLoader.cs" />
+    <Compile Include="Features\Main\MainViewModelPasserArounder.cs" />
+    <Compile Include="Features\Palette\PaletteActionService.cs" />
+    <Compile Include="Features\UndoRedo\UndoRedoService.cs" />
+    <Compile Include="Features\Application\About\AboutTabUserControl.xaml.cs">
       <DependentUpon>AboutTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSetupTabUserControl.xaml.cs">
+    <Compile Include="Features\CarSetupEditing\CarSetupTabUserControl.xaml.cs">
       <DependentUpon>CarSetupTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSetup\CarSetupPairUserControl.xaml.cs">
+    <Compile Include="Features\CarSetupEditing\CarSetupPairUserControl.xaml.cs">
       <DependentUpon>CarSetupPairUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSetup\CarSetupUserControl.xaml.cs">
+    <Compile Include="Features\CarSetupEditing\CarSetupUserControl.xaml.cs">
       <DependentUpon>CarSetupUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSet\CarSetTopMenuUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\CarSetTopMenuUserControl.xaml.cs">
       <DependentUpon>CarSetTopMenuUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Settings\DamageSettingsUserControl.xaml.cs">
+    <Compile Include="Features\GameSettings\DamageSettingsUserControl.xaml.cs">
       <DependentUpon>DamageSettingsUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Settings\WeatherSettingsUserControl.xaml.cs">
+    <Compile Include="Features\GameSettings\WeatherSettingsUserControl.xaml.cs">
       <DependentUpon>WeatherSettingsUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AboutTabViewModel.cs" />
-    <Compile Include="ViewModels\DamageSettingsViewModel.cs" />
-    <Compile Include="ViewModels\MultiSetupViewModel.cs" />
-    <Compile Include="ViewModels\SetupItemViewModel.cs" />
-    <Compile Include="ViewModels\SetupPairViewModel.cs" />
-    <Compile Include="ViewModels\SetupTabViewModel.cs" />
-    <Compile Include="ViewModels\SetupViewModel.cs" />
-    <Compile Include="ColorChange.cs" />
-    <Compile Include="Converters\ColorConverter.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="ExportValidator.cs" />
-    <Compile Include="FileDialog.cs" />
-    <Compile Include="Interactors\CarSets\CarSetCarColors.cs" />
-    <Compile Include="Interactors\CarSets\CarSetDriver.cs" />
-    <Compile Include="Interactors\CarSets\CarSetFile.cs" />
-    <Compile Include="Interactors\CarSets\CarSetPointsSystem.cs" />
-    <Compile Include="Interactors\CarSets\CarSetSaver.cs" />
-    <Compile Include="Interactors\CarSets\CarSetHelmetColors.cs" />
-    <Compile Include="Interactors\CarSets\CarSetLoader.cs" />
-    <Compile Include="Interactors\CarSets\CarSetPitCrewColors.cs" />
-    <Compile Include="Interactors\CarSets\CarSetTeam.cs" />
-    <Compile Include="Interactors\DriverPerformanceCalculator.cs" />
-    <Compile Include="Interactors\GpExeFileWriter.cs" />
-    <Compile Include="Interactors\GpExeFileReader.cs" />
-    <Compile Include="Interactors\LegacyFileLoaders.cs" />
-    <Compile Include="Interactors\LegacyCarSets\LegacyCarSet.cs" />
-    <Compile Include="Interactors\LegacyCarSets\LegacyCarSetLoader.cs" />
-    <Compile Include="Interactors\LegacyCarSets\LegacyCarSetSaver.cs" />
-    <Compile Include="Interactors\LegacyCarSets\LegacyDriver.cs" />
-    <Compile Include="Interactors\LegacyCarSets\LegacySettings.cs" />
-    <Compile Include="Interactors\LegacyCarSets\LegacyTeam.cs" />
-    <Compile Include="Interactors\NameFileLoader.cs" />
-    <Compile Include="Interactors\VersionChecker.cs" />
+    <Compile Include="Features\Application\About\AboutTabViewModel.cs" />
+    <Compile Include="Features\GameSettings\DamageSettingsViewModel.cs" />
+    <Compile Include="Features\CarSetupEditing\MultiSetupViewModel.cs" />
+    <Compile Include="Features\CarSetupEditing\SetupItemViewModel.cs" />
+    <Compile Include="Features\CarSetupEditing\SetupPairViewModel.cs" />
+    <Compile Include="Features\CarSetupEditing\SetupTabViewModel.cs" />
+    <Compile Include="Features\CarSetupEditing\SetupViewModel.cs" />
+    <Compile Include="Features\UndoRedo\ColorChange.cs" />
+    <Compile Include="Features\CarSet\ColorConverter.cs" />
+    <Compile Include="Features\Main\Constants.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\ExportValidator.cs" />
+    <Compile Include="Features\Persistence\FileDialog.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetCarColors.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetDriver.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetFile.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetPointsSystem.cs" />
+    <Compile Include="Features\Persistence\SaveCarSet\CarSetSaver.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetHelmetColors.cs" />
+    <Compile Include="Features\Persistence\LoadCarSet\CarSetLoader.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetPitCrewColors.cs" />
+    <Compile Include="Features\Persistence\Common\CarSets\CarSetTeam.cs" />
+    <Compile Include="Features\CarSet\DriverPerformance\DriverPerformanceCalculator.cs" />
+    <Compile Include="Features\ImportExport\GpExeFileWriter.cs" />
+    <Compile Include="Features\ImportExport\GpExeFileReader.cs" />
+    <Compile Include="Features\CarSet\CarColors\LegacyFileLoaders.cs" />
+    <Compile Include="Features\Persistence\Common\LegacyCarSets\LegacyCarSet.cs" />
+    <Compile Include="Features\Persistence\LoadCarSet\LegacyCarSetLoader.cs" />
+    <Compile Include="Features\Persistence\SaveCarSet\LegacyCarSetSaver.cs" />
+    <Compile Include="Features\Persistence\Common\LegacyCarSets\LegacyDriver.cs" />
+    <Compile Include="Features\Persistence\Common\LegacyCarSets\LegacySettings.cs" />
+    <Compile Include="Features\Persistence\Common\LegacyCarSets\LegacyTeam.cs" />
+    <Compile Include="Features\ImportExport\NameFileLoader.cs" />
+    <Compile Include="Features\Application\About\VersionChecker.cs" />
     <Compile Include="Mappers\Mapper.cs" />
-    <Compile Include="PaletteHelper.cs" />
+    <Compile Include="Features\Palette\PaletteHelper.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="UserControls\CarPaintingTabUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\CarColors\CarPaintingTabUserControl.xaml.cs">
       <DependentUpon>CarPaintingTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSelectionItemUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\CarSelectionItemUserControl.xaml.cs">
       <DependentUpon>CarSelectionItemUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarSelectionListUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\CarSelectionListUserControl.xaml.cs">
       <DependentUpon>CarSelectionListUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CarUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\CarUserControl.xaml.cs">
       <DependentUpon>CarUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Settings\GeneralGripLevelUserControl.xaml.cs">
+    <Compile Include="Features\GameSettings\GeneralGripLevelUserControl.xaml.cs">
       <DependentUpon>GeneralGripLevelUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HelmetPaintingTabUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\HelmetColors\HelmetPaintingTabUserControl.xaml.cs">
       <DependentUpon>HelmetPaintingTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HelmetUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\HelmetColors\HelmetUserControl.xaml.cs">
       <DependentUpon>HelmetUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PaletteUserControl.xaml.cs">
+    <Compile Include="Features\Palette\PaletteUserControl.xaml.cs">
       <DependentUpon>PaletteUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PitCrewUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\PitCrew\PitCrewUserControl.xaml.cs">
       <DependentUpon>PitCrewUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\NamesTabUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\Names\NamesTabUserControl.xaml.cs">
       <DependentUpon>NamesTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\NamesUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\Names\NamesUserControl.xaml.cs">
       <DependentUpon>NamesUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PerformanceTabUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\DriverPerformance\PerformanceTabUserControl.xaml.cs">
       <DependentUpon>PerformanceTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PerformanceUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\DriverPerformance\PerformanceUserControl.xaml.cs">
       <DependentUpon>PerformanceUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Settings\PlayerHorsepowerUserControl.xaml.cs">
+    <Compile Include="Features\GameSettings\PlayerHorsepowerUserControl.xaml.cs">
       <DependentUpon>PlayerHorsepowerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PointsSystemTabUserControl.xaml.cs">
+    <Compile Include="Features\CarSet\PointsSystem\PointsSystemTabUserControl.xaml.cs">
       <DependentUpon>PointsSystemTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SettingsTabUserControl.xaml.cs">
+    <Compile Include="Features\GameSettings\SettingsTabUserControl.xaml.cs">
       <DependentUpon>SettingsTabUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\CarEditingViewModel.cs" />
-    <Compile Include="ViewModels\DriverPerformanceItemViewModel.cs" />
-    <Compile Include="ViewModels\DriverViewModel.cs" />
-    <Compile Include="ViewModels\ExportViewModel.cs" />
-    <Compile Include="ViewModels\HelmetViewModel.cs" />
-    <Compile Include="ViewModels\ImportExportViewModel.cs" />
-    <Compile Include="ViewModels\ImportViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\PaletteColorViewModel.cs" />
-    <Compile Include="ViewModels\PaletteViewModel.cs" />
-    <Compile Include="ViewModels\PitCrewViewModel.cs" />
-    <Compile Include="ViewModels\PointsSystemViewModel.cs" />
-    <Compile Include="ViewModels\TeamViewModel.cs" />
-    <Compile Include="ViewModels\Utils\DefaultViewModelFactory.cs" />
-    <Compile Include="ViewModels\Utils\DesignerViewModels.cs" />
-    <Compile Include="Converters\VisibilityConverter.cs" />
-    <Compile Include="Windows\ExportWindow.xaml.cs">
+    <Compile Include="Infrastructure\BaseViewModel.cs" />
+    <Compile Include="Features\CarSet\CarColors\CarEditingViewModel.cs" />
+    <Compile Include="Features\CarSet\DriverPerformance\DriverPerformanceItemViewModel.cs" />
+    <Compile Include="Features\CarSet\DriverViewModel.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\ExportViewModel.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\HelmetViewModel.cs" />
+    <Compile Include="Features\ImportExport\ImportExportViewModel.cs" />
+    <Compile Include="Features\ImportExport\ImportFrom\ImportViewModel.cs" />
+    <Compile Include="Features\Main\MainViewModel.cs" />
+    <Compile Include="Features\Palette\PaletteColorViewModel.cs" />
+    <Compile Include="Features\Palette\PaletteViewModel.cs" />
+    <Compile Include="Features\CarSet\PitCrew\PitCrewViewModel.cs" />
+    <Compile Include="Features\CarSet\PointsSystem\PointsSystemViewModel.cs" />
+    <Compile Include="Features\CarSet\TeamViewModel.cs" />
+    <Compile Include="Features\Main\DefaultViewModelFactory.cs" />
+    <Compile Include="Features\CarSetupEditing\VisibilityConverter.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\ExportWindow.xaml.cs">
       <DependentUpon>ExportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ImportWindow.xaml.cs">
+    <Compile Include="Features\ImportExport\ImportFrom\ImportWindow.xaml.cs">
       <DependentUpon>ImportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WpfUtils.cs" />
-    <Page Include="UserControls\AboutTabUserControl.xaml">
+    <Compile Include="Features\Application\WpfUtils.cs" />
+    <Page Include="Features\Application\About\AboutTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSetupTabUserControl.xaml">
+    <Page Include="Features\CarSetupEditing\CarSetupTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSetup\CarSetupPairUserControl.xaml">
+    <Page Include="Features\CarSetupEditing\CarSetupPairUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSetup\CarSetupUserControl.xaml">
+    <Page Include="Features\CarSetupEditing\CarSetupUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSet\CarSetTopMenuUserControl.xaml">
+    <Page Include="Features\CarSet\CarSetTopMenuUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Settings\DamageSettingsUserControl.xaml">
+    <Page Include="Features\GameSettings\DamageSettingsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Settings\WeatherSettingsUserControl.xaml">
+    <Page Include="Features\GameSettings\WeatherSettingsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Features\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -277,79 +275,79 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Features\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\CarPaintingTabUserControl.xaml">
+    <Page Include="Features\CarSet\CarColors\CarPaintingTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSelectionItemUserControl.xaml">
+    <Page Include="Features\CarSet\CarSelectionItemUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarSelectionListUserControl.xaml">
+    <Page Include="Features\CarSet\CarSelectionListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CarUserControl.xaml">
+    <Page Include="Features\CarSet\CarUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Settings\GeneralGripLevelUserControl.xaml">
+    <Page Include="Features\GameSettings\GeneralGripLevelUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\HelmetPaintingTabUserControl.xaml">
+    <Page Include="Features\CarSet\HelmetColors\HelmetPaintingTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\HelmetUserControl.xaml">
+    <Page Include="Features\CarSet\HelmetColors\HelmetUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PaletteUserControl.xaml">
+    <Page Include="Features\Palette\PaletteUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PitCrewUserControl.xaml">
+    <Page Include="Features\CarSet\PitCrew\PitCrewUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\NamesTabUserControl.xaml">
+    <Page Include="Features\CarSet\Names\NamesTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\NamesUserControl.xaml">
+    <Page Include="Features\CarSet\Names\NamesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PerformanceTabUserControl.xaml">
+    <Page Include="Features\CarSet\DriverPerformance\PerformanceTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PerformanceUserControl.xaml">
+    <Page Include="Features\CarSet\DriverPerformance\PerformanceUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Settings\PlayerHorsepowerUserControl.xaml">
+    <Page Include="Features\GameSettings\PlayerHorsepowerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PointsSystemTabUserControl.xaml">
+    <Page Include="Features\CarSet\PointsSystem\PointsSystemTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\SettingsTabUserControl.xaml">
+    <Page Include="Features\GameSettings\SettingsTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ExportWindow.xaml">
+    <Page Include="Features\ImportExport\ExportTo\ExportWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\ImportWindow.xaml">
+    <Page Include="Features\ImportExport\ImportFrom\ImportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,8 +370,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Commands\Setups\CopyAllQualifyingToRaceSetupsCommand.cs" />
-    <Compile Include="Commands\Setups\CopySetupToClipboardCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\CopyAllQualifyingToRaceSetupsCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\CopySetupToClipboardCommand.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -399,6 +397,7 @@
   <ItemGroup>
     <Resource Include="Resources\argeditor.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

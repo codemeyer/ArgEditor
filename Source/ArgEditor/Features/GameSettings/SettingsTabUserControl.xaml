@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ArgEditor.Features.GameSettings.SettingsTabUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:gameSettings="clr-namespace:ArgEditor.Features.GameSettings"
+             xmlns:main="clr-namespace:ArgEditor.Features.Main"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=main:MainViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="740" d:DesignWidth="800">
+    <Grid Width="460" HorizontalAlignment="Left">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Width="100" Height="24" Margin="0"
+                        Command="{Binding DisplayGameSettingsImportWizardCommand}" CommandParameter="{Binding}">
+                    Import...
+                </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0"
+                        Command="{Binding DisplayGameSettingsExportWizardCommand}" CommandParameter="{Binding}">
+                    Export...
+                </Button>
+            </StackPanel>
+                <TabControl Margin="5,5,5,5">
+            <TabItem Header="Game Settings">
+                <StackPanel VerticalAlignment="Top">
+                    <gameSettings:PlayerHorsepowerUserControl Margin="5,5,5,5"></gameSettings:PlayerHorsepowerUserControl>
+                    <gameSettings:GeneralGripLevelUserControl Margin="5,5,5,5"></gameSettings:GeneralGripLevelUserControl>
+                    <gameSettings:WeatherSettingsUserControl Margin="5,5,5,5"></gameSettings:WeatherSettingsUserControl>
+                    <gameSettings:DamageSettingsUserControl DataContext="{Binding DamageSettings}" Margin="5,5,5,5"></gameSettings:DamageSettingsUserControl>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        </StackPanel>
+    </Grid>
+</UserControl>

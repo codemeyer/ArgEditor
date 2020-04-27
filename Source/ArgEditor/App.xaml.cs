@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using ArgEditor.Interactors;
-using ArgEditor.Interactors.CarSets;
-using ArgEditor.ViewModels;
+using ArgEditor.Features.CarSet.CarColors;
+using ArgEditor.Features.CarSet.HelmetColors;
+using ArgEditor.Features.CarSetupEditing;
+using ArgEditor.Features.ImportExport.ExportTo;
+using ArgEditor.Features.ImportExport.ImportFrom;
+using ArgEditor.Features.Main;
+using ArgEditor.Features.UndoRedo;
 
 namespace ArgEditor
 {

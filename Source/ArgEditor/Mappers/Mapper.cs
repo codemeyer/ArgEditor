@@ -1,10 +1,16 @@
 ﻿using System.Linq;
 using ArgData.Entities;
-using ArgEditor.Interactors.CarSets;
-using ArgEditor.Interactors.LegacyCarSets;
-using ArgEditor.ViewModels;
-using CarSetDriver = ArgEditor.Interactors.CarSets.CarSetDriver;
-using CarSetTeam = ArgEditor.Interactors.CarSets.CarSetTeam;
+using ArgEditor.Features.CarSet;
+using ArgEditor.Features.CarSet.CarColors;
+using ArgEditor.Features.CarSet.HelmetColors;
+using ArgEditor.Features.CarSet.PitCrew;
+using ArgEditor.Features.CarSet.PointsSystem;
+using ArgEditor.Features.CarSetupEditing;
+using ArgEditor.Features.Main;
+using ArgEditor.Features.Persistence.Common.CarSets;
+using ArgEditor.Features.Persistence.Common.LegacyCarSets;
+using CarSetDriver = ArgEditor.Features.Persistence.Common.CarSets.CarSetDriver;
+using CarSetTeam = ArgEditor.Features.Persistence.Common.CarSets.CarSetTeam;
 
 namespace ArgEditor.Mappers
 {

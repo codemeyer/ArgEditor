@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="ArgEditor.Features.CarSetupEditing.CarSetupTabUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:carSetupEditing="clr-namespace:ArgEditor.Features.CarSetupEditing"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowSingleSetupFileActionButtonsVisibility}">
+                    <Button Width="140" Height="24" Margin="0"
+                            Command="{Binding LoadSingleSetupFileCommand}"
+                            CommandParameter="{Binding SingleSetupViewModel}">
+                        Load Single Setup File
+                    </Button>
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding SaveSingleSetupFileCommand}"
+                            CommandParameter="{Binding SingleSetupViewModel}">
+                        Save Single Setup File
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowMultiSetupFileActionButtonsVisibility}">
+                    <Button Width="140" Height="24" Margin="0"
+                            Command="{Binding LoadMultiSetupFileCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Load Multi-Setup File
+                    </Button>
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding SaveMultiSetupFileCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Save Multi-Setup File
+                    </Button>
+
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding CopyAllRaceToQualifyingSetupsCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Copy All Race to Qual.
+                    </Button>
+                    <Button Width="140" Height="24" Margin="3,0,0,0"
+                            Command="{Binding CopyAllQualifyingToRaceSetupsCommand}"
+                            CommandParameter="{Binding MultiSetupViewModel}">
+                        Copy All Qual to Race
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+        <TabControl SelectedIndex="{Binding SelectedTab}" Margin="5,5,5,5">
+            <TabItem Header="Single Setup">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="480" />
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <carSetupEditing:CarSetupUserControl Grid.Column="0" DataContext="{Binding SingleSetupViewModel}"></carSetupEditing:CarSetupUserControl>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Multiple Setups">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox Margin="50,8,5,3" IsChecked="{Binding MultiSetupViewModel.SeparateSetups}">Separate race and qualifying setups?</CheckBox>
+                    <TabControl Margin="5" TabStripPlacement="Left">
+                        <TabItem Height="24" Header="US">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[0]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="BRA">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[1]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="SM">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[2]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="MON">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[3]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="CAN">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[4]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="MEX">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[5]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="FRA">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[6]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="GB">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[7]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="GER">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[8]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="HUN">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[9]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="BEL">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[10]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="ITA">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[11]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="POR">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[12]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="SPA">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[13]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="JAP">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[14]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                        <TabItem Height="24" Header="AUS">
+                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[15]}"></carSetupEditing:CarSetupPairUserControl>
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

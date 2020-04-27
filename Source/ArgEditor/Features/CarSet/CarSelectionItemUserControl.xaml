@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="ArgEditor.Features.CarSet.CarSelectionItemUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:carSet="clr-namespace:ArgEditor.Features.CarSet"
+             mc:Ignorable="d"
+             d:DesignHeight="65" d:DesignWidth="140">
+    <Grid Width="135" Height="63" DataContext="{Binding}">
+        <Border>
+            <Border.Style>
+                <Style>
+                    <Setter Property="Border.BorderThickness" Value="0.5" />
+                    <Setter Property="Border.BorderBrush" Value="DarkGray" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Border.BorderThickness" Value="1" />
+                            <Setter Property="Border.BorderBrush" Value="#404040" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+        <carSet:CarUserControl Margin="3,3,3,3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="46" DataContext="{Binding Car}">
+            <carSet:CarUserControl.Style>
+                <Style TargetType="{x:Type carSet:CarUserControl}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.03" ScaleY="1.03"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </carSet:CarUserControl.Style>
+        </carSet:CarUserControl>
+        <Label Width="132" Height="26" Margin="0,0,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" Content="{Binding Name}" />
+    </Grid>
+</UserControl>
+
+
+

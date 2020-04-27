@@ -20,9 +20,13 @@ namespace ArgEditor
             AssemblyName assemblyName = new AssemblyName(args.Name);
 
             string path = assemblyName.Name + ".dll";
-            if (!assemblyName.CultureInfo.Equals(CultureInfo.InvariantCulture))
+
+            if (assemblyName.CultureInfo != null)
             {
-                path = $@"{assemblyName.CultureInfo}\{path}";
+                if (!assemblyName.CultureInfo.Equals(CultureInfo.InvariantCulture))
+                {
+                    path = $@"{assemblyName.CultureInfo}\{path}";
+                }
             }
 
             using (Stream stream = executingAssembly.GetManifestResourceStream(path))

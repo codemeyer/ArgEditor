@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="ArgEditor.Features.CarSet.PointsSystem.PointsSystemTabUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:pointsSystem="clr-namespace:ArgEditor.Features.CarSet.PointsSystem"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=pointsSystem:PointsSystemViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="740" d:DesignWidth="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="640"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Vertical" Width="600" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Label Width="38" HorizontalContentAlignment="Right">1st</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor1st}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">2nd</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor2nd}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">3rd</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor3rd}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">4th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor4th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">5th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor5th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">6th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor6th}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Width="38" HorizontalContentAlignment="Right">7th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor7th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">8th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor8th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">9th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor9th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">10th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor10th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">11th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor11th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">12th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor12th}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Width="38" HorizontalContentAlignment="Right">13th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor13th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">14th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor14th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">15th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor15th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">16th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor16th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">17th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor17th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">18th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor18th}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Width="38" HorizontalContentAlignment="Right">19th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor19th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">20th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor20th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">21st</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor21st}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">22nd</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor22nd}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">23rd</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor23rd}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">24th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor24th}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Width="38" HorizontalContentAlignment="Right">25th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor25th}"></TextBox>
+                <Label Width="38" HorizontalContentAlignment="Right">26th</Label>
+                <TextBox Height="21" Width="32" Margin="0,4,10,0" Text="{Binding PointsFor26th}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="40,20,140,10">
+                <TextBlock Height="50" TextWrapping="Wrap" Visibility="{Binding ShowDecompressedExeMessage}">
+                    Note: You need a decompressed EXE file
+                    if you want to award points to drivers finishing in positions 7 to 26.
+
+                    <Hyperlink
+                        NavigateUri="http://www.argtools.com/argeditor/decompressed-exe/"
+                        RequestNavigate="Hyperlink_RequestNavigate">
+                        Learn more!
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label>
+                Presets
+            </Label>
+            <Button Width="200" Height="24" Margin="5" Click="ButtonCurrent_Click">
+                <TextBlock>25-18-15-12-10-8-6-4-2-1</TextBlock>
+            </Button>
+            <Button Width="200" Height="24" Margin="5" Click="Button2003_Click">
+                <TextBlock>10-8-6-5-4-3-2-1</TextBlock>
+            </Button>
+            <Button Width="200" Height="24" Margin="5" Click="Button1991_Click">
+                <TextBlock>10-6-4-3-2-1</TextBlock>
+            </Button>
+            <Button Width="200" Height="24" Margin="5" Click="Button1990_Click">
+                <TextBlock>9-6-4-3-2-1</TextBlock>
+            </Button>
+            <Button Width="200" Height="24" Margin="5" Click="ButtonAll_Click" Visibility="Hidden">
+                <TextBlock>All</TextBlock>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
