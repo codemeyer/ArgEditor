@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:carSet="clr-namespace:ArgEditor.Features.CarSet"
              xmlns:palette="clr-namespace:ArgEditor.Features.Palette"
+             xmlns:application="clr-namespace:ArgEditor.Features.Application"
+             xmlns:draw="clr-namespace:System.Drawing;assembly=System.Drawing"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=palette:PaletteViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="360" d:DesignWidth="290">
@@ -42,28 +44,38 @@
                              Click="PaletteToolBrighter_Click"
                              IsChecked="{Binding IsPaletteToolBrighter}">Brighten</RadioButton>
             </StackPanel>
-        <ItemsControl ItemsSource="{Binding Colors}" HorizontalAlignment="Left" Width="290" Height="290" x:Name="PaletteContainer">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Rectangle Fill="{Binding ColorIndex, Converter={StaticResource ColorConverter}}" Width="18" Height="18"
+            <ItemsControl ItemsSource="{Binding Colors}" HorizontalAlignment="Left" Width="290" Height="290" x:Name="PaletteContainer">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Fill="{Binding ColorIndex, Converter={StaticResource ColorConverter}}" Width="18" Height="18"
                                Style="{StaticResource ColorRectangleStyle}">
-                        <Rectangle.InputBindings>
-                            <MouseBinding Gesture="LeftClick" Command="{Binding SelectPaletteColorCommand}" CommandParameter="{Binding}"></MouseBinding>
-                        </Rectangle.InputBindings>
-                    </Rectangle>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                            <Rectangle.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding SelectPaletteColorCommand}" CommandParameter="{Binding}"></MouseBinding>
+                            </Rectangle.InputBindings>
+                        </Rectangle>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Margin="0,0,10,0">Selected Color:</Label>
-                <Rectangle HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="160"
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <TextBlock Margin="0,0,10,0">Selected Color:</TextBlock>
+                <Rectangle Margin="40,0,0,0" HorizontalAlignment="Right" Height="18" VerticalAlignment="Top" Width="157"
                            Stroke="Black" Fill="{Binding SelectedColor, Converter={StaticResource ColorConverter}}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="2" Visibility="{Binding ShowPaletteTrackColorWarning}">
+                <Image Source="{application:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14" />
+                <TextBlock Margin="4,0,10,0">This color may change slightly based on the track</TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="2" Visibility="{Binding ShowPaletteWetWeatherColorWarning}">
+                <Image Source="{application:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14" />
+                <TextBlock Margin="4,0,10,0">This color may turn gray during wet races</TextBlock>
             </StackPanel>
 
         </StackPanel>

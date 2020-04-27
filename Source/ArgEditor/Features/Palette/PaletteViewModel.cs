@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows;
 using ArgEditor.Features.CarSet;
 using ArgEditor.Infrastructure;
 
@@ -13,6 +14,9 @@ namespace ArgEditor.Features.Palette
 
         public PaletteViewModel()
         {
+            ShowPaletteTrackColorWarning = Visibility.Collapsed;
+            ShowPaletteWetWeatherColorWarning = Visibility.Collapsed;
+
             _colors = new ObservableCollection<PaletteColorViewModel>();
 
             for (int i = 0; i <= 255; i++)
@@ -48,6 +52,31 @@ namespace ArgEditor.Features.Palette
                 {
                     color.IsSelected = (color.ColorIndex == _selectedColor);
                 }
+
+                UpdateWarningMessages();
+            }
+        }
+
+        private void UpdateWarningMessages()
+        {
+            if (16 <= SelectedColor && SelectedColor <= 31)
+            {
+                // affected by track
+                ShowPaletteTrackColorWarning = Visibility.Visible;
+            }
+            else
+            {
+                ShowPaletteTrackColorWarning = Visibility.Collapsed;
+            }
+
+            if (224 <= SelectedColor && SelectedColor <= 231)
+            {
+                // affected by wet weather
+                ShowPaletteWetWeatherColorWarning = Visibility.Visible;
+            }
+            else
+            {
+                ShowPaletteWetWeatherColorWarning = Visibility.Collapsed;
             }
         }
 
@@ -138,6 +167,24 @@ namespace ArgEditor.Features.Palette
                 _isPaletteToolBrighter = value;
                 OnPropertyChanged(nameof(IsPaletteToolBrighter));
             }
+        }
+
+
+        private Visibility _showPaletteTrackColorWarning;
+
+        public Visibility ShowPaletteTrackColorWarning
+        {
+            get { return _showPaletteTrackColorWarning; }
+            set { SetProperty(ref _showPaletteTrackColorWarning, value, () => ShowPaletteTrackColorWarning); }
+        }
+
+
+        private Visibility _showPaletteWetWeatherColorWarning;
+
+        public Visibility ShowPaletteWetWeatherColorWarning
+        {
+            get { return _showPaletteWetWeatherColorWarning; }
+            set { SetProperty(ref _showPaletteWetWeatherColorWarning, value, () => ShowPaletteWetWeatherColorWarning); }
         }
 
 
