@@ -9,7 +9,7 @@ namespace ArgEditor.Features.Persistence.Common.CarSets
     {
         public CarSetFile()
         {
-            FileVersion = 2;
+            FileVersion = 3;
             Teams = new List<CarSetTeam>();
             Drivers = new List<CarSetDriver>();
             PointsSystem = new CarSetPointsSystem();

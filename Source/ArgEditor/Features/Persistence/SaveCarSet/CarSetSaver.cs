@@ -33,6 +33,7 @@ namespace ArgEditor.Features.Persistence.SaveCarSet
             {
                 var fileDriver = Mapper.MapCarSetDriver(driver);
                 fileDriver.HelmetColors = Mapper.MapCarSetHelmetColors(driver.Helmet);
+                fileDriver.MenuImage = Mapper.MapMenuImage(driver.MenuImage);
                 carSet.Drivers.Add(fileDriver);
             }
 

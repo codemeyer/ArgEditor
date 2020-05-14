@@ -1,5 +1,6 @@
 using ArgEditor.Features.CarSet;
 using ArgEditor.Features.CarSet.HelmetColors;
+using ArgEditor.Features.CarSet.MenuImages;
 using ArgEditor.Features.Main;
 using ArgEditor.Infrastructure;
 
@@ -23,6 +24,12 @@ namespace ArgEditor.Features.UndoRedo
                 var command = new RedoHelmetPaintingActionCommand();
                 command.Execute(parameter);
             }
+
+            if (viewModel.SelectedMainTabIndex == 0 && viewModel.SelectedCarSetTabIndex == 4)
+            {
+                var command = new RedoMenuImageActionCommand();
+                command.Execute(parameter);
+            }
         }
 
         public override bool CanExecute(object parameter)
@@ -39,6 +46,12 @@ namespace ArgEditor.Features.UndoRedo
             if (viewModel.SelectedMainTabIndex == 0 && viewModel.SelectedCarSetTabIndex == 3)
             {
                 var command = new RedoHelmetPaintingActionCommand();
+                return command.CanExecute(parameter);
+            }
+
+            if (viewModel.SelectedMainTabIndex == 0 && viewModel.SelectedCarSetTabIndex == 4)
+            {
+                var command = new RedoMenuImageActionCommand();
                 return command.CanExecute(parameter);
             }
 

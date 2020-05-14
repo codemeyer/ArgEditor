@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using ArgEditor.Features.CarSet.MenuImages;
 using ArgEditor.Features.Persistence;
 
 namespace ArgEditor.Features.ImportExport.ImportFrom
@@ -35,6 +36,12 @@ namespace ArgEditor.Features.ImportExport.ImportFrom
 
             var reader = new GpExeFileReader();
             reader.UpdateViewModelFromExe(vm.Parent, vm.SelectedExeFilePath, vm);
+
+            if (vm.ApplyMenuImages)
+            {
+                var menuImageLoader = new MenuImageLoader();
+                menuImageLoader.Import(vm.Parent, vm.SelectedMenuImageFilePath);
+            }
 
             if (vm.ApplyNameFile)
             {
@@ -84,6 +91,19 @@ namespace ArgEditor.Features.ImportExport.ImportFrom
             {
                 vm.SelectedNameFilePath = path;
                 vm.ApplyNameFile = true;
+            }
+        }
+
+        private void BrowseMenuImagesFile_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as ImportViewModel;
+
+            var path = new FileDialog().SelectDatFileToOpen();
+
+            if (!string.IsNullOrEmpty(path))
+            {
+                vm.SelectedMenuImageFilePath = path;
+                vm.ApplyMenuImages = true;
             }
         }
     }

@@ -1,3 +1,4 @@
+using System.IO;
 using System.Windows;
 using ArgData;
 using ArgEditor.Infrastructure;
@@ -18,8 +19,41 @@ namespace ArgEditor.Features.ImportExport
                 _selectedExeFilePath = value;
                 OnPropertyChanged(nameof(SelectedExeFilePath));
                 UpdateInterface();
+                UpdateMenuImagesPath();
             }
         }
+
+
+
+        private void UpdateMenuImagesPath()
+        {
+            if (!File.Exists(SelectedExeFilePath))
+            {
+                return;
+            }
+
+            // not if we don't want images
+            if (!ApplyMenuImages)
+            {
+                return;
+            }
+
+            // do not overwrite
+            if (!string.IsNullOrEmpty(SelectedMenuImageFilePath))
+            {
+                return;
+            }
+
+            var dir = Path.GetDirectoryName(SelectedExeFilePath);
+
+            var newPath = Path.Combine(dir, "HELMETS.DAT");
+
+            if (File.Exists(newPath))
+            {
+                SelectedMenuImageFilePath = newPath;
+            }
+        }
+
 
         protected abstract void UpdateInterface();
 
@@ -83,6 +117,7 @@ namespace ArgEditor.Features.ImportExport
             ApplyDriverPerformanceValues = value;
             ApplyPitCrewColors = value;
             ApplyHelmetColors = value;
+            ApplyMenuImages = value;
             ApplyPointsSystem = value;
         }
 
@@ -176,6 +211,39 @@ namespace ArgEditor.Features.ImportExport
                 UpdateInterface();
             }
         }
+
+
+        private bool _applyMenuImages = true;
+
+        public bool ApplyMenuImages
+        {
+            get { return _applyMenuImages; }
+            set
+            {
+                if (value.Equals(_applyMenuImages)) return;
+
+                _applyMenuImages = value;
+                OnPropertyChanged(nameof(ApplyMenuImages));
+                UpdateInterface();
+            }
+        }
+
+
+        private string _selectedMenuImageFilePath;
+
+        public string SelectedMenuImageFilePath
+        {
+            get { return _selectedMenuImageFilePath; }
+            set
+            {
+                if (value.Equals(_selectedMenuImageFilePath)) return;
+
+                _selectedMenuImageFilePath = value;
+                OnPropertyChanged(nameof(SelectedMenuImageFilePath));
+                UpdateInterface();
+            }
+        }
+
 
 
         private bool _applyPointsSystem = true;
@@ -289,6 +357,7 @@ namespace ArgEditor.Features.ImportExport
 
 
 
+
         protected void UpdateDriverNumberRelatedSettingsWarning()
         {
             ShowDriverNumberRelatedPerformanceWarning = Visibility.Hidden;
@@ -307,6 +376,15 @@ namespace ArgEditor.Features.ImportExport
             {
                 ShowDriverNumberRelatedHelmetColorsWarning = Visibility.Visible;
                 ShowDriverNumberRelatedHelmetColorsWarningMessage = "Helmet colors are dependent on driver numbers. Importing or exporting helmet colors but not driver numbers may result in unexpected behavior.";
+            }
+
+            ShowDriverNumberRelatedMenuImagesWarning = Visibility.Hidden;
+            ShowDriverNumberRelatedMenuImagesWarningMessage = string.Empty;
+
+            if (!ApplyDriverNumbers && ApplyMenuImages)
+            {
+                ShowDriverNumberRelatedMenuImagesWarning = Visibility.Visible;
+                ShowDriverNumberRelatedMenuImagesWarningMessage = "Menu images are dependent on driver numbers. Importing or exporting menu images but not driver numbers may result in unexpected behavior.";
             }
         }
 
@@ -357,6 +435,31 @@ namespace ArgEditor.Features.ImportExport
             {
                 SetProperty(ref _showDriverNumberRelatedHelmetColorsWarningMessage, value,
                     () => ShowDriverNumberRelatedHelmetColorsWarningMessage);
+            }
+        }
+
+
+        private Visibility _showDriverNumberRelatedMenuImagesWarning = Visibility.Hidden;
+
+        public Visibility ShowDriverNumberRelatedMenuImagesWarning
+        {
+            get { return _showDriverNumberRelatedMenuImagesWarning; }
+            set
+            {
+                SetProperty(ref _showDriverNumberRelatedMenuImagesWarning, value,
+                    () => ShowDriverNumberRelatedMenuImagesWarning);
+            }
+        }
+
+        private string _showDriverNumberRelatedMenuImagesWarningMessage;
+
+        public string ShowDriverNumberRelatedMenuImagesWarningMessage
+        {
+            get { return _showDriverNumberRelatedMenuImagesWarningMessage; }
+            set
+            {
+                SetProperty(ref _showDriverNumberRelatedMenuImagesWarningMessage, value,
+                    () => ShowDriverNumberRelatedMenuImagesWarningMessage);
             }
         }
 

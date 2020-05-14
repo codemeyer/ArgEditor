@@ -7,6 +7,7 @@
         xmlns:carColors="clr-namespace:ArgEditor.Features.CarSet.CarColors"
         xmlns:helmetColors="clr-namespace:ArgEditor.Features.CarSet.HelmetColors"
         xmlns:pointsSystem="clr-namespace:ArgEditor.Features.CarSet.PointsSystem"
+        xmlns:menuImages="clr-namespace:ArgEditor.Features.CarSet.MenuImages"
         xmlns:gameSettings="clr-namespace:ArgEditor.Features.GameSettings"
         xmlns:carSetupEditing="clr-namespace:ArgEditor.Features.CarSetupEditing"
         xmlns:about="clr-namespace:ArgEditor.Features.Application.About"
@@ -51,22 +52,25 @@
                 <StackPanel Orientation="Vertical">
                     <carSet:CarSetTopMenuUserControl></carSet:CarSetTopMenuUserControl>
                     <TabControl x:Name="MainCarSetTab" Margin="5,5,5,5" SelectedIndex="{Binding SelectedCarSetTabIndex}">
-                    <TabItem Header="Teams and Drivers">
-                        <names:TeamDriverNamesTabUserControl Width="880" Height="590" x:Name="TeamsAndDriversTab"></names:TeamDriverNamesTabUserControl>
-                    </TabItem>
-                    <TabItem Header="Performance">
-                        <driverPerformance:TeamDriverPerformanceTabUserControl Width="880" Height="590" x:Name="PerformanceTab"></driverPerformance:TeamDriverPerformanceTabUserControl>
-                    </TabItem>
-                    <TabItem Header="Cars">
-                        <carColors:CarPaintingTabUserControl Width="880" Height="590" x:Name="CarPaintingTab"></carColors:CarPaintingTabUserControl>
-                    </TabItem>
-                    <TabItem Header="Helmets">
-                        <helmetColors:HelmetPaintingTabUserControl Width="880" Height="590" x:Name="HelmetPaintingTab"></helmetColors:HelmetPaintingTabUserControl>
-                    </TabItem>
-                    <TabItem Header="Points System">
-                        <pointsSystem:PointsSystemTabUserControl Width="880" Height="590" x:Name="PointsSystemTab"></pointsSystem:PointsSystemTabUserControl>
-                    </TabItem>
-                </TabControl>
+                        <TabItem Header="Teams and Drivers">
+                            <names:TeamDriverNamesTabUserControl Width="880" Height="590" x:Name="TeamsAndDriversTab"></names:TeamDriverNamesTabUserControl>
+                        </TabItem>
+                        <TabItem Header="Performance">
+                            <driverPerformance:TeamDriverPerformanceTabUserControl Width="880" Height="590" x:Name="PerformanceTab"></driverPerformance:TeamDriverPerformanceTabUserControl>
+                        </TabItem>
+                        <TabItem Header="Cars">
+                            <carColors:CarPaintingTabUserControl Width="880" Height="590" x:Name="CarPaintingTab"></carColors:CarPaintingTabUserControl>
+                        </TabItem>
+                        <TabItem Header="Helmets">
+                            <helmetColors:HelmetPaintingTabUserControl Width="880" Height="590" x:Name="HelmetPaintingTab"></helmetColors:HelmetPaintingTabUserControl>
+                        </TabItem>
+                        <TabItem Header="Menu Images">
+                            <menuImages:MenuImagesTabUserControl Width="880" Height="590" x:Name="MenuImagesTab"></menuImages:MenuImagesTabUserControl>
+                        </TabItem>
+                        <TabItem Header="Points System">
+                            <pointsSystem:PointsSystemTabUserControl Width="880" Height="590" x:Name="PointsSystemTab"></pointsSystem:PointsSystemTabUserControl>
+                        </TabItem>
+                    </TabControl>
                 </StackPanel>
             </TabItem>
 

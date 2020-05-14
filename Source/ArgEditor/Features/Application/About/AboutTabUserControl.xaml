@@ -58,7 +58,8 @@
                                     <LineBreak/>
                                     ArgEditor is powered by the <Hyperlink Command="{Binding OpenArgDataPageCommand}">ArgData API</Hyperlink><LineBreak/>
                                     <LineBreak/>
-                                    Various icons made by Freepik from www.flaticon.com
+                                    Various icons made by Freepik from www.flaticon.com<LineBreak />
+                                    Color comparisons are done using the ColorMine API
                                 </TextBlock>
                             </StackPanel>
                         </GroupBox>

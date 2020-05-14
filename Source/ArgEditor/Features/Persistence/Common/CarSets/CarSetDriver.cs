@@ -10,5 +10,6 @@ namespace ArgEditor.Features.Persistence.Common.CarSets
         public byte RaceGripLevel { get; set; }
         public byte QualifyingGripLevel { get; set; }
         public CarSetHelmetColors HelmetColors { get; set; }
+        public string MenuImage { get; set; }
     }
 }

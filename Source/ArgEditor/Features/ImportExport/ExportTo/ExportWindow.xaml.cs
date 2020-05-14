@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Windows;
 using ArgData;
 using ArgData.Entities;
@@ -30,6 +31,8 @@ namespace ArgEditor.Features.ImportExport.ExportTo
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
+            // TODO: place elsewhere!
+
             var writer = new GpExeFileWriter();
             writer.WriteViewModelToExe(ViewModel.Parent, ViewModel.SelectedExeFilePath, ViewModel);
 
@@ -48,6 +51,30 @@ namespace ArgEditor.Features.ImportExport.ExportTo
                 var prefsFile = PreferencesFile.At(prefsPath);
                 var prefsWriter = PreferencesWriter.For(prefsFile);
                 prefsWriter.SetAutoLoadedNameFile(ViewModel.SelectedNameFilePath);
+            }
+
+            if (ViewModel.ApplyMenuImages)
+            {
+                var containerReader = new MediaContainerFileReader();
+                var container = containerReader.Read(ViewModel.SelectedMenuImageFilePath);
+
+                for (int i = 0; i < container.Items.Count; i++)
+                {
+                    int driverNumber = i + 1;
+
+                    var driver = ViewModel.Parent.Drivers.FirstOrDefault(d => d.Number == driverNumber);
+
+                    if (driver == null)
+                    {
+                        continue;
+                    }
+
+                    var item = container.Items[i] as ImageItem1774;
+                    item.SetPixelData(driver.MenuImage.PixelData);
+                }
+
+                var containerWriter = new MediaContainerFileWriter();
+                containerWriter.Write(ViewModel.SelectedMenuImageFilePath, container);
             }
 
             App.LatestExportViewModel = ViewModel;
@@ -73,6 +100,20 @@ namespace ArgEditor.Features.ImportExport.ExportTo
         private void GameSettingsCheckNoneButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.SetAllGameSettingsCheckBoxes(false);
+        }
+
+
+        private void BrowseMenuImagesFile_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as ExportViewModel;
+
+            var path = new FileDialog().SelectDatFileToOpen();
+
+            if (!string.IsNullOrEmpty(path))
+            {
+                vm.SelectedMenuImageFilePath = path;
+                vm.ApplyMenuImages = true;
+            }
         }
 
 

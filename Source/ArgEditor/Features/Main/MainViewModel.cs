@@ -12,6 +12,7 @@ using ArgEditor.Features.CarSet;
 using ArgEditor.Features.CarSet.CarColors;
 using ArgEditor.Features.CarSet.DriverPerformance;
 using ArgEditor.Features.CarSet.HelmetColors;
+using ArgEditor.Features.CarSet.MenuImages;
 using ArgEditor.Features.CarSet.PointsSystem;
 using ArgEditor.Features.CarSetupEditing;
 using ArgEditor.Features.GameSettings;
@@ -28,9 +29,6 @@ namespace ArgEditor.Features.Main
 {
     public class MainViewModel : BaseViewModel, IDataErrorInfo
     {
-        private TeamViewModel _selectedTeam;
-        private HelmetViewModel _selectedHelmet;
-
         public MainViewModel()
         {
             // TODO: put CarSet stuff in separate CarSetViewModel ?
@@ -40,6 +38,7 @@ namespace ArgEditor.Features.Main
 
             SelectedTeam = Teams[0];
             SelectedHelmet = Drivers[0].Helmet;
+            SelectedMenuImage = Drivers[0].MenuImage;
 
             Palette = new PaletteViewModel();
             Palette.ActivePaletteTool = PaletteTool.Paint;
@@ -84,7 +83,12 @@ namespace ArgEditor.Features.Main
                 if (driverIndex == 0)
                 {
                     driverViewModel.Helmet.IsSelected = true;
+                    driverViewModel.MenuImage.IsSelected = true;
                 }
+
+                //driverViewModel.MenuImage.Image = MenuImageLoader.GetDefault();
+                driverViewModel.MenuImage.SetDefault();
+                //driverViewModel.MenuImage.MagnifiedImage = MenuImageLoader.GetDefault();
 
                 driverViewModel.PropertyChanged += DriverViewModelOnPropertyChanged;
                 Drivers.Add(driverViewModel);
@@ -188,6 +192,8 @@ namespace ArgEditor.Features.Main
 
         public List<TeamViewModel> Teams { get; private set; }
 
+        private TeamViewModel _selectedTeam;
+
         public TeamViewModel SelectedTeam
         {
             get { return _selectedTeam; }
@@ -219,6 +225,8 @@ namespace ArgEditor.Features.Main
         }
 
 
+        private HelmetViewModel _selectedHelmet;
+
         public HelmetViewModel SelectedHelmet
         {
             get { return _selectedHelmet; }
@@ -239,6 +247,31 @@ namespace ArgEditor.Features.Main
 
             helmet.IsSelected = true;
         }
+
+
+        private MenuImageViewModel _selectedMenuImage;
+
+        public MenuImageViewModel SelectedMenuImage
+        {
+            get { return _selectedMenuImage; }
+            set {
+                if (SetProperty(ref _selectedMenuImage, value, () => SelectedMenuImage))
+                {
+                    UpdateSelectedMenuImage(value);
+                }
+            }
+        }
+
+        private void UpdateSelectedMenuImage(MenuImageViewModel menuImage)
+        {
+            foreach (var driver in Drivers)
+            {
+                driver.MenuImage.IsSelected = false;
+            }
+
+            menuImage.IsSelected = true;
+        }
+
 
         private string _activeDriverCountMessage;
 
@@ -355,6 +388,11 @@ namespace ArgEditor.Features.Main
         public ICommand PaletteSelectNextBrighterColorCommand { get; } = new PaletteSelectNextBrighterColorCommand();
         public ICommand PaletteSelectNextDarkerColorCommand { get; } = new PaletteSelectNextDarkerColorCommand();
 
+        public ICommand LoadMenuImageCommand { get; } = new LoadMenuImageCommand();
+        public ICommand SelectedMenuImageFromDatCommand { get; } = new SelectedMenuImageFromDatCommand();
+        public ICommand SaveMenuImageToFileCommand { get; } = new SaveMenuImageToFileCommand(new FileDialog());
+        public ICommand ClearMenuImageCommand { get; } = new ClearMenuImageCommand();
+
         // a test, sort of
         public ICommand ShowWarningMessageCommand { get; } = new ShowWarningMessageCommand();
         public ICommand ShowErrorMessageCommand { get; } = new ShowErrorMessageCommand();
@@ -374,6 +412,11 @@ namespace ArgEditor.Features.Main
         public ICommand CopyHelmetToClipboardCommand { get; } = new CopyHelmetToClipboardCommand();
         public ICommand PasteHelmetFromClipboardCommand { get; } = new PasteHelmetFromClipboardCommand();
         public ICommand LoadHelmetFileCommand { get; } = new LoadHelmetFileCommand(new FileDialog());
+
+        public ICommand UndoMenuImageActionCommand { get; } = new UndoMenuImageActionCommand();
+        public ICommand RedoMenuImageActionCommand { get; } = new RedoMenuImageActionCommand();
+        public ICommand CopyMenuImageToClipboardCommand { get; } = new CopyMenuImageToClipboardCommand();
+        public ICommand PasteMenuImageFromClipboardCommand { get; } = new PasteMenuImageFromClipboardCommand();
 
         // TODO: more commands
         // Palette, set mode?
@@ -466,6 +509,15 @@ namespace ArgEditor.Features.Main
         {
             get { return _showHelmetActionButtons; }
             set { SetProperty(ref _showHelmetActionButtons, value, () => ShowHelmetActionButtons); }
+        }
+
+
+        private Visibility _showMenuImageActionButtons;
+
+        public Visibility ShowMenuImageActionButtons
+        {
+            get { return _showMenuImageActionButtons; }
+            set { SetProperty(ref _showMenuImageActionButtons, value, () => ShowMenuImageActionButtons); }
         }
 
 
@@ -566,6 +618,15 @@ namespace ArgEditor.Features.Main
             else
             {
                 ShowHelmetActionButtons = Visibility.Collapsed;
+            }
+
+            if (SelectedCarSetTabIndex == 4)
+            {
+                ShowMenuImageActionButtons = Visibility.Visible;
+            }
+            else
+            {
+                ShowMenuImageActionButtons = Visibility.Collapsed;
             }
         }
 

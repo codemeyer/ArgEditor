@@ -180,12 +180,46 @@ When editing one of these helmets, a message will be displayed, reminding you th
 will not export in the way you have painted it unless you are using a decompressed EXE file.
 
 
+## Menu Images tab
+
+The menu images tab allows you to update the images that are displayed in the driver
+selection menu.
+
+<img alt="Menu Images tab" src="/argeditor/images/menu-images.png" class="img-fluid" />
+
+If you want to update the image for a specific driver, click on the menu image for the driver
+on the left-hand side and then the "Load from File..." button on the right.
+
+A new dialog will open where you can "Browse" your file system for an image that you want to
+select.
+
+When you have selected the image, ArgEditor will scale the image to 48 by 48 pixels and map
+the colors to the available palette. You will then be presented with a preview of the result.
+
+<img alt="Menu Images Load window" src="/argeditor/images/menu-image-load.png" class="img-fluid" />
+
+If you are happy with how the image looks you can press OK and the image will be updated.
+
+You can save an individual image to disk by using the "Save to File" functionality.
+
+By clicking "Clear" you will reset the image to a blank dark blue background.
+
+
+
+### Menu image tips
+
+It is recommended that you use some form of image editing software to make sure that the image
+you have selected is as square as possible to avoid squashing. This is because of the fact that the
+game only allows 48x48 images, so  ArgEditor will always fit the entire image into a 48x48 square.
+
+
+
 ## Points System tab
 
 This is where you set the number of points each finishing position scores for
 the championship.
 
-<img alt="Points System tab" src="/argeditor/images/points-system.png" />
+<img alt="Points System tab" src="/argeditor/images/points-system.png" class="img-fluid" />
 
 You can edit the number of points scored for each finishing position, from 1st down
 to 26th. However, to award points to finishers in position 7th to 26th you need to
@@ -205,11 +239,8 @@ you that they will only be available if using a decompressed EXE file.
 
 ## I have finished my car set, now what?
 
-After you have created the car set you can either save it to disk, either as an F1Ed .1ed file,
-or as an ArgEditor .arged file.
+After you have created the car set you can save it to disk and share it with your
+friends or the rest of the community.
 
-Note that if you save it as a legacy F1Ed file, the points system you have entered will not
-be saved, since F1Ed has no support for editing that.
-
-You can also <a href="/argeditor/importing-and-exporting/#exporting-data">export</a>
-the car set to a GP.EXE file of your choice.
+But of course, you probably want to <a href="/argeditor/importing-and-exporting/#exporting-data">export</a>
+the car set to a GP.EXE file of your choice to try it out in-game!

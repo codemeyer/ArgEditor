@@ -22,6 +22,7 @@ ArgEditor is a fresh take on an F1GP editor, and it works on all recent versions
 - Paint cars, pit crew clothing and helmets
 - Full undo/redo functionality when editing
 - Update the points system
+- Update the driver selection menu images
 - Create and edit car setup files
 - and more!
 

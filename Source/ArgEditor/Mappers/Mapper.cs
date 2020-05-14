@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using ArgData.Entities;
 using ArgEditor.Features.CarSet;
 using ArgEditor.Features.CarSet.CarColors;
 using ArgEditor.Features.CarSet.HelmetColors;
+using ArgEditor.Features.CarSet.MenuImages;
 using ArgEditor.Features.CarSet.PitCrew;
 using ArgEditor.Features.CarSet.PointsSystem;
 using ArgEditor.Features.CarSetupEditing;
@@ -93,6 +95,21 @@ namespace ArgEditor.Mappers
                 Visor = helmet.VisorColorIndex,
                 VisorSurround = helmet.VisorSurroundColorIndex
             };
+        }
+
+        /// <summary>
+        /// "Map" menu image to a Base64 encoded string.
+        /// </summary>
+        /// <param name="menuImage"></param>
+        /// <returns></returns>
+        public static string MapMenuImage(MenuImageViewModel menuImage)
+        {
+            if (menuImage.IsDefault() || menuImage.PixelData == null)
+            {
+                return string.Empty;
+            }
+
+            return Convert.ToBase64String(menuImage.PixelData);
         }
 
         public static void MapCarSetTeamToTeamViewModel(CarSetTeam fileTeam, TeamViewModel team)
@@ -556,6 +573,19 @@ namespace ArgEditor.Mappers
             target.GearRatio5 = source.GearRatio5;
             target.GearRatio6 = source.GearRatio6;
             target.TyreCompound = source.TyreCompound;
+        }
+
+        public static void MapCarSetMenuImageToMenuImageViewModel(string menuImageBase64, MenuImageViewModel driverMenuImage)
+        {
+            if (string.IsNullOrEmpty(menuImageBase64))
+            {
+                driverMenuImage.SetDefault();
+                return;
+            }
+
+            byte[] pixelData = Convert.FromBase64String(menuImageBase64);
+
+            driverMenuImage.SetFromPixelData(pixelData);
         }
     }
 }

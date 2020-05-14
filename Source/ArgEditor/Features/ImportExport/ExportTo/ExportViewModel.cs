@@ -1,6 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using ArgData;
+using ArgEditor.Features.CarSet;
 using ArgEditor.Features.Main;
 
 namespace ArgEditor.Features.ImportExport.ExportTo
@@ -17,6 +20,9 @@ namespace ArgEditor.Features.ImportExport.ExportTo
             ApplyNameFile = true;
             SelectedNameFilePath = "gpsaves/argedit.nam";
             AutoLoadNameFile = true;
+
+            // only check ApplyMenuImages if any menu image has been changed
+            ApplyMenuImages = !AllDriversHaveDefaultImages(parent.Drivers);
         }
 
         public ExportViewModel()
@@ -34,6 +40,7 @@ namespace ArgEditor.Features.ImportExport.ExportTo
                 UpdatePointsSystemWarning();
                 UpdateNameFileLengthWarning();
                 UpdateDriverNumberRelatedSettingsWarning();
+                UpdateMenuImageFileWarning();
 
                 CanExport = false;
                 return;
@@ -62,6 +69,7 @@ namespace ArgEditor.Features.ImportExport.ExportTo
             UpdateAutoLoadNameFileWarning();
             UpdateNameFileLengthWarning();
             UpdateDriverNumberRelatedSettingsWarning();
+            UpdateMenuImageFileWarning();
         }
 
         private void UpdateEnoughActiveDrivers()
@@ -93,6 +101,11 @@ namespace ArgEditor.Features.ImportExport.ExportTo
 
             ShowDriverNumbersWarning = Visibility.Hidden;
             ShowDriverNumbersWarningMessage = string.Empty;
+        }
+
+        private bool AllDriversHaveDefaultImages(List<DriverViewModel> drivers)
+        {
+            return drivers.Where(d => d.Number > 0).All(d => d.MenuImage.IsDefault());
         }
 
 
@@ -186,6 +199,25 @@ namespace ArgEditor.Features.ImportExport.ExportTo
             {
                 ShowNameFileLengthWarning = Visibility.Visible;
                 ShowNameFileLengthWarningMessage = "The name file path is too long.";
+                CanExport = false;
+            }
+        }
+
+        private void UpdateMenuImageFileWarning()
+        {
+            ShowMenuImageFileWarning = Visibility.Hidden;
+            ShowMenuImageFileWarningMessage = string.Empty;
+
+            if (ApplyMenuImages)
+            {
+                if (File.Exists(SelectedMenuImageFilePath))
+                {
+                    // TODO: check type of file!
+                    return;
+                }
+
+                ShowMenuImageFileWarning = Visibility.Visible;
+                ShowMenuImageFileWarningMessage = "The file must exist and be of the correct DAT type.";
                 CanExport = false;
             }
         }
@@ -291,6 +323,23 @@ namespace ArgEditor.Features.ImportExport.ExportTo
         {
             get { return _showNameFileLengthWarningMessage; }
             set { SetProperty(ref _showNameFileLengthWarningMessage, value, () => ShowNameFileLengthWarningMessage); }
+        }
+
+
+        private Visibility _showMenuImageFileWarning = Visibility.Hidden;
+
+        public Visibility ShowMenuImageFileWarning
+        {
+            get { return _showMenuImageFileWarning; }
+            set { SetProperty(ref _showMenuImageFileWarning, value, () => ShowMenuImageFileWarning); }
+        }
+
+        private string _showMenuImageFileWarningMessage;
+
+        public string ShowMenuImageFileWarningMessage
+        {
+            get { return _showMenuImageFileWarningMessage; }
+            set { SetProperty(ref _showMenuImageFileWarningMessage, value, () => ShowMenuImageFileWarningMessage); }
         }
 
     }

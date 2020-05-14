@@ -21,6 +21,15 @@ namespace ArgEditor.Features.Persistence.LoadCarSet
 
                 Mapper.MapCarSetDriverToDriverViewModel(fileDriver, driver);
                 Mapper.MapCarSetHelmetToHelmetViewModel(fileDriver.HelmetColors, driver.Helmet);
+
+                if (carSet.FileVersion >= 3)
+                {
+                    Mapper.MapCarSetMenuImageToMenuImageViewModel(fileDriver.MenuImage, driver.MenuImage);
+                }
+                else
+                {
+                    driver.MenuImage.SetDefault();
+                }
             }
 
             for (int i = 0; i < ArgEditorConstants.TeamCountSupported; i++)
@@ -36,7 +45,7 @@ namespace ArgEditor.Features.Persistence.LoadCarSet
                 team.Drivers.Add(viewModel.Drivers[i * 2 + 1]);
             }
 
-            if (carSet.FileVersion > 1)
+            if (carSet.FileVersion >= 2)
             {
                 Mapper.MapCarSetPointsSystemToViewModel(carSet.PointsSystem, viewModel.PointsSystem);
             }

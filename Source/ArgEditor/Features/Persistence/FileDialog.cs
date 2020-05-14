@@ -10,9 +10,12 @@ namespace ArgEditor.Features.Persistence
         string SelectLegacyCarSetFileToSave();
         string SelectLegacyHelmetFileToOpen();
         string SelectGpExeFile();
+        string SelectDatFileToOpen();
         string SelectAnyFileToOpen();
         string SelectAnyFileToSave();
         string SelectNameFileToSave();
+        string SelectImageFileToOpen();
+        string SelectImageFileToSave();
     }
 
     public class FileDialog : IFileDialog
@@ -65,6 +68,20 @@ namespace ArgEditor.Features.Persistence
                 DefaultExt = ".exe",
                 Filter = "EXE files (*.exe)|.exe|All files (*.*)|*.*",
                 FileName = "*.exe",
+                CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public string SelectDatFileToOpen()
+        {
+            var fileDialog = new OpenFileDialog
+            {
+                Title = "Select DAT File",
+                DefaultExt = ".*",
+                Filter = "DAT files (*.dat)|.dat|All files (*.*)|*.*",
+                FileName = "*.dat",
                 CheckFileExists = true
             };
 
@@ -140,6 +157,31 @@ namespace ArgEditor.Features.Persistence
             return GetFilePathFromDialog(fileDialog);
         }
 
+        public string SelectImageFileToOpen()
+        {
+            var fileDialog = new OpenFileDialog
+            {
+                Title = "Select Image File",
+                DefaultExt = ".*",
+                Filter = "Image Files (*.bmp;*.jpg;*.jpeg;*.png;*.gif)|*.bmp;*.jpg;*.jpeg;*.png;*.gif;|All files (*.*)|*.*",
+                CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public string SelectImageFileToSave()
+        {
+            var fileDialog = new SaveFileDialog
+            {
+                Title = "Save Menu Image File",
+                DefaultExt = ".png",
+                Filter = "PNG Image File (*.png)|*.png",
+                CheckFileExists = false
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
 
         private static string GetFilePathFromDialog(OpenFileDialog fileDialog)
         {

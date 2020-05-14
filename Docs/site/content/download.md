@@ -34,6 +34,18 @@ be found here:
 Below are the release notes for each released version of ArgEditor.
 
 
+### 1.2
+
+Released 2020-05-15 - [Download](/downloads/argeditor/ArgEditor-1.2.zip)
+
+- Editing of [Menu images](/argeditor/carset-screen#menu-images-tab)!
+- Show warning when selecting palette colors affected by track or wet weather
+- Changed phrasing to make the direction of Import and Export clearer
+- Change mouse icon to spinner/hourglass when performing potentially longer-running tasks
+- Fix: Numpad keys work on the performance tab
+- Fix: Context menu paste on helmets crashed when no helmet was on the clipboard
+
+
 ### 1.1
 
 Released 2019-11-15 - [Download](/downloads/argeditor/ArgEditor-1.1.zip)

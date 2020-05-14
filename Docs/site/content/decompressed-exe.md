@@ -20,7 +20,7 @@ title: "ArgEditor: Working with Decompressed EXE files"
     <li>
         <p>
             Helmets for drivers with number #13, #15, #36, #37, #38, #39 and #40 are
-            forced to have the same colour for the bottom third of the helmet.
+            forced to have the same color for the bottom third of the helmet.
         </p>
     </li>
     <li>

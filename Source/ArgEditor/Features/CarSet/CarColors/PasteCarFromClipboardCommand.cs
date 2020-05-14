@@ -23,6 +23,7 @@ namespace ArgEditor.Features.CarSet.CarColors
             var colorChangeList = CreateColorChangeListForCarPasteOperation(car, App.ClipboardCar);
 
             App.CarColorUndoStacks[team.Index].Push(colorChangeList);
+            App.CarColorRedoStacks[team.Index].Clear();
 
             Mapper.MapCarEditingViewModel(App.ClipboardCar, car);
         }

@@ -17,6 +17,7 @@ namespace ArgEditor.Features.CarSet.HelmetColors
             var colorChangeList = CreateColorChangeListForHelmetPasteOperation(helmet, App.ClipboardHelmet);
             int index = MainViewModelPasserArounder.MainViewModel.Drivers.Select(t => t.Helmet).ToList().IndexOf(helmet);
             App.HelmetColorUndoStacks[index].Push(colorChangeList);
+            App.HelmetColorRedoStacks[index].Clear();
 
             Mapper.MapHelmetViewModel(App.ClipboardHelmet, helmet);
         }

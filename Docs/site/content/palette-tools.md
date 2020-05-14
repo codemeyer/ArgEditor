@@ -44,8 +44,23 @@ title: "ArgEditor: Palette Tools"
     If there is no brighter color, nothing will happen.
 </p>
 
+
 <h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+
 <p>
     When you are on the Cars or Helmets tab, you can use the + and - keys to select the
     next brighter (+) or next darker (-) color in the palette.
 </p>
+
+
+<h2 id="notes">Notes</h2>
+
+If you select any color from the second row from the top (the row where the left half of the colors
+are green and the right ones are gray) then ArgEditor will display a little warning at the bottom.
+This is because those colors may be slightly brighter or darker at different tracks, depending on
+how the specific track adjusts the grass and asphalt colors.
+
+For example, Magny-Cours has a much darker asphalt color than most other tracks.
+
+There is also a group of blue colors that will display a warning that these colors turn gray
+a lot during wet races. For the default cars, you may have noticed this behavior for the Leyton House cars.

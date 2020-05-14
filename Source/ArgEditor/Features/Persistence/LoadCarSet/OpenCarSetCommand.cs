@@ -1,4 +1,6 @@
-﻿using ArgEditor.Features.Main;
+﻿using System.Windows.Input;
+using ArgEditor.Features.CarSet.MenuImages;
+using ArgEditor.Features.Main;
 using ArgEditor.Infrastructure;
 
 namespace ArgEditor.Features.Persistence.LoadCarSet
@@ -26,6 +28,8 @@ namespace ArgEditor.Features.Persistence.LoadCarSet
             //hiddenTextElement.Focus();
             // not needed anymore?
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             try
             {
                 MainViewModelPasserArounder.MainViewModel.IsLoading = true;
@@ -45,6 +49,7 @@ namespace ArgEditor.Features.Persistence.LoadCarSet
             finally
             {
                 MainViewModelPasserArounder.MainViewModel.IsLoading = false;
+                Mouse.OverrideCursor = null;
             }
         }
     }

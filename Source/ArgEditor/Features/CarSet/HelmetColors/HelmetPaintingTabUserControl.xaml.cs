@@ -64,6 +64,11 @@ namespace ArgEditor.Features.CarSet.HelmetColors
 
         private void HelmetSelectionPaste_Click(object sender, RoutedEventArgs e)
         {
+            if (App.ClipboardHelmet == null)
+            {
+                return;
+            }
+
             var helmet = GetHelmetViewModelForContextMenuItem(sender as MenuItem);
 
             if (helmet == null)

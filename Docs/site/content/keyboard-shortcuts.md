@@ -47,10 +47,6 @@ title: "ArgEditor: Keyboard Shortcuts"
             <td>Ctrl + S</td>
             <td>Save ArgEditor (.arged) car set</td>
         </tr>
-        <tr>
-            <td>Ctrl + Alt + S</td>
-            <td>Save F1Ed (.1ed) car set</td>
-        </tr>
     </tbody>
 </table>
 
@@ -103,14 +99,6 @@ title: "ArgEditor: Keyboard Shortcuts"
             <td>Redo painting action on current car/pit crew</td>
         </tr>
         <tr>
-            <td>Ctrl + C</td>
-            <td>Copy current car to clipboard</td>
-        </tr>
-        <tr>
-            <td>Ctrl + P</td>
-            <td>Paste car from clipboard to current car</td>
-        </tr>
-        <tr>
             <td>+</td>
             <td>Select next brighter color in palette</td>
         </tr>
@@ -141,20 +129,35 @@ title: "ArgEditor: Keyboard Shortcuts"
             <td>Redo painting action on current helmet</td>
         </tr>
         <tr>
-            <td>Ctrl + C</td>
-            <td>Copy current helmet to clipboard</td>
-        </tr>
-        <tr>
-            <td>Ctrl + P</td>
-            <td>Paste helmet from clipboard to current helmet</td>
-        </tr>
-        <tr>
             <td>+</td>
             <td>Select next brighter color in palette</td>
         </tr>
         <tr>
             <td>-</td>
             <td>Select next darker color in palette</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h3 id="menu-images-tab">Menu Images tab</h3>
+
+<table class="table table-bordered table-striped table--small">
+    <thead>
+        <tr>
+            <th>Shortcut</th>
+            <th>Command</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ctrl + Z</td>
+            <td>Undo last change for the selected menu image</td>
+        </tr>
+        <tr>
+            <td>Ctrl + Y</td>
+            <td>Redo change for the selected menu image</td>
         </tr>
     </tbody>
 </table>

@@ -16,7 +16,7 @@ title: "ArgEditor: Car Setup Screen"
     This is where you work with single setups.
 </p>
 <p>
-    <img alt="Single setup tab screenshot" src="/argEditor/images/setups-single.png" class="img-fluid" />
+    <img alt="Single setup tab screenshot" src="/argeditor/images/setups-single.png" class="img-fluid" />
 </p>
 <p>
     For a setup, you can change the front and rear wings, the brake balance,

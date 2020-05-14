@@ -8,16 +8,17 @@
         xmlns:importFrom="clr-namespace:ArgEditor.Features.ImportExport.ImportFrom"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=importFrom:ImportViewModel, IsDesignTimeCreatable=True}"
-        d:DesignWidth="364" d:DesignHeight="512"
-        Title="Import" Height="512" Width="364"
+        d:DesignWidth="364" d:DesignHeight="548"
+        Title="Import" Width="364" Height="548"
         WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
         ResizeMode="NoResize">
     <Grid>
-        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,-240,0,0">
+        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,-284,0,0">
             <Button Width="38" Height="25" Margin="3" Click="CarSetCheckAllButton_Click">All</Button>
             <Button Width="38" Height="25" Margin="3" Click="CarSetCheckNoneButton_Click">None</Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,90,0,0">
+        <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,128,0,0">
             <Button Width="38" Height="25" Margin="3" Click="GameSettingsCheckAllButton_Click">All</Button>
             <Button Width="38" Height="25" Margin="3" Click="GameSettingsCheckNoneButton_Click">None</Button>
         </StackPanel>
@@ -41,7 +42,7 @@
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyPitCrewColors}">Pit Crew Colors</CheckBox>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverNumbers}">Driver Numbers</CheckBox>
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox Margin="2" Width="180" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverPerformanceValues}">Driver Performance Values</CheckBox>
+                        <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyDriverPerformanceValues}">Driver Performance Values</CheckBox>
                         <Image Visibility="{Binding ShowDriverNumberRelatedPerformanceWarning}" Source="{application:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
                             <Image.ToolTip>
                                 <ToolTip Content="{Binding ShowDriverNumberRelatedPerformanceWarningMessage}"></ToolTip>
@@ -49,12 +50,26 @@
                         </Image>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox Margin="2" Width="120" HorizontalAlignment="Left" IsChecked="{Binding ApplyHelmetColors}">Helmet Colors</CheckBox>
+                        <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyHelmetColors}">Helmet Colors</CheckBox>
                         <Image Visibility="{Binding ShowDriverNumberRelatedHelmetColorsWarning}" Source="{application:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
                             <Image.ToolTip>
                                 <ToolTip Content="{Binding ShowDriverNumberRelatedHelmetColorsWarningMessage}"></ToolTip>
                             </Image.ToolTip>
                         </Image>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Margin="2" Width="200" IsChecked="{Binding ApplyMenuImages}">Menu Images</CheckBox>
+                            <Image Visibility="{Binding ShowDriverNumberRelatedMenuImagesWarning}" Source="{application:ImageSourceFromIcon {x:Static draw:SystemIcons.Warning}}" Width="14" Height="14">
+                                <Image.ToolTip>
+                                    <ToolTip Content="{Binding ShowDriverNumberRelatedMenuImagesWarningMessage}"></ToolTip>
+                                </Image.ToolTip>
+                            </Image>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Width="248" Margin="2,2,2,2" Text="{Binding SelectedMenuImageFilePath}"></TextBox>
+                            <Button Width="62" Margin="5,2,2,2" Click="BrowseMenuImagesFile_Click">Browse...</Button>
+                        </StackPanel>
                     </StackPanel>
                     <CheckBox Margin="2" Width="200" HorizontalAlignment="Left" IsChecked="{Binding ApplyPointsSystem}">Points System</CheckBox>
                 </StackPanel>

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows;
 using ArgEditor.Features.CarSet.HelmetColors;
+using ArgEditor.Features.CarSet.MenuImages;
 using ArgEditor.Features.Main;
 using ArgEditor.Infrastructure;
 
@@ -22,6 +23,7 @@ namespace ArgEditor.Features.CarSet
             QualifyingGripLevel = qualifyingGripLevel;
 
             Helmet = new HelmetViewModel(this);
+            MenuImage = new MenuImageViewModel(this);
         }
 
         public byte Number
@@ -153,6 +155,7 @@ namespace ArgEditor.Features.CarSet
 
         public TeamViewModel Team { get; set; }
 
+        public MenuImageViewModel MenuImage { get; set; }
 
 
         private bool _hasSameNumberAsOtherDriver;

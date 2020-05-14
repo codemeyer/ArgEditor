@@ -45,6 +45,9 @@
     <Reference Include="ArgData, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ArgData.0.19.0\lib\net40\ArgData.dll</HintPath>
     </Reference>
+    <Reference Include="ColorMine, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ColorMine.1.1.3.0\lib\ColorMine.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -52,7 +55,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,7 +78,28 @@
     <Compile Include="Features\Application\About\OpenDownloadPageCommand.cs" />
     <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />
     <Compile Include="Features\CarSet\HelmetColors\CopyHelmetToClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\CopyMenuImageToClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\LoadMenuImageCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\LoadMenuImageViewModel.cs" />
+    <Compile Include="Features\CarSet\MenuImages\MenuImageConverter.cs" />
+    <Compile Include="Features\CarSet\MenuImages\MenuImageImportWindow.xaml.cs">
+      <DependentUpon>MenuImageImportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CarSet\MenuImages\MenuImageLoader.cs" />
+    <Compile Include="Features\CarSet\MenuImages\MenuImageResizer.cs" />
+    <Compile Include="Features\CarSet\MenuImages\MenuImagesTabUserControl.xaml.cs">
+      <DependentUpon>MenuImagesTabUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CarSet\MenuImages\MenuImageViewModel.cs" />
+    <Compile Include="Features\CarSet\MenuImages\ClearMenuImageCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\PasteMenuImageFromClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\RedoMenuImageActionCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\SaveMenuImageToFileCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\SelectedMenuImageFromDatCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\UndoMenuImageActionCommand.cs" />
+    <Compile Include="Features\ImportExport\ExportTo\DisplayGameSettingsExportWizardCommand.cs" />
     <Compile Include="Features\ImportExport\ExportTo\ExportToNameFileCommand.cs" />
+    <Compile Include="Features\CarSet\MenuImages\PixelDataChange.cs" />
     <Compile Include="Infrastructure\CommandBase.cs" />
     <Compile Include="Features\ImportExport\ExportTo\DisplayExportWizardCommand.cs" />
     <Compile Include="Features\ImportExport\ImportFrom\DisplayImportWizardCommand.cs" />
@@ -257,6 +280,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Features\CarSet\CarSetTopMenuUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\CarSet\MenuImages\MenuImageImportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\CarSet\MenuImages\MenuImagesTabUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
