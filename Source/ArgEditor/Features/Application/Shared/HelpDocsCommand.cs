@@ -8,8 +8,6 @@ namespace ArgEditor.Features.Application.Shared
     {
         public override void Execute(object parameter)
         {
-            // TODO: these URLs need to be updated/verified
-
             var vm = parameter as MainViewModel;
 
             if (vm == null)
@@ -38,20 +36,23 @@ namespace ArgEditor.Features.Application.Shared
                     return;
                 }
 
-
                 if (vm.SelectedCarSetTabIndex == 3)
                 {
                     OpenWebSitePage("carset-screen/#helmets-tab");
                     return;
                 }
 
-
                 if (vm.SelectedCarSetTabIndex == 4)
+                {
+                    OpenWebSitePage("carset-screen/#menu-images-tab");
+                    return;
+                }
+
+                if (vm.SelectedCarSetTabIndex == 5)
                 {
                     OpenWebSitePage("carset-screen/#points-system-tab");
                     return;
                 }
-
             }
 
             if (vm.SelectedMainTabIndex == 1)       // game settings
