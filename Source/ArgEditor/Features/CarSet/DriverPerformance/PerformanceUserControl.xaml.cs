@@ -33,7 +33,7 @@ namespace ArgEditor.Features.CarSet.DriverPerformance
             if (!int.TryParse(currentTextValue, out value))
                 return;
 
-            if (e.Key == Key.OemPlus)
+            if (e.Key == Key.OemPlus || e.Key == Key.Add)
             {
                 if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
                 {
@@ -45,7 +45,7 @@ namespace ArgEditor.Features.CarSet.DriverPerformance
                 e.Handled = true;
             }
 
-            if (e.Key == Key.OemMinus && value > 0)
+            if ((e.Key == Key.OemMinus || e.Key == Key.Subtract) && value > 0)
             {
                 if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
                 {
@@ -69,7 +69,10 @@ namespace ArgEditor.Features.CarSet.DriverPerformance
         private Key[] _validKeys = new Key[]
         {
             Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9,
-            Key.OemPlus, Key.OemMinus, Key.Delete, Key.Tab
+            Key.OemPlus, Key.OemMinus, Key.Delete, Key.Tab,
+            Key.NumPad0, Key.NumPad1, Key.NumPad2, Key.NumPad3, Key.NumPad4,
+            Key.NumPad5, Key.NumPad6, Key.NumPad7, Key.NumPad8, Key.NumPad9,
+            Key.Add, Key.Subtract
         };
 
         private bool IsValidKey(Key key)
