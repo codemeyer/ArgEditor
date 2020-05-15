@@ -13,6 +13,9 @@
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False"
         ResizeMode="NoResize">
+    <Window.InputBindings>
+        <KeyBinding Key="F1" Command="{Binding HelpDocsCommand}" CommandParameter="{Binding}"></KeyBinding>
+    </Window.InputBindings>
     <Grid>
         <StackPanel Orientation="Horizontal" ZIndex="0" Margin="250,-304,0,0">
             <Button Width="38" Height="25" Margin="3" Click="CarSetCheckAllButton_Click">All</Button>

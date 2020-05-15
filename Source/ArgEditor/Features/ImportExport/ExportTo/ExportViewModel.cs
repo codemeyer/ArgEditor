@@ -2,7 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using ArgData;
+using ArgEditor.Features.Application.Shared;
 using ArgEditor.Features.CarSet;
 using ArgEditor.Features.Main;
 
@@ -342,5 +344,7 @@ namespace ArgEditor.Features.ImportExport.ExportTo
             set { SetProperty(ref _showMenuImageFileWarningMessage, value, () => ShowMenuImageFileWarningMessage); }
         }
 
+
+        public ICommand HelpDocsCommand { get; } = new HelpDocsCommand("importing-and-exporting/#exporting-data");
     }
 }

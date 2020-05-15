@@ -6,8 +6,25 @@ namespace ArgEditor.Features.Application.Shared
 {
     public class HelpDocsCommand : CommandBase
     {
+        private readonly string _known;
+
+        public HelpDocsCommand()
+        {
+        }
+
+        public HelpDocsCommand(string known)
+        {
+            _known = known;
+        }
+
         public override void Execute(object parameter)
         {
+            if (!string.IsNullOrEmpty(_known))
+            {
+                OpenWebSitePage(_known);
+                return;
+            }
+
             var vm = parameter as MainViewModel;
 
             if (vm == null)

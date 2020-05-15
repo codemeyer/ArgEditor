@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using System.Windows.Input;
 using ArgData;
+using ArgEditor.Features.Application.Shared;
 using ArgEditor.Features.Main;
 
 namespace ArgEditor.Features.ImportExport.ImportFrom
@@ -66,5 +68,8 @@ namespace ArgEditor.Features.ImportExport.ImportFrom
                 OnPropertyChanged(nameof(CanImport));
             }
         }
+
+
+        public ICommand HelpDocsCommand { get; } = new HelpDocsCommand("importing-and-exporting/#importing-data");
     }
 }

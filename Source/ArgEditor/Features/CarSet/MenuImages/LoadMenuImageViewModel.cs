@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using ArgEditor.Features.Application.Shared;
 using ArgEditor.Infrastructure;
 
 namespace ArgEditor.Features.CarSet.MenuImages
@@ -114,5 +116,7 @@ namespace ArgEditor.Features.CarSet.MenuImages
             }
         }
 
+
+        public ICommand HelpDocsCommand { get; } = new HelpDocsCommand("carset-screen/#menu-images-tab");
     }
 }
