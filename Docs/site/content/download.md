@@ -4,10 +4,10 @@ title: "ArgEditor: Download"
 
 # Download
 
-The latest version is **1.1**, released on 2019-11-15.
+The latest version is **1.2**, released on 2020-05-15.
 
 <p>
-    <a class="btn btn-primary" href="/downloads/argeditor/ArgEditor-1.1.zip">Download</a>
+    <a class="btn btn-primary" href="/downloads/argeditor/ArgEditor-1.2.zip">Download</a>
 </p>
 
 <br />
