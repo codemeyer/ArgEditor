@@ -43,7 +43,7 @@ Released 2020-05-15 - [Download](/downloads/argeditor/ArgEditor-1.2.zip)
 - Changed phrasing to make the direction of Import and Export clearer
 - Change mouse icon to spinner/hourglass when performing potentially longer-running tasks
 - Fix: Numpad keys work on the performance tab
-- Fix: Context menu paste on helmets crashed when no helmet was on the clipboard
+- Fix: Context menu paste on helmets when no helmet was on the clipboard no longer crashes
 
 
 ### 1.1

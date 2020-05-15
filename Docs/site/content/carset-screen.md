@@ -201,7 +201,7 @@ the colors to the available palette. You will then be presented with a preview o
 If you are happy with how the image looks you can press OK and the image will be updated.
 
 _Note: For technical reasons, the first time that you do this after starting ArgEditor,
-the image processing will take a bit of extra time_
+the image processing may take a bit of extra time_
 
 You can save an individual image to disk by using the "Save to File" functionality.
 

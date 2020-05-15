@@ -12,6 +12,8 @@ namespace ArgEditor.Features.CarSet.MenuImages
         {
             UpdateOriginalImages(path);
             UpdateInGameImages(path);
+
+            CanClickOk = true;
         }
 
         private void UpdateOriginalImages(string path)
@@ -113,6 +115,18 @@ namespace ArgEditor.Features.CarSet.MenuImages
             set
             {
                 SetProperty(ref _inGameMagnifiedImage, value, () => InGameMagnifiedImage);
+            }
+        }
+
+
+        private bool _canClickOk;
+
+        public bool CanClickOk
+        {
+            get { return _canClickOk; }
+            set
+            {
+                SetProperty(ref _canClickOk, value, () => CanClickOk);
             }
         }
 

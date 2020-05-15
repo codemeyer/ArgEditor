@@ -59,7 +59,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-            <Button Width="76" Height="23" Margin="3" IsDefault="True" Click="OKButton_Click">OK</Button>
+            <Button Width="76" Height="23" Margin="3" IsDefault="True" IsEnabled="{Binding CanClickOk}" Click="OKButton_Click">OK</Button>
             <Button Width="76" Height="23" Margin="3" IsCancel="True">Cancel</Button>
         </StackPanel>
     </Grid>
