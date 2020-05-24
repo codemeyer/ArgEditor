@@ -72,5 +72,8 @@ namespace ArgEditor.Features.CarSetupEditing
                     () => ShowMultiSetupFileActionButtonsVisibility);
             }
         }
+
+
+        public ICommand OpenTyreWearDatabaseWebSiteCommand { get; } = new OpenTyreWearDatabaseWebSiteCommand();
     }
 }

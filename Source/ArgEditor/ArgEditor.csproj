@@ -76,7 +76,10 @@
     <Compile Include="Features\Application\About\OpenWebSitePageCommand.cs" />
     <Compile Include="Features\Application\Shared\OpenArgDataPageCommand.cs" />
     <Compile Include="Features\Application\About\OpenDownloadPageCommand.cs" />
+    <Compile Include="Features\CarSetupEditing\OpenTyreWearDatabaseWebSiteCommand.cs" />
     <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyQualifyingToRaceCommand.cs" />
+    <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyRaceToQualifyingCommand.cs" />
     <Compile Include="Features\CarSet\HelmetColors\CopyHelmetToClipboardCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\CopyMenuImageToClipboardCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\LoadMenuImageCommand.cs" />

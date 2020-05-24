@@ -27,7 +27,8 @@
                 </Button>
             </StackPanel>
 
-            <!--<StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
+            <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
+                <!--
                 <Button Width="100" Height="24" Margin="0"
                         Command="{Binding ImportFromNameFileCommand}" CommandParameter="{Binding}">
                     Load Name File
@@ -35,8 +36,20 @@
                 <Button Width="100" Height="24" Margin="3,0,0,0"
                         Command="{Binding ExportToNameFileCommand}" CommandParameter="{Binding}">
                     Save Name File
+                </Button>-->
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Visibility="{Binding ShowPerformanceActionButtons}">
+                <Button Width="85" Height="24" Margin="3,0,0,0" Command="{Binding PerformanceCopyQualifyingToRaceCommand}" CommandParameter="{Binding}">
+                    Qual. > Race
                 </Button>
-            </StackPanel>-->
+                <Button Width="85" Height="24" Margin="3,0,0,0" Command="{Binding PerformanceCopyRaceToQualifyingCommand}" CommandParameter="{Binding}">
+                    Race > Qual.
+                </Button>
+                <CheckBox Height="20" Margin="6,4,0,0" IsChecked="{Binding SyncDriverPerformance}">
+                    Sync Qual./Race
+                </CheckBox>
+            </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowCarPitCrewActionButtons}">
                 <Button Width="32" Height="24"
@@ -114,6 +127,7 @@
                 </Button>
             </StackPanel>
 
+            <!-- Helmets -->
             <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowHelmetActionButtons}">
                 <Button Width="32" Height="24"
                         Command="{Binding UndoHelmetPaintingActionCommand}" CommandParameter="{Binding}">
@@ -190,6 +204,7 @@
                 </Button>
             </StackPanel>
 
+            <!-- Menu Images -->
             <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowMenuImageActionButtons}">
                 <Button Width="32" Height="24"
                         Command="{Binding UndoMenuImageActionCommand}" CommandParameter="{Binding}">

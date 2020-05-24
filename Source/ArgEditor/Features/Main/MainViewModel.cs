@@ -418,6 +418,9 @@ namespace ArgEditor.Features.Main
         public ICommand CopyMenuImageToClipboardCommand { get; } = new CopyMenuImageToClipboardCommand();
         public ICommand PasteMenuImageFromClipboardCommand { get; } = new PasteMenuImageFromClipboardCommand();
 
+        public ICommand PerformanceCopyQualifyingToRaceCommand { get; } = new PerformanceCopyQualifyingToRaceCommand();
+        public ICommand PerformanceCopyRaceToQualifyingCommand { get; } = new PerformanceCopyRaceToQualifyingCommand();
+
         // TODO: more commands
         // Palette, set mode?
         // ?
@@ -478,6 +481,15 @@ namespace ArgEditor.Features.Main
         }
 
 
+        private bool _syncDriverPerformance = true;
+
+        public bool SyncDriverPerformance
+        {
+            get { return _syncDriverPerformance; }
+            set { SetProperty(ref _syncDriverPerformance, value, () => SyncDriverPerformance); }
+        }
+
+
         private int _selectedMainTabIndex;
 
         public int SelectedMainTabIndex
@@ -492,6 +504,14 @@ namespace ArgEditor.Features.Main
         {
             get { return _showTeamDriverNamesActionButtons; }
             set { SetProperty(ref _showTeamDriverNamesActionButtons, value, () => ShowTeamDriverNamesActionButtons); }
+        }
+
+        private Visibility _showPerformanceActionButtons;
+
+        public Visibility ShowPerformanceActionButtons
+        {
+            get { return _showPerformanceActionButtons; }
+            set { SetProperty(ref _showPerformanceActionButtons, value, () => ShowPerformanceActionButtons); }
         }
 
         private Visibility _showCarPitCrewActionButtons;
@@ -593,43 +613,12 @@ namespace ArgEditor.Features.Main
 
         private void UpdateActionButtonsVisibility()
         {
-            if (SelectedCarSetTabIndex == 0)
-            {
-                ShowTeamDriverNamesActionButtons = Visibility.Visible;
-            }
-            else
-            {
-                ShowTeamDriverNamesActionButtons = Visibility.Collapsed;
-            }
-
-            if (SelectedCarSetTabIndex == 2)
-            {
-                ShowCarPitCrewActionButtons = Visibility.Visible;
-            }
-            else
-            {
-                ShowCarPitCrewActionButtons = Visibility.Collapsed;
-            }
-
-            if (SelectedCarSetTabIndex == 3)
-            {
-                ShowHelmetActionButtons = Visibility.Visible;
-            }
-            else
-            {
-                ShowHelmetActionButtons = Visibility.Collapsed;
-            }
-
-            if (SelectedCarSetTabIndex == 4)
-            {
-                ShowMenuImageActionButtons = Visibility.Visible;
-            }
-            else
-            {
-                ShowMenuImageActionButtons = Visibility.Collapsed;
-            }
+            ShowTeamDriverNamesActionButtons = SelectedCarSetTabIndex == 0 ? Visibility.Visible : Visibility.Collapsed;
+            ShowPerformanceActionButtons = SelectedCarSetTabIndex == 1 ? Visibility.Visible : Visibility.Collapsed;
+            ShowCarPitCrewActionButtons = SelectedCarSetTabIndex == 2 ? Visibility.Visible : Visibility.Collapsed;
+            ShowHelmetActionButtons = SelectedCarSetTabIndex == 3 ? Visibility.Visible : Visibility.Collapsed;
+            ShowMenuImageActionButtons = SelectedCarSetTabIndex == 4 ? Visibility.Visible : Visibility.Collapsed;
         }
-
 
 
         private TrackTypeValue _selectedTrackType = TrackTypeValue.Medium;

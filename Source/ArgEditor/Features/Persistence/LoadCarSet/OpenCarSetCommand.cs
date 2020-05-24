@@ -30,8 +30,13 @@ namespace ArgEditor.Features.Persistence.LoadCarSet
 
             Mouse.OverrideCursor = Cursors.Wait;
 
+            bool originalSyncValue = viewModel.SyncDriverPerformance;
+
             try
             {
+                // avoid messing with data being loaded, and thus being set
+                viewModel.SyncDriverPerformance = false;
+
                 MainViewModelPasserArounder.MainViewModel.IsLoading = true;
 
                 if (path.ToLowerInvariant().EndsWith(".arged"))
@@ -50,6 +55,8 @@ namespace ArgEditor.Features.Persistence.LoadCarSet
             {
                 MainViewModelPasserArounder.MainViewModel.IsLoading = false;
                 Mouse.OverrideCursor = null;
+
+                viewModel.SyncDriverPerformance = originalSyncValue;
             }
         }
     }

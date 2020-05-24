@@ -43,80 +43,87 @@
                     <Button Width="140" Height="24" Margin="3,0,0,0"
                             Command="{Binding CopyAllQualifyingToRaceSetupsCommand}"
                             CommandParameter="{Binding MultiSetupViewModel}">
-                        Copy All Qual to Race
+                        Copy All Qual. to Race
                     </Button>
                 </StackPanel>
             </StackPanel>
 
-        <TabControl SelectedIndex="{Binding SelectedTab}" Margin="5,5,5,5">
-            <TabItem Header="Single Setup">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="480" />
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+            <TabControl SelectedIndex="{Binding SelectedTab}" Margin="5,5,5,5">
+                <TabItem Header="Single Setup">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="480" />
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
-                    <carSetupEditing:CarSetupUserControl Grid.Column="0" DataContext="{Binding SingleSetupViewModel}"></carSetupEditing:CarSetupUserControl>
-                </Grid>
-            </TabItem>
+                        <carSetupEditing:CarSetupUserControl Grid.Column="0" DataContext="{Binding SingleSetupViewModel}"></carSetupEditing:CarSetupUserControl>
+                    </Grid>
+                </TabItem>
 
-            <TabItem Header="Multiple Setups">
-                <StackPanel Orientation="Vertical">
-                    <CheckBox Margin="50,8,5,3" IsChecked="{Binding MultiSetupViewModel.SeparateSetups}">Separate race and qualifying setups?</CheckBox>
-                    <TabControl Margin="5" TabStripPlacement="Left">
-                        <TabItem Height="24" Header="US">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[0]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="BRA">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[1]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="SM">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[2]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="MON">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[3]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="CAN">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[4]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="MEX">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[5]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="FRA">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[6]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="GB">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[7]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="GER">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[8]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="HUN">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[9]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="BEL">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[10]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="ITA">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[11]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="POR">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[12]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="SPA">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[13]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="JAP">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[14]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                        <TabItem Height="24" Header="AUS">
-                            <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[15]}"></carSetupEditing:CarSetupPairUserControl>
-                        </TabItem>
-                    </TabControl>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
+                <TabItem Header="Multiple Setups">
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox Margin="50,8,5,3" IsChecked="{Binding MultiSetupViewModel.SeparateSetups}">Separate race and qualifying setups?</CheckBox>
+                        <TabControl Margin="5" TabStripPlacement="Left">
+                            <TabItem Height="24" Header="US">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[0]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="BRA">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[1]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="SM">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[2]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="MON">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[3]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="CAN">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[4]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="MEX">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[5]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="FRA">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[6]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="GB">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[7]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="GER">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[8]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="HUN">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[9]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="BEL">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[10]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="ITA">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[11]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="POR">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[12]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="SPA">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[13]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="JAP">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[14]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                            <TabItem Height="24" Header="AUS">
+                                <carSetupEditing:CarSetupPairUserControl DataContext="{Binding MultiSetupViewModel.SetupPairs[15]}"></carSetupEditing:CarSetupPairUserControl>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
+            <StackPanel Margin="16,10">
+                <TextBlock>
+                    The
+                    <Hyperlink BaselineAlignment="Center" Command="{Binding OpenTyreWearDatabaseWebSiteCommand}">F1GP Tyre Wear Database</Hyperlink>
+                    contains tyre wear data that is relevant when deciding on a car setup and pit stop strategy.
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
-
     </Grid>
 </UserControl>

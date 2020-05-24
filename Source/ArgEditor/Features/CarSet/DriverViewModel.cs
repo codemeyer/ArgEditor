@@ -104,6 +104,11 @@ namespace ArgEditor.Features.CarSet
                 if (value.Equals(_raceGripLevel)) { return; }
                 _raceGripLevel = value;
                 OnPropertyChanged(nameof(RaceGripLevel));
+
+                if (MainViewModelPasserArounder.MainViewModel != null && MainViewModelPasserArounder.MainViewModel.SyncDriverPerformance)
+                {
+                    QualifyingGripLevel = value;
+                }
             }
         }
 
@@ -115,6 +120,11 @@ namespace ArgEditor.Features.CarSet
                 if (value.Equals(_qualifyingGripLevel)) { return; }
                 _qualifyingGripLevel = value;
                 OnPropertyChanged(nameof(QualifyingGripLevel));
+
+                if (MainViewModelPasserArounder.MainViewModel != null && MainViewModelPasserArounder.MainViewModel.SyncDriverPerformance)
+                {
+                    RaceGripLevel = value;
+                }
             }
         }
 
