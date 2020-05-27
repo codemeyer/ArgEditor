@@ -16,6 +16,7 @@ namespace ArgEditor.Features.Persistence
         string SelectNameFileToSave();
         string SelectImageFileToOpen();
         string SelectImageFileToSave();
+        string SelectBrowseCarColorsFileToOpen();
     }
 
     public class FileDialog : IFileDialog
@@ -66,7 +67,7 @@ namespace ArgEditor.Features.Persistence
             {
                 Title = "Select EXE File",
                 DefaultExt = ".exe",
-                Filter = "EXE files (*.exe)|.exe|All files (*.*)|*.*",
+                Filter = "EXE files (*.exe)|*.exe|All files (*.*)|*.*",
                 FileName = "*.exe",
                 CheckFileExists = true
             };
@@ -80,7 +81,7 @@ namespace ArgEditor.Features.Persistence
             {
                 Title = "Select DAT File",
                 DefaultExt = ".*",
-                Filter = "DAT files (*.dat)|.dat|All files (*.*)|*.*",
+                Filter = "DAT files (*.dat)|*.dat|All files (*.*)|*.*",
                 FileName = "*.dat",
                 CheckFileExists = true
             };
@@ -178,6 +179,19 @@ namespace ArgEditor.Features.Persistence
                 DefaultExt = ".png",
                 Filter = "PNG Image File (*.png)|*.png",
                 CheckFileExists = false
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public string SelectBrowseCarColorsFileToOpen()
+        {
+            var fileDialog = new OpenFileDialog
+            {
+                Title = "Select File",
+                DefaultExt = ".*",
+                Filter = "Browsable Files (*.arged;*.exe;*.car;*.1ed)|*.arged;*.exe;*.car;*.1ed;|ArgEditor car set (*.arged)|*.arged|EXE files (*.exe)|*.exe|CAR Files (*.car)|*.car|F1Ed file (*.1ed)|*.1ed|All files (*.*)|*.*",
+                CheckFileExists = true
             };
 
             return GetFilePathFromDialog(fileDialog);

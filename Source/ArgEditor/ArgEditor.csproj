@@ -77,6 +77,12 @@
     <Compile Include="Features\Application\Shared\OpenArgDataPageCommand.cs" />
     <Compile Include="Features\Application\About\OpenDownloadPageCommand.cs" />
     <Compile Include="Features\CarSetupEditing\OpenTyreWearDatabaseWebSiteCommand.cs" />
+    <Compile Include="Features\CarSet\CarColors\BrowseCarColorsCommand.cs" />
+    <Compile Include="Features\CarSet\CarColors\BrowseCarColorsViewModel.cs" />
+    <Compile Include="Features\CarSet\CarColors\BrowseCarColorsWindow.xaml.cs">
+      <DependentUpon>BrowseCarColorsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CarSet\CarColors\ColorChangeListCreator.cs" />
     <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />
     <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyQualifyingToRaceCommand.cs" />
     <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyRaceToQualifyingCommand.cs" />
@@ -192,6 +198,7 @@
     <Compile Include="Features\Persistence\Common\LegacyCarSets\LegacyTeam.cs" />
     <Compile Include="Features\ImportExport\NameFileLoader.cs" />
     <Compile Include="Features\Application\About\VersionChecker.cs" />
+    <Compile Include="Infrastructure\ViewModelCommand.cs" />
     <Compile Include="Mappers\Mapper.cs" />
     <Compile Include="Features\Palette\PaletteHelper.cs" />
     <Compile Include="Program.cs" />
@@ -279,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Features\CarSetupEditing\CarSetupUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\CarSet\CarColors\BrowseCarColorsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

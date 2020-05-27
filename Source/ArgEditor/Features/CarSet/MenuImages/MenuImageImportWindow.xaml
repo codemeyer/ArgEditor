@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <Button Width="76" Height="23" Margin="3" HorizontalAlignment="Left" IsEnabled="{Binding CanExport}" Click="BrowseButton_Click">Browse...</Button>
+            <Button Width="76" Height="23" Margin="3" HorizontalAlignment="Left" Click="BrowseButton_Click">Browse...</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1">

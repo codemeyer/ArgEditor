@@ -1,4 +1,5 @@
-﻿using ArgEditor.Infrastructure;
+﻿using System.Windows.Media;
+using ArgEditor.Infrastructure;
 
 namespace ArgEditor.Features.CarSet.PitCrew
 {
@@ -82,6 +83,18 @@ namespace ArgEditor.Features.CarSet.PitCrew
                 _socksColorIndex = value;
                 OnPropertyChanged(nameof(SocksColorIndex));
             }
+        }
+
+
+
+        // only used in Browse window
+
+        private Brush _backgroundColor;
+
+        public Brush BackgroundColor
+        {
+            get { return _backgroundColor; }
+            set { SetProperty(ref _backgroundColor, value, () => BackgroundColor); }
         }
     }
 

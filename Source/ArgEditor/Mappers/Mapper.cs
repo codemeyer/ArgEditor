@@ -192,7 +192,14 @@ namespace ArgEditor.Mappers
             target.SidepodTopColorIndex = source.SidepodTopColorIndex;
         }
 
-
+        public static void MapPitCrewViewModel(PitCrewViewModel source, PitCrewViewModel target)
+        {
+            target.PantsPrimaryColorIndex = source.PantsPrimaryColorIndex;
+            target.PantsSecondaryColorIndex = source.PantsSecondaryColorIndex;
+            target.ShirtPrimaryColorIndex = source.ShirtPrimaryColorIndex;
+            target.ShirtSecondaryColorIndex = source.ShirtSecondaryColorIndex;
+            target.SocksColorIndex = source.SocksColorIndex;
+        }
 
 
 

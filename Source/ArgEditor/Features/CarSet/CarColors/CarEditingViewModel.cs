@@ -1,4 +1,6 @@
-﻿using ArgEditor.Infrastructure;
+﻿using System.Drawing;
+using ArgEditor.Infrastructure;
+using Brush = System.Windows.Media.Brush;
 
 namespace ArgEditor.Features.CarSet.CarColors
 {
@@ -205,6 +207,17 @@ namespace ArgEditor.Features.CarSet.CarColors
         public bool IsRegularShape
         {
             get { return !_isSpecialShape; }
+        }
+
+
+        // only used by BrowseCarColorsWindow ?
+
+        private Brush _backgroundColor;
+
+        public Brush BackgroundColor
+        {
+            get { return _backgroundColor; }
+            set { SetProperty(ref _backgroundColor, value, () => BackgroundColor); }
         }
     }
 

@@ -74,5 +74,6 @@ namespace ArgEditor
         // better place for this?
         public static ImportViewModel LatestImportViewModel { get; set; }
         public static ExportViewModel LatestExportViewModel { get; set; }
+        public static BrowseCarColorsViewModel LatestBrowseCarColorsViewModel { get; set; }
     }
 }

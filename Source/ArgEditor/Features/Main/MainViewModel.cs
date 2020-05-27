@@ -403,6 +403,7 @@ namespace ArgEditor.Features.Main
         public ICommand CopyCarToClipboardCommand { get; } = new CopyCarToClipboardCommand();
         public ICommand PasteCarFromClipboardCommand { get; } = new PasteCarFromClipboardCommand();
         public ICommand LoadCarFileCommand { get; } = new LoadCarFileCommand(new FileDialog());
+        public ICommand BrowseCarColorsCommand { get; } = new BrowseCarColorsCommand(new FileDialog());
 
         public ICommand UndoBrokerCommand { get; } = new UndoBrokerCommand();
         public ICommand RedoBrokerCommand { get; } = new RedoBrokerCommand();

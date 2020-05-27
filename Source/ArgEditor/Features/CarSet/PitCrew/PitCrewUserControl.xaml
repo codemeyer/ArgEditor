@@ -12,7 +12,7 @@
         <carSet:ColorConverter x:Key="ColorConverter" />
     </UserControl.Resources>
     <Viewbox Stretch="Uniform">
-        <Canvas Width="245" Height="431">
+        <Canvas Width="245" Height="431" Background="{Binding BackgroundColor}">
             <!-- TODO: could split pitcrew image in two parts, one that goes in front of polygons and one that goes behind! -->
 
             <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/ArgEditor;component/Resources/pitcrew.png"></Image>

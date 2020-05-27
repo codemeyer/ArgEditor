@@ -125,6 +125,10 @@
                         Command="{Binding LoadCarFileCommand}" CommandParameter="{Binding SelectedTeam}">
                     Load .CAR File
                 </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0"
+                        Command="{Binding BrowseCarColorsCommand}" CommandParameter="{Binding SelectedTeam}">
+                    Browse...
+                </Button>
             </StackPanel>
 
             <!-- Helmets -->
