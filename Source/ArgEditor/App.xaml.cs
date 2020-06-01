@@ -75,5 +75,6 @@ namespace ArgEditor
         public static ImportViewModel LatestImportViewModel { get; set; }
         public static ExportViewModel LatestExportViewModel { get; set; }
         public static BrowseCarColorsViewModel LatestBrowseCarColorsViewModel { get; set; }
+        public static BrowseHelmetColorsViewModel LatestBrowseHelmetColorsViewModel { get; set; }
     }
 }

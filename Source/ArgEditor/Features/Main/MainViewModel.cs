@@ -415,6 +415,7 @@ namespace ArgEditor.Features.Main
         public ICommand PasteHelmetFromClipboardCommand { get; } = new PasteHelmetFromClipboardCommand();
         public ICommand LoadHelmetFileCommand { get; } = new LoadHelmetFileCommand(new FileDialog());
         public ICommand SaveHelmetFileCommand { get; } = new SaveHelmetFileCommand(new FileDialog());
+        public ICommand BrowseHelmetColorsCommand { get; } = new BrowseHelmetColorsCommand(new FileDialog());
 
         public ICommand UndoMenuImageActionCommand { get; } = new UndoMenuImageActionCommand();
         public ICommand RedoMenuImageActionCommand { get; } = new RedoMenuImageActionCommand();

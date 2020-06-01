@@ -85,6 +85,11 @@
     <Compile Include="Features\CarSet\CarColors\ColorChangeListCreator.cs" />
     <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />
     <Compile Include="Features\CarSet\CarColors\SaveCarFileCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\BrowseHelmetColorsCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\BrowseHelmetColorsViewModel.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\BrowseHelmetColorsWindow.xaml.cs">
+      <DependentUpon>BrowseHelmetColorsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Features\CarSet\HelmetColors\HelmetColorChangeCreator.cs" />
     <Compile Include="Features\CarSet\HelmetColors\LegacyHelmetFiles.cs" />
     <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyQualifyingToRaceCommand.cs" />
@@ -300,6 +305,10 @@
     <Page Include="Features\CarSet\CarSetTopMenuUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\CarSet\HelmetColors\BrowseHelmetColorsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Features\CarSet\MenuImages\MenuImageImportWindow.xaml">
       <SubType>Designer</SubType>

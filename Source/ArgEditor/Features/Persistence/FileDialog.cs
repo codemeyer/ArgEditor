@@ -19,6 +19,7 @@ namespace ArgEditor.Features.Persistence
         string SelectImageFileToOpen();
         string SelectImageFileToSave();
         string SelectBrowseCarColorsFileToOpen();
+        string SelectBrowseHelmetColorsFileToOpen();
     }
 
     public class FileDialog : IFileDialog
@@ -219,6 +220,19 @@ namespace ArgEditor.Features.Persistence
                 Title = "Select File",
                 DefaultExt = ".*",
                 Filter = "Browsable Files (*.arged;*.exe;*.car;*.1ed)|*.arged;*.exe;*.car;*.1ed;|ArgEditor car set (*.arged)|*.arged|EXE files (*.exe)|*.exe|CAR Files (*.car)|*.car|F1Ed file (*.1ed)|*.1ed|All files (*.*)|*.*",
+                CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public string SelectBrowseHelmetColorsFileToOpen()
+        {
+            var fileDialog = new OpenFileDialog
+            {
+                Title = "Select File",
+                DefaultExt = ".*",
+                Filter = "Browsable Files (*.arged;*.exe;*.hel;*.1ed)|*.arged;*.exe;*.hel;*.1ed;|ArgEditor car set (*.arged)|*.arged|EXE files (*.exe)|*.exe|HEL Files (*.hel)|*.hel|F1Ed file (*.1ed)|*.1ed|All files (*.*)|*.*",
                 CheckFileExists = true
             };
 

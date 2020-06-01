@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 using ArgEditor.Infrastructure;
 
 namespace ArgEditor.Features.CarSet.HelmetColors
@@ -24,7 +25,7 @@ namespace ArgEditor.Features.CarSet.HelmetColors
             Stripe11ColorIndex = 8;
             Stripe12ColorIndex = 8;
             Stripe13ColorIndex = 8;
-            
+
             UpdateSpecialHelmetWarningFlag();
             UpdateHelmetInactiveDriverWarningFlag();
         }
@@ -274,6 +275,17 @@ namespace ArgEditor.Features.CarSet.HelmetColors
             }
         }
 
+
+
+        // only used by BrowseHelmetColorsWindow
+
+        private Brush _backgroundColor;
+
+        public Brush BackgroundColor
+        {
+            get { return _backgroundColor; }
+            set { SetProperty(ref _backgroundColor, value, () => BackgroundColor); }
+        }
 
 
         private Visibility _showDecompressedExeMessage;

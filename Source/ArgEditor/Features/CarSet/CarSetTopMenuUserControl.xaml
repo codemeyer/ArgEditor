@@ -214,6 +214,10 @@
                         Command="{Binding SaveHelmetFileCommand}" CommandParameter="{Binding SelectedHelmet}">
                     Save .HEL
                 </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0"
+                        Command="{Binding BrowseHelmetColorsCommand}" CommandParameter="{Binding SelectedHelmet}">
+                    Browse...
+                </Button>
             </StackPanel>
 
             <!-- Menu Images -->

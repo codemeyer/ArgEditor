@@ -4,113 +4,113 @@ namespace ArgEditor.Features.CarSet.HelmetColors
 {
     public static class HelmetColorChangeCreator
     {
-        public static ColorChangeList CreateColorChangeListForHelmetPasteOperation(HelmetViewModel helmet, HelmetViewModel sourceHelmet)
+        public static ColorChangeList CreateColorChangeListForHelmetPasteOperation(HelmetViewModel currentHelmet, HelmetViewModel updatedHelmet)
         {
             var colorChangeList = new ColorChangeList();
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.VisorColorIndex))),
-                NewValue = sourceHelmet.VisorColorIndex,
-                OldValue = helmet.VisorColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.VisorColorIndex))),
+                NewValue = updatedHelmet.VisorColorIndex,
+                OldValue = currentHelmet.VisorColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.VisorSurroundColorIndex))),
-                NewValue = sourceHelmet.VisorSurroundColorIndex,
-                OldValue = helmet.VisorSurroundColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.VisorSurroundColorIndex))),
+                NewValue = updatedHelmet.VisorSurroundColorIndex,
+                OldValue = currentHelmet.VisorSurroundColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe1ColorIndex))),
-                NewValue = sourceHelmet.Stripe1ColorIndex,
-                OldValue = helmet.Stripe1ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe1ColorIndex))),
+                NewValue = updatedHelmet.Stripe1ColorIndex,
+                OldValue = currentHelmet.Stripe1ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe2ColorIndex))),
-                NewValue = sourceHelmet.Stripe2ColorIndex,
-                OldValue = helmet.Stripe2ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe2ColorIndex))),
+                NewValue = updatedHelmet.Stripe2ColorIndex,
+                OldValue = currentHelmet.Stripe2ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe3ColorIndex))),
-                NewValue = sourceHelmet.Stripe3ColorIndex,
-                OldValue = helmet.Stripe3ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe3ColorIndex))),
+                NewValue = updatedHelmet.Stripe3ColorIndex,
+                OldValue = currentHelmet.Stripe3ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe4ColorIndex))),
-                NewValue = sourceHelmet.Stripe4ColorIndex,
-                OldValue = helmet.Stripe4ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe4ColorIndex))),
+                NewValue = updatedHelmet.Stripe4ColorIndex,
+                OldValue = currentHelmet.Stripe4ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe5ColorIndex))),
-                NewValue = sourceHelmet.Stripe5ColorIndex,
-                OldValue = helmet.Stripe5ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe5ColorIndex))),
+                NewValue = updatedHelmet.Stripe5ColorIndex,
+                OldValue = currentHelmet.Stripe5ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe6ColorIndex))),
-                NewValue = sourceHelmet.Stripe6ColorIndex,
-                OldValue = helmet.Stripe6ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe6ColorIndex))),
+                NewValue = updatedHelmet.Stripe6ColorIndex,
+                OldValue = currentHelmet.Stripe6ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe7ColorIndex))),
-                NewValue = sourceHelmet.Stripe7ColorIndex,
-                OldValue = helmet.Stripe7ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe7ColorIndex))),
+                NewValue = updatedHelmet.Stripe7ColorIndex,
+                OldValue = currentHelmet.Stripe7ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe8ColorIndex))),
-                NewValue = sourceHelmet.Stripe8ColorIndex,
-                OldValue = helmet.Stripe8ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe8ColorIndex))),
+                NewValue = updatedHelmet.Stripe8ColorIndex,
+                OldValue = currentHelmet.Stripe8ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe9ColorIndex))),
-                NewValue = sourceHelmet.Stripe9ColorIndex,
-                OldValue = helmet.Stripe9ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe9ColorIndex))),
+                NewValue = updatedHelmet.Stripe9ColorIndex,
+                OldValue = currentHelmet.Stripe9ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe10ColorIndex))),
-                NewValue = sourceHelmet.Stripe10ColorIndex,
-                OldValue = helmet.Stripe10ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe10ColorIndex))),
+                NewValue = updatedHelmet.Stripe10ColorIndex,
+                OldValue = currentHelmet.Stripe10ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe11ColorIndex))),
-                NewValue = sourceHelmet.Stripe11ColorIndex,
-                OldValue = helmet.Stripe11ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe11ColorIndex))),
+                NewValue = updatedHelmet.Stripe11ColorIndex,
+                OldValue = currentHelmet.Stripe11ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe12ColorIndex))),
-                NewValue = sourceHelmet.Stripe12ColorIndex,
-                OldValue = helmet.Stripe12ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe12ColorIndex))),
+                NewValue = updatedHelmet.Stripe12ColorIndex,
+                OldValue = currentHelmet.Stripe12ColorIndex
             });
 
             colorChangeList.Add(new ColorChange
             {
-                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(sourceHelmet.Stripe13ColorIndex))),
-                NewValue = sourceHelmet.Stripe13ColorIndex,
-                OldValue = helmet.Stripe13ColorIndex
+                Property = new ColorPropertyWrapper(typeof(HelmetViewModel).GetProperty(nameof(updatedHelmet.Stripe13ColorIndex))),
+                NewValue = updatedHelmet.Stripe13ColorIndex,
+                OldValue = currentHelmet.Stripe13ColorIndex
             });
 
             return colorChangeList;
