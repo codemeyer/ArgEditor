@@ -27,9 +27,14 @@ namespace ArgEditor.Features.CarSet.CarColors
             if (path == string.Empty)
                 return;
 
-            var carFromFile = LegacyCarFileLoader.Load(path);
+            var carFromFile = LegacyCarFiles.Load(path);
 
-            // TODO: create undo action
+            var mappedEditingViewModel = new CarEditingViewModel();
+            Mapper.MapDataCarToViewModelCar(carFromFile, mappedEditingViewModel);
+
+            var colorChangeList = ColorChangeListCreator.CreateColorChangeListForCarPasteOperation(carToUpdate, mappedEditingViewModel);
+            App.CarColorUndoStacks[team.Index].Push(colorChangeList);
+            App.CarColorRedoStacks[team.Index].Clear();
 
             Mapper.MapDataCarToViewModelCar(carFromFile, carToUpdate);
         }

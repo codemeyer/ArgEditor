@@ -24,7 +24,7 @@ namespace ArgEditor.Features.CarSet.HelmetColors
             Stripe11ColorIndex = 8;
             Stripe12ColorIndex = 8;
             Stripe13ColorIndex = 8;
-
+            
             UpdateSpecialHelmetWarningFlag();
             UpdateHelmetInactiveDriverWarningFlag();
         }

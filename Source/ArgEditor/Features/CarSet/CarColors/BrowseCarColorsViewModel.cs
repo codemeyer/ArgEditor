@@ -206,7 +206,7 @@ namespace ArgEditor.Features.CarSet.CarColors
             var cars = new ObservableCollection<CarEditingViewModel>();
             var pitCrews = new ObservableCollection<PitCrewViewModel>();
 
-            var carcar = LegacyCarFileLoader.Load(path);
+            var carcar = LegacyCarFiles.Load(path);
             var car = new CarEditingViewModel();
             car.IsSpecialShape = isSpecialShape;
             Mapper.MapDataCarToViewModelCar(carcar, car);

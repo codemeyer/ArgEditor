@@ -7,7 +7,7 @@ using ArgEditor.Features.Persistence.SaveCarSet;
 using FluentAssertions;
 using Xunit;
 
-namespace ArgEditor.Tests.Interactors
+namespace ArgEditor.Tests.Features.Persistence.LoadCarSet
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class LegacyCarSetFacts

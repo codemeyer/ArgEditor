@@ -403,6 +403,7 @@ namespace ArgEditor.Features.Main
         public ICommand CopyCarToClipboardCommand { get; } = new CopyCarToClipboardCommand();
         public ICommand PasteCarFromClipboardCommand { get; } = new PasteCarFromClipboardCommand();
         public ICommand LoadCarFileCommand { get; } = new LoadCarFileCommand(new FileDialog());
+        public ICommand SaveCarFileCommand { get; } = new SaveCarFileCommand(new FileDialog());
         public ICommand BrowseCarColorsCommand { get; } = new BrowseCarColorsCommand(new FileDialog());
 
         public ICommand UndoBrokerCommand { get; } = new UndoBrokerCommand();
@@ -413,6 +414,7 @@ namespace ArgEditor.Features.Main
         public ICommand CopyHelmetToClipboardCommand { get; } = new CopyHelmetToClipboardCommand();
         public ICommand PasteHelmetFromClipboardCommand { get; } = new PasteHelmetFromClipboardCommand();
         public ICommand LoadHelmetFileCommand { get; } = new LoadHelmetFileCommand(new FileDialog());
+        public ICommand SaveHelmetFileCommand { get; } = new SaveHelmetFileCommand(new FileDialog());
 
         public ICommand UndoMenuImageActionCommand { get; } = new UndoMenuImageActionCommand();
         public ICommand RedoMenuImageActionCommand { get; } = new RedoMenuImageActionCommand();

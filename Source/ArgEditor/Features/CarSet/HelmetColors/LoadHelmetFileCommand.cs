@@ -1,4 +1,4 @@
-﻿using ArgEditor.Features.CarSet.CarColors;
+﻿using ArgEditor.Features.Main;
 using ArgEditor.Features.Persistence;
 using ArgEditor.Infrastructure;
 using ArgEditor.Mappers;
@@ -25,9 +25,16 @@ namespace ArgEditor.Features.CarSet.HelmetColors
             if (path == string.Empty)
                 return;
 
-            var helmetFromFile = LegacyHelmetFileLoader.Load(path);
+            var helmetFromFile = LegacyHelmetFiles.Load(path);
 
-            // TODO: create undo action
+            var mappedEditingViewModel = new HelmetViewModel(null);
+            Mapper.MapDataHelmetToViewModelHelmet(helmetFromFile, mappedEditingViewModel);
+
+            var colorChangeList = HelmetColorChangeCreator.CreateColorChangeListForHelmetPasteOperation(helmetToUpdate, mappedEditingViewModel);
+
+            int index = MainViewModelPasserArounder.MainViewModel.Drivers.IndexOf(helmetToUpdate.Parent);
+            App.HelmetColorUndoStacks[index].Push(colorChangeList);
+            App.HelmetColorRedoStacks[index].Clear();
 
             Mapper.MapDataHelmetToViewModelHelmet(helmetFromFile, helmetToUpdate);
         }

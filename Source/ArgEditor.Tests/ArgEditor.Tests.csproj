@@ -70,10 +70,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\SaveCarSetCommandFacts.cs" />
     <Compile Include="ExampleDataHelper.cs" />
-    <Compile Include="Interactors\DriverPerformanceCalculatorFacts.cs" />
-    <Compile Include="Interactors\LegacyCarSetFileInteractionFacts.cs" />
+    <Compile Include="Features\CarSet\CarColors\LegacyCarFilesFacts.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\LegacyHelmetFilesFacts.cs" />
+    <Compile Include="Features\CarSet\DriverPerformance\DriverPerformanceCalculatorFacts.cs" />
+    <Compile Include="Features\Persistence\LoadCarSet\LegacyCarSetFacts.cs" />
     <Compile Include="MapperFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,9 +87,7 @@
       <Name>ArgEditor</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,8 +7,10 @@ namespace ArgEditor.Features.Persistence
         string SelectCarSetFileToOpen();
         string SelectCarSetFileToSave();
         string SelectLegacyCarFileToOpen();
+        string SelectLegacyCarFileToSave();
         string SelectLegacyCarSetFileToSave();
         string SelectLegacyHelmetFileToOpen();
+        string SelectLegacyHelmetFileToSave();
         string SelectGpExeFile();
         string SelectDatFileToOpen();
         string SelectAnyFileToOpen();
@@ -145,6 +147,19 @@ namespace ArgEditor.Features.Persistence
             return GetFilePathFromDialog(fileDialog);
         }
 
+        public string SelectLegacyCarFileToSave()
+        {
+            var fileDialog = new SaveFileDialog
+            {
+                Title = "Select Car File",
+                DefaultExt = ".car",
+                Filter = "CAR File (*.car)|*.car|All files (*.*)|*.*",
+                CheckFileExists = false
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
         public string SelectLegacyHelmetFileToOpen()
         {
             var fileDialog = new OpenFileDialog
@@ -153,6 +168,19 @@ namespace ArgEditor.Features.Persistence
                 DefaultExt = ".hel",
                 Filter = "HEL File (*.hel)|*.hel|All files (*.*)|*.*",
                 CheckFileExists = true
+            };
+
+            return GetFilePathFromDialog(fileDialog);
+        }
+
+        public string SelectLegacyHelmetFileToSave()
+        {
+            var fileDialog = new SaveFileDialog
+            {
+                Title = "Select Helmet File",
+                DefaultExt = ".hel",
+                Filter = "HEL File (*.hel)|*.hel|All files (*.*)|*.*",
+                CheckFileExists = false
             };
 
             return GetFilePathFromDialog(fileDialog);

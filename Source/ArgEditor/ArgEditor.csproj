@@ -84,9 +84,13 @@
     </Compile>
     <Compile Include="Features\CarSet\CarColors\ColorChangeListCreator.cs" />
     <Compile Include="Features\CarSet\CarColors\CopyCarToClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\CarColors\SaveCarFileCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\HelmetColorChangeCreator.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\LegacyHelmetFiles.cs" />
     <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyQualifyingToRaceCommand.cs" />
     <Compile Include="Features\CarSet\DriverPerformance\PerformanceCopyRaceToQualifyingCommand.cs" />
     <Compile Include="Features\CarSet\HelmetColors\CopyHelmetToClipboardCommand.cs" />
+    <Compile Include="Features\CarSet\HelmetColors\SaveHelmetFileCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\CopyMenuImageToClipboardCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\LoadMenuImageCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\LoadMenuImageViewModel.cs" />
@@ -189,7 +193,7 @@
     <Compile Include="Features\CarSet\DriverPerformance\DriverPerformanceCalculator.cs" />
     <Compile Include="Features\ImportExport\GpExeFileWriter.cs" />
     <Compile Include="Features\ImportExport\GpExeFileReader.cs" />
-    <Compile Include="Features\CarSet\CarColors\LegacyFileLoaders.cs" />
+    <Compile Include="Features\CarSet\CarColors\LegacyCarFiles.cs" />
     <Compile Include="Features\Persistence\Common\LegacyCarSets\LegacyCarSet.cs" />
     <Compile Include="Features\Persistence\LoadCarSet\LegacyCarSetLoader.cs" />
     <Compile Include="Features\Persistence\SaveCarSet\LegacyCarSetSaver.cs" />

@@ -121,9 +121,13 @@
                         </Canvas>
                     </Canvas>
                 </Button>
-                <Button Width="100" Height="24" Margin="3,0,0,0"
+                <Button Width="80" Height="24" Margin="3,0,0,0"
                         Command="{Binding LoadCarFileCommand}" CommandParameter="{Binding SelectedTeam}">
-                    Load .CAR File
+                    Load .CAR
+                </Button>
+                <Button Width="80" Height="24" Margin="3,0,0,0"
+                        Command="{Binding SaveCarFileCommand}" CommandParameter="{Binding SelectedTeam}">
+                    Save .CAR
                 </Button>
                 <Button Width="100" Height="24" Margin="3,0,0,0"
                         Command="{Binding BrowseCarColorsCommand}" CommandParameter="{Binding SelectedTeam}">
@@ -202,9 +206,13 @@
                         </Canvas>
                     </Canvas>
                 </Button>
-                <Button Width="100" Height="24" Margin="3,0,0,0"
+                <Button Width="80" Height="24" Margin="3,0,0,0"
                         Command="{Binding LoadHelmetFileCommand}" CommandParameter="{Binding SelectedHelmet}">
-                    Load .HEL File
+                    Load .HEL
+                </Button>
+                <Button Width="80" Height="24" Margin="3,0,0,0"
+                        Command="{Binding SaveHelmetFileCommand}" CommandParameter="{Binding SelectedHelmet}">
+                    Save .HEL
                 </Button>
             </StackPanel>
 

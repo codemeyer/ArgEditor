@@ -6,7 +6,7 @@ using ArgEditor.Features.Main;
 using FluentAssertions;
 using Xunit;
 
-namespace ArgEditor.Tests.Interactors
+namespace ArgEditor.Tests.Features.CarSet.DriverPerformance
 {
     public class DriverPerformanceCalculatorFacts
     {

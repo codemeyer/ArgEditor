@@ -50,6 +50,7 @@ namespace ArgEditor.Features.CarSet
 
         private void CarSelectionCopy_Click(object sender, RoutedEventArgs e)
         {
+            // TODO: use command instead
             var car = GetCarEditingViewModelForContextMenuItem(sender as MenuItem);
 
             if (car == null)
@@ -65,6 +66,8 @@ namespace ArgEditor.Features.CarSet
 
         private void CarSelectionPaste_Click(object sender, RoutedEventArgs e)
         {
+            // TODO: use command instead
+
             var car = GetCarEditingViewModelForContextMenuItem(sender as MenuItem);
 
             if (car == null)
@@ -85,6 +88,7 @@ namespace ArgEditor.Features.CarSet
             Mapper.MapCarEditingViewModel(App.ClipboardCar, car);
         }
 
+        // TODO: something similar exists elsewhere too
         private ColorChangeList CreateColorChangeListForCarPasteOperation(CarEditingViewModel car, CarEditingViewModel sourceCar)
         {
             var colorChangeList = new ColorChangeList();
@@ -197,18 +201,45 @@ namespace ArgEditor.Features.CarSet
             return null;
         }
 
+        private TeamViewModel GetTeamViewModelForContextMenuItem(MenuItem menuItem)
+        {
+            ContextMenu cm = menuItem.CommandParameter as ContextMenu;
+            if (cm != null)
+            {
+                var g = cm.PlacementTarget as CarSelectionItemUserControl;
+
+                var team = g.DataContext as TeamViewModel;
+                return team;
+            }
+
+            return null;
+        }
+
+
         private void CarSelectionLoadCarFile_Click(object sender, RoutedEventArgs e)
         {
-            var update = GetCarEditingViewModelForContextMenuItem(sender as MenuItem);
+            var teamViewModel = GetTeamViewModelForContextMenuItem(sender as MenuItem);
 
-            var path = new FileDialog().SelectLegacyCarFileToOpen();
-
-            if (path == string.Empty)
+            if (teamViewModel == null)
+            {
                 return;
+            }
 
-            var car = LegacyCarFileLoader.Load(path);
+            var command = new LoadCarFileCommand(new FileDialog());
+            command.Execute(teamViewModel);
+        }
 
-            Mapper.MapDataCarToViewModelCar(car, update);
+        private void CarSelectionSaveCarFile_Click(object sender, RoutedEventArgs e)
+        {
+            var teamViewModel = GetTeamViewModelForContextMenuItem(sender as MenuItem);
+
+            if (teamViewModel == null)
+            {
+                return;
+            }
+
+            var command = new SaveCarFileCommand(new FileDialog());
+            command.Execute(teamViewModel);
         }
     }
 
