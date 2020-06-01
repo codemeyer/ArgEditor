@@ -55,7 +55,7 @@ with a red diagonal stripe across the nose cone.
 
 <img alt="Performance tab screenshot" src="/argeditor/images/performance.png" class="img-fluid" />
 
-Each team has a horsepower value (HP) which determine how fast the cars will be in a straight line,
+Each team has a horsepower value (HP) which determines how fast the cars will be in a straight line,
 where higher is better.
 
 Drivers have two performance levels, one for qualifying and one for the race. A lower
@@ -65,6 +65,13 @@ a "penalty" that slows the driver down.
 Apart from entering a numerical value with the keyboard, you can also use the + and -
 keys to increase/decrease the values. If you hold down the Shift key, values will
 increase/decrease by 10.
+
+If the "Sync Qual./Race" checkbox at the top is checked, editing a qualifying performance
+value will update the driver's race performance value, and vice versa. You can keep this
+checked during initial editing, and then uncheck it for final adjustments.
+
+The "Qual. > Race" and "Race > Qual." buttons can be used to quickly transfer all
+performance values from one of the categories to the other.
 
 On the right you will see a rough estimate of how drivers will perform relative
 to each other. When you are editing a driver, they will be displayed in bold text in the list.
@@ -131,9 +138,23 @@ a context menu appears. It has three actions:
 * Copy, which copies the selected car to the clipboard
 * Paste, which pastes a car from the clipboard to the selected position
 * Load .CAR File, which allows you to load a .CAR file from disk to update the selected car
+* Save .CAR File, which allows you to save a .CAR file to disk containing the selected car's colors
 
 These options are also available for the currently selected car in the toolbar
 above the tab.
+
+To quickly choose car colors or pit crew colors from an existing ArgEditor car set file, F1GP .EXE file,
+old F1Ed car set file (.1ED) or from a single .CAR file, you can click the "Browse..." button at the top.
+A new window will appear. By clicking the "Browse..." button in the
+new window, you can choose an existing car set, EXE file, 1ED file or CAR file to read existing car colors
+and pit crew colors from.
+
+Once you have chosen a file, each car and pit crew found in the file will be displayed.
+
+<img alt="Browse car colors screenshot" src="/argeditor/images/browse-car-colors.png" class="img-fluid" />
+
+By clicking on one of the cars or pit crews and then clicking OK, you will paint the currently
+selected car or pit crew with the colors of the selected item.
 
 
 You can paint all cars, including those that belong to teams that have no active drivers.
@@ -156,9 +177,23 @@ a context menu appears. It has three actions:
 * Copy, which copies the selected helmet to the clipboard
 * Paste, which pastes a helmet from the clipboard to the selected position
 * Load .HEL File, which allows you to load a .HEL file from disk to update the selected helmet
+* Save .HEL File, which allows you to save a .HEL file to disk containing the selected helmet's colors
 
 These options are also available for the currently selected car in the toolbar
 above the tab.
+
+To quickly choose helmet colors colors from an existing ArgEditor car set file, F1GP .EXE file,
+old F1Ed car set file (.1ED) or from a single .CAR file, you can click the "Browse..." button at the top.
+A new window will appear. By clicking the "Browse..." button in the
+new window, you can choose an existing car set, EXE file, 1ED file or CAR file to read existing car colors
+and pit crew colors from.
+
+Once you have chosen a file, each helmet found in the file will be displayed.
+
+<img alt="Browse helmet colors screenshot" src="/argeditor/images/browse-helmet-colors.png" class="img-fluid" />
+
+By clicking on one of the helmets and then clicking OK, you will paint the currently
+selected helmet with the colors of the selected item.
 
 You can paint all helmets, including those that belong to drivers that are not active.
 However, an inactive driver will not appear in the game. One area of usage could be
