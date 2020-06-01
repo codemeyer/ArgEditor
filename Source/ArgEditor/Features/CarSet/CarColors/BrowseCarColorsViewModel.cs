@@ -23,7 +23,6 @@ namespace ArgEditor.Features.CarSet.CarColors
         public BrowseCarColorsViewModel(IFileDialog fileDialog)
         {
             Cars = new ObservableCollection<CarEditingViewModel>();
-            // or remember?
 
             _fileDialog = fileDialog;
 
@@ -46,6 +45,11 @@ namespace ArgEditor.Features.CarSet.CarColors
 
             SelectedCar = null;
 
+            LoadReload(path);
+        }
+
+        public void LoadReload(string path)
+        {
             // global state...
             bool isSpecialShape = MainViewModelPasserArounder.MainViewModel.SelectedTeam.Car.IsSpecialShape;
 

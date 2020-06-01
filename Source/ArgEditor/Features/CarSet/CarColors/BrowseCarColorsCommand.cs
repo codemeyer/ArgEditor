@@ -22,10 +22,10 @@ namespace ArgEditor.Features.CarSet.CarColors
 
             var viewModel = new BrowseCarColorsViewModel(_fileDialog);
 
-            // eller
             if (App.LatestBrowseCarColorsViewModel != null)
             {
                 viewModel = App.LatestBrowseCarColorsViewModel;
+                viewModel.LoadReload(viewModel.FilePath);
             }
 
             var window = new BrowseCarColorsWindow
