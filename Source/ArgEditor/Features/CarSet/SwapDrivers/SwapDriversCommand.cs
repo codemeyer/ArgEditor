@@ -40,6 +40,17 @@ namespace ArgEditor.Features.CarSet.SwapDrivers
 
                 driver1.Number = origDriver1Number;
                 driver2.Number = origDriver2Number;
+
+                int indexDriver1 = mainViewModel.Drivers.IndexOf(driver1);
+                int indexDriver2 = mainViewModel.Drivers.IndexOf(driver2);
+                App.HelmetColorUndoStacks[indexDriver1].Clear();
+                App.HelmetColorRedoStacks[indexDriver1].Clear();
+                App.MenuImageUndoStacks[indexDriver1].Clear();
+                App.MenuImageRedoStacks[indexDriver1].Clear();
+                App.HelmetColorUndoStacks[indexDriver2].Clear();
+                App.HelmetColorRedoStacks[indexDriver2].Clear();
+                App.MenuImageUndoStacks[indexDriver2].Clear();
+                App.MenuImageRedoStacks[indexDriver2].Clear();
             }
         }
     }

@@ -98,6 +98,11 @@ namespace ArgEditor.Features.CarSet.ReorderTeams
             var source = dataList[originalIndex];
 
             Mapper.MapTeamViewModel(source, target);
+
+            App.CarColorUndoStacks[originalIndex].Clear();
+            App.CarColorRedoStacks[originalIndex].Clear();
+            App.CarColorUndoStacks[newIndex].Clear();
+            App.CarColorRedoStacks[newIndex].Clear();
         }
     }
 }
