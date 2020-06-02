@@ -201,6 +201,7 @@ namespace ArgEditor.Features.CarSet.CarColors
             {
                 _isSpecialShape = value;
                 OnPropertyChanged(nameof(IsSpecialShape));
+                OnPropertyChanged(nameof(IsRegularShape));
             }
         }
 

@@ -594,5 +594,38 @@ namespace ArgEditor.Mappers
 
             driverMenuImage.SetFromPixelData(pixelData);
         }
+
+
+        /// <summary>
+        /// Maps the entire TeamViewModel including all child items (drivers, car, helmet, etc)
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="target"></param>
+        public static void MapTeamViewModel(TeamViewModel source, TeamViewModel target)
+        {
+            target.Name = source.Name;
+            target.Engine = source.Engine;
+            target.Horsepower = source.Horsepower;
+            target.UpdateEnabledFlag();
+
+            MapCarEditingViewModel(source.Car, target.Car);
+            MapPitCrewViewModel(source.PitCrew, target.PitCrew);
+            MapDriverViewModel(source.Drivers[0], target.Drivers[0]);
+            MapDriverViewModel(source.Drivers[1], target.Drivers[1]);
+        }
+
+        public static void MapDriverViewModel(DriverViewModel source, DriverViewModel target)
+        {
+            target.Name = source.Name;
+            target.Number = source.Number;
+
+            target.MenuImage.SetFromPixelData(source.MenuImage.PixelData);
+            target.QualifyingGripLevel = source.QualifyingGripLevel;
+            target.RaceGripLevel = source.RaceGripLevel;
+            target.DisplayNumber = source.DisplayNumber;
+            target.Enabled = source.Enabled;
+
+            MapHelmetViewModel(source.Helmet, target.Helmet);
+        }
     }
 }

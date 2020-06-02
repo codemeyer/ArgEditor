@@ -14,6 +14,7 @@ using ArgEditor.Features.CarSet.DriverPerformance;
 using ArgEditor.Features.CarSet.HelmetColors;
 using ArgEditor.Features.CarSet.MenuImages;
 using ArgEditor.Features.CarSet.PointsSystem;
+using ArgEditor.Features.CarSet.ReorderTeams;
 using ArgEditor.Features.CarSetupEditing;
 using ArgEditor.Features.GameSettings;
 using ArgEditor.Features.ImportExport.ExportTo;
@@ -392,6 +393,8 @@ namespace ArgEditor.Features.Main
         public ICommand SelectedMenuImageFromDatCommand { get; } = new SelectedMenuImageFromDatCommand();
         public ICommand SaveMenuImageToFileCommand { get; } = new SaveMenuImageToFileCommand(new FileDialog());
         public ICommand ClearMenuImageCommand { get; } = new ClearMenuImageCommand();
+
+        public ICommand ReorderTeamsCommand { get; } = new ReorderTeamsCommand();
 
         // a test, sort of
         public ICommand ShowWarningMessageCommand { get; } = new ShowWarningMessageCommand();
