@@ -77,6 +77,7 @@ namespace ArgEditor.Features.CarSet
                 _name = value;
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(ShortName));
+                OnPropertyChanged(nameof(LongDescription));
             }
         }
 
@@ -190,5 +191,17 @@ namespace ArgEditor.Features.CarSet
             set { SetProperty(ref _hasNumberWithoutName, value, () => HasNumberWithoutName); }
         }
 
+
+        public string LongDescription
+        {
+            get
+            {
+                string useNumber = Number > 0 ? $"#{Number}" : "   ";
+                string useName = !string.IsNullOrEmpty(Name) ? Name : "(no name)";
+                string useTeamName = !string.IsNullOrEmpty(Team.Name) ? Team.Name : "(no team name)";
+
+                return $"{useNumber} {useName} ({useTeamName})";
+            }
+        }
     }
 }

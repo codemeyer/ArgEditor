@@ -115,11 +115,17 @@
     <Compile Include="Features\CarSet\MenuImages\SaveMenuImageToFileCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\SelectedMenuImageFromDatCommand.cs" />
     <Compile Include="Features\CarSet\MenuImages\UndoMenuImageActionCommand.cs" />
+    <Compile Include="Features\CarSet\ReorderTeams\MoveTeamDownCommand.cs" />
     <Compile Include="Features\CarSet\ReorderTeams\MoveTeamUpCommand.cs" />
     <Compile Include="Features\CarSet\ReorderTeams\ReorderTeamsCommand.cs" />
     <Compile Include="Features\CarSet\ReorderTeams\ReorderTeamsViewModel.cs" />
     <Compile Include="Features\CarSet\ReorderTeams\ReorderTeamsWindow.xaml.cs">
       <DependentUpon>ReorderTeamsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CarSet\SwapDrivers\SwapDriversCommand.cs" />
+    <Compile Include="Features\CarSet\SwapDrivers\SwapDriversViewModel.cs" />
+    <Compile Include="Features\CarSet\SwapDrivers\SwapDriversWindow.xaml.cs">
+      <DependentUpon>SwapDriversWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Features\ImportExport\ExportTo\DisplayGameSettingsExportWizardCommand.cs" />
     <Compile Include="Features\ImportExport\ExportTo\ExportToNameFileCommand.cs" />
@@ -325,6 +331,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Features\CarSet\ReorderTeams\ReorderTeamsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\CarSet\SwapDrivers\SwapDriversWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,9 +27,12 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="3,0,0,0" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
-                <Button Width="100" Height="24" Margin="0" Command="{Binding ReorderTeamsCommand}" CommandParameter="{Binding}">
+            <StackPanel Orientation="Horizontal" Visibility="{Binding ShowTeamDriverNamesActionButtons}">
+                <Button Width="100" Height="24" Margin="3,0,0,0" Command="{Binding ReorderTeamsCommand}" CommandParameter="{Binding}">
                     Reorder Teams
+                </Button>
+                <Button Width="100" Height="24" Margin="3,0,0,0" Command="{Binding SwapDriversCommand}" CommandParameter="{Binding}">
+                    Swap Drivers
                 </Button>
                 <!--
                 <Button Width="100" Height="24" Margin="0"
