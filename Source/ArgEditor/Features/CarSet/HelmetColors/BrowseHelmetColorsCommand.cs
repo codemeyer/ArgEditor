@@ -28,6 +28,7 @@ namespace ArgEditor.Features.CarSet.HelmetColors
             if (App.LatestBrowseHelmetColorsViewModel != null)
             {
                 viewModel = App.LatestBrowseHelmetColorsViewModel;
+                viewModel.SelectedHelmet = null;
             }
 
             var window = new BrowseHelmetColorsWindow

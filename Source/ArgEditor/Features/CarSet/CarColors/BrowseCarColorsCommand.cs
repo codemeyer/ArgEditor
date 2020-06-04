@@ -25,6 +25,8 @@ namespace ArgEditor.Features.CarSet.CarColors
             if (App.LatestBrowseCarColorsViewModel != null)
             {
                 viewModel = App.LatestBrowseCarColorsViewModel;
+                viewModel.SelectedPitCrew = null;
+                viewModel.SelectedCar = null;
                 viewModel.LoadReload(viewModel.FilePath);
             }
 
