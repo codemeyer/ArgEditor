@@ -4,10 +4,10 @@ title: "ArgEditor: Download"
 
 # Download
 
-The latest version is **1.2**, released on 2020-05-15.
+The latest version is **1.3**, released on 2020-06-04.
 
 <p>
-    <a class="btn btn-primary" href="/downloads/argeditor/ArgEditor-1.2.zip">Download</a>
+    <a class="btn btn-primary" href="/downloads/argeditor/ArgEditor-1.3.zip">Download</a>
 </p>
 
 <br />
@@ -32,6 +32,23 @@ be found here:
 ## Release notes
 
 Below are the release notes for each released version of ArgEditor.
+
+
+### 1.3
+
+Released 2020-06-04 - [Download](/downloads/argeditor/ArgEditor-1.3.zip)
+
+- Select car colors by browsing existing car sets or EXE files
+- Select helmet colors by browsing existing car sets or EXE files
+- Checkbox for syncing qual. and race performance levels, editing one updates the other
+- Buttons for copying qualifying performance levels to race levels, and vice versa
+- New window for reordering teams
+- New window for swapping drivers between teams
+- Link to tyre wear database on setup screen
+- Right-align numeric values for easier reading
+- Can save car colors as a .CAR file
+- Can save helmet colors as a .HEL file
+- Loading a car or helmet file creates undoable action
 
 
 ### 1.2

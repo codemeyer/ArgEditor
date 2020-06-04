@@ -50,6 +50,24 @@ teams. This is because the first team in 1991 was McLaren,
 which had the well-known Marlboro paint scheme
 with a red diagonal stripe across the nose cone.
 
+By clicking "Reorder Teams", a new dialog appears.
+
+<img alt="Reorder teams screenshot" src="/argeditor/images/reorder-teams.png" class="img-fluid" />
+
+This window allows you to reorder the teams using the arrow buttons on the right.
+
+When moving a team, it will move all the team data to the new location, including the
+drivers and all their data as well.
+
+By clicking "Swap Drivers" you can swap two drivers between teams.
+
+<img alt="Swap drivers screenshot" src="/argeditor/images/swap-drivers.png" class="img-fluid" />
+
+Select the two drivers that you wish to swap in the dropdown lists and click OK.
+
+This will swap the drivers around completely (including helmets and menu images) but the
+number will remain the same.
+
 
 ## Performance tab
 
